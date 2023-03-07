@@ -1,10 +1,13 @@
-import org.jetbrains.compose.compose
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     kotlin("multiplatform")
     id("org.jetbrains.compose")
+    alias(libs.plugins.detekt)
 }
+
+apply(from = "$rootDir/script/detekt.gradle")
 
 group = "appoutlet"
 version = "1.0-SNAPSHOT"
@@ -20,12 +23,14 @@ kotlin {
         jvmToolchain(11)
         withJava()
     }
+
     sourceSets {
         val jvmMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
             }
         }
+
         val jvmTest by getting
     }
 }
@@ -39,4 +44,8 @@ compose.desktop {
             packageVersion = "1.0.0"
         }
     }
+}
+
+dependencies {
+    detektPlugins(libs.detekt.formatting)
 }

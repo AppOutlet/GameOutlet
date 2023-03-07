@@ -1,0 +1,5 @@
+[plugins]
+detekt = "io.gitlab.arturbosch.detekt:1.22.0"
+
+[libraries]
+detekt-formatting = "io.gitlab.arturbosch.detekt:detekt-formatting:1.22.0"
