@@ -1,15 +1,42 @@
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+import org.jetbrains.compose.compose
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+
+plugins {
+    kotlin("multiplatform")
+    id("org.jetbrains.compose")
+}
+
+group = "appoutlet"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    google()
+    mavenCentral()
+    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+}
+
+kotlin {
+    jvm {
+        jvmToolchain(11)
+        withJava()
+    }
+    sourceSets {
+        val jvmMain by getting {
+            dependencies {
+                implementation(compose.desktop.currentOs)
+            }
+        }
+        val jvmTest by getting
     }
 }
 
-plugins {
-    kotlin("multiplatform") apply false
-    kotlin("android") apply false
-    id("com.android.application") apply false
-    id("com.android.library") apply false
-    id("org.jetbrains.compose") apply false
+compose.desktop {
+    application {
+        mainClass = "MainKt"
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = "GameOutlet"
+            packageVersion = "1.0.0"
+        }
+    }
 }
