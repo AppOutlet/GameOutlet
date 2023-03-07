@@ -1,9 +1,10 @@
+@file:Suppress("DSL_SCOPE_VIOLATION", "UNUSED_VARIABLE")
+
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    kotlin("multiplatform")
-    id("org.jetbrains.compose")
+    alias(libs.plugins.multiplatform)
+    alias(libs.plugins.compose)
     alias(libs.plugins.detekt)
 }
 
@@ -11,12 +12,6 @@ apply(from = "$rootDir/script/detekt.gradle")
 
 group = "appoutlet"
 version = "1.0-SNAPSHOT"
-
-repositories {
-    google()
-    mavenCentral()
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-}
 
 kotlin {
     jvm {
