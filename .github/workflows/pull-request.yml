@@ -2,7 +2,7 @@ run-name: ${{ github.head_ref }}
 on: pull_request
 jobs:
   compile:
-    name: Unit testing
+    name: Compile
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
