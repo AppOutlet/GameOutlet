@@ -7,7 +7,7 @@ githook {
         }
 
         "pre-push" {
-            task = "detektJvmMain detektJvmTest"
+            task = "detekt"
         }
     }
 }

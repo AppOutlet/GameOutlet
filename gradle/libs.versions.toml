@@ -10,4 +10,5 @@ gitHooks = "com.star-zero.gradle.githook:1.2.0"
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 
 [libraries]
+detekt-compose = "io.nlopez.compose.rules:detekt:0.1.2"
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }

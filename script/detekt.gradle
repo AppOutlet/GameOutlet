@@ -3,6 +3,10 @@ apply plugin: 'io.gitlab.arturbosch.detekt'
 detekt {
     autoCorrect true
     config = files("$rootDir/detekt.yml")
+    source = files(
+            "src/jvmMain/kotlin",
+            "src/jvmTest/kotlin",
+    )
     parallel true
     buildUponDefaultConfig true
 }
