@@ -8,10 +8,12 @@ plugins {
     alias(libs.plugins.detekt)
     alias(libs.plugins.commitlint)
     alias(libs.plugins.gitHooks)
+    alias(libs.plugins.kover)
 }
 
 apply(from = "$rootDir/script/detekt.gradle")
 apply(from = "$rootDir/script/git-hooks.gradle")
+apply(from = "$rootDir/script/kover.gradle")
 
 group = "appoutlet"
 version = "1.0-SNAPSHOT"
@@ -23,12 +25,7 @@ kotlin {
     }
 
     sourceSets {
-        val jvmMain by getting {
-            dependencies {
-                implementation(compose.desktop.currentOs)
-            }
-        }
-
+        val jvmMain by getting
         val jvmTest by getting
     }
 }
@@ -45,6 +42,17 @@ compose.desktop {
 }
 
 dependencies {
+    commonMainImplementation(compose.desktop.currentOs)
+
+    commonTestImplementation(libs.kotlin.test)
+    commonTestImplementation(libs.kotlin.test.junit5)
+    commonTestImplementation(libs.truth)
+    commonTestImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+
     detektPlugins(libs.detekt.formatting)
     detektPlugins(libs.detekt.compose)
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }

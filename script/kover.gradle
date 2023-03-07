@@ -1,0 +1,18 @@
+koverReport {
+    html {
+        title = "Game outlet test coverage"
+        onCheck = false
+    }
+
+    verify {
+        rule {
+            enabled = true
+
+            bound {
+                minValue = 11
+                metric = "LINE"
+                aggregation = "COVERED_PERCENTAGE"
+            }
+        }
+    }
+}
