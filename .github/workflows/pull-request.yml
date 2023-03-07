@@ -21,6 +21,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: compileKotlinJvm
+          cache-read-only: false
 
   unit-test:
     name: Unit testing
@@ -69,4 +70,4 @@ jobs:
       - name: Export Detekt summary
         if: always()
         run: |
-          cat app/build/reports/detekt/detekt.md > $GITHUB_STEP_SUMMARY
+          cat build/reports/detekt/detekt.md > $GITHUB_STEP_SUMMARY
