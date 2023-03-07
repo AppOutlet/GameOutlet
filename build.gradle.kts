@@ -11,10 +11,6 @@ plugins {
     alias(libs.plugins.kover)
 }
 
-apply(from = "$rootDir/script/detekt.gradle")
-apply(from = "$rootDir/script/git-hooks.gradle")
-apply(from = "$rootDir/script/kover.gradle")
-
 group = "appoutlet"
 version = "1.0-SNAPSHOT"
 
@@ -45,14 +41,13 @@ dependencies {
     commonMainImplementation(compose.desktop.currentOs)
 
     commonTestImplementation(libs.kotlin.test)
-    commonTestImplementation(libs.kotlin.test.junit5)
     commonTestImplementation(libs.truth)
-    commonTestImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
 
     detektPlugins(libs.detekt.formatting)
     detektPlugins(libs.detekt.compose)
 }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
-}
+apply(from = "$rootDir/script/detekt.gradle")
+apply(from = "$rootDir/script/git-hooks.gradle")
+apply(from = "$rootDir/script/kover.gradle")
+apply(from = "$rootDir/script/test.gradle")
