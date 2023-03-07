@@ -1,0 +1,13 @@
+githook {
+    failOnMissingHooksDir = true
+    createHooksDirIfNotExist = true
+    hooks {
+        "commit-msg" {
+            task = "commitlint -Dmsgfile=\$1"
+        }
+
+        "pre-push" {
+            task = "detekt"
+        }
+    }
+}

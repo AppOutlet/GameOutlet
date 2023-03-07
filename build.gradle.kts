@@ -1,15 +1,53 @@
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+@file:Suppress("DSL_SCOPE_VIOLATION", "UNUSED_VARIABLE")
+
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+
+plugins {
+    alias(libs.plugins.multiplatform)
+    alias(libs.plugins.compose)
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.commitlint)
+    alias(libs.plugins.gitHooks)
+    alias(libs.plugins.kover)
+}
+
+group = "appoutlet"
+version = "1.0-SNAPSHOT"
+
+kotlin {
+    jvm {
+        jvmToolchain(11)
+        withJava()
+    }
+
+    sourceSets {
+        val jvmMain by getting
+        val jvmTest by getting
     }
 }
 
-plugins {
-    kotlin("multiplatform") apply false
-    kotlin("android") apply false
-    id("com.android.application") apply false
-    id("com.android.library") apply false
-    id("org.jetbrains.compose") apply false
+compose.desktop {
+    application {
+        mainClass = "MainKt"
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = "GameOutlet"
+            packageVersion = "1.0.0"
+        }
+    }
 }
+
+dependencies {
+    commonMainImplementation(compose.desktop.currentOs)
+
+    commonTestImplementation(libs.kotlin.test)
+    commonTestImplementation(libs.truth)
+
+    detektPlugins(libs.detekt.formatting)
+    detektPlugins(libs.detekt.compose)
+}
+
+apply(from = "$rootDir/script/detekt.gradle")
+apply(from = "$rootDir/script/git-hooks.gradle")
+apply(from = "$rootDir/script/kover.gradle")
+apply(from = "$rootDir/script/test.gradle")
