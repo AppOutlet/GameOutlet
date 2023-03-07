@@ -1,6 +1,3 @@
-group "appoutlet"
-version "1.0-SNAPSHOT"
-
 allprojects {
     repositories {
         google()
