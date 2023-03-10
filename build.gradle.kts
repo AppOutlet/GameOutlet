@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.commitlint)
     alias(libs.plugins.gitHooks)
     alias(libs.plugins.kover)
+    alias(libs.plugins.kotlinx.gettext)
 }
 
 group = "appoutlet"
@@ -39,6 +40,11 @@ compose.desktop {
 
 dependencies {
     commonMainImplementation(compose.desktop.currentOs)
+    commonMainImplementation(libs.kotlinx.gettext)
+    commonMainImplementation(libs.koin)
+    commonMainImplementation(libs.voyager.navigator)
+    commonMainImplementation(libs.voyager.koin)
+    commonMainImplementation(libs.voyager.transitions)
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.truth)
@@ -51,3 +57,4 @@ apply(from = "$rootDir/script/detekt.gradle")
 apply(from = "$rootDir/script/git-hooks.gradle")
 apply(from = "$rootDir/script/kover.gradle")
 apply(from = "$rootDir/script/test.gradle")
+apply(from = "$rootDir/script/gettext.gradle")
