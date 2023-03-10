@@ -10,14 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import name.kropp.kotlinx.gettext.Gettext
 import name.kropp.kotlinx.gettext.Locale
-import name.kropp.kotlinx.gettext.load
 
-private val i18n = Gettext.load(
-    locale = Locale.getDefault(),
-    Thread.currentThread().contextClassLoader.getResourceAsStream("")!!
-)
 
 @Composable
 fun SplashScreen() {

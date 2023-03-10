@@ -4,6 +4,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import appoutlet.gameoutlet.feature.splash.SplashScreen
+import appoutlet.gameoutlet.initKoin
 
 @Composable
 @Preview
@@ -15,8 +16,11 @@ fun App() {
     }
 }
 
-fun main() = application {
-    Window(onCloseRequest = ::exitApplication) {
-        App()
+fun main() {
+    initKoin()
+    application {
+        Window(onCloseRequest = ::exitApplication) {
+            App()
+        }
     }
 }

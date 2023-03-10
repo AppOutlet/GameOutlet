@@ -41,6 +41,7 @@ compose.desktop {
 dependencies {
     commonMainImplementation(compose.desktop.currentOs)
     commonMainImplementation(libs.kotlinx.gettext)
+    commonMainImplementation(libs.koin)
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.truth)
