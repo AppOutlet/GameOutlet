@@ -2,16 +2,18 @@ package appoutlet.gameoutlet
 
 import appoutlet.gameoutlet.core.coreModules
 import appoutlet.gameoutlet.feature.featureModules
+import org.koin.core.Koin
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 import org.koin.core.logger.PrintLogger
 
-fun initKoin() {
-    startKoin {
+@Suppress("SpreadOperator")
+fun initKoin(): Koin {
+    return startKoin {
         logger(PrintLogger(level = Level.WARNING))
         modules(
             * coreModules,
             * featureModules
         )
-    }
+    }.koin
 }

@@ -2,6 +2,7 @@
 detekt = "1.22.0"
 kotlin = "1.7.20"
 kotlinx-gettext = "0.5.2"
+voyager = "1.0.0-rc03"
 
 [plugins]
 commitlint = "ru.netris.commitlint:1.4.3"
@@ -19,3 +20,6 @@ koin = "io.insert-koin:koin-core:3.3.3"
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlinx-gettext = { module = "name.kropp.kotlinx-gettext:kotlinx-gettext", version.ref = "kotlinx-gettext" }
 truth = "com.google.truth:truth:1.1.3"
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
+voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyager" }
+voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }

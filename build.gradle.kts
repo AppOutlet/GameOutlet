@@ -42,6 +42,9 @@ dependencies {
     commonMainImplementation(compose.desktop.currentOs)
     commonMainImplementation(libs.kotlinx.gettext)
     commonMainImplementation(libs.koin)
+    commonMainImplementation(libs.voyager.navigator)
+    commonMainImplementation(libs.voyager.koin)
+    commonMainImplementation(libs.voyager.transitions)
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.truth)

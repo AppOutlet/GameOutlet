@@ -10,20 +10,29 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import name.kropp.kotlinx.gettext.Locale
+import cafe.adriel.voyager.core.screen.Screen
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
+class SplashScreen : Screen, KoinComponent {
+    private val splashViewModel by inject<SplashViewModel>()
+
+    @Composable
+    override fun Content() {
+        SplashScreenContent(splashViewModel.message)
+    }
+}
 
 @Composable
-fun SplashScreen() {
+private fun SplashScreenContent(message: String) {
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Box(modifier = Modifier.weight(1f)) { }
-        Text(modifier = Modifier.padding(vertical = 4.dp), text = Locale.getDefault().toLanguageTag())
-        Text(modifier = Modifier.padding(vertical = 4.dp), text = "Powered by App Outlet")
+        Text(modifier = Modifier.padding(vertical = 16.dp), text = message)
     }
 }
 
 @Composable
 @Preview
 private fun SplashScreenPreview() {
-    SplashScreen()
+    SplashScreenContent("preview message")
 }
