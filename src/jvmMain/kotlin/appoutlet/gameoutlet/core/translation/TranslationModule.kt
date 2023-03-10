@@ -16,7 +16,7 @@ val translationModule = module {
 
     factory(named(QUALIFIER_LANGUAGE_TAG)) {
         val locale = get<Locale>()
-        locale.toLanguageTag().replace("-","_")// Needed because of the transifex language mapping
+        locale.toLanguageTag().replace("-", "_") // Needed because of the transifex language mapping
     }
 
     factory(named(QUALIFIER_LANGUAGE)) {
