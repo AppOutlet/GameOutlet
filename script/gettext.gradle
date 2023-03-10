@@ -1,0 +1,3 @@
+gettext {
+    potFile = layout.projectDirectory.file("src/jvmMain/resources/strings.pot")
+}
