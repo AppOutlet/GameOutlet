@@ -10,7 +10,7 @@ import cafe.adriel.voyager.navigator.Navigator
 fun main() {
     val koin = initKoin()
     val defaultScreen = koin.get<SplashNavigation>().getScreen()
-    singleWindowApplication(title = "Game Outlet") {
+    singleWindowApplication(title = "GameOutlet") {
         App(defaultScreen)
     }
 }

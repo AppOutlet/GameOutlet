@@ -2,7 +2,6 @@ package appoutlet.gameoutlet.core.database
 
 import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.jdbc.sqlite.JdbcSqliteDriver
-import appoutlet.gameoutlet.core.database.GameOutletDatabase
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import java.io.File

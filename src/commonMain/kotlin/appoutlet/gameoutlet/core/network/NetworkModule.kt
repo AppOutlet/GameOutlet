@@ -14,5 +14,5 @@ val networkModule = module {
             .build()
     }
 
-    single {  }
+    single { }
 }
