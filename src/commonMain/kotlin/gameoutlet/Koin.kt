@@ -1,7 +1,8 @@
-package appoutlet.gameoutlet
+package gameoutlet
 
-import appoutlet.gameoutlet.core.coreModules
-import appoutlet.gameoutlet.feature.featureModules
+import gameoutlet.core.coreModules
+import gameoutlet.feature.featureModules
+import gameoutlet.repository.repositoryModules
 import org.koin.core.Koin
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
@@ -13,7 +14,8 @@ fun initKoin(): Koin {
         logger(PrintLogger(level = Level.WARNING))
         modules(
             * coreModules,
-            * featureModules
+            * featureModules,
+            * repositoryModules,
         )
     }.koin
 }

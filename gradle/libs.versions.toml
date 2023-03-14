@@ -3,6 +3,7 @@ detekt = "1.22.0"
 kotlin = "1.7.20"
 kotlinx-gettext = "0.5.2"
 voyager = "1.0.0-rc03"
+sqldelight = "2.0.0-alpha05"
 
 [plugins]
 commitlint = "ru.netris.commitlint:1.4.3"
@@ -12,6 +13,7 @@ gitHooks = "com.star-zero.gradle.githook:1.2.0"
 kover = "org.jetbrains.kotlinx.kover:0.7.0-Alpha"
 kotlinx-gettext = { id = "name.kropp.kotlinx-gettext", version.ref = "kotlinx-gettext" }
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 
 [libraries]
 detekt-compose = "io.nlopez.compose.rules:detekt:0.1.2"
@@ -23,3 +25,4 @@ truth = "com.google.truth:truth:1.1.3"
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyager" }
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
+sqldelight-sqliteDriver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }

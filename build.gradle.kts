@@ -10,6 +10,7 @@ plugins {
     alias(libs.plugins.gitHooks)
     alias(libs.plugins.kover)
     alias(libs.plugins.kotlinx.gettext)
+    alias(libs.plugins.sqldelight)
 }
 
 group = "appoutlet"
@@ -19,11 +20,6 @@ kotlin {
     jvm {
         jvmToolchain(11)
         withJava()
-    }
-
-    sourceSets {
-        val jvmMain by getting
-        val jvmTest by getting
     }
 }
 
@@ -45,6 +41,7 @@ dependencies {
     commonMainImplementation(libs.voyager.navigator)
     commonMainImplementation(libs.voyager.koin)
     commonMainImplementation(libs.voyager.transitions)
+    commonMainImplementation(libs.sqldelight.sqliteDriver)
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.truth)
@@ -58,3 +55,4 @@ apply(from = "$rootDir/script/git-hooks.gradle")
 apply(from = "$rootDir/script/kover.gradle")
 apply(from = "$rootDir/script/test.gradle")
 apply(from = "$rootDir/script/gettext.gradle")
+apply(from = "$rootDir/script/sqldelight.gradle")

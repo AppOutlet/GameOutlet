@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS Store (
+  id INTEGER PRIMARY KEY NOT NULL,
+  name TEXT NOT NULL,
+  bannerUrl TEXT,
+  logoUrl TEXT,
+  iconUrl TEXT
+);
+
+CREATE INDEX IF NOT EXISTS Store_id ON Store(id);
+
+create:
+INSERT OR REPLACE INTO Store(id, name, bannerUrl, logoUrl, iconUrl)
+VALUES (?,?,?,?,?);
+
+findAll:
+SELECT *
+FROM Store;
+
+findById:
+SELECT *
+FROM Store
+WHERE id == ?;

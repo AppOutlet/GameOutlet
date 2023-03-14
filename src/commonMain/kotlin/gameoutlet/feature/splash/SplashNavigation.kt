@@ -1,4 +1,4 @@
-package appoutlet.gameoutlet.feature.splash
+package gameoutlet.feature.splash
 
 interface SplashNavigation {
     fun getScreen(): SplashScreen
