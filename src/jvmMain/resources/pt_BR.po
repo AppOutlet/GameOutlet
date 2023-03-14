@@ -1,0 +1,13 @@
+# 
+# Translators:
+# App Outlet Linux <app.outlet.linux@gmail.com>, 2023
+# 
+msgid ""
+msgstr ""
+"Last-Translator: App Outlet Linux <app.outlet.linux@gmail.com>, 2023\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/app-outlet/teams/121024/pt_BR/)\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "Powered by App Outlet"
+msgstr "Desenvolvido por App Outlet"
