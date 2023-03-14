@@ -1,7 +1,7 @@
 package core
 
 import com.google.common.truth.Truth.assertThat
-import gameoutlet.core.SampleClass
+import appoutlet.gameoutlet.core.SampleClass
 import kotlin.test.Test
 
 class SampleClassTest {

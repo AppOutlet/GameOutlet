@@ -1,4 +1,4 @@
-package gameoutlet.core.translation
+package appoutlet.gameoutlet.core.translation
 
 import name.kropp.kotlinx.gettext.Gettext
 import name.kropp.kotlinx.gettext.I18n

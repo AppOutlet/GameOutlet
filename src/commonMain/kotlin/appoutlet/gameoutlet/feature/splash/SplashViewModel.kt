@@ -1,6 +1,6 @@
-package gameoutlet.feature.splash
+package appoutlet.gameoutlet.feature.splash
 
-import gameoutlet.repository.store.StoreRepository
+import appoutlet.gameoutlet.repository.store.StoreRepository
 import name.kropp.kotlinx.gettext.I18n
 
 class SplashViewModel(

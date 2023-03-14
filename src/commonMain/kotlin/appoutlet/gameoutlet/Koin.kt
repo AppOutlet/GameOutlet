@@ -1,8 +1,8 @@
-package gameoutlet
+package appoutlet.gameoutlet
 
-import gameoutlet.core.coreModules
-import gameoutlet.feature.featureModules
-import gameoutlet.repository.repositoryModules
+import appoutlet.gameoutlet.core.coreModules
+import appoutlet.gameoutlet.feature.featureModules
+import appoutlet.gameoutlet.repository.repositoryModules
 import org.koin.core.Koin
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level

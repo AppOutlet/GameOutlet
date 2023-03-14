@@ -1,4 +1,4 @@
-package gameoutlet.repository.store.api.model
+package appoutlet.gameoutlet.repository.store.api.model
 
 data class StoreImagesResponse(
     val banner: String,

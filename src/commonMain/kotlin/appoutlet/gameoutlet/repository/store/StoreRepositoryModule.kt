@@ -1,6 +1,6 @@
-package gameoutlet.repository.store
+package appoutlet.gameoutlet.repository.store
 
-import gameoutlet.repository.store.api.StoreApi
+import appoutlet.gameoutlet.repository.store.api.StoreApi
 import org.koin.dsl.module
 import retrofit2.Retrofit
 

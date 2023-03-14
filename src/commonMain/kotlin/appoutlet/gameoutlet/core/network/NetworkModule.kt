@@ -1,4 +1,4 @@
-package gameoutlet.core.network
+package appoutlet.gameoutlet.core.network
 
 import org.koin.dsl.module
 import retrofit2.Retrofit

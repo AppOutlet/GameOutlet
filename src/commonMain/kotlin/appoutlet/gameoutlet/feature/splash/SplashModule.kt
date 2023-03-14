@@ -1,4 +1,4 @@
-package gameoutlet.feature.splash
+package appoutlet.gameoutlet.feature.splash
 
 import org.koin.dsl.module
 
