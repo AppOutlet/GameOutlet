@@ -4,7 +4,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.singleWindowApplication
 import appoutlet.gameoutlet.feature.splash.SplashNavigation
-import appoutlet.gameoutlet.feature.splash.SplashScreen
+import appoutlet.gameoutlet.feature.splash.SplashView
 import cafe.adriel.voyager.navigator.Navigator
 
 fun main() {
@@ -16,7 +16,7 @@ fun main() {
 }
 
 @Composable
-fun App(defaultScreen: SplashScreen) {
+fun App(defaultScreen: SplashView) {
     MaterialTheme {
         Navigator(defaultScreen)
     }

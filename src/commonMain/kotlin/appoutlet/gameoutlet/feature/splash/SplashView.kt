@@ -10,29 +10,33 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import cafe.adriel.voyager.core.screen.Screen
-import org.koin.core.component.KoinComponent
+import appoutlet.gameoutlet.feature.util.FirstLoad
+import appoutlet.gameoutlet.feature.util.View
 import org.koin.core.component.inject
 
-class SplashScreen : Screen, KoinComponent {
-    private val splashViewModel by inject<SplashViewModel>()
+class SplashView : View<SplashUiState, SplashInputEvent>() {
+    override val viewModel by inject<SplashViewModel>()
+    override val initialState = SplashUiState.Idle
 
     @Composable
-    override fun Content() {
-        SplashScreenContent(splashViewModel.message)
-    }
+    override fun ViewContent(uiState: SplashUiState, onInputEvent: (SplashInputEvent) -> Unit) =
+        SplashScreenContent(uiState, onInputEvent)
 }
 
 @Composable
-private fun SplashScreenContent(message: String) {
+private fun SplashScreenContent(uiState: SplashUiState, onInputEvent: (SplashInputEvent) -> Unit) {
+    FirstLoad {
+        onInputEvent(SplashInputEvent.Load)
+    }
+
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Box(modifier = Modifier.weight(1f)) { }
-        Text(modifier = Modifier.padding(vertical = 16.dp), text = message)
+        Text(modifier = Modifier.padding(vertical = 16.dp), text = "Powered by App Outlet")
     }
 }
 
 @Composable
 @Preview
 private fun SplashScreenPreview() {
-    SplashScreenContent("preview message")
+    SplashScreenContent(uiState = SplashUiState.Idle, onInputEvent = {})
 }
