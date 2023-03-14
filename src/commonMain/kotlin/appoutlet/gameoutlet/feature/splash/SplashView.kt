@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.feature.util.FirstLoad
 import appoutlet.gameoutlet.feature.util.View
 import org.koin.core.component.inject
@@ -31,7 +32,7 @@ private fun SplashScreenContent(uiState: SplashUiState, onInputEvent: (SplashInp
 
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Box(modifier = Modifier.weight(1f)) { }
-        Text(modifier = Modifier.padding(vertical = 16.dp), text = "Powered by App Outlet")
+        Text(modifier = Modifier.padding(vertical = 16.dp), text = i18n.tr("Powered by App Outlet"))
     }
 }
 
