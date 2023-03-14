@@ -42,6 +42,8 @@ dependencies {
     commonMainImplementation(libs.voyager.koin)
     commonMainImplementation(libs.voyager.transitions)
     commonMainImplementation(libs.sqldelight.sqliteDriver)
+    commonMainImplementation(libs.retrofit)
+    commonMainImplementation(libs.retrofit.moshi)
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.truth)
