@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Store (
+CREATE TABLE IF NOT EXISTS StoreEntity (
   id INTEGER PRIMARY KEY NOT NULL,
   name TEXT NOT NULL,
   bannerUrl TEXT,
@@ -6,17 +6,17 @@ CREATE TABLE IF NOT EXISTS Store (
   iconUrl TEXT
 );
 
-CREATE INDEX IF NOT EXISTS Store_id ON Store(id);
+CREATE INDEX IF NOT EXISTS StoreEntity_id ON StoreEntity(id);
 
 create:
-INSERT OR REPLACE INTO Store(id, name, bannerUrl, logoUrl, iconUrl)
+INSERT OR REPLACE INTO StoreEntity(id, name, bannerUrl, logoUrl, iconUrl)
 VALUES (?,?,?,?,?);
 
 findAll:
 SELECT *
-FROM Store;
+FROM StoreEntity;
 
 findById:
 SELECT *
-FROM Store
+FROM StoreEntity
 WHERE id == ?;

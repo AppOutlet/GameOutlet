@@ -5,11 +5,11 @@ import appoutlet.gameoutlet.core.database.PreferenceQueries
 class PreferenceRepository(
     private val preferenceQueries: PreferenceQueries
 ) {
-    fun setPreference(key: String, value: String){
+    fun setPreference(key: String, value: String) {
         preferenceQueries.save(key, value)
     }
 
     fun getPreference(key: String): String? {
-        return preferenceQueries.findByKey(key).executeAsOne().value_;
+        return preferenceQueries.findByKey(key).executeAsOneOrNull()?.value_
     }
 }

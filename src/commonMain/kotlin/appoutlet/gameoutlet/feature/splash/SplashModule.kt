@@ -8,4 +8,6 @@ val splashModule = module {
     }
 
     factory<SplashNavigation> { DefaultSplashNavigation() }
+
+    factory { SplashOrchestrator(get()) }
 }

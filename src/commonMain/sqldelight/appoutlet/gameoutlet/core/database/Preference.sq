@@ -1,12 +1,12 @@
-CREATE TABLE IF NOT EXISTS Preference (
+CREATE TABLE IF NOT EXISTS PreferenceEntity (
     key TEXT NOT NULL PRIMARY KEY,
     value TEXT
 );
 
-CREATE INDEX IF NOT EXISTS Preference_id ON Preference(key);
+CREATE INDEX IF NOT EXISTS PreferenceEntity_id ON PreferenceEntity(key);
 
 save:
-INSERT OR REPLACE INTO Preference(key, value) VALUES (?,?);
+INSERT OR REPLACE INTO PreferenceEntity(key, value) VALUES (?,?);
 
 findByKey:
-SELECT * FROM Preference WHERE key = ?;
+SELECT * FROM PreferenceEntity WHERE key = ?;
