@@ -1,19 +1,17 @@
 package appoutlet.gameoutlet.feature.splash
 
-import appoutlet.gameoutlet.feature.util.UiState
 import appoutlet.gameoutlet.feature.util.ViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
-import kotlinx.coroutines.launch
 
 class SplashViewModel(
     private val splashOrchestrator: SplashOrchestrator,
-): ViewModel<SplashUiState, SplashInputEvent>() {
+) : ViewModel<SplashUiState, SplashInputEvent>() {
 
     override fun onInputEvent(inputEvent: SplashInputEvent) {
-        when(inputEvent) {
+        when (inputEvent) {
             SplashInputEvent.Load -> loadStores()
         }
     }

@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.flow
 class SplashOrchestrator(
     private val storeRepository: StoreRepository
 ) {
-    fun synchronizeStoreData() : Flow<Unit> = flow {
+    fun synchronizeStoreData(): Flow<Unit> = flow {
         storeRepository.findAll()
         Unit
     }

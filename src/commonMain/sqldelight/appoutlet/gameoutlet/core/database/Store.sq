@@ -8,9 +8,9 @@ CREATE TABLE IF NOT EXISTS StoreEntity (
 
 CREATE INDEX IF NOT EXISTS StoreEntity_id ON StoreEntity(id);
 
-create:
+save:
 INSERT OR REPLACE INTO StoreEntity(id, name, bannerUrl, logoUrl, iconUrl)
-VALUES (?,?,?,?,?);
+VALUES ?;
 
 findAll:
 SELECT *

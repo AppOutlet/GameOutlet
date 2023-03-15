@@ -8,9 +8,10 @@ class StoreCacheRepository(private val preferenceRepository: PreferenceRepositor
     fun isStoreListCacheValid(): Boolean {
         val lastUpdateString = preferenceRepository.getPreference(KEY_STORE_LIST_CACHE)
         val lastUpdate = lastUpdateString?.let(LocalDateTime::parse)
-        val cacheExpirationDate = lastUpdate?.plus(7, ChronoUnit.DAYS)
+        val cacheExpirationDate = lastUpdate?.plus(STORE_CACHE_VALIDITY_IN_DAYS, ChronoUnit.DAYS)
         return cacheExpirationDate?.let { expirationDate ->
-            LocalDateTime.now().isAfter(expirationDate)
+            val now = LocalDateTime.now()
+            expirationDate.isAfter(now)
         } ?: false
     }
 
@@ -20,5 +21,6 @@ class StoreCacheRepository(private val preferenceRepository: PreferenceRepositor
 
     companion object {
         private const val KEY_STORE_LIST_CACHE = "storeListCache"
+        private const val STORE_CACHE_VALIDITY_IN_DAYS = 7L
     }
 }

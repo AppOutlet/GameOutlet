@@ -6,7 +6,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 
 val storeRepositoryModule = module {
-    factory { StoreRepository(get(), get(), get(), get()) }
+    factory { StoreRepository(get(), get(), get(), get(), get()) }
 
     factory<StoreApi> {
         val retrofit by inject<Retrofit>()
@@ -18,4 +18,6 @@ val storeRepositoryModule = module {
     factory { StoreCacheRepository(get()) }
 
     factory { StoreMapper() }
+
+    factory { StoreEntityMapper() }
 }
