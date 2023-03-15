@@ -1,6 +1,6 @@
 package appoutlet.gameoutlet
 
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.singleWindowApplication
 import appoutlet.gameoutlet.feature.splash.SplashNavigation

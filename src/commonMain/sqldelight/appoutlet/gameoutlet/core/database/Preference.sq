@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS Preference (
+    key TEXT NOT NULL PRIMARY KEY,
+    value TEXT
+);
+
+CREATE INDEX IF NOT EXISTS Preference_id ON Preference(key);
+
+save:
+INSERT OR REPLACE INTO Preference(key, value) VALUES (?,?);
+
+findByKey:
+SELECT * FROM Preference WHERE key = ?;

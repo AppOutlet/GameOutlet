@@ -1,4 +1,5 @@
 @file:Suppress("DSL_SCOPE_VIOLATION", "UNUSED_VARIABLE")
+@file:OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
 
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
@@ -36,11 +37,13 @@ compose.desktop {
 }
 
 dependencies {
-    commonMainImplementation(compose.desktop.currentOs)
+    commonMainImplementation(compose.desktop.currentOs) {
+        exclude("org.jetbrains.compose.material")
+    }
+    commonMainImplementation(compose.material3)
     commonMainImplementation(libs.kotlinx.gettext)
     commonMainImplementation(libs.koin)
     commonMainImplementation(libs.voyager.navigator)
-    commonMainImplementation(libs.voyager.koin)
     commonMainImplementation(libs.voyager.transitions)
     commonMainImplementation(libs.sqldelight.sqliteDriver)
     commonMainImplementation(libs.retrofit)

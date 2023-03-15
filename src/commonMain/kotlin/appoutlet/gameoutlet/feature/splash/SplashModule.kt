@@ -4,7 +4,7 @@ import org.koin.dsl.module
 
 val splashModule = module {
     factory {
-        SplashViewModel(storeRepository = get())
+        SplashViewModel(get())
     }
 
     factory<SplashNavigation> { DefaultSplashNavigation() }
