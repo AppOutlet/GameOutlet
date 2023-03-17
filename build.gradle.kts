@@ -55,8 +55,10 @@ dependencies {
     commonMainImplementation(libs.retrofit.moshi)
 
     commonTestImplementation(libs.kotlin.test)
+    commonTestImplementation(libs.kotlinFixture)
     commonTestImplementation(libs.truth)
     commonTestImplementation(libs.mockk)
+    commonTestImplementation(compose.uiTestJUnit4)
 
     detektPlugins(libs.detekt.formatting)
     detektPlugins(libs.detekt.compose)
