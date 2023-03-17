@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import appoutlet.gameoutlet.core.ui.GameOutletTheme
+import appoutlet.gameoutlet.core.ui.spacing
 
 @Composable
 fun Error(
@@ -25,7 +26,7 @@ fun Error(
 
         Text(text = message, style = MaterialTheme.typography.bodyMedium)
 
-        Spacer(modifier = Modifier.height(GameOutletTheme.spacing.medium))
+        Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
 
         onTryAgain?.let {
             Button(onClick = onTryAgain) {

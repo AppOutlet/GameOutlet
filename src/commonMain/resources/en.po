@@ -1,2 +1,0 @@
-msgid "Powered by App Outlet"
-msgstr "Powered by App Outlet!"

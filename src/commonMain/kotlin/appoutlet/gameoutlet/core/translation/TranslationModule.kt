@@ -31,7 +31,7 @@ private fun initGettext(): I18n {
 }
 
 private fun ClassLoader.getStream(fileName: String): InputStream? {
-    return getResourceAsStream("$fileName.po")
+    return getResourceAsStream("i18n/$fileName.po")
 }
 
 private fun getTranslationFile(classLoader: ClassLoader, languageTag: String, language: String): InputStream {
