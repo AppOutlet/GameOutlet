@@ -56,6 +56,7 @@ dependencies {
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.truth)
+    commonTestImplementation(libs.mockk)
 
     detektPlugins(libs.detekt.formatting)
     detektPlugins(libs.detekt.compose)
