@@ -13,6 +13,4 @@ val networkModule = module {
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
     }
-
-    single { }
 }
