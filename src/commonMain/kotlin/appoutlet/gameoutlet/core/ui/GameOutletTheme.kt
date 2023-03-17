@@ -8,6 +8,6 @@ fun GameOutletTheme(content: @Composable () -> Unit) {
     MaterialTheme(content = content)
 }
 
-object GameOutletTheme {
-    val spacing = Spacing
-}
+@Suppress("UnusedReceiverParameter")
+val MaterialTheme.spacing: Spacing
+    get() = Spacing

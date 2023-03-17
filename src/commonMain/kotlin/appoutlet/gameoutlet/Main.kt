@@ -2,6 +2,7 @@ package appoutlet.gameoutlet
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.singleWindowApplication
 import appoutlet.gameoutlet.feature.splash.SplashNavigation
@@ -21,8 +22,10 @@ fun main() {
 @Composable
 fun App(defaultScreen: SplashView) {
     MaterialTheme {
-        Navigator(defaultScreen) { navigator ->
-            FadeTransition(navigator)
+        Surface {
+            Navigator(defaultScreen) { navigator ->
+                FadeTransition(navigator)
+            }
         }
     }
 }
