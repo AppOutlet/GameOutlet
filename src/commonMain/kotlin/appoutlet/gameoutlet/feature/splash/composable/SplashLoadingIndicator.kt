@@ -15,8 +15,8 @@ import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.core.ui.spacing
 
 @Composable
-fun SplashLoadingIndicator() {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+fun SplashLoadingIndicator(modifier: Modifier = Modifier) {
+    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         LinearProgressIndicator()
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
         Text(i18n.tr("Loading"), style = MaterialTheme.typography.bodyMedium)

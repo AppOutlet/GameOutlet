@@ -18,6 +18,7 @@ fun main() {
     }
 }
 
+@Suppress("ModifierMissing")
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun App(defaultScreen: SplashView) {
