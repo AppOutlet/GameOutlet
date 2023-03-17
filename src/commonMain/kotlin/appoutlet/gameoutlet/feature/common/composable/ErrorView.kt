@@ -12,13 +12,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.core.ui.spacing
+import appoutlet.gameoutlet.core.translation.i18n
 
 @Composable
 fun Error(
     modifier: Modifier = Modifier,
-    title: String = "Something went wrong",
-    message: String = "Occurred and unexpected error",
-    buttonText: String = "Try again",
+    title: String = i18n.tr("Something went wrong"),
+    message: String = i18n.tr("An unexpected error occurred"),
+    buttonText: String = i18n.tr("Try again"),
     onTryAgain: (() -> Unit)? = null
 ) {
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {

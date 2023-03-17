@@ -19,3 +19,15 @@ msgstr "Occurred an error when loading the store data"
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/composable/SplashLoadingIndicator.kt:22
 msgid "Loading"
 msgstr "Loading"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:20
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:21
+msgid "An unexpected error occurred"
+msgstr "An unexpected error occurred"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:22
+msgid "Try again"
+msgstr "Try again"
