@@ -9,6 +9,6 @@ class SplashOrchestrator(
 ) {
     fun synchronizeStoreData(): Flow<Unit> = flow {
         storeRepository.findAll()
-        Unit
+        emit(Unit)
     }
 }

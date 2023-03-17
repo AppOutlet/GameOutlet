@@ -13,9 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.feature.common.composable.Error
+import appoutlet.gameoutlet.feature.home.HomeView
+import appoutlet.gameoutlet.feature.home.HomeViewModel
 import appoutlet.gameoutlet.feature.splash.composable.SplashLoadingIndicator
 import appoutlet.gameoutlet.feature.util.FirstLoad
 import appoutlet.gameoutlet.feature.util.View
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.Navigator
 import org.koin.core.component.inject
 
 class SplashView : View<SplashUiState, SplashInputEvent>() {
@@ -23,12 +27,21 @@ class SplashView : View<SplashUiState, SplashInputEvent>() {
     override val initialState = SplashUiState.Idle
 
     @Composable
-    override fun ViewContent(uiState: SplashUiState, onInputEvent: (SplashInputEvent) -> Unit) =
+    override fun ViewContent(uiState: SplashUiState, onInputEvent: (SplashInputEvent) -> Unit) {
+
+
         SplashScreenContent(uiState, onInputEvent)
+    }
 }
 
 @Composable
 private fun SplashScreenContent(uiState: SplashUiState, onInputEvent: (SplashInputEvent) -> Unit) {
+    val navigator = LocalNavigator.current
+
+    if (uiState is SplashUiState.Loaded) {
+        navigator?.replaceAll(HomeView())
+    }
+
     FirstLoad {
         onInputEvent(SplashInputEvent.Load)
     }
