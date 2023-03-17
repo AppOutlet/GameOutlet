@@ -1,4 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
+# GameOutlet.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -31,3 +31,6 @@ msgstr "An unexpected error occurred"
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:22
 msgid "Try again"
 msgstr "Try again"
+
+msgid "GameOutlet logo"
+msgstr "GameOutlet logo"

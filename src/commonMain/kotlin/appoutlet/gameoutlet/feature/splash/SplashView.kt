@@ -57,7 +57,7 @@ private fun SplashScreenContent(uiState: SplashUiState, onInputEvent: (SplashInp
         ) {
             Image(
                 painter = painterResource("image/icon.png"),
-                contentDescription = "Application logo",
+                contentDescription = i18n.tr("GameOutlet logo"),
                 modifier = Modifier.size(100.dp),
             )
 
