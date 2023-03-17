@@ -5,7 +5,6 @@ import name.kropp.kotlinx.gettext.I18n
 import name.kropp.kotlinx.gettext.Locale
 import name.kropp.kotlinx.gettext.load
 import org.koin.dsl.module
-import java.io.InputStream
 
 val translationModule = module {
     single { i18n }

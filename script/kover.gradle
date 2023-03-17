@@ -9,8 +9,20 @@ koverReport {
             enabled = true
 
             bound {
-                minValue = 11
+                minValue = 80
                 metric = "LINE"
+                aggregation = "COVERED_PERCENTAGE"
+            }
+
+            bound {
+                minValue = 80
+                metric = "BRANCH"
+                aggregation = "COVERED_PERCENTAGE"
+            }
+
+            bound {
+                minValue = 80
+                metric = "INSTRUCTION"
                 aggregation = "COVERED_PERCENTAGE"
             }
         }

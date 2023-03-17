@@ -7,7 +7,6 @@ import io.mockk.verify
 import java.io.InputStream
 import kotlin.test.Test
 
-
 class TranslationFileProviderKtTest {
     private val mockClassLoader = mockk<ClassLoader>()
     private val fixtureInputStream = InputStream.nullInputStream()
@@ -38,7 +37,7 @@ class TranslationFileProviderKtTest {
         val fixtureLanguage = "pt"
         val fixtureLanguageTagFileName = "i18n/$fixtureLanguageTag.po"
         val fixtureLanguageFileName = "i18n/$fixtureLanguage.po"
-        val fixtureDefaultLanguageFileName =  "i18n/en.po"
+        val fixtureDefaultLanguageFileName = "i18n/en.po"
 
         every { mockClassLoader.getResourceAsStream(fixtureLanguageTagFileName) } returns null
         every { mockClassLoader.getResourceAsStream(fixtureLanguageFileName) } returns fixtureInputStream
@@ -61,7 +60,7 @@ class TranslationFileProviderKtTest {
         val fixtureLanguage = "es"
         val fixtureLanguageTagFileName = "i18n/$fixtureLanguageTag.po"
         val fixtureLanguageFileName = "i18n/$fixtureLanguage.po"
-        val fixtureDefaultLanguageFileName =  "i18n/en.po"
+        val fixtureDefaultLanguageFileName = "i18n/en.po"
 
         every { mockClassLoader.getResourceAsStream(fixtureLanguageTagFileName) } returns null
         every { mockClassLoader.getResourceAsStream(fixtureLanguageFileName) } returns null
