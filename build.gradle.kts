@@ -22,6 +22,11 @@ kotlin {
         jvmToolchain(11)
         withJava()
     }
+
+    sourceSets {
+        val jvmMain by getting
+        val jvmTest by getting
+    }
 }
 
 compose.desktop {
