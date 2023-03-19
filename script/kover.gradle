@@ -1,12 +1,40 @@
+def excludePatters = [
+        //Dependency injection
+        "*ModuleKt*",
+        "*ModulesKt*",
+        "KoinKt*",
+
+        // Non testable application setup
+        "MainKt*",
+]
+
 koverReport {
+    filters {
+        excludes  {
+            classes(excludePatters)
+        }
+    }
+
     html {
         title = "Game outlet test coverage"
         onCheck = false
+
+        filters {
+            excludes {
+                classes(excludePatters)
+            }
+        }
     }
 
     verify {
         rule {
             enabled = true
+
+            filters {
+                excludes {
+                    classes(excludePatters)
+                }
+            }
 
             bound {
                 minValue = 80

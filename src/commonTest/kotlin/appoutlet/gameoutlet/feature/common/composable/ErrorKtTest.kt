@@ -7,6 +7,7 @@ import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.performClick
 import appoutlet.gameoutlet.core.testing.UiTest
 import appoutlet.gameoutlet.core.translation.i18n
+import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -18,7 +19,7 @@ class ErrorKtTest : UiTest() {
     @Test
     fun `should show error composable - default values`() {
         composeTestRule.setContent {
-            Error()
+            GameOutletTheme { Error() }
         }
 
         composeTestRule.onNode(hasTestTag("title"))
