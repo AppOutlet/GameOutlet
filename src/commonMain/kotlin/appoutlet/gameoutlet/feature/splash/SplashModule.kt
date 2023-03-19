@@ -7,7 +7,5 @@ val splashModule = module {
         SplashViewModel(get())
     }
 
-    factory<SplashNavigation> { DefaultSplashNavigation() }
-
     factory { SplashOrchestrator(get()) }
 }

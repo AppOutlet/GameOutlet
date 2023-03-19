@@ -5,26 +5,24 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.singleWindowApplication
-import appoutlet.gameoutlet.feature.splash.SplashNavigation
 import appoutlet.gameoutlet.feature.splash.SplashView
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.FadeTransition
 
 fun main() {
-    val koin = initKoin()
-    val defaultScreen = koin.get<SplashNavigation>().getScreen()
+    initKoin()
     singleWindowApplication(title = "GameOutlet") {
-        App(defaultScreen)
+        App()
     }
 }
 
 @Suppress("ModifierMissing")
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun App(defaultScreen: SplashView) {
+fun App() {
     MaterialTheme {
         Surface {
-            Navigator(defaultScreen) { navigator ->
+            Navigator(SplashView()) { navigator ->
                 FadeTransition(navigator)
             }
         }
