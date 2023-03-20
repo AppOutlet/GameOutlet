@@ -15,6 +15,7 @@ import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 
+@OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
 class SplashViewModelTest : UnitTest<SplashViewModel>() {
     private val mockSplashOrchestrator = mockk<SplashOrchestrator>()
     private val mockHomeViewProvider = mockk<HomeViewProvider>()

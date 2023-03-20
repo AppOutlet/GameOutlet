@@ -44,7 +44,7 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: test koverVerify
+          arguments: test koverVerify --warn > $GITHUB_STEP_SUMMARY
 
   detekt:
     name: Detekt

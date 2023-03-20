@@ -15,6 +15,7 @@ import io.mockk.verify
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 
+@OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
 class StoreRepositoryTest : UnitTest<StoreRepository>() {
     private val mockStoreQueries = mockk<StoreQueries>(relaxUnitFun = true)
     private val mockStoreApi = mockk<StoreApi>()
