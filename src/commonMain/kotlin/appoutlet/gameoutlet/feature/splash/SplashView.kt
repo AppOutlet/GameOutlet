@@ -16,15 +16,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.core.ui.spacing
 import appoutlet.gameoutlet.feature.common.composable.Error
-import appoutlet.gameoutlet.feature.home.HomeView
 import appoutlet.gameoutlet.feature.splash.composable.SplashLoadingIndicator
-import appoutlet.gameoutlet.feature.util.FirstLoad
 import appoutlet.gameoutlet.feature.util.View
-import cafe.adriel.voyager.navigator.LocalNavigator
 import org.koin.core.component.inject
 
 class SplashView : View<SplashUiState, SplashInputEvent>() {
@@ -38,10 +37,11 @@ class SplashView : View<SplashUiState, SplashInputEvent>() {
 }
 
 @Composable
-private fun SplashScreenContent(uiState: SplashUiState, onInputEvent: (SplashInputEvent) -> Unit) {
-    FirstLoad {
+fun SplashScreenContent(uiState: SplashUiState, onInputEvent: (SplashInputEvent) -> Unit) {
+    if (uiState == SplashUiState.Idle) {
         onInputEvent(SplashInputEvent.Load)
     }
+
 
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Column(
@@ -60,11 +60,12 @@ private fun SplashScreenContent(uiState: SplashUiState, onInputEvent: (SplashInp
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.large))
 
             AnimatedVisibility(visible = uiState is SplashUiState.Loading) {
-                SplashLoadingIndicator()
+                SplashLoadingIndicator(modifier = Modifier.semantics { testTag = "loadingIndicator" })
             }
 
             AnimatedVisibility(uiState is SplashUiState.Error) {
                 Error(
+                    modifier = Modifier.semantics { testTag = "errorMessage" },
                     message = i18n.tr("Occurred an error when loading the store data"),
                     onTryAgain = {
                         onInputEvent(SplashInputEvent.Load)

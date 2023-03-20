@@ -5,6 +5,7 @@ import androidx.compose.ui.test.assertIsNotDisplayed
 import androidx.compose.ui.test.hasContentDescription
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.hasText
+import androidx.compose.ui.test.performClick
 import appoutlet.gameoutlet.core.testing.UiTest
 import appoutlet.gameoutlet.core.translation.i18n
 import cafe.adriel.voyager.navigator.Navigator
@@ -26,9 +27,7 @@ class SplashViewTest : UiTest() {
         every { mockOnInputEvent.invoke(any()) } returns Unit
 
         composeTestRule.setContent {
-            SplashView().apply {
-                ViewContent(uiState = SplashUiState.Idle, onInputEvent = mockOnInputEvent)
-            }
+            SplashScreenContent(uiState = SplashUiState.Idle, onInputEvent = mockOnInputEvent)
         }
 
         verify { mockOnInputEvent.invoke(SplashInputEvent.Load) }
@@ -48,12 +47,8 @@ class SplashViewTest : UiTest() {
 
     @Test
     fun `should show loading state`() = runTest {
-        every { mockOnInputEvent.invoke(any()) } returns Unit
-
         composeTestRule.setContent {
-            SplashView().apply {
-                ViewContent(uiState = SplashUiState.Loading, onInputEvent = mockOnInputEvent)
-            }
+            SplashScreenContent(uiState = SplashUiState.Loading, onInputEvent = mockOnInputEvent)
         }
 
         advanceUntilIdle()
@@ -67,14 +62,17 @@ class SplashViewTest : UiTest() {
         every { mockOnInputEvent.invoke(any()) } returns Unit
 
         composeTestRule.setContent {
-            SplashView().apply {
-                ViewContent(uiState = SplashUiState.Error, onInputEvent = mockOnInputEvent)
-            }
+            SplashView().ViewContent(uiState = SplashUiState.Error, onInputEvent = mockOnInputEvent)
         }
 
         advanceUntilIdle()
 
         composeTestRule.onNode(hasTestTag("errorMessage"))
             .assertIsDisplayed()
+
+        composeTestRule.onNode(hasText(i18n.tr("Try again")))
+            .performClick()
+
+        verify { mockOnInputEvent.invoke(SplashInputEvent.Load) }
     }
 }
