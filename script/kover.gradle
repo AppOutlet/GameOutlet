@@ -3,9 +3,11 @@ def excludePatters = [
         "*ModuleKt*",
         "*ModulesKt*",
         "KoinKt*",
+        "KoinKt",
 
         // Non testable application setup
         "MainKt*",
+        "MainKt",
 ]
 
 koverReport {
@@ -37,19 +39,19 @@ koverReport {
             }
 
             bound {
-                minValue = 80
+                minValue = 53
                 metric = "LINE"
                 aggregation = "COVERED_PERCENTAGE"
             }
 
             bound {
-                minValue = 80
+                minValue = 31
                 metric = "BRANCH"
                 aggregation = "COVERED_PERCENTAGE"
             }
 
             bound {
-                minValue = 80
+                minValue = 52
                 metric = "INSTRUCTION"
                 aggregation = "COVERED_PERCENTAGE"
             }

@@ -18,9 +18,14 @@ class StoreCacheRepositoryTest : UnitTest<StoreCacheRepository>() {
 
     @Test
     fun `should verify it store cache is valid - valid`() {
-        val fixtureLastSyncDate = LocalDateTime.now().minusDays(StoreCacheRepository.STORE_CACHE_VALIDITY_IN_DAYS - 1)
+        val fixtureNow = LocalDateTime.now()
+        every { mockTimeProvider.now() } returns fixtureNow
 
-        every { mockPreferenceRepository.getPreference(StoreCacheRepository.KEY_STORE_LIST_CACHE) } returns fixtureLastSyncDate.toString()
+        val fixtureLastSyncDate = fixtureNow.minusDays(StoreCacheRepository.STORE_CACHE_VALIDITY_IN_DAYS - 1)
+
+        every {
+            mockPreferenceRepository.getPreference(StoreCacheRepository.KEY_STORE_LIST_CACHE)
+        } returns fixtureLastSyncDate.toString()
 
         val actual = sut.isStoreListCacheValid()
 
@@ -29,9 +34,14 @@ class StoreCacheRepositoryTest : UnitTest<StoreCacheRepository>() {
 
     @Test
     fun `should verify it store cache is valid - invalid`() {
-        val fixtureLastSyncDate = LocalDateTime.now().minusDays(StoreCacheRepository.STORE_CACHE_VALIDITY_IN_DAYS + 1)
+        val fixtureNow = LocalDateTime.now()
+        every { mockTimeProvider.now() } returns fixtureNow
 
-        every { mockPreferenceRepository.getPreference(StoreCacheRepository.KEY_STORE_LIST_CACHE) } returns fixtureLastSyncDate.toString()
+        val fixtureLastSyncDate = fixtureNow.minusDays(StoreCacheRepository.STORE_CACHE_VALIDITY_IN_DAYS + 1)
+
+        every {
+            mockPreferenceRepository.getPreference(StoreCacheRepository.KEY_STORE_LIST_CACHE)
+        } returns fixtureLastSyncDate.toString()
 
         val actual = sut.isStoreListCacheValid()
 

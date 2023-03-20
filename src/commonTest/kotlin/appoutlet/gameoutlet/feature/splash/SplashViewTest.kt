@@ -1,21 +1,18 @@
 package appoutlet.gameoutlet.feature.splash
 
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.assertIsNotDisplayed
 import androidx.compose.ui.test.hasContentDescription
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.performClick
 import appoutlet.gameoutlet.core.testing.UiTest
 import appoutlet.gameoutlet.core.translation.i18n
-import cafe.adriel.voyager.navigator.Navigator
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
-import kotlin.test.Ignore
 import kotlin.test.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -27,7 +24,7 @@ class SplashViewTest : UiTest() {
         every { mockOnInputEvent.invoke(any()) } returns Unit
 
         composeTestRule.setContent {
-            SplashScreenContent(uiState = SplashUiState.Idle, onInputEvent = mockOnInputEvent)
+            SplashView().ViewContent(uiState = SplashUiState.Idle, onInputEvent = mockOnInputEvent)
         }
 
         verify { mockOnInputEvent.invoke(SplashInputEvent.Load) }
@@ -48,7 +45,7 @@ class SplashViewTest : UiTest() {
     @Test
     fun `should show loading state`() = runTest {
         composeTestRule.setContent {
-            SplashScreenContent(uiState = SplashUiState.Loading, onInputEvent = mockOnInputEvent)
+            SplashView().ViewContent(uiState = SplashUiState.Loading, onInputEvent = mockOnInputEvent)
         }
 
         advanceUntilIdle()

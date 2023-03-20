@@ -37,11 +37,10 @@ class SplashView : View<SplashUiState, SplashInputEvent>() {
 }
 
 @Composable
-fun SplashScreenContent(uiState: SplashUiState, onInputEvent: (SplashInputEvent) -> Unit) {
+private fun SplashScreenContent(uiState: SplashUiState, onInputEvent: (SplashInputEvent) -> Unit) {
     if (uiState == SplashUiState.Idle) {
         onInputEvent(SplashInputEvent.Load)
     }
-
 
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Column(
