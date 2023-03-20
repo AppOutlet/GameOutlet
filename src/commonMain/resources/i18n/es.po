@@ -46,4 +46,4 @@ msgid "Try again"
 msgstr "Vuelve a intentarlo"
 
 msgid "GameOutlet logo"
-msgstr "GameOutlet logo"
+msgstr "Logotipo de GameOutlet"
