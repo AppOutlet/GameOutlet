@@ -15,7 +15,7 @@ val storeRepositoryModule = module {
 
     factory { get<GameOutletDatabase>().storeQueries }
 
-    factory { StoreCacheRepository(get()) }
+    factory { StoreCacheRepository(get(), get()) }
 
     factory { StoreMapper() }
 
