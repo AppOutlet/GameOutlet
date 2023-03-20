@@ -21,5 +21,9 @@ class StoreMapper {
         iconUrl = parseStoreImage(storeResponse.images.icon),
     )
 
-    private fun parseStoreImage(uri: String) = "https://www.cheapshark.com$uri"
+    private fun parseStoreImage(uri: String) = CHEAP_SHARK_IMAGE_BASE_URL + uri
+
+    companion object {
+        const val CHEAP_SHARK_IMAGE_BASE_URL = "https://www.cheapshark.com"
+    }
 }
