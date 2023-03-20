@@ -4,7 +4,7 @@ import org.koin.dsl.module
 
 val splashModule = module {
     factory {
-        SplashViewModel(get())
+        SplashViewModel(get(), get())
     }
 
     factory { SplashOrchestrator(get()) }

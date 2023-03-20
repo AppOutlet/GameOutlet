@@ -14,6 +14,7 @@ import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
+import kotlin.test.Ignore
 import kotlin.test.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -74,22 +75,6 @@ class SplashViewTest : UiTest() {
         advanceUntilIdle()
 
         composeTestRule.onNode(hasTestTag("errorMessage"))
-            .assertIsDisplayed()
-    }
-
-    @Test
-    fun `should navigate to home when loaded`() = runTest {
-        every { mockOnInputEvent.invoke(any()) } returns Unit
-
-        composeTestRule.setContent {
-            SplashView().apply {
-                ViewContent(uiState = SplashUiState.Loaded, onInputEvent = mockOnInputEvent)
-            }
-        }
-
-        advanceUntilIdle()
-
-        composeTestRule.onNode(hasText("home"))
             .assertIsDisplayed()
     }
 }

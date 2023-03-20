@@ -33,12 +33,6 @@ class SplashView : View<SplashUiState, SplashInputEvent>() {
 
     @Composable
     override fun ViewContent(uiState: SplashUiState, onInputEvent: (SplashInputEvent) -> Unit) {
-        val navigator = LocalNavigator.current
-
-        if (uiState is SplashUiState.Loaded) {
-            navigator?.replaceAll(HomeView())
-        }
-
         SplashScreenContent(uiState, onInputEvent)
     }
 }
