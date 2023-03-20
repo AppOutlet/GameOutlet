@@ -1,6 +1,6 @@
 filters:
   - filter_type: file
-    source_file: src/jvmMain/resources/en.po
+    source_file: src/commonMain/resources/i18n/en.po
     file_format: PO
     source_language: en
-    translation_files_expression: 'src/jvmMain/resources/<lang>.po'
+    translation_files_expression: 'src/jvmMain/resources/i18n/<lang>.po'

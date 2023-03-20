@@ -1,0 +1,7 @@
+sqldelight {
+    databases {
+        GameOutletDatabase {
+            packageName = "appoutlet.gameoutlet.core.database"
+        }
+    }
+}

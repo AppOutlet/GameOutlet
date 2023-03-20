@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS StoreEntity (
+  id INTEGER PRIMARY KEY NOT NULL,
+  name TEXT NOT NULL,
+  bannerUrl TEXT,
+  logoUrl TEXT,
+  iconUrl TEXT
+);
+
+CREATE INDEX IF NOT EXISTS StoreEntity_id ON StoreEntity(id);
+
+save:
+INSERT OR REPLACE INTO StoreEntity(id, name, bannerUrl, logoUrl, iconUrl)
+VALUES ?;
+
+findAll:
+SELECT *
+FROM StoreEntity;
+
+findById:
+SELECT *
+FROM StoreEntity
+WHERE id == ?;

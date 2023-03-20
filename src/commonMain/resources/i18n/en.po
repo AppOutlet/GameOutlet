@@ -1,0 +1,36 @@
+# GameOutlet.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr "Project-Id-Version: PACKAGE VERSION\nReport-Msgid-Bugs-To: \n\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nLanguage: \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:82
+msgid "Powered by App Outlet"
+msgstr "Powered by App Outlet"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:74
+msgid "Occurred an error when loading the store data"
+msgstr "Occurred an error when loading the store data"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/composable/SplashLoadingIndicator.kt:22
+msgid "Loading"
+msgstr "Loading"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:20
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:21
+msgid "An unexpected error occurred"
+msgstr "An unexpected error occurred"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:22
+msgid "Try again"
+msgstr "Try again"
+
+msgid "GameOutlet logo"
+msgstr "GameOutlet logo"

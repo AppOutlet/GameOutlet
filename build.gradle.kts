@@ -1,4 +1,5 @@
 @file:Suppress("DSL_SCOPE_VIOLATION", "UNUSED_VARIABLE")
+@file:OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
 
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
@@ -10,6 +11,7 @@ plugins {
     alias(libs.plugins.gitHooks)
     alias(libs.plugins.kover)
     alias(libs.plugins.kotlinx.gettext)
+    alias(libs.plugins.sqldelight)
 }
 
 group = "appoutlet"
@@ -29,25 +31,34 @@ kotlin {
 
 compose.desktop {
     application {
-        mainClass = "MainKt"
+        mainClass = "appoutlet.gameoutlet.MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "GameOutlet"
             packageVersion = "1.0.0"
+            modules("java.sql")
         }
     }
 }
 
 dependencies {
-    commonMainImplementation(compose.desktop.currentOs)
+    commonMainImplementation(compose.desktop.currentOs) {
+        exclude("org.jetbrains.compose.material")
+    }
+    commonMainImplementation(compose.material3)
     commonMainImplementation(libs.kotlinx.gettext)
     commonMainImplementation(libs.koin)
     commonMainImplementation(libs.voyager.navigator)
-    commonMainImplementation(libs.voyager.koin)
     commonMainImplementation(libs.voyager.transitions)
+    commonMainImplementation(libs.sqldelight.sqliteDriver)
+    commonMainImplementation(libs.retrofit)
+    commonMainImplementation(libs.retrofit.moshi)
 
     commonTestImplementation(libs.kotlin.test)
+    commonTestImplementation(libs.kotlinFixture)
     commonTestImplementation(libs.truth)
+    commonTestImplementation(libs.mockk)
+    commonTestImplementation(compose.uiTestJUnit4)
 
     detektPlugins(libs.detekt.formatting)
     detektPlugins(libs.detekt.compose)
@@ -58,3 +69,4 @@ apply(from = "$rootDir/script/git-hooks.gradle")
 apply(from = "$rootDir/script/kover.gradle")
 apply(from = "$rootDir/script/test.gradle")
 apply(from = "$rootDir/script/gettext.gradle")
+apply(from = "$rootDir/script/sqldelight.gradle")

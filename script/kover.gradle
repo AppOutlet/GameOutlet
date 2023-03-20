@@ -1,16 +1,58 @@
+def excludePatters = [
+        //Dependency injection
+        "*ModuleKt*",
+        "*ModulesKt*",
+        "KoinKt*",
+        "KoinKt",
+
+        // Non testable application setup
+        "MainKt*",
+        "MainKt",
+]
+
 koverReport {
+    filters {
+        excludes  {
+            classes(excludePatters)
+        }
+    }
+
     html {
         title = "Game outlet test coverage"
         onCheck = false
+
+        filters {
+            excludes {
+                classes(excludePatters)
+            }
+        }
     }
 
     verify {
         rule {
             enabled = true
 
+            filters {
+                excludes {
+                    classes(excludePatters)
+                }
+            }
+
             bound {
-                minValue = 11
+                minValue = 53
                 metric = "LINE"
+                aggregation = "COVERED_PERCENTAGE"
+            }
+
+            bound {
+                minValue = 30
+                metric = "BRANCH"
+                aggregation = "COVERED_PERCENTAGE"
+            }
+
+            bound {
+                minValue = 51
+                metric = "INSTRUCTION"
                 aggregation = "COVERED_PERCENTAGE"
             }
         }
