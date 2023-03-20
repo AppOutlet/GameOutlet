@@ -8,4 +8,5 @@ sealed interface SplashUiState : UiState {
     object Idle : SplashUiState
     object Loading : SplashUiState
     object Error : SplashUiState
+    object Loaded : SplashUiState
 }

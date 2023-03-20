@@ -24,6 +24,7 @@ class SplashViewModel(
                 mutableUiState.value = SplashUiState.Loading
             }
             .onEach {
+                mutableUiState.value = SplashUiState.Loaded
                 navigator.replaceAll(homeViewProvider.getView())
             }
             .catch {
