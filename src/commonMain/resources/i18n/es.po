@@ -1,0 +1,49 @@
+# GameOutlet.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# brandon galvis, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"\n"
+"PO-Revision-Date: 2023-03-20 11:26+0000\n"
+"Last-Translator: brandon galvis, 2023\n"
+"Language-Team: Spanish (https://www.transifex.com/app-outlet/teams/121024/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:82
+msgid "Powered by App Outlet"
+msgstr "Desarrollado por App Outlet"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:74
+msgid "Occurred an error when loading the store data"
+msgstr "Ocurrió un error al cargar los datos de la tienda"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/composable/SplashLoadingIndicator.kt:22
+msgid "Loading"
+msgstr "Cargando"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:20
+msgid "Something went wrong"
+msgstr "Algo salió mal"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:21
+msgid "An unexpected error occurred"
+msgstr "Ha ocurrido un error inesperado"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:22
+msgid "Try again"
+msgstr "Vuelve a intentarlo"
+
+msgid "GameOutlet logo"
+msgstr "GameOutlet logo"
