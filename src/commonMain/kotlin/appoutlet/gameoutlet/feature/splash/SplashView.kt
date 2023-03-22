@@ -23,7 +23,7 @@ import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.core.ui.spacing
 import appoutlet.gameoutlet.feature.common.composable.Error
 import appoutlet.gameoutlet.feature.splash.composable.SplashLoadingIndicator
-import appoutlet.gameoutlet.feature.util.View
+import appoutlet.gameoutlet.feature.common.View
 import org.koin.core.component.inject
 
 class SplashView : View<SplashUiState, SplashInputEvent>() {

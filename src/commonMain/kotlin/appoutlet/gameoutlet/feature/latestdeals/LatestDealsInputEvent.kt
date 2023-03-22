@@ -1,6 +1,6 @@
 package appoutlet.gameoutlet.feature.latestdeals
 
-import appoutlet.gameoutlet.feature.util.InputEvent
+import appoutlet.gameoutlet.feature.common.InputEvent
 
 sealed interface LatestDealsInputEvent : InputEvent {
 }

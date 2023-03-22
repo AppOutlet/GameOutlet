@@ -1,4 +1,4 @@
-package appoutlet.gameoutlet.feature.util
+package appoutlet.gameoutlet.feature.common
 
 import cafe.adriel.voyager.navigator.Navigator
 import kotlinx.coroutines.CoroutineScope
