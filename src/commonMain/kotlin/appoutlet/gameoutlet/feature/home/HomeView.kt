@@ -1,5 +1,6 @@
 package appoutlet.gameoutlet.feature.home
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -18,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.ui.spacing
 import appoutlet.gameoutlet.feature.home.composable.LatestDealsTab
+import appoutlet.gameoutlet.feature.home.composable.StoresTab
 import appoutlet.gameoutlet.feature.home.composable.WishlistTab
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.tab.CurrentTab
@@ -43,6 +45,7 @@ private fun HomeViewContent() {
                 Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
                 DrawerNavigationItem(LatestDealsTab)
                 DrawerNavigationItem(WishlistTab)
+                DrawerNavigationItem(StoresTab)
             }
         }) {
             CurrentTab()
