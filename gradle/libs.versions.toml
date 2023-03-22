@@ -29,4 +29,5 @@ retrofit-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.re
 truth = "com.google.truth:truth:1.1.3"
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
+voyager-tabNavigation = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "voyager" }
 sqldelight-sqliteDriver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }

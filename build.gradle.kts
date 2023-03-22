@@ -46,10 +46,12 @@ dependencies {
         exclude("org.jetbrains.compose.material")
     }
     commonMainImplementation(compose.material3)
+    commonMainImplementation(compose.materialIconsExtended)
     commonMainImplementation(libs.kotlinx.gettext)
     commonMainImplementation(libs.koin)
     commonMainImplementation(libs.voyager.navigator)
     commonMainImplementation(libs.voyager.transitions)
+    commonMainImplementation(libs.voyager.tabNavigation)
     commonMainImplementation(libs.sqldelight.sqliteDriver)
     commonMainImplementation(libs.retrofit)
     commonMainImplementation(libs.retrofit.moshi)
