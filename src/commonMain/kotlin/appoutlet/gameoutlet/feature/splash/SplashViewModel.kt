@@ -1,7 +1,7 @@
 package appoutlet.gameoutlet.feature.splash
 
+import appoutlet.gameoutlet.feature.common.ViewModel
 import appoutlet.gameoutlet.feature.home.HomeViewProvider
-import appoutlet.gameoutlet.feature.util.ViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach

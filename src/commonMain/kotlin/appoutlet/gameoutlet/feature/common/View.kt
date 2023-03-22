@@ -1,4 +1,4 @@
-package appoutlet.gameoutlet.feature.util
+package appoutlet.gameoutlet.feature.common
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
