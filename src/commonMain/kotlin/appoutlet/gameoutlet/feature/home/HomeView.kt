@@ -1,6 +1,5 @@
 package appoutlet.gameoutlet.feature.home
 
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -57,16 +56,15 @@ private fun HomeViewContent() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun DrawerNavigationItem(tab: Tab) {
+private fun DrawerNavigationItem(tab: Tab, modifier: Modifier = Modifier) {
     val tabNavigator = LocalTabNavigator.current
-
-    Spacer(modifier = Modifier.height(MaterialTheme.spacing.verySmall))
 
     NavigationDrawerItem(
         icon = { tab.options.icon?.let { painter -> Icon(painter, contentDescription = null) } },
         label = { Text(tab.options.title) },
         selected = tab.key == tabNavigator.current.key,
         onClick = { tabNavigator.current = tab },
-        modifier = Modifier.padding(horizontal = MaterialTheme.spacing.small)
+        modifier = modifier.padding(horizontal = MaterialTheme.spacing.small)
+            .padding(top = MaterialTheme.spacing.verySmall)
     )
 }

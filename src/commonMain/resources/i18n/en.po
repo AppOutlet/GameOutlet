@@ -1,36 +1,65 @@
-# GameOutlet.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# GameOutlet
+# This file is distributed under the same license as the GameOutlet package.
+# App Outlet Team <team.appoutlet@gmail.com>, 2023.
 # 
 #, fuzzy
 msgid ""
 msgstr "Project-Id-Version: PACKAGE VERSION\nReport-Msgid-Bugs-To: \n\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nLanguage: \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:82
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:76
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:41
 msgid "Powered by App Outlet"
 msgstr "Powered by App Outlet"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:74
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:68
 msgid "Occurred an error when loading the store data"
 msgstr "Occurred an error when loading the store data"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/composable/SplashLoadingIndicator.kt:22
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/composable/SplashLoadingIndicator.kt:24
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/composable/SplashLoadingIndicatorKtTest.kt:20
 msgid "Loading"
 msgstr "Loading"
 
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:22
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:20
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorKtTest.kt:27
 msgid "Something went wrong"
 msgstr "Something went wrong"
 
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:23
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:21
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorKtTest.kt:31
 msgid "An unexpected error occurred"
 msgstr "An unexpected error occurred"
 
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:24
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:22
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:70
 msgid "Try again"
 msgstr "Try again"
 
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:53
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:33
 msgid "GameOutlet logo"
 msgstr "GameOutlet logo"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/LatestDealsTab.kt:18
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsView.kt:15
+msgid "Latest deals"
+msgstr "Latest deals"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/SettingsTab.kt:18
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/settings/SettingsView.kt:15
+msgid "Settings"
+msgstr "Settings"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/StoresTab.kt:18
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/StoreListView.kt:15
+msgid "Stores"
+msgstr "Stores"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/WishlistTab.kt:18
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/WishlistView.kt:15
+msgid "Wishlist"
+msgstr "Wishlist"
