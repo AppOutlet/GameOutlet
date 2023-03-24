@@ -8,6 +8,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
 import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.feature.common.View
+import appoutlet.gameoutlet.feature.latestdeals.composable.Deal
 import org.koin.core.component.inject
 
 class LatestDealsView : View<LatestDealsUiState, LatestDealsInputEvent>() {

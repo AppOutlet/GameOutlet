@@ -19,10 +19,12 @@ sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 [libraries]
 detekt-compose = "io.nlopez.compose.rules:detekt:0.1.2"
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+kamel = "com.alialbaali.kamel:kamel-image:0.4.0"
 koin = "io.insert-koin:koin-core:3.3.3"
 kotlinFixture = "com.appmattus.fixture:fixture:1.2.0"
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlinx-gettext = { module = "name.kropp.kotlinx-gettext:kotlinx-gettext", version.ref = "kotlinx-gettext" }
+ktor-client = "io.ktor:ktor-client-java:2.2.4"
 mockk = "io.mockk:mockk:1.13.4"
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
