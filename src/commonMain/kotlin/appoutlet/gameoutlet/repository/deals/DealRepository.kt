@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 
-class DealsRepository(private val dealApi: DealApi, private val dealMapper: DealMapper) {
+class DealRepository(private val dealApi: DealApi, private val dealMapper: DealMapper) {
     fun findLatestDeals(): Flow<List<Deal>> =
         flow { emit(dealApi.findLatestDeals()) }
             .map { dealMapper(it) }

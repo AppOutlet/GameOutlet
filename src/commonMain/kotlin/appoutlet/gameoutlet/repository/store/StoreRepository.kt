@@ -1,5 +1,6 @@
 package appoutlet.gameoutlet.repository.store
 
+import appoutlet.gameoutlet.core.database.StoreEntity
 import appoutlet.gameoutlet.core.database.StoreQueries
 import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.repository.store.api.StoreApi
@@ -37,5 +38,10 @@ class StoreRepository(
         storeCacheRepository.registerStoreListCached()
 
         return stores
+    }
+
+    fun findById(id: Int): Store? {
+        val storeEntity = storeQueries.findById(id.toLong()).executeAsOneOrNull()
+        return storeEntity?.let { storeMapper(it) }
     }
 }
