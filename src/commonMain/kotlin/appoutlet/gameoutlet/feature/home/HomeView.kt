@@ -1,10 +1,6 @@
 package appoutlet.gameoutlet.feature.home
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -52,7 +48,7 @@ private fun HomeViewContent() {
                 DrawerNavigationItem(modifier = Modifier.semantics { testTag = "settingsTab" }, tab = SettingsTab)
             }
         }) {
-            Box(modifier = Modifier.padding(MaterialTheme.spacing.medium)) {
+            Box(modifier = Modifier.fillMaxSize()) {
                 CurrentTab()
             }
         }

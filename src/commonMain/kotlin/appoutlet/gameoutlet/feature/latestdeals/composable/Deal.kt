@@ -25,7 +25,7 @@ import io.kamel.image.lazyPainterResource
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Deal(deal: DealUiModel, modifier: Modifier = Modifier) {
-    Card(modifier = modifier.fillMaxWidth().padding(MaterialTheme.spacing.verySmall)) {
+    Card(modifier = modifier.fillMaxWidth().padding(MaterialTheme.spacing.small)) {
         Column {
             KamelImage(
                 modifier = Modifier.fillMaxWidth().height(200.dp)
@@ -116,24 +116,24 @@ data class DealStoreUiModel(
 @Composable
 @Preview
 private fun DealPreview() {
-    GameOutletTheme {
-        val deal = DealUiModel(
-            gameId = "qwe",
-            gameImage =  "https://i.ytimg.com/vi/4PVYl2YigQg/maxresdefault.jpg",
-            gameTitle = "The end of the fucking world",
-            currentPrice = "49",
-            oldPrice = "100",
-            stores = listOf(
-                DealStoreUiModel(
-                    icon = "https://www.cheapshark.com/img/stores/logos/3.png",
-                    name = "Amazon"
-                ),
-                DealStoreUiModel(
-                    icon = "https://www.cheapshark.com/img/stores/logos/3.png",
-                    name = "Steam"
-                )
+    val dealSample = DealUiModel(
+        gameId = "qwe",
+        gameImage =  "https://i.ytimg.com/vi/4PVYl2YigQg/maxresdefault.jpg",
+        gameTitle = "The end of the fucking world",
+        currentPrice = "49",
+        oldPrice = "100",
+        stores = listOf(
+            DealStoreUiModel(
+                icon = "https://www.cheapshark.com/img/stores/logos/3.png",
+                name = "Amazon"
+            ),
+            DealStoreUiModel(
+                icon = "https://www.cheapshark.com/img/stores/logos/3.png",
+                name = "Steam"
             )
         )
-        Deal(deal)
+    )
+    GameOutletTheme {
+        Deal(dealSample)
     }
 }
