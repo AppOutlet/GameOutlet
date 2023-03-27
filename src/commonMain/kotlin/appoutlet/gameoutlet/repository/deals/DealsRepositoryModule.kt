@@ -5,7 +5,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 
 val dealsRepositoryModule = module {
-    factory { DealsRepository() }
+    factory { DealsRepository(get(), get()) }
 
     factory<DealApi> {
         val retrofit by inject<Retrofit>()
