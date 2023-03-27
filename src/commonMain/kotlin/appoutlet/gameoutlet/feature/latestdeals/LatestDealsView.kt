@@ -31,6 +31,9 @@ class LatestDealsView : View<LatestDealsUiState, LatestDealsInputEvent>() {
 
 @Composable
 private fun LatestDealsViewContent(uiState: LatestDealsUiState, onInputEvent: (LatestDealsInputEvent) -> Unit) {
+    when(uiState){
+        LatestDealsUiState.Idle -> onInputEvent(LatestDealsInputEvent.Load)
+    }
     LazyVerticalGrid(columns = GridCells.Adaptive(250.dp)) {
         item(span = {
             GridItemSpan(maxLineSpan)
