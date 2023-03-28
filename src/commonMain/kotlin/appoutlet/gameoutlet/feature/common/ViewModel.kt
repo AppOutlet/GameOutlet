@@ -5,15 +5,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-abstract class ViewModel<State : UiState, Event : InputEvent> {
+abstract class ViewModel<State : UiState, Event : InputEvent>(initialState: State) {
     protected lateinit var viewModelScope: CoroutineScope
-    protected lateinit var mutableUiState: MutableStateFlow<State>
+    protected val mutableUiState = MutableStateFlow(initialState)
     protected lateinit var navigator: Navigator
-    val uiState by lazy { mutableUiState.asStateFlow() }
+    val uiState = mutableUiState.asStateFlow()
 
-    fun init(scope: CoroutineScope, initialState: State, navigator: Navigator) {
+    fun init(scope: CoroutineScope, navigator: Navigator) {
         viewModelScope = scope
-        mutableUiState = MutableStateFlow(initialState)
         this.navigator = navigator
     }
 

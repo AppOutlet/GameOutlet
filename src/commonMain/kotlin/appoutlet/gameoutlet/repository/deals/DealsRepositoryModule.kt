@@ -11,4 +11,10 @@ val dealRepositoryModule = module {
         val retrofit by inject<Retrofit>()
         retrofit.create(DealApi::class.java)
     }
+
+    factory { DealGameMapper() }
+
+    factory { DealStoreMapper() }
+
+    factory { DealMapper(get(), get(), get()) }
 }

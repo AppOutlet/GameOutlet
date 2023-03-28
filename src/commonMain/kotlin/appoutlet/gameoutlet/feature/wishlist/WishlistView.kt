@@ -12,8 +12,6 @@ import org.koin.core.component.inject
 
 class WishlistView : View<WishlistUiState, WishlistInputEvent>() {
     override val viewModel by inject<WishlistViewModel>()
-    override val initialState = WishlistUiState.Idle
-
     @Composable
     override fun ViewContent(uiState: WishlistUiState, onInputEvent: (WishlistInputEvent) -> Unit) {
         Text(

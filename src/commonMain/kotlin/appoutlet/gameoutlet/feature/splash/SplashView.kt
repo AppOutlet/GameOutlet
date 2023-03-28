@@ -28,7 +28,6 @@ import org.koin.core.component.inject
 
 class SplashView : View<SplashUiState, SplashInputEvent>() {
     override val viewModel by inject<SplashViewModel>()
-    override val initialState = SplashUiState.Idle
 
     @Composable
     override fun ViewContent(uiState: SplashUiState, onInputEvent: (SplashInputEvent) -> Unit) {

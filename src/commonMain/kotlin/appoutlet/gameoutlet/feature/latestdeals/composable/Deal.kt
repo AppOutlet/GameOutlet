@@ -102,7 +102,7 @@ fun Deal(deal: DealUiModel, modifier: Modifier = Modifier) {
 data class DealUiModel(
     val gameTitle: String,
     val currentPrice: String,
-    val gameId: String,
+    val gameId: Long,
     val gameImage: String,
     val oldPrice: String,
     val stores: List<DealStoreUiModel>
@@ -117,7 +117,7 @@ data class DealStoreUiModel(
 @Preview
 private fun DealPreview() {
     val dealSample = DealUiModel(
-        gameId = "qwe",
+        gameId = 123,
         gameImage =  "https://i.ytimg.com/vi/4PVYl2YigQg/maxresdefault.jpg",
         gameTitle = "The end of the fucking world",
         currentPrice = "49",

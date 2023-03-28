@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.onStart
 class SplashViewModel(
     private val splashOrchestrator: SplashOrchestrator,
     private val homeViewProvider: HomeViewProvider,
-) : ViewModel<SplashUiState, SplashInputEvent>() {
+) : ViewModel<SplashUiState, SplashInputEvent>(initialState = SplashUiState.Idle) {
 
     override fun onInputEvent(inputEvent: SplashInputEvent) {
         when (inputEvent) {

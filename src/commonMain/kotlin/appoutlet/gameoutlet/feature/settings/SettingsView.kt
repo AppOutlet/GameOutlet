@@ -12,7 +12,6 @@ import org.koin.core.component.inject
 
 class SettingsView : View<SettingsUiState, SettingsInputEvent>() {
     override val viewModel by inject<SettingsViewModel>()
-    override val initialState = SettingsUiState.Idle
 
     @Composable
     override fun ViewContent(uiState: SettingsUiState, onInputEvent: (SettingsInputEvent) -> Unit) {
