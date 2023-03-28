@@ -11,6 +11,7 @@ class LatestDealsViewModel(
     override fun onInputEvent(inputEvent: LatestDealsInputEvent) {
         when (inputEvent) {
             LatestDealsInputEvent.Load -> loadLatestDeals()
+            is LatestDealsInputEvent.DealClicked -> onDealClicked(inputEvent.gameId)
         }
     }
 
@@ -21,5 +22,9 @@ class LatestDealsViewModel(
             .onStart { mutableUiState.value = LatestDealsUiState.Loading }
             .onEach { mutableUiState.value = LatestDealsUiState.Loaded(it) }
             .launchIn(viewModelScope)
+    }
+
+    private fun onDealClicked(gameId: Long) {
+        println(gameId)
     }
 }

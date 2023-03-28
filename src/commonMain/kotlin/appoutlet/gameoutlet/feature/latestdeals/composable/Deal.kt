@@ -1,8 +1,8 @@
 package appoutlet.gameoutlet.feature.latestdeals.composable
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -18,14 +18,23 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.core.ui.spacing
+import appoutlet.gameoutlet.feature.latestdeals.LatestDealsInputEvent
 import io.kamel.image.KamelImage
 import io.kamel.image.lazyPainterResource
 
-private val imageHeight = 176.dp
+private val imageHeight = 192.dp
+
 @Composable
-fun Deal(deal: DealUiModel, modifier: Modifier = Modifier) {
-    Card(modifier = modifier.fillMaxWidth().padding(MaterialTheme.spacing.small)) {
-        Column {
+fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (LatestDealsInputEvent) -> Unit) {
+    Card(
+        modifier = modifier.fillMaxWidth()
+            .padding(MaterialTheme.spacing.small),
+    ) {
+        Column(
+            modifier = Modifier.clickable {
+                onInputEvent(LatestDealsInputEvent.DealClicked(gameId = deal.gameId))
+            },
+        ) {
             KamelImage(
                 modifier = Modifier.fillMaxWidth()
                     .height(imageHeight)
@@ -120,6 +129,6 @@ private fun DealPreview() {
         )
     )
     GameOutletTheme {
-        Deal(dealSample)
+        Deal(dealSample, onInputEvent = { })
     }
 }

@@ -21,7 +21,7 @@ fun LatestDealsItems(deals: List<DealUiModel>, onInputEvent: (LatestDealsInputEv
         }
 
         items(deals) { deal ->
-            Deal(deal)
+            Deal(deal = deal, onInputEvent = onInputEvent)
         }
 
         item(span = {
