@@ -57,6 +57,7 @@ dependencies {
     commonMainImplementation(libs.retrofit.moshi)
     commonMainImplementation(libs.kamel)
     commonMainImplementation(libs.ktor.client)
+    commonMainImplementation(libs.slf4j.simple)
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.kotlinFixture)

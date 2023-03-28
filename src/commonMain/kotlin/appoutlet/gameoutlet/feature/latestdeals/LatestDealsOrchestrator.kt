@@ -21,15 +21,11 @@ class LatestDealsOrchestrator(
             async { appendStore(deal) }
         }
 
-        val dealsWithStore = deferredDeals.awaitAll().filterNotNull()
-        println(dealsWithStore)
-        dealsWithStore
+        deferredDeals.awaitAll().filterNotNull()
     }
 
     private fun appendStore(deal: Deal) : Deal? {
         val store = storeRepository.findById(deal.store.id)
-        println("Store")
-        println(store)
         return store?.let { deal.copy(store = it) }
     }
 }

@@ -16,16 +16,10 @@ class LatestDealsViewModel(
 
     private fun loadLatestDeals() {
         latestDealsOrchestrator.findLatestDeals()
-            .map {
-                println(it)
-                return@map latestDealsUiModelMapper(it)
-            }
+            .map { latestDealsUiModelMapper(it) }
             .catch { mutableUiState.value = LatestDealsUiState.Error }
             .onStart { mutableUiState.value = LatestDealsUiState.Loading }
-            .onEach {
-                println(it)
-                mutableUiState.value = LatestDealsUiState.Loaded(it)
-            }
+            .onEach { mutableUiState.value = LatestDealsUiState.Loaded(it) }
             .launchIn(viewModelScope)
     }
 }
