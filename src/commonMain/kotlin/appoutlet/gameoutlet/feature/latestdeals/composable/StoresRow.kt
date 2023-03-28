@@ -13,6 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.ui.spacing
 import io.kamel.image.KamelImage
@@ -25,19 +27,22 @@ fun StoresRow(uiModel: DealUiModel, modifier: Modifier = Modifier) {
     Row(modifier = modifier, verticalAlignment = Alignment.Bottom) {
         uiModel.stores.forEach { store ->
             TooltipArea(
+                modifier = Modifier.semantics { testTag = "${store.name} icon" },
                 tooltip = {
                     Text(
                         modifier = Modifier.background(
                             color = MaterialTheme.colorScheme.secondaryContainer,
                             shape = MaterialTheme.shapes.small
-                        ).padding(MaterialTheme.spacing.extraSmall),
+                        ).padding(MaterialTheme.spacing.extraSmall)
+                            .semantics { testTag = "${store.name} tooltip" },
                         text = store.name,
                         style = MaterialTheme.typography.labelSmall
                     )
                 },
                 content = {
                     KamelImage(
-                        modifier = Modifier.padding(horizontal = MaterialTheme.spacing.extraSmall).size(iconSize),
+                        modifier = Modifier.padding(horizontal = MaterialTheme.spacing.extraSmall)
+                            .size(iconSize),
                         resource = lazyPainterResource(data = store.icon),
                         contentDescription = null,
                         crossfade = false,
