@@ -13,6 +13,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.core.ui.GameOutletTheme
@@ -25,7 +27,7 @@ fun Loading(modifier: Modifier = Modifier, text: String = i18n.tr("Loading")) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        LinearProgressIndicator(modifier = Modifier.width(256.dp))
+        LinearProgressIndicator(modifier = Modifier.width(256.dp).semantics { testTag = "loadingIndicator" })
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
         Text(text = text, style = MaterialTheme.typography.bodyMedium)
     }
