@@ -11,7 +11,7 @@ class DealGameMapper {
             Game(
                 id = gameId,
                 title = dealResponse.title,
-                image = dealResponse.thumb,
+                image = dealResponse.thumb.replace("capsule_sm_120", "header"),
                 metacritic = null,
                 steam = null,
             )
