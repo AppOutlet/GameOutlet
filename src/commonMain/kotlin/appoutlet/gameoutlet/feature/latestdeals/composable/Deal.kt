@@ -30,6 +30,7 @@ import io.kamel.image.KamelImage
 import io.kamel.image.lazyPainterResource
 
 private val imageHeight = 192.dp
+private const val NORMAL_PRICE_ALPHA = .5f
 
 @Composable
 fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (LatestDealsInputEvent) -> Unit) {
@@ -75,7 +76,7 @@ fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (Latest
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        modifier = Modifier.alpha(.5f),
+                        modifier = Modifier.alpha(NORMAL_PRICE_ALPHA),
                         text = deal.oldPrice,
                         style = MaterialTheme.typography.labelSmall,
                         textDecoration = TextDecoration.LineThrough,
@@ -88,7 +89,7 @@ fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (Latest
                     .fillMaxWidth()
                     .padding(horizontal = MaterialTheme.spacing.small)
                     .padding(bottom = MaterialTheme.spacing.medium),
-                model = deal,
+                uiModel = deal,
             )
         }
     }

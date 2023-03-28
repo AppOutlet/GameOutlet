@@ -15,6 +15,11 @@ import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.FadeTransition
 import java.awt.Dimension
 
+private const val WINDOW_MIN_WIDTH = 550
+private const val WINDOW_MIN_HEIGHT = 500
+private const val WINDOW_WIDTH = 1000
+private const val WINDOW_HEIGHT = 690
+
 fun main() = application {
     initKoin()
     Window(
@@ -22,10 +27,10 @@ fun main() = application {
         title = "GameOutlet",
         icon = painterResource("image/icon.png"),
         state = rememberWindowState(
-            size = DpSize(1000.dp, 690.dp),
+            size = DpSize(WINDOW_WIDTH.dp, WINDOW_HEIGHT.dp),
         )
     ) {
-        window.minimumSize = Dimension(550, 500)
+        window.minimumSize = Dimension(WINDOW_MIN_WIDTH, WINDOW_MIN_HEIGHT)
         App()
     }
 }

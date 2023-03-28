@@ -34,7 +34,7 @@ private fun LatestDealsViewContent(uiState: LatestDealsUiState, onInputEvent: (L
 
         LatestDealsUiState.Loading -> Loading(text = i18n.tr("Fetching the latest deals for you"))
 
-        is LatestDealsUiState.Loaded -> LatestDealsItems(deals = uiState.uiModels, onInputEvent = onInputEvent)
+        is LatestDealsUiState.Loaded -> LatestDealsItems(uiState = uiState, onInputEvent = onInputEvent)
     }
 }
 

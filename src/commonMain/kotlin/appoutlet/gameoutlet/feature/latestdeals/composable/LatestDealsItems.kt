@@ -13,7 +13,11 @@ import appoutlet.gameoutlet.feature.latestdeals.LatestDealsInputEvent
 import appoutlet.gameoutlet.feature.latestdeals.LatestDealsUiState
 
 @Composable
-fun LatestDealsItems(uiState: LatestDealsUiState.Loaded, onInputEvent: (LatestDealsInputEvent) -> Unit, modifier: Modifier = Modifier) {
+fun LatestDealsItems(
+    uiState: LatestDealsUiState.Loaded,
+    onInputEvent: (LatestDealsInputEvent) -> Unit,
+    modifier: Modifier = Modifier,
+) {
     LazyVerticalGrid(modifier = modifier, columns = GridCells.Adaptive(250.dp)) {
         item(span = {
             GridItemSpan(maxLineSpan)
