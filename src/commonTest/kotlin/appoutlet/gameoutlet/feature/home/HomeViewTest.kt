@@ -47,6 +47,8 @@ class HomeViewTest : UiTest() {
 
     @Test
     fun `should start with Latest deals selected`() {
+        every { mockLatestDealsViewModel.uiState } returns MutableStateFlow(LatestDealsUiState.Loaded(uiModels = fixture()))
+
         composeTestRule.setContent { HomeView().Content() }
 
         composeTestRule.onNodeWithTag("latestDealsTab")
