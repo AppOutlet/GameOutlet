@@ -8,6 +8,11 @@ import appoutlet.gameoutlet.repository.deals.api.DealResponse
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
+import org.javamoney.moneta.Money
+import java.math.BigDecimal
+import java.util.*
+import javax.money.Monetary
+import javax.money.NumberValue
 
 class DealMapper(
     private val dealGameMapper: DealGameMapper,
@@ -38,12 +43,16 @@ class DealMapper(
             id = response.dealID,
             game = game,
             store = store,
-            salePrice = response.salePrice.toFloatOrNull() ?: 0F,
-            normalPrice = response.normalPrice.toFloatOrNull() ?: 0f,
+            salePrice = response.salePrice.asMoney(),
+            normalPrice = response.normalPrice.asMoney(),
             savings = response.savings.toFloatOrNull() ?: 0f,
             releaseDate = timeProvider.fromEpochMillis(response.releaseDate),
             lastChange = timeProvider.fromEpochMillis(response.lastChange),
             rating = response.dealRating?.toFloatOrNull() ?: 0f,
         )
+    }
+
+    private fun String.asMoney(): Money {
+        return Money.of(BigDecimal(this), "USD")
     }
 }

@@ -26,6 +26,7 @@ kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotl
 kotlinx-gettext = { module = "name.kropp.kotlinx-gettext:kotlinx-gettext", version.ref = "kotlinx-gettext" }
 ktor-client = "io.ktor:ktor-client-java:2.2.4"
 mockk = "io.mockk:mockk:1.13.4"
+moneta = "org.javamoney:moneta:1.4.2"
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
 truth = "com.google.truth:truth:1.1.3"

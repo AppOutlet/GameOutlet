@@ -58,6 +58,7 @@ dependencies {
     commonMainImplementation(libs.kamel)
     commonMainImplementation(libs.ktor.client)
     commonMainImplementation(libs.slf4j.simple)
+    commonMainImplementation(libs.moneta)
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.kotlinFixture)

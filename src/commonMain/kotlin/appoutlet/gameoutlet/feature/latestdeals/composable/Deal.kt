@@ -21,20 +21,22 @@ import appoutlet.gameoutlet.core.ui.spacing
 import io.kamel.image.KamelImage
 import io.kamel.image.lazyPainterResource
 
-@OptIn(ExperimentalFoundationApi::class)
+private val imageHeight = 176.dp
 @Composable
 fun Deal(deal: DealUiModel, modifier: Modifier = Modifier) {
     Card(modifier = modifier.fillMaxWidth().padding(MaterialTheme.spacing.small)) {
         Column {
             KamelImage(
-                modifier = Modifier.fillMaxWidth().height(200.dp)
+                modifier = Modifier.fillMaxWidth()
+                    .height(imageHeight)
                     .background(color = MaterialTheme.colorScheme.tertiaryContainer),
                 resource = lazyPainterResource(data = deal.gameImage),
                 contentDescription = null,
                 crossfade = true,
                 onLoading = {
                     Box(
-                        modifier = Modifier.height(200.dp).fillMaxWidth()
+                        modifier = Modifier.height(imageHeight)
+                            .fillMaxWidth()
                             .background(color = MaterialTheme.colorScheme.secondaryContainer)
                     )
                 },
@@ -50,7 +52,7 @@ fun Deal(deal: DealUiModel, modifier: Modifier = Modifier) {
                     style = MaterialTheme.typography.titleMedium,
                     maxLines = 3,
                     overflow = TextOverflow.Ellipsis,
-                    fontWeight = FontWeight.Medium
+                    fontWeight = FontWeight.Medium,
                 )
 
                 Column(
