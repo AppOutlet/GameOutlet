@@ -59,6 +59,7 @@ dependencies {
     commonMainImplementation(libs.ktor.client)
     commonMainImplementation(libs.slf4j.simple)
     commonMainImplementation(libs.moneta)
+    commonMainImplementation(libs.joda.time)
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.kotlinFixture)
