@@ -1,11 +1,16 @@
 package appoutlet.gameoutlet.feature.latestdeals
 
 import appoutlet.gameoutlet.feature.common.ViewModel
+import appoutlet.gameoutlet.feature.game.GameView
+import appoutlet.gameoutlet.feature.game.GameViewProvider
+import appoutlet.gameoutlet.feature.home.composable.GameSearchTab
+import cafe.adriel.voyager.navigator.tab.TabNavigator
 import kotlinx.coroutines.flow.*
 
 class LatestDealsViewModel(
     private val latestDealsOrchestrator: LatestDealsOrchestrator,
     private val latestDealsUiModelMapper: LatestDealsUiModelMapper,
+    private val gameViewProvider: GameViewProvider,
 ) : ViewModel<LatestDealsUiState, LatestDealsInputEvent>(initialState = LatestDealsUiState.Idle) {
 
     override fun onInputEvent(inputEvent: LatestDealsInputEvent) {
@@ -25,6 +30,6 @@ class LatestDealsViewModel(
     }
 
     private fun onDealClicked(gameId: Long) {
-        println(gameId)
+        navigator.push(gameViewProvider.getGameView(gameId))
     }
 }

@@ -16,10 +16,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.ui.spacing
-import appoutlet.gameoutlet.feature.home.composable.LatestDealsTab
-import appoutlet.gameoutlet.feature.home.composable.SettingsTab
-import appoutlet.gameoutlet.feature.home.composable.StoresTab
-import appoutlet.gameoutlet.feature.home.composable.WishlistTab
+import appoutlet.gameoutlet.feature.home.composable.*
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
@@ -42,6 +39,7 @@ private fun HomeViewContent() {
                 modifier = Modifier.width(250.dp).verticalScroll(rememberScrollState()),
             ) {
                 Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
+                DrawerNavigationItem(modifier = Modifier.semantics { testTag = "gameSearchTab" }, tab = GameSearchTab)
                 DrawerNavigationItem(modifier = Modifier.semantics { testTag = "latestDealsTab" }, tab = LatestDealsTab)
                 DrawerNavigationItem(modifier = Modifier.semantics { testTag = "wishlistTab" }, tab = WishlistTab)
                 DrawerNavigationItem(modifier = Modifier.semantics { testTag = "storesTab" }, tab = StoresTab)
