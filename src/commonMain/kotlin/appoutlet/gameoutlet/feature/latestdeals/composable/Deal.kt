@@ -2,7 +2,6 @@ package appoutlet.gameoutlet.feature.latestdeals.composable
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.TooltipArea
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Card
@@ -34,19 +33,24 @@ fun Deal(deal: DealUiModel, modifier: Modifier = Modifier) {
                 contentDescription = null,
                 crossfade = true,
                 onLoading = {
-                    Box(modifier = Modifier.height(200.dp).fillMaxWidth())
+                    Box(
+                        modifier = Modifier.height(200.dp).fillMaxWidth()
+                            .background(color = MaterialTheme.colorScheme.secondaryContainer)
+                    )
                 },
                 contentScale = ContentScale.Crop,
             )
 
-            Row(modifier = Modifier.padding(MaterialTheme.spacing.medium)) {
+            Row(
+                modifier = Modifier.padding(MaterialTheme.spacing.small)
+            ) {
                 Text(
-                    modifier = Modifier.weight(1f).heightIn(min = 60.dp),
+                    modifier = Modifier.heightIn(min = 72.dp).weight(1f),
                     text = deal.gameTitle,
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.SemiBold,
-                    maxLines = 2,
+                    style = MaterialTheme.typography.titleMedium,
+                    maxLines = 3,
                     overflow = TextOverflow.Ellipsis,
+                    fontWeight = FontWeight.Medium
                 )
 
                 Column(
@@ -55,46 +59,26 @@ fun Deal(deal: DealUiModel, modifier: Modifier = Modifier) {
                 ) {
                     Text(
                         text = deal.currentPrice,
-                        style = MaterialTheme.typography.titleLarge,
+                        style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.primary,
+                        fontWeight = FontWeight.Bold
                     )
                     Text(
                         modifier = Modifier.alpha(.5f),
                         text = deal.oldPrice,
-                        style = MaterialTheme.typography.bodySmall,
+                        style = MaterialTheme.typography.labelSmall,
                         textDecoration = TextDecoration.LineThrough,
                     )
                 }
             }
 
-            Row(
-                modifier = Modifier.padding(horizontal = MaterialTheme.spacing.small)
+            StoresRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = MaterialTheme.spacing.small)
                     .padding(bottom = MaterialTheme.spacing.medium),
-            ) {
-                deal.stores.forEach { store ->
-                    TooltipArea(tooltip = {
-                        Text(
-                            modifier = Modifier.background(
-                                color = MaterialTheme.colorScheme.secondaryContainer,
-                                shape = MaterialTheme.shapes.small
-                            ).padding(MaterialTheme.spacing.verySmall),
-                            text = store.name,
-                            style = MaterialTheme.typography.labelSmall
-                        )
-                    }, content = {
-                        KamelImage(
-                            modifier = Modifier.padding(horizontal = MaterialTheme.spacing.small).size(24.dp),
-                            resource = lazyPainterResource(data = store.icon),
-                            contentDescription = null,
-                            crossfade = false,
-                            contentScale = ContentScale.Crop,
-                            onLoading = {
-                                Box(modifier = Modifier.height(24.dp).fillMaxWidth())
-                            },
-                        )
-                    })
-                }
-            }
+                stores = deal.stores
+            )
         }
     }
 }
@@ -118,7 +102,7 @@ data class DealStoreUiModel(
 private fun DealPreview() {
     val dealSample = DealUiModel(
         gameId = 123,
-        gameImage =  "https://i.ytimg.com/vi/4PVYl2YigQg/maxresdefault.jpg",
+        gameImage = "https://i.ytimg.com/vi/4PVYl2YigQg/maxresdefault.jpg",
         gameTitle = "The end of the fucking world",
         currentPrice = "49",
         oldPrice = "100",

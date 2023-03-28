@@ -27,7 +27,7 @@ class LatestDealsUiModelMapper {
     }
 
     private fun mapStore(deals: List<Deal>) = deals.mapNotNull { deal ->
-        val logoUrl = deal.store.logoUrl
+        val logoUrl = deal.store.iconUrl
         logoUrl?.let { logo ->
             DealStoreUiModel(
                 icon = logo,
