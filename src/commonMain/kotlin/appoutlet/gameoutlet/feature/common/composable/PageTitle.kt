@@ -18,7 +18,7 @@ fun ScreenTitle(text: String) {
         modifier = Modifier.semantics { testTag = "screenTitle" }
             .padding(
                 bottom = MaterialTheme.spacing.small,
-                top = MaterialTheme.spacing.medium,
+                top = MaterialTheme.spacing.large,
                 start = MaterialTheme.spacing.small
             ),
         text = text,
