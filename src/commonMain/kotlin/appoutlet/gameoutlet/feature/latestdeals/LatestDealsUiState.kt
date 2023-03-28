@@ -10,5 +10,5 @@ sealed interface LatestDealsUiState : UiState {
     object Loading : LatestDealsUiState
 
     @Immutable
-    class Loaded(val uiModels: List<DealUiModel>) : LatestDealsUiState
+    data class Loaded(val uiModels: List<DealUiModel>) : LatestDealsUiState
 }

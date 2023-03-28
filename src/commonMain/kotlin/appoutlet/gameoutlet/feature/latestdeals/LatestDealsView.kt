@@ -4,6 +4,8 @@ import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.feature.common.View
@@ -27,7 +29,7 @@ private fun LatestDealsViewContent(uiState: LatestDealsUiState, onInputEvent: (L
         LatestDealsUiState.Idle -> onInputEvent(LatestDealsInputEvent.Load)
 
         LatestDealsUiState.Error -> Error(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().semantics { testTag = "errorIndicator" },
             message = i18n.tr("We were unable to get the latest deals"),
             onTryAgain = { onInputEvent(LatestDealsInputEvent.Load) },
         )
