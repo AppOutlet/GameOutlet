@@ -3,10 +3,14 @@ package appoutlet.gameoutlet.feature.latestdeals.composable
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.TooltipArea
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -17,24 +21,24 @@ import io.kamel.image.lazyPainterResource
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun StoresRow(stores: List<DealStoreUiModel>, modifier: Modifier = Modifier) {
+fun StoresRow(uiModel: DealUiModel, modifier: Modifier = Modifier) {
     val iconSize = 18.dp
     Row(modifier = modifier, verticalAlignment = Alignment.Bottom) {
-        stores.forEach { store ->
+        uiModel.stores.forEach { store ->
             TooltipArea(
                 tooltip = {
                     Text(
                         modifier = Modifier.background(
                             color = MaterialTheme.colorScheme.secondaryContainer,
                             shape = MaterialTheme.shapes.small
-                        ).padding(MaterialTheme.spacing.verySmall),
+                        ).padding(MaterialTheme.spacing.extraSmall),
                         text = store.name,
                         style = MaterialTheme.typography.labelSmall
                     )
                 },
                 content = {
                     KamelImage(
-                        modifier = Modifier.padding(horizontal = MaterialTheme.spacing.verySmall).size(iconSize),
+                        modifier = Modifier.padding(horizontal = MaterialTheme.spacing.extraSmall).size(iconSize),
                         resource = lazyPainterResource(data = store.icon),
                         contentDescription = null,
                         crossfade = false,
@@ -42,7 +46,7 @@ fun StoresRow(stores: List<DealStoreUiModel>, modifier: Modifier = Modifier) {
                         onLoading = {
                             Box(
                                 modifier = Modifier.size(iconSize)
-                                    .padding(horizontal = MaterialTheme.spacing.verySmall)
+                                    .padding(horizontal = MaterialTheme.spacing.extraSmall)
                                     .background(color = MaterialTheme.colorScheme.primaryContainer)
                             )
                         },

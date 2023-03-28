@@ -1,11 +1,13 @@
 package appoutlet.gameoutlet.feature.latestdeals
 
 import appoutlet.gameoutlet.feature.common.ViewModel
-import appoutlet.gameoutlet.feature.game.GameView
 import appoutlet.gameoutlet.feature.game.GameViewProvider
 import appoutlet.gameoutlet.feature.home.composable.GameSearchTab
-import cafe.adriel.voyager.navigator.tab.TabNavigator
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
 
 class LatestDealsViewModel(
     private val latestDealsOrchestrator: LatestDealsOrchestrator,
@@ -16,6 +18,7 @@ class LatestDealsViewModel(
     override fun onInputEvent(inputEvent: LatestDealsInputEvent) {
         when (inputEvent) {
             LatestDealsInputEvent.Load -> loadLatestDeals()
+            LatestDealsInputEvent.ToSearch -> goToSearchScreen()
             is LatestDealsInputEvent.DealClicked -> onDealClicked(inputEvent.gameId)
         }
     }
@@ -31,5 +34,9 @@ class LatestDealsViewModel(
 
     private fun onDealClicked(gameId: Long) {
         navigator.push(gameViewProvider.getGameView(gameId))
+    }
+
+    private fun goToSearchScreen() {
+        navigator.parent?.replaceAll(GameSearchTab)
     }
 }

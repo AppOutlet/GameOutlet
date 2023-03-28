@@ -3,11 +3,18 @@ package appoutlet.gameoutlet.feature.latestdeals.composable
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -26,14 +33,9 @@ private val imageHeight = 192.dp
 
 @Composable
 fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (LatestDealsInputEvent) -> Unit) {
-    Card(
-        modifier = modifier.fillMaxWidth()
-            .padding(MaterialTheme.spacing.small),
-    ) {
+    Card(modifier = modifier.fillMaxWidth().padding(MaterialTheme.spacing.small),) {
         Column(
-            modifier = Modifier.clickable {
-                onInputEvent(LatestDealsInputEvent.DealClicked(gameId = deal.gameId))
-            },
+            modifier = Modifier.clickable { onInputEvent(LatestDealsInputEvent.DealClicked(gameId = deal.gameId)) },
         ) {
             KamelImage(
                 modifier = Modifier.fillMaxWidth()
@@ -52,9 +54,7 @@ fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (Latest
                 contentScale = ContentScale.Crop,
             )
 
-            Row(
-                modifier = Modifier.padding(MaterialTheme.spacing.small)
-            ) {
+            Row(modifier = Modifier.padding(MaterialTheme.spacing.small)) {
                 Text(
                     modifier = Modifier.heightIn(min = 72.dp).weight(1f),
                     text = deal.gameTitle,
@@ -88,12 +88,13 @@ fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (Latest
                     .fillMaxWidth()
                     .padding(horizontal = MaterialTheme.spacing.small)
                     .padding(bottom = MaterialTheme.spacing.medium),
-                stores = deal.stores
+                model = deal,
             )
         }
     }
 }
 
+@Immutable
 data class DealUiModel(
     val gameTitle: String,
     val currentPrice: String,

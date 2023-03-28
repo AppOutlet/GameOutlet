@@ -24,7 +24,7 @@ class LatestDealsOrchestrator(
         deferredDeals.awaitAll().filterNotNull()
     }
 
-    private fun appendStore(deal: Deal) : Deal? {
+    private fun appendStore(deal: Deal): Deal? {
         val store = storeRepository.findById(deal.store.id)
         return store?.let { deal.copy(store = it) }
     }

@@ -11,8 +11,6 @@ import kotlinx.coroutines.coroutineScope
 import org.javamoney.moneta.Money
 import java.math.BigDecimal
 import java.util.*
-import javax.money.Monetary
-import javax.money.NumberValue
 
 class DealMapper(
     private val dealGameMapper: DealGameMapper,

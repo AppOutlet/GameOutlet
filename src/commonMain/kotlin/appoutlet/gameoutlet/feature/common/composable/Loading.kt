@@ -1,7 +1,12 @@
 package appoutlet.gameoutlet.feature.common.composable
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -14,7 +19,7 @@ import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.core.ui.spacing
 
 @Composable
-fun Loading(text: String = i18n.tr("Loading"), modifier: Modifier = Modifier) {
+fun Loading(modifier: Modifier = Modifier, text: String = i18n.tr("Loading")) {
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -25,7 +30,6 @@ fun Loading(text: String = i18n.tr("Loading"), modifier: Modifier = Modifier) {
         Text(text = text, style = MaterialTheme.typography.bodyMedium)
     }
 }
-
 
 @Composable
 @Preview

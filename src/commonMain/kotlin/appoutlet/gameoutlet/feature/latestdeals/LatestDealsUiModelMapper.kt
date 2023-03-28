@@ -5,7 +5,6 @@ import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.feature.latestdeals.composable.DealStoreUiModel
 import appoutlet.gameoutlet.feature.latestdeals.composable.DealUiModel
 import org.javamoney.moneta.format.CurrencyStyle
-import java.util.Currency
 import java.util.Locale
 import javax.money.format.AmountFormatQueryBuilder
 import javax.money.format.MonetaryFormats

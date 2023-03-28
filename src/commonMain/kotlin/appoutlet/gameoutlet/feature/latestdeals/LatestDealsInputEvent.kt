@@ -4,5 +4,6 @@ import appoutlet.gameoutlet.feature.common.InputEvent
 
 sealed interface LatestDealsInputEvent : InputEvent {
     object Load : LatestDealsInputEvent
-    class DealClicked(val gameId: Long): LatestDealsInputEvent
+    object ToSearch : LatestDealsInputEvent
+    class DealClicked(val gameId: Long) : LatestDealsInputEvent
 }

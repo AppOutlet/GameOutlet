@@ -1,6 +1,5 @@
 package appoutlet.gameoutlet.repository.store
 
-import appoutlet.gameoutlet.core.database.StoreEntity
 import appoutlet.gameoutlet.core.database.StoreQueries
 import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.repository.store.api.StoreApi

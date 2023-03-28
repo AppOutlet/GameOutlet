@@ -1,6 +1,11 @@
 package appoutlet.gameoutlet.feature.home
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -16,7 +21,11 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.ui.spacing
-import appoutlet.gameoutlet.feature.home.composable.*
+import appoutlet.gameoutlet.feature.home.composable.GameSearchTab
+import appoutlet.gameoutlet.feature.home.composable.LatestDealsTab
+import appoutlet.gameoutlet.feature.home.composable.SettingsTab
+import appoutlet.gameoutlet.feature.home.composable.StoresTab
+import appoutlet.gameoutlet.feature.home.composable.WishlistTab
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
@@ -60,7 +69,7 @@ private fun DrawerNavigationItem(tab: Tab, modifier: Modifier = Modifier) {
 
     NavigationDrawerItem(
         modifier = modifier.padding(horizontal = MaterialTheme.spacing.small)
-            .padding(top = MaterialTheme.spacing.verySmall),
+            .padding(top = MaterialTheme.spacing.extraSmall),
         icon = { tab.options.icon?.let { painter -> Icon(painter, contentDescription = null) } },
         label = { Text(tab.options.title) },
         selected = tab.key == tabNavigator.current.key,

@@ -13,9 +13,9 @@ import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.core.ui.spacing
 
 @Composable
-fun ScreenTitle(text: String) {
+fun ScreenTitle(text: String, modifier: Modifier = Modifier) {
     Text(
-        modifier = Modifier.semantics { testTag = "screenTitle" }
+        modifier = modifier.semantics { testTag = "screenTitle" }
             .padding(
                 bottom = MaterialTheme.spacing.small,
                 top = MaterialTheme.spacing.large,

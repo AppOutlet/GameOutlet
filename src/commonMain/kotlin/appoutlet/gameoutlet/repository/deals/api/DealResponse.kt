@@ -1,6 +1,5 @@
 package appoutlet.gameoutlet.repository.deals.api
 
-
 data class DealResponse(
     val internalName: String,
     val title: String,
