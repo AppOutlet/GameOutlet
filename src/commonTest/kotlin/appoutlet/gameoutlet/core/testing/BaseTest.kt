@@ -12,7 +12,7 @@ abstract class BaseTest {
     protected val fixture = kotlinFixture {
         nullabilityStrategy(NeverNullStrategy)
         factory<Money> {
-            Money.of(BigDecimal(random.nextInt()), "USD")
+            Money.of(BigDecimal((1..100).random()), "USD")
         }
         factory<LocalDateTime> {
             LocalDateTime.now()
