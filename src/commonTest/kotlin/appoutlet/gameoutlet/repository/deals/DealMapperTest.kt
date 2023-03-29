@@ -106,7 +106,7 @@ class DealMapperTest : UnitTest<DealMapper>() {
         val fixtureStore = fixture<Store>()
         val fixtureLocalDateTime = fixture<LocalDateTime>()
 
-        fixtureResponses.forEachIndexed { index, dealResponse ->
+        fixtureResponses.forEach { dealResponse ->
             every { mockDealGameMapper.invoke(dealResponse) } returns null
             every { mockDealStoreMapper.invoke(dealResponse) } returns fixtureStore
             every { mockTimeProvider.fromEpochMillis(dealResponse.releaseDate) } returns fixtureLocalDateTime
@@ -157,7 +157,7 @@ class DealMapperTest : UnitTest<DealMapper>() {
         val fixtureStore = fixture<Store>()
         val fixtureLocalDateTime = fixture<LocalDateTime>()
 
-        fixtureResponses.forEachIndexed { index, dealResponse ->
+        fixtureResponses.forEach { dealResponse ->
             every { mockDealGameMapper.invoke(dealResponse) } returns fixtureGame
             every { mockDealStoreMapper.invoke(dealResponse) } returns null
             every { mockTimeProvider.fromEpochMillis(dealResponse.releaseDate) } returns fixtureLocalDateTime

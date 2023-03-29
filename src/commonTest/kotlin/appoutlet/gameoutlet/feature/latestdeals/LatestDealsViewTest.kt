@@ -70,8 +70,6 @@ class LatestDealsViewTest : UiTest() {
 
         composeTestRule.waitForIdle()
 
-        println(composeTestRule.onRoot().printToString())
-
         verify { mockOnInputEvent.invoke(LatestDealsInputEvent.DealClicked(firstDeal.gameId)) }
     }
 
