@@ -3,9 +3,9 @@ package appoutlet.gameoutlet.core.testing
 import com.appmattus.kotlinfixture.decorator.nullability.NeverNullStrategy
 import com.appmattus.kotlinfixture.decorator.nullability.nullabilityStrategy
 import com.appmattus.kotlinfixture.kotlinFixture
+import org.javamoney.moneta.Money
 import java.math.BigDecimal
 import java.time.LocalDateTime
-import org.javamoney.moneta.Money
 
 @Suppress("UnnecessaryAbstractClass")
 abstract class BaseTest {

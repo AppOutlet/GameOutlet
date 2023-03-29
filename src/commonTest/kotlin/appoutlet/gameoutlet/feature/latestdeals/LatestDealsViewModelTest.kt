@@ -11,13 +11,13 @@ import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import kotlin.test.Test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
+import kotlin.test.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class LatestDealsViewModelTest : ViewModelTest<LatestDealsViewModel>() {
@@ -58,6 +58,7 @@ class LatestDealsViewModelTest : ViewModelTest<LatestDealsViewModel>() {
         assertThat(sut.uiState.value).isEqualTo(LatestDealsUiState.Loaded(fixtureLatestDealsUiModels))
     }
 
+    @Suppress("TooGenericExceptionThrown")
     @Test
     fun `should load latest deals - error`() = runTest {
         val fixtureLatestDeals = fixture<List<Deal>>()

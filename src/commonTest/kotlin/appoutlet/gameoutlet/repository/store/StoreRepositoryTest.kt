@@ -100,4 +100,33 @@ class StoreRepositoryTest : UnitTest<StoreRepository>() {
         verify { mockStoreQueries.save(fixtureStoreEntityList.first()) }
         verify { mockStoreCacheRepository.registerStoreListCached() }
     }
+
+    @Test
+    fun `should find by id`() {
+        val mockQueryStoreEntity = mockk<Query<StoreEntity>>()
+        val fixtureStoreId = fixture<Int>()
+        val fixtureStoreEntity = fixture<StoreEntity>()
+        val fixtureStore = fixture<Store>()
+
+        every { mockStoreQueries.findById(fixtureStoreId.toLong()) } returns mockQueryStoreEntity
+        every { mockQueryStoreEntity.executeAsOneOrNull() } returns fixtureStoreEntity
+        every { mockStoreMapper.invoke(fixtureStoreEntity) } returns fixtureStore
+
+        val actual = sut.findById(fixtureStoreId)
+
+        assertThat(actual).isEqualTo(fixtureStore)
+    }
+
+    @Test
+    fun `should find by id - not found`() {
+        val mockQueryStoreEntity = mockk<Query<StoreEntity>>()
+        val fixtureStoreId = fixture<Int>()
+
+        every { mockStoreQueries.findById(fixtureStoreId.toLong()) } returns mockQueryStoreEntity
+        every { mockQueryStoreEntity.executeAsOneOrNull() } returns null
+
+        val actual = sut.findById(fixtureStoreId)
+
+        assertThat(actual).isNull()
+    }
 }

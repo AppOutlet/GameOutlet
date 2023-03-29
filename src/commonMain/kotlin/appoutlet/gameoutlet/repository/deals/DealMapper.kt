@@ -5,11 +5,11 @@ import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.repository.deals.api.DealResponse
-import java.math.BigDecimal
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import org.javamoney.moneta.Money
+import java.math.BigDecimal
 
 class DealMapper(
     private val dealGameMapper: DealGameMapper,

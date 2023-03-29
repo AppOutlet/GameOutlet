@@ -8,10 +8,10 @@ import appoutlet.gameoutlet.repository.deals.api.DealResponse
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockk
-import java.time.LocalDateTime
-import kotlin.test.Test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
+import java.time.LocalDateTime
+import kotlin.test.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class DealMapperTest : UnitTest<DealMapper>() {
@@ -66,7 +66,7 @@ class DealMapperTest : UnitTest<DealMapper>() {
             val fixtureGame = fixtureGames[index]
             val fixtureStore = fixtureStores[index]
 
-            with(deal){
+            with(deal) {
                 assertThat(id).isEqualTo(response.dealID)
                 assertThat(game).isEqualTo(fixtureGame)
                 assertThat(store).isEqualTo(fixtureStore)
@@ -77,6 +77,7 @@ class DealMapperTest : UnitTest<DealMapper>() {
             }
         }
     }
+
     @Test
     fun `should not map if the game is missing`() = runTest {
         val fixtureResponses = listOf(
@@ -117,7 +118,7 @@ class DealMapperTest : UnitTest<DealMapper>() {
 
         assertThat(actual.size).isEqualTo(1)
         val response = fixtureResponses.first()
-        with(actual.first()){
+        with(actual.first()) {
             assertThat(id).isEqualTo(response.dealID)
             assertThat(game).isEqualTo(fixtureGame)
             assertThat(store).isEqualTo(fixtureStore)
@@ -168,7 +169,7 @@ class DealMapperTest : UnitTest<DealMapper>() {
 
         assertThat(actual.size).isEqualTo(1)
         val response = fixtureResponses.first()
-        with(actual.first()){
+        with(actual.first()) {
             assertThat(id).isEqualTo(response.dealID)
             assertThat(game).isEqualTo(fixtureGame)
             assertThat(store).isEqualTo(fixtureStore)
