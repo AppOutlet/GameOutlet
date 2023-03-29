@@ -47,6 +47,10 @@ class HomeViewTest : UiTest() {
 
     @Test
     fun `should start with Latest deals selected`() {
+        every { mockLatestDealsViewModel.uiState } returns MutableStateFlow(
+            LatestDealsUiState.Loaded(uiModels = fixture())
+        )
+
         composeTestRule.setContent { HomeView().Content() }
 
         composeTestRule.onNodeWithTag("latestDealsTab")
@@ -93,5 +97,18 @@ class HomeViewTest : UiTest() {
 
         composeTestRule.onNodeWithTag("screenTitle")
             .assertTextEquals(i18n.tr("Settings"))
+    }
+
+    @Test
+    fun `should navigate to game search`() {
+        composeTestRule.setContent { Navigator(HomeView()) }
+
+        composeTestRule.onNodeWithTag("gameSearchTab")
+            .performClick()
+
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("screenTitle")
+            .assertTextEquals(i18n.tr("Game search"))
     }
 }

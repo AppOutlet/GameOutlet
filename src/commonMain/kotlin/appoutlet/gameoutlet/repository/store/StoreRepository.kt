@@ -38,4 +38,9 @@ class StoreRepository(
 
         return stores
     }
+
+    fun findById(id: Int): Store? {
+        val storeEntity = storeQueries.findById(id.toLong()).executeAsOneOrNull()
+        return storeEntity?.let { storeMapper(it) }
+    }
 }

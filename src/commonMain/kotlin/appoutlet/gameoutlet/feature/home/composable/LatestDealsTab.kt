@@ -1,5 +1,6 @@
 package appoutlet.gameoutlet.feature.home.composable
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ShoppingBasket
 import androidx.compose.runtime.Composable
@@ -9,6 +10,7 @@ import appoutlet.gameoutlet.feature.latestdeals.LatestDealsView
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
+import cafe.adriel.voyager.transitions.SlideTransition
 
 object LatestDealsTab : Tab {
     override val options: TabOptions
@@ -19,8 +21,11 @@ object LatestDealsTab : Tab {
             icon = rememberVectorPainter(Icons.Outlined.ShoppingBasket)
         )
 
+    @OptIn(ExperimentalAnimationApi::class)
     @Composable
     override fun Content() {
-        Navigator(LatestDealsView())
+        Navigator(LatestDealsView()) {
+            SlideTransition(it)
+        }
     }
 }

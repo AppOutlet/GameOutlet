@@ -1,6 +1,7 @@
 package appoutlet.gameoutlet.feature.common.composable
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -24,7 +25,11 @@ fun Error(
     buttonText: String = i18n.tr("Try again"),
     onTryAgain: (() -> Unit)? = null
 ) {
-    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
         Text(
             modifier = Modifier.semantics { testTag = "title" },
             text = title,

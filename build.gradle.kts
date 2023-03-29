@@ -55,6 +55,11 @@ dependencies {
     commonMainImplementation(libs.sqldelight.sqliteDriver)
     commonMainImplementation(libs.retrofit)
     commonMainImplementation(libs.retrofit.moshi)
+    commonMainImplementation(libs.kamel)
+    commonMainImplementation(libs.ktor.client)
+    commonMainImplementation(libs.slf4j.simple)
+    commonMainImplementation(libs.moneta)
+    commonMainImplementation(libs.joda.time)
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.kotlinFixture)
