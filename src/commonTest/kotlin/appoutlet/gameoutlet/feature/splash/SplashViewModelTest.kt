@@ -19,7 +19,6 @@ import kotlin.test.Test
 class SplashViewModelTest : UnitTest<SplashViewModel>() {
     private val mockSplashOrchestrator = mockk<SplashOrchestrator>()
     private val mockHomeViewProvider = mockk<HomeViewProvider>()
-    private val initialState = SplashUiState.Idle
     private val mockNavigator = mockk<Navigator>(relaxUnitFun = true)
     private val mockHomeView = mockk<HomeView>()
 
@@ -30,7 +29,7 @@ class SplashViewModelTest : UnitTest<SplashViewModel>() {
 
     @Test
     fun `should sync stores`() = runTest {
-        sut.init(this, initialState, mockNavigator)
+        sut.init(this, mockNavigator)
 
         every { mockSplashOrchestrator.synchronizeStoreData() } returns flow {
             delay(3)

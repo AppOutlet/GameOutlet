@@ -12,7 +12,6 @@ import org.koin.core.component.inject
 
 class StoreListView : View<StoreListUiState, StoreListInputEvent>() {
     override val viewModel by inject<StoreListViewModel>()
-    override val initialState = StoreListUiState.Idle
 
     @Composable
     override fun ViewContent(uiState: StoreListUiState, onInputEvent: (StoreListInputEvent) -> Unit) {
