@@ -6,6 +6,11 @@ class GameViewModel : ViewModel<GameUiState, GameInputEvent>(initialState = Game
     override fun onInputEvent(inputEvent: GameInputEvent) {
         when (inputEvent) {
             GameInputEvent.NavigateBack -> navigator.pop()
+            is GameInputEvent.Load -> loadGame(inputEvent.gameId)
         }
+    }
+
+    private fun loadGame(gameId: Long) {
+        println("Loading game: $gameId")
     }
 }

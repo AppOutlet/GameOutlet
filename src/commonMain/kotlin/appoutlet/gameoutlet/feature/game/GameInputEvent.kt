@@ -4,4 +4,5 @@ import appoutlet.gameoutlet.feature.common.InputEvent
 
 sealed interface GameInputEvent : InputEvent {
     object NavigateBack : GameInputEvent
+    data class Load(val gameId: Long) : GameInputEvent
 }
