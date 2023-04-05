@@ -14,25 +14,25 @@ import appoutlet.gameoutlet.feature.common.composable.ScreenTitle
 import appoutlet.gameoutlet.feature.game.composable.GameDetails
 import org.koin.core.component.inject
 
-class GameView(private val gameId: Long) : View<GameUiState, GameInputEvent>() {
+class GameView(private val navArgs: GameNavArgs) : View<GameUiState, GameInputEvent>() {
     override val viewModel by inject<GameViewModel>()
 
     @Composable
     override fun ViewContent(uiState: GameUiState, onInputEvent: (GameInputEvent) -> Unit) {
-        GameViewContent(gameId, uiState, onInputEvent)
+        GameViewContent(navArgs, uiState, onInputEvent)
     }
 }
 
 
 @Composable
-private fun GameViewContent(gameId: Long, uiState: GameUiState, onInputEvent: (GameInputEvent) -> Unit) {
+private fun GameViewContent(navArgs: GameNavArgs, uiState: GameUiState, onInputEvent: (GameInputEvent) -> Unit) {
     when (uiState) {
-        GameUiState.Idle -> onInputEvent(GameInputEvent.Load(gameId))
+        GameUiState.Idle -> onInputEvent(GameInputEvent.Load(navArgs))
 
         GameUiState.Error -> Error(
             modifier = Modifier.fillMaxSize(),
             message = i18n.tr("We could not load the data from the selected game"),
-            onTryAgain = { onInputEvent(GameInputEvent.Load(gameId)) }
+            onTryAgain = { onInputEvent(GameInputEvent.Load(navArgs)) }
         )
 
         GameUiState.Loading -> Loading(

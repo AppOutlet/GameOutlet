@@ -1,6 +1,7 @@
 package appoutlet.gameoutlet.repository.deals
 
 import appoutlet.gameoutlet.core.util.TimeProvider
+import appoutlet.gameoutlet.core.util.asMoney
 import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.domain.Store
@@ -47,9 +48,5 @@ class DealMapper(
             lastChange = timeProvider.fromEpochMillis(response.lastChange),
             rating = response.dealRating?.toFloatOrNull() ?: 0f,
         )
-    }
-
-    private fun String.asMoney(): Money {
-        return Money.of(BigDecimal(this), "USD")
     }
 }

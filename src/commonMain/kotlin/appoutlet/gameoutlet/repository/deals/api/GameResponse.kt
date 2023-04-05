@@ -1,4 +1,4 @@
-package appoutlet.gameoutlet.repository.game.api
+package appoutlet.gameoutlet.repository.deals.api
 
 data class GameResponse(
     val info: GameInfoResponse,
