@@ -13,66 +13,104 @@ msgstr ""
 "\n"
 "PO-Revision-Date: 2023-03-20 11:26+0000\n"
 "Last-Translator: Blueberryy <igory.ygr200@gmail.com>, 2023\n"
-"Language-Team: Russian (https://www.transifex.com/app-outlet/teams/121024/ru/)\n"
+"Language-Team: Russian (https://app.transifex.com/app-outlet/teams/121024/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:76
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:75
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:41
 msgid "Powered by App Outlet"
 msgstr "Работает на App Outlet"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:68
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:67
 msgid "Occurred an error when loading the store data"
 msgstr "Произошла ошибка при загрузке данных магазина"
 
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Loading.kt:24
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/composable/SplashLoadingIndicator.kt:24
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/composable/SplashLoadingIndicatorKtTest.kt:20
 msgid "Loading"
 msgstr "Загрузка"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:22
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:23
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:20
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorKtTest.kt:27
 msgid "Something went wrong"
 msgstr "Что-то пошло не так"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:23
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:24
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:21
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorKtTest.kt:31
 msgid "An unexpected error occurred"
 msgstr "Произошла непредвиденная ошибка"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:24
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:25
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:22
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:48
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:70
 msgid "Try again"
 msgstr "Попробовать снова"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:53
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:52
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:33
 msgid "GameOutlet logo"
 msgstr "Логотип GameOutlet"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/LatestDealsTab.kt:18
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/LatestDealsTab.kt:20
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsView.kt:15
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/composable/LatestDealsItems.kt:25
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:60
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:66
 msgid "Latest deals"
 msgstr "Последние предложения"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/SettingsTab.kt:18
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/settings/SettingsView.kt:15
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/settings/SettingsView.kt:20
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:99
 msgid "Settings"
 msgstr "Настройки"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/StoresTab.kt:18
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/StoreListView.kt:15
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/StoreListView.kt:20
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:86
 msgid "Stores"
 msgstr "Магазины"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/WishlistTab.kt:18
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/WishlistView.kt:15
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/WishlistView.kt:20
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:73
 msgid "Wishlist"
 msgstr "Список желаемого"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/GameSearchTab.kt:17
+msgid "Search"
+msgstr "Поиск"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/GameSearchTab.kt:23
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:112
+msgid "Game search"
+msgstr "Поиск игры"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsView.kt:33
+msgid "We were unable to get the latest deals"
+msgstr "Нам не удалось получить последние предложения"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsView.kt:37
+msgid "Fetching the latest deals for you"
+msgstr "Подборка последних предложений для вас"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/composable/LatestDealsFooter.kt:33
+msgid "Didn't find what you were looking for?"
+msgstr "Не нашли то, что искали?"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/composable/LatestDealsFooter.kt:38
+msgid "You can search by your favorite games in the search screen!"
+msgstr "Вы можете искать по своим любимым играм на экране поиска!"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/composable/LatestDealsFooter.kt:52
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:86
+msgid "Take me to search screen"
+msgstr "Перейти на экран поиска"
