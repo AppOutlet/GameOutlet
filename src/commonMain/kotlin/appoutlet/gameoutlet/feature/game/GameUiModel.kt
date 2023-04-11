@@ -10,6 +10,7 @@ data class GameUiModel(
 )
 
 data class GameDealUiModel(
+    val id: String,
     val store: GameDealStoreUiModel,
     val salePrice: String,
     val normalPrice: String,

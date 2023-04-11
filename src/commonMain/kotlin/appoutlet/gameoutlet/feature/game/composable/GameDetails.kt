@@ -1,6 +1,5 @@
 package appoutlet.gameoutlet.feature.game.composable
 
-import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,11 +22,8 @@ import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.core.ui.spacing
 import appoutlet.gameoutlet.feature.common.composable.ScreenTitle
-import appoutlet.gameoutlet.feature.game.GameDealStoreUiModel
-import appoutlet.gameoutlet.feature.game.GameDealUiModel
 import appoutlet.gameoutlet.feature.game.GameInputEvent
 import appoutlet.gameoutlet.feature.game.GameUiModel
 import io.kamel.image.KamelImage
@@ -69,6 +65,6 @@ fun GameDetails(uiState: GameUiModel, onInputEvent: (GameInputEvent) -> Unit) {
             ScreenTitle(text = uiState.title)
         }
 
-        GameDetailsDealsList(uiState)
+        GameDetailsDealsList(uiState = uiState, onInputEvent = onInputEvent)
     }
 }

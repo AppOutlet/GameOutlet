@@ -27,6 +27,7 @@ class GameUiModelMapper {
         val deferredDealUiModels = deals.map { deal ->
             async {
                 GameDealUiModel(
+                    id = deal.id,
                     salePrice = amountFormat.format(deal.salePrice),
                     normalPrice = amountFormat.format(deal.normalPrice),
                     store = mapStore(deal.store)

@@ -1,14 +1,13 @@
 package appoutlet.gameoutlet.feature.game.composable
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
@@ -24,12 +23,13 @@ import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.core.ui.spacing
 import appoutlet.gameoutlet.feature.game.GameDealStoreUiModel
 import appoutlet.gameoutlet.feature.game.GameDealUiModel
+import appoutlet.gameoutlet.feature.game.GameInputEvent
 import appoutlet.gameoutlet.feature.game.GameUiModel
 import io.kamel.image.KamelImage
 import io.kamel.image.lazyPainterResource
 
 @Composable
-fun GameDetailsDealsList(uiState: GameUiModel, modifier: Modifier = Modifier) {
+fun GameDetailsDealsList(uiState: GameUiModel, onInputEvent: (GameInputEvent) -> Unit, modifier: Modifier = Modifier) {
     Column(modifier = modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             modifier = Modifier
@@ -48,7 +48,7 @@ fun GameDetailsDealsList(uiState: GameUiModel, modifier: Modifier = Modifier) {
         ) {
             Column {
                 for ((index, deal) in uiState.deals.withIndex()) {
-                    Deal(item = deal)
+                    Deal(item = deal, onInputEvent = onInputEvent)
                     if (index != uiState.deals.lastIndex) {
                         Divider(modifier.fillMaxWidth())
                     }
@@ -59,9 +59,11 @@ fun GameDetailsDealsList(uiState: GameUiModel, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun Deal(item: GameDealUiModel, modifier: Modifier = Modifier) {
+private fun Deal(item: GameDealUiModel, onInputEvent: (GameInputEvent) -> Unit, modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth().clickable {
+            onInputEvent(GameInputEvent.DealClicked(item))
+        },
         verticalAlignment = Alignment.CenterVertically
     ) {
         KamelImage(
@@ -99,6 +101,7 @@ private fun GameDetailsDealsListPreview() {
     val gameUiModel = GameUiModel(
         title = "My amazing game", image = "image.png", deals = listOf(
             GameDealUiModel(
+                id = "13123",
                 store = GameDealStoreUiModel(
                     name = "Steam", icon = "SteamIcon.png"
                 ), salePrice = "$15.00", normalPrice = "$150.00"
@@ -107,6 +110,6 @@ private fun GameDetailsDealsListPreview() {
     )
 
     GameOutletTheme {
-        GameDetailsDealsList(gameUiModel)
+        GameDetailsDealsList(gameUiModel, onInputEvent = { })
     }
 }
