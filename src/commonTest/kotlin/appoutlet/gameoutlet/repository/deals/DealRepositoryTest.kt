@@ -4,6 +4,7 @@ import appoutlet.gameoutlet.core.testing.UnitTest
 import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.repository.deals.api.DealApi
 import appoutlet.gameoutlet.repository.deals.api.DealResponse
+import appoutlet.gameoutlet.repository.deals.api.GameApi
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -15,9 +16,14 @@ import kotlin.test.Test
 class DealRepositoryTest : UnitTest<DealRepository>() {
     private val mockDealApi = mockk<DealApi>()
     private val mockDealMapper = mockk<DealMapper>()
+    private val mockGameApi = mockk<GameApi>()
+    private val mockGameDealMapper = mockk<GameDealMapper>()
+
     override fun buildSut() = DealRepository(
         dealApi = mockDealApi,
         dealMapper = mockDealMapper,
+        gameApi = mockGameApi,
+        gameDealMapper = mockGameDealMapper
     )
 
     @Test

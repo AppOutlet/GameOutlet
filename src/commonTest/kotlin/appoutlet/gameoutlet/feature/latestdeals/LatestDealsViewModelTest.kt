@@ -2,6 +2,7 @@ package appoutlet.gameoutlet.feature.latestdeals
 
 import appoutlet.gameoutlet.core.testing.ViewModelTest
 import appoutlet.gameoutlet.domain.Deal
+import appoutlet.gameoutlet.feature.game.GameNavArgs
 import appoutlet.gameoutlet.feature.game.GameView
 import appoutlet.gameoutlet.feature.game.GameViewProvider
 import appoutlet.gameoutlet.feature.home.composable.GameSearchTab
@@ -99,12 +100,17 @@ class LatestDealsViewModelTest : ViewModelTest<LatestDealsViewModel>() {
 
     @Test
     fun `should go to deal detail`() = runViewModelTest {
-        val fixtureGameId = fixture<Long>()
+        val fixtureDealUiModel = fixture<DealUiModel>()
+        val fixtureGameNavArgs = GameNavArgs(
+            gameId = fixtureDealUiModel.gameId,
+            gameTitle = fixtureDealUiModel.gameTitle,
+            gameImage = fixtureDealUiModel.gameImage,
+        )
         val mockGameView = mockk<GameView>()
 
-        every { mockGameViewProvider.getGameView(fixtureGameId) } returns mockGameView
+        every { mockGameViewProvider.getGameView(fixtureGameNavArgs) } returns mockGameView
 
-        sut.onInputEvent(LatestDealsInputEvent.DealClicked(fixtureGameId))
+        sut.onInputEvent(LatestDealsInputEvent.DealClicked(fixtureDealUiModel))
 
         verify { mockNavigator.push(mockGameView) }
     }

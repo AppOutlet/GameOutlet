@@ -36,7 +36,7 @@ private const val NORMAL_PRICE_ALPHA = .5f
 fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (LatestDealsInputEvent) -> Unit) {
     Card(modifier = modifier.fillMaxWidth().padding(MaterialTheme.spacing.small),) {
         Column(
-            modifier = Modifier.clickable { onInputEvent(LatestDealsInputEvent.DealClicked(gameId = deal.gameId)) },
+            modifier = Modifier.clickable { onInputEvent(LatestDealsInputEvent.DealClicked(deal = deal)) },
         ) {
             KamelImage(
                 modifier = Modifier.fillMaxWidth()
