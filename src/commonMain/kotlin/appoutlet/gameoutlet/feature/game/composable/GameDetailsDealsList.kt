@@ -4,18 +4,22 @@ import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Warning
 import androidx.compose.material3.Card
 import androidx.compose.material3.Divider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.translation.i18n
@@ -50,10 +54,28 @@ fun GameDetailsDealsList(uiState: GameUiModel, onInputEvent: (GameInputEvent) ->
                 for ((index, deal) in uiState.deals.withIndex()) {
                     Deal(item = deal, onInputEvent = onInputEvent)
                     if (index != uiState.deals.lastIndex) {
-                        Divider(modifier.fillMaxWidth())
+                        Divider(Modifier.fillMaxWidth())
                     }
                 }
             }
+        }
+
+        Row(
+            modifier = Modifier
+                .widthIn(max = 600.dp)
+                .padding(vertical = MaterialTheme.spacing.large, horizontal = MaterialTheme.spacing.medium)
+                .fillMaxWidth(),
+        ) {
+            Icon(imageVector = Icons.Outlined.Warning, contentDescription = null)
+
+            Spacer(modifier = Modifier.width(MaterialTheme.spacing.medium))
+
+            Text(
+                text = i18n.tr(
+                    "The prices are in US dollar (USD). Note that the value can change depending on your location"
+                ),
+                style = MaterialTheme.typography.bodyLarge,
+            )
         }
     }
 }
@@ -85,12 +107,13 @@ private fun Deal(item: GameDealUiModel, onInputEvent: (GameInputEvent) -> Unit, 
                 color = MaterialTheme.colorScheme.primary
             )
 
-            Text(
-                modifier = Modifier.alpha(.5f),
-                text = item.normalPrice,
-                style = MaterialTheme.typography.bodySmall,
-                textDecoration = TextDecoration.LineThrough
-            )
+            if (item.showNormalPrice) {
+                Text(
+                    text = item.normalPrice,
+                    style = MaterialTheme.typography.bodySmall,
+                    textDecoration = TextDecoration.LineThrough
+                )
+            }
         }
     }
 }
@@ -99,12 +122,18 @@ private fun Deal(item: GameDealUiModel, onInputEvent: (GameInputEvent) -> Unit, 
 @Preview
 private fun GameDetailsDealsListPreview() {
     val gameUiModel = GameUiModel(
-        title = "My amazing game", image = "image.png", deals = listOf(
+        title = "My amazing game",
+        image = "image.png",
+        deals = listOf(
             GameDealUiModel(
                 id = "13123",
                 store = GameDealStoreUiModel(
-                    name = "Steam", icon = "SteamIcon.png"
-                ), salePrice = "$15.00", normalPrice = "$150.00"
+                    name = "Steam",
+                    icon = "SteamIcon.png"
+                ),
+                salePrice = "$15.00",
+                normalPrice = "$150.00",
+                showNormalPrice = true,
             )
         )
     )

@@ -30,8 +30,8 @@ import io.kamel.image.KamelImage
 import io.kamel.image.lazyPainterResource
 
 @Composable
-fun GameDetails(uiState: GameUiModel, onInputEvent: (GameInputEvent) -> Unit) {
-    Column(modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
+fun GameDetails(uiState: GameUiModel, modifier: Modifier = Modifier, onInputEvent: (GameInputEvent) -> Unit) {
+    Column(modifier = modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         Box(modifier = Modifier.fillMaxWidth()) {
             KamelImage(
                 modifier = Modifier
@@ -58,9 +58,11 @@ fun GameDetails(uiState: GameUiModel, onInputEvent: (GameInputEvent) -> Unit) {
             }
         }
         Row(modifier = Modifier.padding(MaterialTheme.spacing.medium).fillMaxWidth()) {
-            IconButton(modifier = Modifier.padding(top = MaterialTheme.spacing.large),
+            IconButton(
+                modifier = Modifier.padding(top = MaterialTheme.spacing.large),
                 onClick = { onInputEvent(GameInputEvent.NavigateBack) },
-                content = { Icon(Icons.Outlined.ArrowBack, null) })
+                content = { Icon(Icons.Outlined.ArrowBack, null) }
+            )
 
             ScreenTitle(text = uiState.title)
         }

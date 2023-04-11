@@ -3,13 +3,13 @@ package appoutlet.gameoutlet.feature.game
 import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.domain.Store
-import java.util.Locale
-import javax.money.format.AmountFormatQueryBuilder
-import javax.money.format.MonetaryFormats
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import org.javamoney.moneta.format.CurrencyStyle
+import java.util.Locale
+import javax.money.format.AmountFormatQueryBuilder
+import javax.money.format.MonetaryFormats
 
 class GameUiModelMapper {
     private val amountFormatQuery = AmountFormatQueryBuilder.of(Locale.US).set(CurrencyStyle.SYMBOL).build()
@@ -25,12 +25,14 @@ class GameUiModelMapper {
 
     private suspend fun mapDeals(deals: List<Deal>): List<GameDealUiModel> = coroutineScope {
         val deferredDealUiModels = deals.map { deal ->
+            val samePrice = deal.salePrice == deal.normalPrice
             async {
                 GameDealUiModel(
                     id = deal.id,
                     salePrice = amountFormat.format(deal.salePrice),
                     normalPrice = amountFormat.format(deal.normalPrice),
-                    store = mapStore(deal.store)
+                    showNormalPrice = !samePrice,
+                    store = mapStore(deal.store),
                 )
             }
         }

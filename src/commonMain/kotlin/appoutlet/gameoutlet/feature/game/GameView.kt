@@ -19,7 +19,6 @@ class GameView(private val navArgs: GameNavArgs) : View<GameUiState, GameInputEv
     }
 }
 
-
 @Composable
 private fun GameViewContent(navArgs: GameNavArgs, uiState: GameUiState, onInputEvent: (GameInputEvent) -> Unit) {
     when (uiState) {
@@ -36,6 +35,6 @@ private fun GameViewContent(navArgs: GameNavArgs, uiState: GameUiState, onInputE
             text = i18n.tr("We are fetching the deals from the selected game")
         )
 
-        is GameUiState.Loaded -> GameDetails(uiState.gameUiModel, onInputEvent)
+        is GameUiState.Loaded -> GameDetails(uiState.gameUiModel, onInputEvent = onInputEvent)
     }
 }

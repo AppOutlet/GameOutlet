@@ -2,12 +2,12 @@ package appoutlet.gameoutlet.feature.game
 
 import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.feature.common.ViewModel
-import java.awt.Desktop
-import java.net.URI
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
+import java.awt.Desktop
+import java.net.URI
 
 class GameViewModel(
     private val gameOrchestrator: GameOrchestrator,

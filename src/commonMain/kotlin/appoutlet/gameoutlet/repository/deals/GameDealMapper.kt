@@ -8,7 +8,7 @@ import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.repository.deals.api.GameDealResponse
 
 class GameDealMapper(private val timeProvider: TimeProvider) {
-    operator fun invoke(game: Game,gameDealResponse: GameDealResponse): Deal? {
+    operator fun invoke(game: Game, gameDealResponse: GameDealResponse): Deal? {
         val store = mapStore(gameDealResponse.storeID) ?: return null
 
         return Deal(
