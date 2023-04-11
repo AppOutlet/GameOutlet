@@ -6,5 +6,5 @@ sealed interface GameUiState : UiState {
     object Idle : GameUiState
     object Loading : GameUiState
     object Error : GameUiState
-    class Loaded(val gameUiModel: GameUiModel) : GameUiState
+    data class Loaded(val gameUiModel: GameUiModel) : GameUiState
 }

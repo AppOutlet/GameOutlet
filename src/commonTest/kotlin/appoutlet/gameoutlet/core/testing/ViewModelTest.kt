@@ -8,7 +8,7 @@ import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 
 abstract class ViewModelTest<T : Any> : UnitTest<T>() {
-    protected val mockNavigator = mockk<Navigator>(relaxUnitFun = true)
+    protected val mockNavigator = mockk<Navigator>(relaxed = true)
 
     @OptIn(ExperimentalCoroutinesApi::class)
     fun runViewModelTest(testBlock: TestScope.() -> Unit) = runTest {
