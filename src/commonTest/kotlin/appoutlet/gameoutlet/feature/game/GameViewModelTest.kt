@@ -8,12 +8,12 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import kotlin.test.Test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.advanceUntilIdle
+import kotlin.test.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class GameViewModelTest : ViewModelTest<GameViewModel>() {
@@ -24,7 +24,6 @@ class GameViewModelTest : ViewModelTest<GameViewModel>() {
         gameOrchestrator = mockGameOrchestrator,
         gameUiModelMapper = mockGameUiModelMapper,
     )
-
 
     @Test
     fun `should navigate back`() = runViewModelTest {

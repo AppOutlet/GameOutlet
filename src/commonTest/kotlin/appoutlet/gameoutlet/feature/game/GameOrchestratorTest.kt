@@ -10,10 +10,10 @@ import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
-import kotlin.test.Test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
+import kotlin.test.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class GameOrchestratorTest : UnitTest<GameOrchestrator>() {

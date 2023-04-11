@@ -5,10 +5,10 @@ import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.domain.Store
 import com.google.common.truth.Truth.assertThat
-import kotlin.test.Test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.javamoney.moneta.Money
+import kotlin.test.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
@@ -19,18 +19,18 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
         val fixtureGame = fixture<Game>()
         val fixtureDeals = listOf(
             fixture<Deal>().copy(
-                salePrice = Money.of(1,"USD"),
-                normalPrice = Money.of(2,"USD"),
+                salePrice = Money.of(1, "USD"),
+                normalPrice = Money.of(2, "USD"),
                 store = fixture<Store>().copy(logoUrl = "logo url"),
             ),
             fixture<Deal>().copy(
-                salePrice = Money.of(3,"USD"),
-                normalPrice = Money.of(4,"USD"),
+                salePrice = Money.of(3, "USD"),
+                normalPrice = Money.of(4, "USD"),
                 store = fixture<Store>().copy(logoUrl = "logo url"),
             ),
             fixture<Deal>().copy(
-                salePrice = Money.of(5,"USD"),
-                normalPrice = Money.of(6,"USD"),
+                salePrice = Money.of(5, "USD"),
+                normalPrice = Money.of(6, "USD"),
                 store = fixture<Store>().copy(logoUrl = "logo url"),
             ),
         )
@@ -58,8 +58,8 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
         val fixtureGame = fixture<Game>()
         val fixtureDeals = listOf(
             fixture<Deal>().copy(
-                salePrice = Money.of(1,"USD"),
-                normalPrice = Money.of(1,"USD"),
+                salePrice = Money.of(1, "USD"),
+                normalPrice = Money.of(1, "USD"),
                 store = fixture<Store>().copy(logoUrl = "logo url"),
             ),
         )
@@ -87,8 +87,8 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
         val fixtureGame = fixture<Game>()
         val fixtureDeals = listOf(
             fixture<Deal>().copy(
-                salePrice = Money.of(1,"USD"),
-                normalPrice = Money.of(1,"USD"),
+                salePrice = Money.of(1, "USD"),
+                normalPrice = Money.of(1, "USD"),
                 store = fixture<Store>().copy(logoUrl = null),
             ),
         )
@@ -112,6 +112,6 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
     }
 
     private fun Money.toBeTested(): String {
-        return this.toString().replace("USD ","$")
+        return this.toString().replace("USD ", "$")
     }
 }

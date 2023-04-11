@@ -1,9 +1,8 @@
 package appoutlet.gameoutlet.core.util
 
 import com.google.common.truth.Truth.assertThat
-import kotlin.test.Test
 import org.javamoney.moneta.Money
-
+import kotlin.test.Test
 
 class StringExtensionsKtTest {
     @Test

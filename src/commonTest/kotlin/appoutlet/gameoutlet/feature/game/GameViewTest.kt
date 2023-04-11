@@ -54,7 +54,7 @@ class GameViewTest : UiTest() {
     @Test
     fun `should show loaded state`() {
         val fixtureGameNavArgs = fixture<GameNavArgs>()
-        val fixtureGameUiModel= fixture<GameUiModel>()
+        val fixtureGameUiModel = fixture<GameUiModel>()
 
         composeTestRule.setContent {
             GameView(fixtureGameNavArgs)
