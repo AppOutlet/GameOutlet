@@ -47,7 +47,7 @@ private fun HomeViewContent() {
             PermanentDrawerSheet(
                 modifier = Modifier.width(250.dp).verticalScroll(rememberScrollState()),
             ) {
-                Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
+                Spacer(modifier = Modifier.height(MaterialTheme.spacing.large))
                 DrawerNavigationItem(modifier = Modifier.semantics { testTag = "gameSearchTab" }, tab = GameSearchTab)
                 DrawerNavigationItem(modifier = Modifier.semantics { testTag = "latestDealsTab" }, tab = LatestDealsTab)
                 DrawerNavigationItem(modifier = Modifier.semantics { testTag = "wishlistTab" }, tab = WishlistTab)

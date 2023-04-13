@@ -36,7 +36,8 @@ msgstr "An unexpected error occurred"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:25
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:22
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:48
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameViewTest.kt:35
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:46
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:70
 msgid "Try again"
 msgstr "Try again"
@@ -50,7 +51,7 @@ msgstr "GameOutlet logo"
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsView.kt:15
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/composable/LatestDealsItems.kt:25
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:60
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:66
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:64
 msgid "Latest deals"
 msgstr "Latest deals"
 
@@ -98,6 +99,22 @@ msgid "You can search by your favorite games in the search screen!"
 msgstr "You can search by your favorite games in the search screen!"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/composable/LatestDealsFooter.kt:52
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:86
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:82
 msgid "Take me to search screen"
 msgstr "Take me to search screen"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameView.kt:29
+msgid "We could not load the data from the selected game"
+msgstr "We could not load the data from the selected game"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameView.kt:35
+msgid "We are fetching the deals from the selected game"
+msgstr "We are fetching the deals from the selected game"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsDealsList.kt:43
+msgid "Deals"
+msgstr "Deals"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsDealsList.kt:74
+msgid "The prices are in US dollar (USD). Note that the value can change depending on your location"
+msgstr "The prices are in US dollar (USD). Note that the value can change depending on your location"
