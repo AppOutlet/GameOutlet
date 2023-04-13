@@ -19,6 +19,7 @@ sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 [libraries]
 detekt-compose = "io.nlopez.compose.rules:detekt:0.1.2"
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+flatlaf = "com.formdev:flatlaf:3.1"
 joda-time = "joda-time:joda-time:2.12.4"
 kamel = "com.alialbaali.kamel:kamel-image:0.4.0"
 koin = "io.insert-koin:koin-core:3.3.3"

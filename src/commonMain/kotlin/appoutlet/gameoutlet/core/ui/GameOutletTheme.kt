@@ -38,7 +38,6 @@ private val LightColors = lightColorScheme(
     scrim = lightScrim,
 )
 
-
 private val DarkColors = darkColorScheme(
     primary = darkPrimary,
     onPrimary = darkOnPrimary,

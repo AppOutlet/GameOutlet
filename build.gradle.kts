@@ -60,6 +60,7 @@ dependencies {
     commonMainImplementation(libs.slf4j.simple)
     commonMainImplementation(libs.moneta)
     commonMainImplementation(libs.joda.time)
+    commonMainImplementation(libs.flatlaf)
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.kotlinFixture)

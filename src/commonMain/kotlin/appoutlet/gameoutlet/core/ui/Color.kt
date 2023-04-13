@@ -1,3 +1,5 @@
+@file:Suppress("MagicNumber")
+
 package appoutlet.gameoutlet.core.ui
 
 import androidx.compose.ui.graphics.Color
@@ -63,6 +65,5 @@ val darkShadow = Color(0xFF000000)
 val darkSurfaceTint = Color(0xFF72DE51)
 val darkOutlineVariant = Color(0xFF43483F)
 val darkScrim = Color(0xFF000000)
-
 
 val seed = Color(0xFF2E9A0A)
