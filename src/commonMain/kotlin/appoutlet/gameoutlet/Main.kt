@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
+import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.feature.splash.SplashView
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.FadeTransition
@@ -39,7 +40,7 @@ fun main() = application {
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun App() {
-    MaterialTheme {
+    GameOutletTheme {
         Surface {
             Navigator(SplashView()) { navigator ->
                 FadeTransition(navigator)
