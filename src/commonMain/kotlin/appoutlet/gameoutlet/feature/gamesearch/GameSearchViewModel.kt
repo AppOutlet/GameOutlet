@@ -1,6 +1,8 @@
 package appoutlet.gameoutlet.feature.gamesearch
 
 import appoutlet.gameoutlet.feature.common.ViewModel
+import appoutlet.gameoutlet.feature.game.GameNavArgs
+import appoutlet.gameoutlet.feature.game.GameViewProvider
 import appoutlet.gameoutlet.repository.deals.DealRepository
 import kotlin.time.Duration.Companion.milliseconds
 import kotlinx.coroutines.FlowPreview
@@ -16,6 +18,7 @@ private val SEARCH_DEBOUNCE_TIME = 700.milliseconds
 class GameSearchViewModel(
     private val dealsRepository: DealRepository,
     private val gameSearchUiModelMapper: GameSearchUiModelMapper,
+    private val gameViewProvider: GameViewProvider,
 ) : ViewModel<GameSearchUiState, GameSearchInputEvent>(initialState = GameSearchUiState.Idle("")) {
 
     private val mutableSearchTerm = MutableStateFlow("")
@@ -29,7 +32,7 @@ class GameSearchViewModel(
                 .debounce(SEARCH_DEBOUNCE_TIME)
                 .distinctUntilChanged()
                 .collect {
-                     performSearch(it)
+                    performSearch(it)
                 }
         }
     }
@@ -44,7 +47,13 @@ class GameSearchViewModel(
     }
 
     private fun navigateToGameDetails(game: GameSearchUiModel) {
+        val navArgs = GameNavArgs(
+            gameId = game.id,
+            gameTitle = game.title,
+            gameImage = game.image
+        )
 
+        navigator.push(gameViewProvider.getGameView(navArgs))
     }
 
     private fun performSearch(searchTerm: String) {
