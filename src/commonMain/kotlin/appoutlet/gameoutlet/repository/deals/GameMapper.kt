@@ -9,7 +9,7 @@ class GameMapper {
         return Game(
             id = gameId,
             title = gameSearchResponse.external,
-            image = gameSearchResponse.thumb
+            image = gameSearchResponse.thumb.replace("capsule_sm_120", "header")
         )
     }
 }

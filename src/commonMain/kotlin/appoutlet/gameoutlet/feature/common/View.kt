@@ -1,6 +1,7 @@
 package appoutlet.gameoutlet.feature.common
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
@@ -14,8 +15,14 @@ abstract class View<State : UiState, Event : InputEvent> : Screen, KoinComponent
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.current
+        val coroutineScope = rememberCoroutineScope()
         requireNotNull(navigator) { "Navigator is not available" }
-        viewModel.init(rememberCoroutineScope(), navigator)
+        viewModel.init(coroutineScope, navigator)
+        InternalContent()
+    }
+
+    @Composable
+    private fun InternalContent() {
         val uiState by viewModel.uiState.collectAsState()
         ViewContent(uiState = uiState, onInputEvent = viewModel::onInputEvent)
     }

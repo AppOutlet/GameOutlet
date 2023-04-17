@@ -2,6 +2,7 @@ package appoutlet.gameoutlet.feature.gamesearch
 
 import androidx.compose.runtime.Composable
 import appoutlet.gameoutlet.feature.common.View
+import appoutlet.gameoutlet.feature.gamesearch.composable.GameSearchContent
 import org.koin.core.component.inject
 
 class GameSearchView : View<GameSearchUiState, GameSearchInputEvent>() {
