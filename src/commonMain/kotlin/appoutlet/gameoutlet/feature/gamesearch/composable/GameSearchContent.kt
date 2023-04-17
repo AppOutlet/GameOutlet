@@ -48,6 +48,7 @@ fun GameSearchContent(
     Column(modifier = modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         ScreenTitle(modifier = Modifier.fillMaxWidth(), text = i18n.tr("Search"))
         GameSearchTextField(
+            value = uiState.searchTerm,
             modifier = Modifier
                 .widthIn(max = 400.dp)
                 .fillMaxWidth(),
@@ -77,6 +78,11 @@ fun GameSearchContent(
 
         AnimatedVisibility(visible = uiState is GameSearchUiState.Idle) {
             Text(i18n.tr("Start by searching some game in the field above"))
+        }
+
+        val shouldShowEmptyState = uiState is GameSearchUiState.Loaded && uiState.games.isEmpty()
+        AnimatedVisibility(visible = shouldShowEmptyState) {
+            Text(i18n.tr("No result found for '{{searchTerm}}'", "searchTerm" to uiState.searchTerm))
         }
     }
 }

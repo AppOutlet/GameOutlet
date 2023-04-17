@@ -32,11 +32,12 @@ import appoutlet.gameoutlet.core.ui.spacing
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GameSearchTextField(
+    value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
     isLoading: Boolean = false,
 ) {
-    var internalValue by remember { mutableStateOf("") }
+    var internalValue by remember { mutableStateOf(value) }
     Box(modifier = modifier) {
         TextField(
             modifier = Modifier.fillMaxWidth(),
@@ -54,7 +55,8 @@ fun GameSearchTextField(
             ),
             placeholder = {
                 Text(text = i18n.tr("Type your favorite game title"))
-            }
+            },
+            singleLine = true,
         )
 
         AnimatedVisibility(modifier = Modifier.align(Alignment.CenterEnd), visible = isLoading) {
@@ -72,6 +74,6 @@ fun GameSearchTextField(
 @Preview
 private fun GameSearchTextFieldPreview() {
     GameOutletTheme {
-        GameSearchTextField(onValueChange = {}, isLoading = true)
+        GameSearchTextField(onValueChange = {}, isLoading = true, value = "")
     }
 }
