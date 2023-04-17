@@ -23,9 +23,6 @@ import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.ui.spacing
 import appoutlet.gameoutlet.feature.home.composable.GameSearchTab
 import appoutlet.gameoutlet.feature.home.composable.LatestDealsTab
-import appoutlet.gameoutlet.feature.home.composable.SettingsTab
-import appoutlet.gameoutlet.feature.home.composable.StoresTab
-import appoutlet.gameoutlet.feature.home.composable.WishlistTab
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator

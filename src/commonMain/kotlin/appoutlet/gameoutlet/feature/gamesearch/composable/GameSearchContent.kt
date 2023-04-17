@@ -2,7 +2,6 @@ package appoutlet.gameoutlet.feature.gamesearch.composable
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.desktop.ui.tooling.preview.Preview
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -13,9 +12,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -26,7 +23,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.core.ui.GameOutletTheme
@@ -38,6 +34,9 @@ import appoutlet.gameoutlet.feature.gamesearch.GameSearchUiModel
 import appoutlet.gameoutlet.feature.gamesearch.GameSearchUiState
 import io.kamel.image.KamelImage
 import io.kamel.image.lazyPainterResource
+
+private const val IMAGE_WEIGHT = .4f
+private const val TEXT_WEIGHT = .6f
 
 @Composable
 fun GameSearchContent(
@@ -71,7 +70,7 @@ fun GameSearchContent(
         }
 
         AnimatedVisibility(visible = uiState is GameSearchUiState.Error) {
-            Error(modifier.fillMaxSize()) {
+            Error(Modifier.fillMaxSize()) {
                 onInputEvent(GameSearchInputEvent.Search(uiState.searchTerm))
             }
         }
@@ -104,7 +103,7 @@ private fun GameSearchItem(
                 },
         ) {
             KamelImage(
-                modifier = Modifier.fillMaxHeight().weight(.4f),
+                modifier = Modifier.fillMaxHeight().weight(IMAGE_WEIGHT),
                 resource = lazyPainterResource(data = game.image),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
@@ -112,13 +111,13 @@ private fun GameSearchItem(
                     Box(
                         modifier = Modifier.fillMaxHeight()
                             .background(color = MaterialTheme.colorScheme.primaryContainer)
-                            .weight(.4f)
+                            .weight(IMAGE_WEIGHT)
                     ) {}
                 }
             )
 
             Text(
-                modifier = Modifier.padding(MaterialTheme.spacing.medium).weight(.6f),
+                modifier = Modifier.padding(MaterialTheme.spacing.medium).weight(TEXT_WEIGHT),
                 text = game.title,
                 style = MaterialTheme.typography.titleLarge
             )

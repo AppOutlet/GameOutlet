@@ -6,9 +6,7 @@ import androidx.compose.material.icons.outlined.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import appoutlet.gameoutlet.core.translation.i18n
-import appoutlet.gameoutlet.feature.common.composable.ScreenTitle
 import appoutlet.gameoutlet.feature.gamesearch.GameSearchView
-import appoutlet.gameoutlet.feature.latestdeals.LatestDealsView
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions

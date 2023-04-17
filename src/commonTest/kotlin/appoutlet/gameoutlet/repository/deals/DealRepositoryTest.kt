@@ -18,12 +18,14 @@ class DealRepositoryTest : UnitTest<DealRepository>() {
     private val mockDealMapper = mockk<DealMapper>()
     private val mockGameApi = mockk<GameApi>()
     private val mockGameDealMapper = mockk<GameDealMapper>()
+    private val mockGameMapper = mockk<GameMapper>()
 
     override fun buildSut() = DealRepository(
         dealApi = mockDealApi,
         dealMapper = mockDealMapper,
         gameApi = mockGameApi,
-        gameDealMapper = mockGameDealMapper
+        gameDealMapper = mockGameDealMapper,
+        gameMapper = mockGameMapper,
     )
 
     @Test

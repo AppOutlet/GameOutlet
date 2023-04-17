@@ -4,13 +4,13 @@ import appoutlet.gameoutlet.feature.common.ViewModel
 import appoutlet.gameoutlet.feature.game.GameNavArgs
 import appoutlet.gameoutlet.feature.game.GameViewProvider
 import appoutlet.gameoutlet.repository.deals.DealRepository
-import kotlin.time.Duration.Companion.milliseconds
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
+import kotlin.time.Duration.Companion.milliseconds
 
 private val SEARCH_DEBOUNCE_TIME = 700.milliseconds
 
@@ -56,6 +56,7 @@ class GameSearchViewModel(
         navigator.push(gameViewProvider.getGameView(navArgs))
     }
 
+    @Suppress("TooGenericExceptionCaught")
     private fun performSearch(searchTerm: String) {
         viewModelScope.launch {
             try {
@@ -64,6 +65,7 @@ class GameSearchViewModel(
                 mutableUiModels.value = games.map(gameSearchUiModelMapper::invoke)
                 mutableUiState.value = GameSearchUiState.Loaded(mutableSearchTerm.value, mutableUiModels.value)
             } catch (exception: Exception) {
+                exception.printStackTrace()
                 mutableUiState.value = GameSearchUiState.Error(mutableSearchTerm.value, mutableUiModels.value)
             }
         }
