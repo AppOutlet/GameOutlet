@@ -50,9 +50,9 @@ private fun HomeViewContent() {
                 Spacer(modifier = Modifier.height(MaterialTheme.spacing.large))
                 DrawerNavigationItem(modifier = Modifier.semantics { testTag = "gameSearchTab" }, tab = GameSearchTab)
                 DrawerNavigationItem(modifier = Modifier.semantics { testTag = "latestDealsTab" }, tab = LatestDealsTab)
-                DrawerNavigationItem(modifier = Modifier.semantics { testTag = "wishlistTab" }, tab = WishlistTab)
-                DrawerNavigationItem(modifier = Modifier.semantics { testTag = "storesTab" }, tab = StoresTab)
-                DrawerNavigationItem(modifier = Modifier.semantics { testTag = "settingsTab" }, tab = SettingsTab)
+                // DrawerNavigationItem(modifier = Modifier.semantics { testTag = "wishlistTab" }, tab = WishlistTab)
+                // DrawerNavigationItem(modifier = Modifier.semantics { testTag = "storesTab" }, tab = StoresTab)
+                // DrawerNavigationItem(modifier = Modifier.semantics { testTag = "settingsTab" }, tab = SettingsTab)
             }
         }) {
             Box(modifier = Modifier.fillMaxSize()) {
