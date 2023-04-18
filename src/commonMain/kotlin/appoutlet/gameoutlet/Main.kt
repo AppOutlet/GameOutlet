@@ -23,6 +23,7 @@ private const val WINDOW_HEIGHT = 690
 fun main() {
     initLookAndFeel()
     application {
+        initLogger()
         initKoin()
         Window(
             onCloseRequest = ::exitApplication,
