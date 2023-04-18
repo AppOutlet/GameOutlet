@@ -19,10 +19,10 @@ import appoutlet.gameoutlet.feature.wishlist.WishlistViewModel
 import cafe.adriel.voyager.navigator.Navigator
 import io.mockk.every
 import io.mockk.mockk
-import kotlin.test.Ignore
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Test
 import org.koin.dsl.module
+import kotlin.test.Ignore
 
 class HomeViewTest : UiTest() {
     private val mockLatestDealsViewModel = mockk<LatestDealsViewModel>(relaxUnitFun = true) {

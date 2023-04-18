@@ -5,13 +5,13 @@ import appoutlet.gameoutlet.feature.game.GameNavArgs
 import appoutlet.gameoutlet.feature.game.GameViewProvider
 import appoutlet.gameoutlet.repository.deals.DealRepository
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.milliseconds
-import kotlinx.coroutines.Job
 
 val SEARCH_DEBOUNCE_TIME = 700.milliseconds
 
