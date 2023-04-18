@@ -61,6 +61,7 @@ dependencies {
     commonMainImplementation(libs.moneta)
     commonMainImplementation(libs.joda.time)
     commonMainImplementation(libs.flatlaf)
+    commonMainImplementation(libs.napier)
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.kotlinFixture)

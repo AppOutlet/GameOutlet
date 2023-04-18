@@ -5,6 +5,7 @@ import appoutlet.gameoutlet.feature.game.GameNavArgs
 import appoutlet.gameoutlet.feature.game.GameViewProvider
 import appoutlet.gameoutlet.feature.home.composable.GameSearchTab
 import appoutlet.gameoutlet.feature.latestdeals.composable.DealUiModel
+import io.github.aakira.napier.Napier
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
@@ -28,7 +29,10 @@ class LatestDealsViewModel(
     private fun loadLatestDeals() {
         latestDealsOrchestrator.findLatestDeals()
             .map { latestDealsUiModelMapper(it) }
-            .catch { mutableUiState.value = LatestDealsUiState.Error }
+            .catch {
+                Napier.e(message = "Error when loading latest deals", throwable = it)
+                mutableUiState.value = LatestDealsUiState.Error
+            }
             .onStart { mutableUiState.value = LatestDealsUiState.Loading }
             .onEach { mutableUiState.value = LatestDealsUiState.Loaded(it) }
             .launchIn(viewModelScope)
