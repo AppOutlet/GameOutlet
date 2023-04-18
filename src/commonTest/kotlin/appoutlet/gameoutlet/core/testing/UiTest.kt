@@ -1,6 +1,8 @@
 package appoutlet.gameoutlet.core.testing
 
 import androidx.compose.ui.test.junit4.createComposeRule
+import appoutlet.gameoutlet.feature.game.GameInputEvent
+import io.mockk.mockk
 import org.junit.Rule
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
