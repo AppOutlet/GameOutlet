@@ -11,8 +11,9 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.milliseconds
+import kotlinx.coroutines.Job
 
-private val SEARCH_DEBOUNCE_TIME = 700.milliseconds
+val SEARCH_DEBOUNCE_TIME = 700.milliseconds
 
 @OptIn(FlowPreview::class)
 class GameSearchViewModel(
@@ -23,10 +24,10 @@ class GameSearchViewModel(
 
     private val mutableSearchTerm = MutableStateFlow("")
     private val mutableUiModels = MutableStateFlow<List<GameSearchUiModel>>(emptyList())
-
+    lateinit var searchJob: Job
     override fun afterViewModelInitialization() {
         super.afterViewModelInitialization()
-        viewModelScope.launch {
+        searchJob = viewModelScope.launch {
             mutableSearchTerm
                 .filter { it.isNotBlank() }
                 .debounce(SEARCH_DEBOUNCE_TIME)
