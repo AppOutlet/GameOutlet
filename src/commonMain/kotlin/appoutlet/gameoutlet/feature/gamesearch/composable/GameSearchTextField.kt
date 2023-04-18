@@ -24,6 +24,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.core.ui.GameOutletTheme
@@ -40,7 +42,7 @@ fun GameSearchTextField(
     var internalValue by remember { mutableStateOf(value) }
     Box(modifier = modifier) {
         TextField(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.semantics { testTag = "searchView" }.fillMaxWidth(),
             value = internalValue,
             leadingIcon = { Icon(imageVector = Icons.Outlined.Search, contentDescription = null) },
             onValueChange = {
@@ -62,6 +64,7 @@ fun GameSearchTextField(
         AnimatedVisibility(modifier = Modifier.align(Alignment.CenterEnd), visible = isLoading) {
             CircularProgressIndicator(
                 modifier = Modifier
+                    .semantics { testTag = "loadingIndicator" }
                     .padding(end = MaterialTheme.spacing.medium)
                     .progressSemantics()
                     .size(36.dp)

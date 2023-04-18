@@ -23,6 +23,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.core.ui.GameOutletTheme
@@ -47,10 +49,10 @@ fun GameSearchContent(
     Column(modifier = modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         ScreenTitle(modifier = Modifier.fillMaxWidth(), text = i18n.tr("Search"))
         GameSearchTextField(
-            value = uiState.searchTerm,
             modifier = Modifier
                 .widthIn(max = 400.dp)
                 .fillMaxWidth(),
+            value = uiState.searchTerm,
             onValueChange = {
                 onInputEvent(GameSearchInputEvent.Search(it))
             },
@@ -76,12 +78,18 @@ fun GameSearchContent(
         }
 
         AnimatedVisibility(visible = uiState is GameSearchUiState.Idle) {
-            Text(i18n.tr("Start by searching some game in the field above"))
+            Text(
+                modifier = Modifier.semantics { testTag = "idleState" },
+                text = i18n.tr("Start by searching some game in the field above")
+            )
         }
 
         val shouldShowEmptyState = uiState is GameSearchUiState.Loaded && uiState.games.isEmpty()
         AnimatedVisibility(visible = shouldShowEmptyState) {
-            Text(i18n.tr("No result found for '{{searchTerm}}'", "searchTerm" to uiState.searchTerm))
+            Text(
+                modifier = Modifier.semantics { testTag = "emptyState" },
+                text = i18n.tr("No result found for '{{searchTerm}}'", "searchTerm" to uiState.searchTerm),
+            )
         }
     }
 }
