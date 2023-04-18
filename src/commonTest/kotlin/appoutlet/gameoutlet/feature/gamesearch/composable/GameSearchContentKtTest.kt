@@ -13,8 +13,8 @@ import appoutlet.gameoutlet.feature.gamesearch.GameSearchUiModel
 import appoutlet.gameoutlet.feature.gamesearch.GameSearchUiState
 import io.mockk.mockk
 import io.mockk.verify
-import kotlin.test.Test
 import name.kropp.kotlinx.gettext.tr
+import kotlin.test.Test
 
 class GameSearchContentKtTest : UiTest() {
     private val mockOnInputEvent = mockk<(GameSearchInputEvent) -> Unit>(relaxed = true)
@@ -55,7 +55,6 @@ class GameSearchContentKtTest : UiTest() {
             fixture<GameSearchUiModel>(),
         )
         val fixtureUiState = GameSearchUiState.Loaded(fixtureSearchTerm, fixtureGames)
-
 
         composeTestRule.setContent {
             GameSearchContent(fixtureUiState, mockOnInputEvent)
