@@ -51,16 +51,3 @@ fun Error(
         }
     }
 }
-
-@Composable
-@Preview
-private fun ErrorViewPreview() {
-    GameOutletTheme {
-        Error(
-            title = "Error title",
-            message = "Error message",
-            buttonText = "Button text",
-            onTryAgain = {}
-        )
-    }
-}

@@ -32,11 +32,3 @@ fun Loading(modifier: Modifier = Modifier, text: String = i18n.tr("Loading")) {
         Text(text = text, style = MaterialTheme.typography.bodyMedium)
     }
 }
-
-@Composable
-@Preview
-private fun LoadingPreview() {
-    GameOutletTheme {
-        Loading(text = "Loading latest deals")
-    }
-}

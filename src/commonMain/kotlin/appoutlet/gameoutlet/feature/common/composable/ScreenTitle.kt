@@ -26,11 +26,3 @@ fun ScreenTitle(text: String, modifier: Modifier = Modifier) {
         fontWeight = FontWeight.SemiBold,
     )
 }
-
-@Composable
-@Preview
-fun PageTitlePreview() {
-    GameOutletTheme {
-        ScreenTitle("Page title")
-    }
-}
