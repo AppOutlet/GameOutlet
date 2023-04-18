@@ -1,6 +1,7 @@
 package appoutlet.gameoutlet.feature.game
 
 import appoutlet.gameoutlet.core.testing.ViewModelTest
+import appoutlet.gameoutlet.core.util.DesktopHelper
 import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
 import com.google.common.truth.Truth.assertThat
@@ -19,10 +20,12 @@ import kotlin.test.Test
 class GameViewModelTest : ViewModelTest<GameViewModel>() {
     private val mockGameOrchestrator = mockk<GameOrchestrator>()
     private val mockGameUiModelMapper = mockk<GameUiModelMapper>()
+    private val mockDesktopHelper = mockk<DesktopHelper>(relaxUnitFun = true)
 
     override fun buildSut() = GameViewModel(
         gameOrchestrator = mockGameOrchestrator,
         gameUiModelMapper = mockGameUiModelMapper,
+        desktopHelper = mockDesktopHelper,
     )
 
     @Test
@@ -60,5 +63,14 @@ class GameViewModelTest : ViewModelTest<GameViewModel>() {
         advanceUntilIdle()
 
         assertThat(sut.uiState.value).isEqualTo(GameUiState.Loaded(fixtureGameUiModel))
+    }
+
+    @Test
+    fun `should open a link when the deals is clicked`() = runViewModelTest {
+        val fixtureGameDealUiModel = fixture<GameDealUiModel>()
+
+        sut.onInputEvent(GameInputEvent.DealClicked(fixtureGameDealUiModel))
+
+        verify { mockDesktopHelper.openLink("https://www.cheapshark.com/redirect?dealID=${fixtureGameDealUiModel.id}") }
     }
 }
