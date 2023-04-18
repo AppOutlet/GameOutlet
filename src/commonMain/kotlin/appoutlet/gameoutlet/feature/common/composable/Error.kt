@@ -1,6 +1,5 @@
 package appoutlet.gameoutlet.feature.common.composable
 
-import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -14,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
 import appoutlet.gameoutlet.core.translation.i18n
-import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.core.ui.spacing
 
 @Composable
@@ -49,18 +47,5 @@ fun Error(
                 Text(buttonText)
             }
         }
-    }
-}
-
-@Composable
-@Preview
-private fun ErrorViewPreview() {
-    GameOutletTheme {
-        Error(
-            title = "Error title",
-            message = "Error message",
-            buttonText = "Button text",
-            onTryAgain = {}
-        )
     }
 }

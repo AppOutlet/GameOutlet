@@ -6,7 +6,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 
 val dealRepositoryModule = module {
-    factory { DealRepository(get(), get(), get(), get()) }
+    factory { DealRepository(get(), get(), get(), get(), get()) }
 
     factory<DealApi> {
         val retrofit by inject<Retrofit>()
@@ -25,4 +25,6 @@ val dealRepositoryModule = module {
     }
 
     factory { GameDealMapper(get()) }
+
+    factory { GameMapper() }
 }

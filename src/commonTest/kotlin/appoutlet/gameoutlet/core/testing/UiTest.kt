@@ -1,6 +1,9 @@
 package appoutlet.gameoutlet.core.testing
 
+import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.printToString
 import org.junit.Rule
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
@@ -24,5 +27,9 @@ abstract class UiTest : BaseTest() {
     @AfterTest
     fun tearDown() {
         stopKoin()
+    }
+
+    protected fun ComposeContentTestRule.print() {
+        println(onRoot().printToString())
     }
 }

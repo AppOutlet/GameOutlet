@@ -73,7 +73,8 @@ msgstr "Stores"
 msgid "Wishlist"
 msgstr "Wishlist"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/GameSearchTab.kt:17
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContent.kt:49
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/GameSearchTab.kt:22
 msgid "Search"
 msgstr "Search"
 
@@ -118,3 +119,16 @@ msgstr "Deals"
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsDealsList.kt:74
 msgid "The prices are in US dollar (USD). Note that the value can change depending on your location"
 msgstr "The prices are in US dollar (USD). Note that the value can change depending on your location"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContent.kt:85
+#, java-format
+msgid "No result found for '{{searchTerm}}'"
+msgstr "No result found for '{{searchTerm}}'"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContent.kt:80
+msgid "Start by searching some game in the field above"
+msgstr "Start by searching some game in the field above"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchTextField.kt:57
+msgid "Type your favorite game title"
+msgstr "Type your favorite game title"

@@ -1,6 +1,5 @@
 package appoutlet.gameoutlet.feature.game.composable
 
-import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,9 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.translation.i18n
-import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.core.ui.spacing
-import appoutlet.gameoutlet.feature.game.GameDealStoreUiModel
 import appoutlet.gameoutlet.feature.game.GameDealUiModel
 import appoutlet.gameoutlet.feature.game.GameInputEvent
 import appoutlet.gameoutlet.feature.game.GameUiModel
@@ -115,30 +112,5 @@ private fun Deal(item: GameDealUiModel, onInputEvent: (GameInputEvent) -> Unit, 
                 )
             }
         }
-    }
-}
-
-@Composable
-@Preview
-private fun GameDetailsDealsListPreview() {
-    val gameUiModel = GameUiModel(
-        title = "My amazing game",
-        image = "image.png",
-        deals = listOf(
-            GameDealUiModel(
-                id = "13123",
-                store = GameDealStoreUiModel(
-                    name = "Steam",
-                    icon = "SteamIcon.png"
-                ),
-                salePrice = "$15.00",
-                normalPrice = "$150.00",
-                showNormalPrice = true,
-            )
-        )
-    )
-
-    GameOutletTheme {
-        GameDetailsDealsList(gameUiModel, onInputEvent = { })
     }
 }

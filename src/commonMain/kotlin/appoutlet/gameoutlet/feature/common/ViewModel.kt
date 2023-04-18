@@ -14,7 +14,11 @@ abstract class ViewModel<State : UiState, Event : InputEvent>(initialState: Stat
     fun init(scope: CoroutineScope, navigator: Navigator) {
         viewModelScope = scope
         this.navigator = navigator
+        println("View model initialized")
+        afterViewModelInitialization()
     }
 
     abstract fun onInputEvent(inputEvent: Event)
+
+    open fun afterViewModelInitialization() {}
 }

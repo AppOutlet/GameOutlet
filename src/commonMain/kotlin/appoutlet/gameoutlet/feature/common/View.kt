@@ -14,8 +14,14 @@ abstract class View<State : UiState, Event : InputEvent> : Screen, KoinComponent
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.current
+        val coroutineScope = rememberCoroutineScope()
         requireNotNull(navigator) { "Navigator is not available" }
-        viewModel.init(rememberCoroutineScope(), navigator)
+        viewModel.init(coroutineScope, navigator)
+        InternalContent()
+    }
+
+    @Composable
+    private fun InternalContent() {
         val uiState by viewModel.uiState.collectAsState()
         ViewContent(uiState = uiState, onInputEvent = viewModel::onInputEvent)
     }
