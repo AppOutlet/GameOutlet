@@ -53,6 +53,8 @@ private fun SplashScreenContent(uiState: SplashUiState, onInputEvent: (SplashInp
                 modifier = Modifier.size(100.dp),
             )
 
+            Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
+
             Text("GameOutlet", style = MaterialTheme.typography.titleLarge)
 
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.large))

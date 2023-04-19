@@ -41,6 +41,25 @@ compose.desktop {
             vendor = "AppOutlet"
             licenseFile.set(project.file("LICENSE"))
 
+            linux {
+                iconFile.set(project.file("src/commonMain/resources/image/icon.png"))
+                packageName = "game-outlet"
+                debMaintainer = "team.appoutlet@gmail.com"
+                menuGroup = "games"
+                appRelease = "1"
+                appCategory = "games"
+            }
+
+            macOS {
+                iconFile.set(project.file("src/commonMain/resources/image/icon.icns"))
+                bundleID = "appoutlet.gameoutlet"
+                appCategory = "public.app-category.games"
+            }
+
+            windows {
+                iconFile.set(project.file("src/commonMain/resources/image/icon.ico"))
+            }
+
             modules("java.sql")
         }
     }
