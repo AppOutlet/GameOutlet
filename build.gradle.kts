@@ -33,9 +33,14 @@ compose.desktop {
     application {
         mainClass = "appoutlet.gameoutlet.MainKt"
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb, TargetFormat.Rpm)
+
             packageName = "GameOutlet"
             packageVersion = "1.0.0"
+            description = "Find the best prices on PC games"
+            vendor = "AppOutlet"
+            licenseFile.set(project.file("LICENSE"))
+
             modules("java.sql")
         }
     }
