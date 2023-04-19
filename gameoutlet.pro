@@ -1,0 +1,1 @@
+-keep class appoutlet.gameoutlet.repository.*.api.** { *; }
