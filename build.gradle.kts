@@ -33,9 +33,33 @@ compose.desktop {
     application {
         mainClass = "appoutlet.gameoutlet.MainKt"
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb, TargetFormat.Rpm)
+
             packageName = "GameOutlet"
             packageVersion = "1.0.0"
+            description = "Find the best prices on PC games"
+            vendor = "AppOutlet"
+            licenseFile.set(project.file("LICENSE"))
+
+            linux {
+                iconFile.set(project.file("src/commonMain/resources/image/icon.png"))
+                packageName = "game-outlet"
+                debMaintainer = "team.appoutlet@gmail.com"
+                menuGroup = "games"
+                appRelease = "1"
+                appCategory = "games"
+            }
+
+            macOS {
+                iconFile.set(project.file("src/commonMain/resources/image/icon.icns"))
+                bundleID = "appoutlet.gameoutlet"
+                appCategory = "public.app-category.games"
+            }
+
+            windows {
+                iconFile.set(project.file("src/commonMain/resources/image/icon.ico"))
+            }
+
             modules("java.sql")
         }
     }
