@@ -44,7 +44,7 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: test koverVerify --warn
+          arguments: test koverVerify
           cache-read-only: false
 
   detekt:
