@@ -1,1 +1,12 @@
--keep class appoutlet.gameoutlet.repository.*.api.** { *; }
+# internal classes
+-keep class appoutlet.gameoutlet.repository.deals.api.** { *; }
+-keep class appoutlet.gameoutlet.core.database.*.** { *; }
+
+# dependencies
+-keep class app.cash.sqldelight.driver.jdbc.sqlite.*.** { *; }
+-keep interface org.osgi.framework.* { *; }
+-keep class org.sqlite.** { *; }
+-keep class org.javamoney.moneta.spi.** { *; }
+-keep class io.ktor.client.engine.java.** { *; }
+-ignorewarnings
+

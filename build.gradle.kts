@@ -60,10 +60,11 @@ compose.desktop {
                 iconFile.set(project.file("src/commonMain/resources/image/icon.ico"))
             }
 
-            modules("java.sql")
+            modules("java.instrument", "java.management", "java.sql", "jdk.unsupported", "java.net.http")
         }
 
         buildTypes.release.proguard {
+            isEnabled.set(true)
             configurationFiles.from(project.file("gameoutlet.pro"))
         }
     }
