@@ -1,8 +1,9 @@
 name: Release
 run-name: ${{ github.head_ref }}
 on:
-  tags:
-    - v*
+  push:
+    tags:
+      - v*
 jobs:
   compile:
     name: Compile
