@@ -33,7 +33,7 @@ jobs:
         with:
           files: |
             build/compose/binaries/main-release/deb/game-outlet_*.deb
-            build/compose/binaries/main-release/deb/game-outlet-*.rpm
+            build/compose/binaries/main-release/rpm/game-outlet-*.rpm
           token: ${{ secrets.GITHUB_TOKEN }}
 
   windows:
