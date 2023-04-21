@@ -2,6 +2,7 @@ package appoutlet.gameoutlet.feature.splash
 
 import appoutlet.gameoutlet.feature.common.ViewModel
 import appoutlet.gameoutlet.feature.home.HomeViewProvider
+import io.github.aakira.napier.Napier
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -28,6 +29,7 @@ class SplashViewModel(
                 navigator.replaceAll(homeViewProvider.getView())
             }
             .catch {
+                Napier.e(message = "Error when synchronizing stores", throwable = it)
                 mutableUiState.value = SplashUiState.Error
             }
             .launchIn(viewModelScope)
