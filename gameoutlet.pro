@@ -1,5 +1,6 @@
 # internal classes
 -keep class appoutlet.gameoutlet.repository.deals.api.** { *; }
+-keep class appoutlet.gameoutlet.repository.store.api.** { *; }
 -keep class appoutlet.gameoutlet.core.database.*.** { *; }
 
 # dependencies
