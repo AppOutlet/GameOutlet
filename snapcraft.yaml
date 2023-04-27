@@ -31,8 +31,8 @@ parts:
     source: https://github.com/AppOutlet/GameOutlet.git
     source-tag: v$SNAPCRAFT_PROJECT_VERSION
     gradle-version: '7.5.1'
-    gradle-openjdk-version: '17'
+    gradle-openjdk-version: '11'
     gradle-options: [-xtest, packageReleaseUberJarForCurrentOS]
     gradle-output-dir: build/compose/jars
     stage-packages:
-      - openjdk-17-jdk
+      - openjdk-11-jdk
