@@ -14,7 +14,7 @@ apps:
   game-outlet:
     extensions:
       - gnome-3-28
-    command: java -jar GameOutlet*-$SNAPCRAFT_PROJECT_VERSION.jar
+    command: java -jar GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
     plugs:
       - x11
       - desktop
