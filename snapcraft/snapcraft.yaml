@@ -1,0 +1,39 @@
+name: game-outlet
+title: GameOutlet
+version: '1.0.1'
+summary:  Find the best prices on PC games
+description: Description
+base: core18
+grade: stable
+confinement: strict
+
+apps:
+  game-outlet:
+    extensions:
+      - gnome-3-28
+    command: bin/game-outlet.sh
+    plugs:
+      - x11
+      - desktop
+      - desktop-legacy
+      - wayland
+      - unity7
+      - network-bind
+      - network-observe
+      - home
+
+parts:
+  game-outlet:
+    plugin: gradle
+    source: https://github.com/AppOutlet/GameOutlet.git
+    source-tag: v$SNAPCRAFT_PROJECT_VERSION
+    gradle-version: '7.5.1'
+    gradle-openjdk-version: '17'
+    gradle-options: [-xtest, packageReleaseDistributionForCurrentOS]
+    stage-packages:
+      - openjdk-17-jdk
+
+  exec:
+    plugin: dump
+    source: scripts
+    source-type: local
