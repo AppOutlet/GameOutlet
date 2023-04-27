@@ -32,6 +32,8 @@ apps:
     command: java -jar GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
     plugs:
       - home
+      - network
+      - cups-control
 parts:
   game-outlet:
     plugin: gradle
