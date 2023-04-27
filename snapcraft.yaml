@@ -6,15 +6,12 @@ description: Description
 base: core18
 grade: stable
 confinement: strict
-architectures:
-  - amd64
-  - arm64
 
 apps:
   game-outlet:
     extensions:
       - gnome-3-28
-    command: bin/game-outlet.sh
+    command: java -jar GameOutlet*-$SNAPCRAFT_PROJECT_VERSION.jar
     plugs:
       - x11
       - desktop
@@ -32,11 +29,7 @@ parts:
     source-tag: v$SNAPCRAFT_PROJECT_VERSION
     gradle-version: '7.5.1'
     gradle-openjdk-version: '17'
-    gradle-options: [-xtest, packageReleaseDistributionForCurrentOS]
+    gradle-options: [-xtest, packageReleaseUberJarForCurrentOS]
+    gradle-output-dir: build/compose/jars
     stage-packages:
       - openjdk-17-jdk
-
-  exec:
-    plugin: dump
-    source: snapcraft/scripts
-    source-type: local
