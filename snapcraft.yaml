@@ -35,5 +35,5 @@ parts:
 
   exec:
     plugin: dump
-    source: scripts
+    source: snapcraft/scripts
     source-type: local
