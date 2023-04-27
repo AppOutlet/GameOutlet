@@ -6,6 +6,9 @@ description: Description
 base: core18
 grade: stable
 confinement: strict
+architectures:
+  - build-on: amd64
+    run-on: amd64
 
 apps:
   game-outlet:
