@@ -10,7 +10,14 @@ The GameOutlet put together the latest deals in games for PC. It puts the deals 
 #### Features
 - See the latest deals from the most popular game stores
 - Search by a game title to see its prices on these stores
-- Available for Windows, Linux and MacOS
+- Available for Linux and MacOS.
+    - A Windows version will be released soon.  
 
 ## Download
-Stay tuned! We will release a version as soon as possible
+You can download the latest version GameOutlet by clicking in the button below
+
+[![GitHub all releases](https://img.shields.io/github/downloads/AppOutlet/GameOutlet/total?color=%231B6D00&style=for-the-badge)](https://github.com/AppOutlet/GameOutlet/releases)
+
+GameOutlet is also available in alternative stores
+- [OpenDesktop.org](https://www.opendesktop.org/p/2025451)
+
