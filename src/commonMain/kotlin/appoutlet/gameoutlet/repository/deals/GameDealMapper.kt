@@ -24,7 +24,7 @@ class GameDealMapper(private val timeProvider: TimeProvider) {
         )
     }
 
-    private fun mapStore(storeId: String?): Store? {
-        return storeId?.toIntOrNull()?.let { Store(it) }
+    private fun mapStore(storeId: String): Store? {
+        return storeId.toIntOrNull()?.let { Store(it) }
     }
 }

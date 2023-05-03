@@ -38,4 +38,17 @@ class PreferenceRepositoryTest : UnitTest<PreferenceRepository>() {
 
         assertThat(actual).isEqualTo(fixtureValue)
     }
+
+    @Test
+    fun `should get preference - execution null`() {
+        val fixtureKey = fixture<String>()
+        val mockQueryPreference = mockk<Query<PreferenceEntity>>()
+
+        every { mockPreferenceQueries.findByKey(fixtureKey) } returns mockQueryPreference
+        every { mockQueryPreference.executeAsOneOrNull() } returns null
+
+        val actual = sut.getPreference(fixtureKey)
+
+        assertThat(actual).isNull()
+    }
 }

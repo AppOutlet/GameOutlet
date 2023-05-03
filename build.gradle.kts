@@ -12,6 +12,8 @@ plugins {
     alias(libs.plugins.kover)
     alias(libs.plugins.kotlinx.gettext)
     alias(libs.plugins.sqldelight)
+    alias(libs.plugins.versions)
+    alias(libs.plugins.catalogUpdates)
 }
 
 group = "appoutlet"
@@ -108,3 +110,4 @@ apply(from = "$rootDir/script/kover.gradle")
 apply(from = "$rootDir/script/test.gradle")
 apply(from = "$rootDir/script/gettext.gradle")
 apply(from = "$rootDir/script/sqldelight.gradle")
+apply(from = "$rootDir/script/version-catalog-update.gradle")
