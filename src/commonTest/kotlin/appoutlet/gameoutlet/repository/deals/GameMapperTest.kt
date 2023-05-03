@@ -1,6 +1,5 @@
 package appoutlet.gameoutlet.repository.deals
 
-
 import appoutlet.gameoutlet.core.testing.UnitTest
 import appoutlet.gameoutlet.repository.deals.api.GameSearchResponse
 import com.google.common.truth.Truth.assertThat

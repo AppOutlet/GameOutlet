@@ -85,7 +85,7 @@ class DealMapperTest : UnitTest<DealMapper>() {
                 salePrice = fixture<Int>().toString(),
                 normalPrice = fixture<Int>().toString(),
                 savings = "1",
-                dealRating = "1",
+                dealRating = null,
             ),
 
             fixture<DealResponse>().copy(
@@ -125,7 +125,7 @@ class DealMapperTest : UnitTest<DealMapper>() {
             assertThat(savings).isEqualTo(1)
             assertThat(releaseDate).isEqualTo(fixtureLocalDateTime)
             assertThat(lastChange).isEqualTo(fixtureLocalDateTime)
-            assertThat(rating).isEqualTo(1)
+            assertThat(rating).isEqualTo(0f)
         }
     }
 
@@ -135,8 +135,6 @@ class DealMapperTest : UnitTest<DealMapper>() {
             fixture<DealResponse>().copy(
                 salePrice = fixture<Int>().toString(),
                 normalPrice = fixture<Int>().toString(),
-                savings = "1",
-                dealRating = "1",
             ),
 
             fixture<DealResponse>().copy(
@@ -173,10 +171,10 @@ class DealMapperTest : UnitTest<DealMapper>() {
             assertThat(id).isEqualTo(response.dealID)
             assertThat(game).isEqualTo(fixtureGame)
             assertThat(store).isEqualTo(fixtureStore)
-            assertThat(savings).isEqualTo(1)
+            assertThat(savings).isEqualTo(0f)
             assertThat(releaseDate).isEqualTo(fixtureLocalDateTime)
             assertThat(lastChange).isEqualTo(fixtureLocalDateTime)
-            assertThat(rating).isEqualTo(1)
+            assertThat(rating).isEqualTo(0f)
         }
     }
 }
