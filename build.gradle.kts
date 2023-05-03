@@ -12,6 +12,8 @@ plugins {
     alias(libs.plugins.kover)
     alias(libs.plugins.kotlinx.gettext)
     alias(libs.plugins.sqldelight)
+    alias(libs.plugins.versions)
+    alias(libs.plugins.catalogUpdates)
 }
 
 group = "appoutlet"
