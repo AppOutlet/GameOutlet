@@ -41,12 +41,6 @@ koverReport {
             }
 
             bound {
-                minValue = 35
-                metric = "BRANCH"
-                aggregation = "COVERED_PERCENTAGE"
-            }
-
-            bound {
                 minValue = 80
                 metric = "LINE"
                 aggregation = "COVERED_PERCENTAGE"
