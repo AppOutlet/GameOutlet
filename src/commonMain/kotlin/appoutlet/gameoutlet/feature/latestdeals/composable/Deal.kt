@@ -57,10 +57,10 @@ fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (Latest
 
             Row(modifier = Modifier.padding(MaterialTheme.spacing.small)) {
                 Text(
-                    modifier = Modifier.heightIn(min = 72.dp).weight(1f),
+                    modifier = Modifier.height(48.dp).weight(1f),
                     text = deal.gameTitle,
                     style = MaterialTheme.typography.titleMedium,
-                    maxLines = 3,
+                    maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                     fontWeight = FontWeight.Medium,
                 )
