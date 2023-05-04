@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -57,10 +56,10 @@ fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (Latest
 
             Row(modifier = Modifier.padding(MaterialTheme.spacing.small)) {
                 Text(
-                    modifier = Modifier.heightIn(min = 72.dp).weight(1f),
+                    modifier = Modifier.height(48.dp).weight(1f),
                     text = deal.gameTitle,
                     style = MaterialTheme.typography.titleMedium,
-                    maxLines = 3,
+                    maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                     fontWeight = FontWeight.Medium,
                 )
@@ -71,7 +70,7 @@ fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (Latest
                 ) {
                     Text(
                         text = deal.currentPrice,
-                        style = MaterialTheme.typography.titleMedium,
+                        style = MaterialTheme.typography.titleLarge,
                         color = MaterialTheme.colorScheme.primary,
                         fontWeight = FontWeight.Bold
                     )

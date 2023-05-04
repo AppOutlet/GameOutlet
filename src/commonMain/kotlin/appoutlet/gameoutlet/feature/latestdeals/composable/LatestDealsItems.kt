@@ -18,7 +18,7 @@ fun LatestDealsItems(
     onInputEvent: (LatestDealsInputEvent) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    LazyVerticalGrid(modifier = modifier, columns = GridCells.Adaptive(250.dp)) {
+    LazyVerticalGrid(modifier = modifier, columns = GridCells.Adaptive(minSize = 300.dp)) {
         item(span = {
             GridItemSpan(maxLineSpan)
         }) {

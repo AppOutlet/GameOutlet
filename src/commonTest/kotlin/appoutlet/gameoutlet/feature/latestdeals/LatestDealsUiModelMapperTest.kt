@@ -6,12 +6,17 @@ import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.feature.latestdeals.composable.DealUiModel
 import com.google.common.truth.Truth.assertThat
+import io.mockk.every
+import io.mockk.mockk
+import name.kropp.kotlinx.gettext.I18n
 import org.javamoney.moneta.Money
 import java.math.BigDecimal
 import kotlin.test.Test
 
 class LatestDealsUiModelMapperTest : UnitTest<LatestDealsUiModelMapper>() {
-    override fun buildSut() = LatestDealsUiModelMapper()
+    private val mockI18n = mockk<I18n>()
+
+    override fun buildSut() = LatestDealsUiModelMapper(mockI18n)
 
     @Test
     fun `should map deals ui model`() {
@@ -21,7 +26,7 @@ class LatestDealsUiModelMapperTest : UnitTest<LatestDealsUiModelMapper>() {
         val store2Fixture = fixture<Store>()
         val currentPriceFixture = Money.of(BigDecimal(3), "USD")
         val oldPriceFixture = Money.of(BigDecimal(10), "USD")
-        val currentCheapPriceFixture = Money.of(BigDecimal(1), "USD")
+        val currentCheapPriceFixture = Money.of(BigDecimal(0), "USD")
         val current2PriceFixture = Money.of(BigDecimal(2), "USD")
         val oldPrice2Fixture = Money.of(BigDecimal(12), "USD")
         val dealsFixture = listOf(
@@ -47,13 +52,15 @@ class LatestDealsUiModelMapperTest : UnitTest<LatestDealsUiModelMapper>() {
             ),
         )
 
+        every { mockI18n.tr("FREE") } returns "FREE"
+
         val actual = sut.invoke(dealsFixture)
 
         assertThat(actual.size).isEqualTo(2)
         assertUiModel(
             uiModel = actual[0],
             game = gameFixture,
-            expectedCurrentPrice = "$1.00",
+            expectedCurrentPrice = "FREE",
             expectedOldPrice = "$10.00",
             storeFixture,
             storeFixture

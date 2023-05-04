@@ -1,5 +1,3 @@
-##### Ticket: https://github.com/AppOutlet/GameOutlet/issues/<!--- Ticket number --->
-
 ### Why?
 <!--- Why this change is needed --->
 
@@ -13,7 +11,6 @@
 | Drag the "before" image here | Drag the "after" image here |
 
 ### Checklist:
-<!--- Uncomment the necessary options --->
 - [ ] Unit tests created/updated
 - [ ] UI tests verified
 - [ ] Uploaded screenshots for design review
