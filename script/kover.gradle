@@ -19,37 +19,39 @@ koverReport {
         }
     }
 
-    html {
-        title = "Game outlet test coverage"
-        onCheck = false
-
-        filters {
-            excludes {
-                classes(excludePatters)
-            }
-        }
-    }
-
-    verify {
-        rule {
-            enabled = true
+    defaults {
+        html {
+            title = "Game outlet test coverage"
+            onCheck = false
 
             filters {
                 excludes {
                     classes(excludePatters)
                 }
             }
+        }
 
-            bound {
-                minValue = 80
-                metric = "LINE"
-                aggregation = "COVERED_PERCENTAGE"
-            }
+        verify {
+            rule {
+                enabled = true
 
-            bound {
-                minValue = 71
-                metric = "INSTRUCTION"
-                aggregation = "COVERED_PERCENTAGE"
+                filters {
+                    excludes {
+                        classes(excludePatters)
+                    }
+                }
+
+                bound {
+                    minValue = 80
+                    metric = "LINE"
+                    aggregation = "COVERED_PERCENTAGE"
+                }
+
+                bound {
+                    minValue = 71
+                    metric = "INSTRUCTION"
+                    aggregation = "COVERED_PERCENTAGE"
+                }
             }
         }
     }
