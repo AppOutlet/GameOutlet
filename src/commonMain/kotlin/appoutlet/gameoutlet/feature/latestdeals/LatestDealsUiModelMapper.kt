@@ -4,12 +4,12 @@ import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.feature.latestdeals.composable.DealStoreUiModel
 import appoutlet.gameoutlet.feature.latestdeals.composable.DealUiModel
+import name.kropp.kotlinx.gettext.I18n
+import org.javamoney.moneta.Money
 import org.javamoney.moneta.format.CurrencyStyle
 import java.util.Locale
 import javax.money.format.AmountFormatQueryBuilder
 import javax.money.format.MonetaryFormats
-import name.kropp.kotlinx.gettext.I18n
-import org.javamoney.moneta.Money
 
 class LatestDealsUiModelMapper(
     private val i18n: I18n,

@@ -6,12 +6,12 @@ import appoutlet.gameoutlet.domain.Store
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
+import name.kropp.kotlinx.gettext.I18n
+import org.javamoney.moneta.Money
 import org.javamoney.moneta.format.CurrencyStyle
 import java.util.Locale
 import javax.money.format.AmountFormatQueryBuilder
 import javax.money.format.MonetaryFormats
-import name.kropp.kotlinx.gettext.I18n
-import org.javamoney.moneta.Money
 
 class GameUiModelMapper(
     private val i18n: I18n,
