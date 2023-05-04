@@ -10,8 +10,12 @@ import org.javamoney.moneta.format.CurrencyStyle
 import java.util.Locale
 import javax.money.format.AmountFormatQueryBuilder
 import javax.money.format.MonetaryFormats
+import name.kropp.kotlinx.gettext.I18n
+import org.javamoney.moneta.Money
 
-class GameUiModelMapper {
+class GameUiModelMapper(
+    private val i18n: I18n,
+) {
     private val amountFormatQuery = AmountFormatQueryBuilder.of(Locale.US).set(CurrencyStyle.SYMBOL).build()
     private val amountFormat = MonetaryFormats.getAmountFormat(amountFormatQuery)
 
@@ -29,8 +33,8 @@ class GameUiModelMapper {
             async {
                 GameDealUiModel(
                     id = deal.id,
-                    salePrice = amountFormat.format(deal.salePrice),
-                    normalPrice = amountFormat.format(deal.normalPrice),
+                    salePrice = formatMoney(deal.salePrice),
+                    normalPrice = formatMoney(deal.normalPrice),
                     showNormalPrice = !samePrice,
                     store = mapStore(deal.store),
                 )
@@ -38,6 +42,14 @@ class GameUiModelMapper {
         }
 
         deferredDealUiModels.awaitAll()
+    }
+
+    private fun formatMoney(money: Money): String {
+        return if (money.isZero) {
+            i18n.tr("FREE")
+        } else {
+            amountFormat.format(money)
+        }
     }
 
     private fun mapStore(store: Store): GameDealStoreUiModel {

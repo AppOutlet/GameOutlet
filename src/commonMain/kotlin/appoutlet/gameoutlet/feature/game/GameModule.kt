@@ -6,5 +6,5 @@ val gameModule = module {
     factory { GameViewModel(get(), get(), get()) }
     factory { GameViewProvider() }
     factory { GameOrchestrator(get(), get()) }
-    factory { GameUiModelMapper() }
+    factory { GameUiModelMapper(get()) }
 }
