@@ -38,3 +38,5 @@ jobs:
           git commit -m "chore: bump libraries version" --no-verify
           git push -u origin HEAD --no-verify
           gh pr create -B main -H library-update --title "Dependency version updates" --body 'Created by Github action'
+        env:
+          GH_TOKEN: ${{ github.token }}
