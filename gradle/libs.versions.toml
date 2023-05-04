@@ -1,23 +1,23 @@
 [versions]
-detekt = "1.22.0"
-kotlin = "1.7.20"
+detekt = "1.23.0-RC3"
+kotlin = "1.8.21"
 kotlinx-gettext = "0.5.2"
 retrofit = "2.9.0"
 sqldelight = "2.0.0-alpha05"
-voyager = "1.0.0-rc03"
+voyager = "1.0.0-rc05"
 
 [libraries]
-detekt-compose = "io.nlopez.compose.rules:detekt:0.1.2"
+detekt-compose = "io.nlopez.compose.rules:detekt:0.1.5"
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
-flatlaf = "com.formdev:flatlaf:3.1"
-joda-time = "joda-time:joda-time:2.12.4"
-kamel = "com.alialbaali.kamel:kamel-image:0.4.0"
-koin = "io.insert-koin:koin-core:3.3.3"
+flatlaf = "com.formdev:flatlaf:3.1.1"
+joda-time = "joda-time:joda-time:2.12.5"
+kamel = "com.alialbaali.kamel:kamel-image:0.4.1"
+koin = "io.insert-koin:koin-core:3.4.0"
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlinFixture = "com.appmattus.fixture:fixture:1.2.0"
 kotlinx-gettext = { module = "name.kropp.kotlinx-gettext:kotlinx-gettext", version.ref = "kotlinx-gettext" }
-ktor-client = "io.ktor:ktor-client-java:2.2.4"
-mockk = "io.mockk:mockk:1.13.4"
+ktor-client = "io.ktor:ktor-client-java:2.3.0"
+mockk = "io.mockk:mockk:1.13.5"
 moneta = "org.javamoney:moneta:1.4.2"
 napier = "io.github.aakira:napier:2.6.1"
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
@@ -32,11 +32,11 @@ voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", vers
 [plugins]
 catalogUpdates = "nl.littlerobots.version-catalog-update:0.8.0"
 commitlint = "ru.netris.commitlint:1.4.3"
-compose = "org.jetbrains.compose:1.3.0"
+compose = "org.jetbrains.compose:1.5.0-dev1036"
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
-gitHooks = "com.star-zero.gradle.githook:1.2.0"
+gitHooks = "com.star-zero.gradle.githook:1.2.1"
 kotlinx-gettext = { id = "name.kropp.kotlinx-gettext", version.ref = "kotlinx-gettext" }
-kover = "org.jetbrains.kotlinx.kover:0.7.0-Alpha"
+kover = "org.jetbrains.kotlinx.kover:0.7.0-Beta"
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 versions = "com.github.ben-manes.versions:0.46.0"
