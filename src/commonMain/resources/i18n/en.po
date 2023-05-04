@@ -7,36 +7,37 @@ msgid ""
 msgstr "Project-Id-Version: PACKAGE VERSION\nReport-Msgid-Bugs-To: \n\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nLanguage: \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:75
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:77
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:41
 msgid "Powered by App Outlet"
 msgstr "Powered by App Outlet"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:67
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:69
 msgid "Occurred an error when loading the store data"
 msgstr "Occurred an error when loading the store data"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Loading.kt:24
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Loading.kt:22
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/composable/SplashLoadingIndicator.kt:24
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/composable/SplashLoadingIndicatorKtTest.kt:20
 msgid "Loading"
 msgstr "Loading"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:23
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:21
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:20
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorKtTest.kt:27
 msgid "Something went wrong"
 msgstr "Something went wrong"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:24
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:22
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:21
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorKtTest.kt:31
 msgid "An unexpected error occurred"
 msgstr "An unexpected error occurred"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:25
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:23
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:22
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameViewTest.kt:35
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContentKtTest.kt:84
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:46
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:70
 msgid "Try again"
@@ -50,31 +51,32 @@ msgstr "GameOutlet logo"
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/LatestDealsTab.kt:20
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsView.kt:15
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/composable/LatestDealsItems.kt:25
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:60
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:68
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:64
 msgid "Latest deals"
 msgstr "Latest deals"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/SettingsTab.kt:18
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/settings/SettingsView.kt:20
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:99
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:110
 msgid "Settings"
 msgstr "Settings"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/StoresTab.kt:18
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/StoreListView.kt:20
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:86
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:96
 msgid "Stores"
 msgstr "Stores"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/WishlistTab.kt:18
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/WishlistView.kt:20
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:73
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:82
 msgid "Wishlist"
 msgstr "Wishlist"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContent.kt:49
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/GameSearchTab.kt:22
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContent.kt:50
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/GameSearchTab.kt:20
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:123
 msgid "Search"
 msgstr "Search"
 
@@ -112,23 +114,30 @@ msgstr "We could not load the data from the selected game"
 msgid "We are fetching the deals from the selected game"
 msgstr "We are fetching the deals from the selected game"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsDealsList.kt:43
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsDealsList.kt:40
 msgid "Deals"
 msgstr "Deals"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsDealsList.kt:74
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsDealsList.kt:71
 msgid "The prices are in US dollar (USD). Note that the value can change depending on your location"
 msgstr "The prices are in US dollar (USD). Note that the value can change depending on your location"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContent.kt:85
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContent.kt:91
 #, java-format
 msgid "No result found for '{{searchTerm}}'"
 msgstr "No result found for '{{searchTerm}}'"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContent.kt:80
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContent.kt:83
 msgid "Start by searching some game in the field above"
 msgstr "Start by searching some game in the field above"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchTextField.kt:57
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchTextField.kt:59
 msgid "Type your favorite game title"
 msgstr "Type your favorite game title"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:49
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsUiModelMapper.kt:42
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapperTest.kt:130
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsUiModelMapperTest.kt:55
+msgid "FREE"
+msgstr "FREE"
