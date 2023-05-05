@@ -1,5 +1,6 @@
 package appoutlet.gameoutlet.feature.game.composable
 
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -89,7 +90,7 @@ private fun Deal(item: GameDealUiModel, onInputEvent: (GameInputEvent) -> Unit, 
             modifier = Modifier.padding(MaterialTheme.spacing.medium).size(64.dp),
             resource = lazyPainterResource(item.store.icon),
             contentDescription = null,
-            crossfade = true,
+            animationSpec = tween(),
         )
 
         Text(modifier = Modifier.weight(1f), text = item.store.name, style = MaterialTheme.typography.titleLarge)

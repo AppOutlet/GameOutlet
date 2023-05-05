@@ -1,5 +1,6 @@
 package appoutlet.gameoutlet.feature.game.composable
 
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -39,7 +40,6 @@ fun GameDetails(uiState: GameUiModel, modifier: Modifier = Modifier, onInputEven
                     .blur(10.dp),
                 resource = lazyPainterResource(data = uiState.image),
                 contentDescription = null,
-                crossfade = false,
                 contentScale = ContentScale.Crop,
                 colorFilter = ColorFilter.tint(
                     color = MaterialTheme.colorScheme.background.copy(alpha = .5f),
@@ -53,7 +53,7 @@ fun GameDetails(uiState: GameUiModel, modifier: Modifier = Modifier, onInputEven
                         .clip(MaterialTheme.shapes.large),
                     resource = lazyPainterResource(data = uiState.image),
                     contentDescription = null,
-                    crossfade = true
+                    animationSpec = tween(),
                 )
             }
         }
