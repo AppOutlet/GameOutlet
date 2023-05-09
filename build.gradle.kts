@@ -35,7 +35,7 @@ compose.desktop {
     application {
         mainClass = "GameOutlet"
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Exe, TargetFormat.Msi, TargetFormat.Deb, TargetFormat.Rpm)
+            targetFormats(TargetFormat.Dmg, TargetFormat.Exe, TargetFormat.Msi, TargetFormat.Deb, TargetFormat.Rpm, TargetFormat.AppImage)
 
             packageName = "GameOutlet"
             packageVersion = "1.0.1"

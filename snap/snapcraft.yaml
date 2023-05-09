@@ -11,8 +11,10 @@ description: |
   - Search by a game title to see its prices on these stores
 base: core18
 grade: stable
-confinement: strict
+confinement: devmode
 architectures:
+  - build-on: arm64
+    run-on: arm64
   - build-on: amd64
     run-on: amd64
 website: https://appoutlet.github.io/
@@ -36,11 +38,11 @@ parts:
   game-outlet:
     plugin: nil
     source: https://github.com/AppOutlet/GameOutlet.git
-    source-tag: v$SNAPCRAFT_PROJECT_VERSION
+    source-branch: main
     stage-packages:
       - openjdk-17-jdk
-      - libc6
     override-build: |
-      ./gradlew --version
-      ./gradlew packageReleaseUberJarForCurrentOS
-      mv build/compose/jars/GameOutlet-linux-*.jar $SNAPCRAFT_PART_INSTALL/
+      ./gradlew tasks
+      ./gradlew packageReleaseAppImage
+      ls -la build/compose/binaries/main-release
+      mv build/compose/binaries/main-release/app/GameOutlet $SNAPCRAFT_PART_INSTALL/
