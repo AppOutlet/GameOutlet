@@ -39,3 +39,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Snapcraft ###
+*.snap
+parts
+prime
+stage

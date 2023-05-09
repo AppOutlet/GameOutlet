@@ -39,6 +39,7 @@ parts:
     source-tag: v$SNAPCRAFT_PROJECT_VERSION
     stage-packages:
       - openjdk-17-jdk
+      - libc6
     override-build: |
       ./gradlew --version
       ./gradlew packageReleaseUberJarForCurrentOS
