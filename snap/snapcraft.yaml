@@ -29,7 +29,7 @@ type: app
 
 apps:
   game-outlet:
-    command: java -jar GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
+    command: ./GameOutlet/bin/GameOutlet
     plugs:
       - home
       - network
@@ -39,10 +39,30 @@ parts:
     plugin: nil
     source: https://github.com/AppOutlet/GameOutlet.git
     source-branch: main
-    stage-packages:
+    build-packages:
       - openjdk-17-jdk
+    stage-packages:
+      - libasound2
+      - libbrotli1
+      - libfontconfig1
+      - libfreetype6
+      - libgif7
+      - libgl1
+      - libglvnd0
+      - libglx0
+      - libgraphite2-3
+      - libharfbuzz0b
+      - libjpeg-turbo8
+      - liblcms2-2
+      - libpng16-16
+      - libx11-6
+      - libxau6
+      - libxcb1
+      - libxdmcp6
+      - libxext6
+      - libxi6
+      - libxrender1
+      - libxtst6
     override-build: |
-      ./gradlew tasks
       ./gradlew packageReleaseAppImage
-      ls -la build/compose/binaries/main-release
       mv build/compose/binaries/main-release/app/GameOutlet $SNAPCRAFT_PART_INSTALL/
