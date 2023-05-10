@@ -38,6 +38,7 @@ class GameSearchContentKtTest : UiTest() {
         composeTestRule.onNodeWithTag("searchView").run {
             assertIsDisplayed()
             performTextClearance()
+            composeTestRule.waitForIdle()
             performTextInput(fixtureSearchTermFinal)
         }
 
