@@ -1,6 +1,9 @@
 package appoutlet.gameoutlet.feature.game.composable
 
+import androidx.compose.animation.core.tween
+import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -19,10 +22,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.translation.i18n
+import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.core.ui.spacing
+import appoutlet.gameoutlet.feature.game.GameDealStoreUiModel
 import appoutlet.gameoutlet.feature.game.GameDealUiModel
 import appoutlet.gameoutlet.feature.game.GameInputEvent
 import appoutlet.gameoutlet.feature.game.GameUiModel
@@ -80,16 +87,24 @@ fun GameDetailsDealsList(uiState: GameUiModel, onInputEvent: (GameInputEvent) ->
 @Composable
 private fun Deal(item: GameDealUiModel, onInputEvent: (GameInputEvent) -> Unit, modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier.fillMaxWidth().clickable {
-            onInputEvent(GameInputEvent.DealClicked(item))
-        },
+        modifier = modifier.fillMaxWidth()
+            .clickable {
+                onInputEvent(GameInputEvent.DealClicked(item))
+            }.semantics {
+                testTag = "deal ${item.id}"
+            },
         verticalAlignment = Alignment.CenterVertically
     ) {
         KamelImage(
             modifier = Modifier.padding(MaterialTheme.spacing.medium).size(64.dp),
             resource = lazyPainterResource(item.store.icon),
             contentDescription = null,
-            crossfade = true,
+            animationSpec = tween(),
+            onLoading = {
+                Box(
+                    modifier = Modifier.padding(MaterialTheme.spacing.medium).size(64.dp),
+                ) { }
+            }
         )
 
         Text(modifier = Modifier.weight(1f), text = item.store.name, style = MaterialTheme.typography.titleLarge)
@@ -112,5 +127,29 @@ private fun Deal(item: GameDealUiModel, onInputEvent: (GameInputEvent) -> Unit, 
                 )
             }
         }
+    }
+}
+
+@Composable
+@Preview
+private fun GameDetailsDealsListPreview() {
+    val gameUiModel = GameUiModel(
+        title = "Game",
+        image = "",
+        deals = listOf(
+            GameDealUiModel(
+                id = "123",
+                store = GameDealStoreUiModel(
+                    name = "Store",
+                    icon = ""
+                ),
+                salePrice = "123",
+                normalPrice = "123",
+                showNormalPrice = true
+            )
+        )
+    )
+    GameOutletTheme {
+        GameDetailsDealsList(gameUiModel, {})
     }
 }

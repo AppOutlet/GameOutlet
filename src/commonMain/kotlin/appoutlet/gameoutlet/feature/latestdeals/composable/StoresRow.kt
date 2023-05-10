@@ -45,7 +45,6 @@ fun StoresRow(uiModel: DealUiModel, modifier: Modifier = Modifier) {
                             .size(iconSize),
                         resource = lazyPainterResource(data = store.icon),
                         contentDescription = null,
-                        crossfade = false,
                         contentScale = ContentScale.Crop,
                         onLoading = {
                             Box(

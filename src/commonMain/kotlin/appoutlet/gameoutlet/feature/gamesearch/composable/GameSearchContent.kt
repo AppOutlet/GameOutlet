@@ -119,7 +119,6 @@ private fun GameSearchItem(
                     Box(
                         modifier = Modifier.fillMaxHeight()
                             .background(color = MaterialTheme.colorScheme.primaryContainer)
-                            .weight(IMAGE_WEIGHT)
                     ) {}
                 }
             )

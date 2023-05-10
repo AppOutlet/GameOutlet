@@ -1,8 +1,8 @@
 package appoutlet.gameoutlet.feature.game.composable
 
-import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import appoutlet.gameoutlet.core.testing.UiTest
 import appoutlet.gameoutlet.feature.game.GameInputEvent
 import appoutlet.gameoutlet.feature.game.GameUiModel
@@ -18,12 +18,19 @@ class GameDetailsDealsListKtTest : UiTest() {
         val fixtureGameUiModel = fixture<GameUiModel>()
 
         composeTestRule.setContent {
-            GameDetailsDealsList(uiState = fixtureGameUiModel, mockOnInputEvent)
+            GameDetails(uiState = fixtureGameUiModel, onInputEvent = mockOnInputEvent)
         }
+
+        composeTestRule.print()
 
         fixtureGameUiModel.deals.forEach { deal ->
             composeTestRule.onNodeWithText(deal.store.name)
-                .assertIsDisplayed()
+                .assertExists()
+                .performScrollTo()
+
+            composeTestRule.waitForIdle()
+
+            composeTestRule.onNodeWithText(deal.store.name)
                 .performClick()
 
             verify { mockOnInputEvent.invoke(GameInputEvent.DealClicked(deal)) }

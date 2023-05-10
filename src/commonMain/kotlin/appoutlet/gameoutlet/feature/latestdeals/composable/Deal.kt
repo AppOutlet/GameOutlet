@@ -1,5 +1,6 @@
 package appoutlet.gameoutlet.feature.latestdeals.composable
 
+import androidx.compose.animation.core.tween
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -43,7 +44,7 @@ fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (Latest
                     .background(color = MaterialTheme.colorScheme.tertiaryContainer),
                 resource = lazyPainterResource(data = deal.gameImage),
                 contentDescription = null,
-                crossfade = true,
+                animationSpec = tween(),
                 onLoading = {
                     Box(
                         modifier = Modifier.height(imageHeight)

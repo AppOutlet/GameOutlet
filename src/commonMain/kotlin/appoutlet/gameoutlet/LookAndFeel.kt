@@ -60,7 +60,7 @@ private fun setupMacWindowLookAndFeel(rootPane: JRootPane) {
 }
 
 enum class OS {
-    MAC, WINDOWS, LINUX;
+    MAC, WINDOWS, LINUX
 }
 
 private fun getOS(): OS {
