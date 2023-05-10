@@ -6,6 +6,7 @@ import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import appoutlet.gameoutlet.core.testing.UiTest
 import appoutlet.gameoutlet.core.translation.i18n
 import io.mockk.mockk
@@ -79,7 +80,15 @@ class LatestDealsViewTest : UiTest() {
             LatestDealsView().ViewContent(dealsFixture, mockOnInputEvent)
         }
 
+        composeTestRule.print()
+
         composeTestRule.onNodeWithText(i18n.tr("Take me to search screen"))
+            .performScrollTo()
+
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithText(i18n.tr("Take me to search screen"))
+            .assertIsDisplayed()
             .performClick()
 
         composeTestRule.waitForIdle()
