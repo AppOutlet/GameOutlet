@@ -36,9 +36,12 @@ apps:
       - cups-control
 parts:
   game-outlet:
-    plugin: nil
+    plugin: gradle
     source: https://github.com/AppOutlet/GameOutlet.git
     source-branch: main
+    gradle-version: 7.5.1
+    gradle-openjdk-version: 17
+    gradle-options: [packageReleaseAppImage]
     build-packages:
       - openjdk-17-jdk
     stage-packages:
@@ -63,6 +66,5 @@ parts:
       - libxi6
       - libxrender1
       - libxtst6
-    override-build: |
-      ./gradlew packageReleaseAppImage
+    override-stage: |
       mv build/compose/binaries/main-release/app/GameOutlet $SNAPCRAFT_PART_INSTALL/
