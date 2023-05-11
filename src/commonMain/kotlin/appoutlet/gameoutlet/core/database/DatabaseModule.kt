@@ -10,7 +10,7 @@ private const val QUALIFIER_DATABASE_FOLDER = "databaseFolder"
 
 val databaseModule = module {
     factory(named(QUALIFIER_DATABASE_FOLDER)) {
-        val userHome = System.getenv("HOME")
+        val userHome = System.getenv("HOME") ?: "build"
         val databaseFolder = "$userHome/.config/appoutlet/gameoutlet/database"
         createDatabaseFolderIfItDoesntExists(databaseFolder)
         "jdbc:sqlite:$databaseFolder/GameOutlet.db"
