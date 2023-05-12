@@ -1,6 +1,7 @@
 @file:JvmName("GameOutlet")
 
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
@@ -25,8 +26,8 @@ private const val WINDOW_WIDTH = 1000
 private const val WINDOW_HEIGHT = 690
 
 fun main() {
-    initLookAndFeel()
     application {
+        initLookAndFeel(isSystemInDarkTheme())
         initLogger()
         initKoin()
         Window(

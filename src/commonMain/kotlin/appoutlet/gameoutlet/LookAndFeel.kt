@@ -9,14 +9,19 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.window.FrameWindowScope
+import appoutlet.gameoutlet.core.ui.DarkColors
+import appoutlet.gameoutlet.core.ui.LightColors
+import com.formdev.flatlaf.FlatDarkLaf
+import com.formdev.flatlaf.FlatLightLaf
 import com.formdev.flatlaf.util.SystemInfo
 import javax.swing.JRootPane
+import javax.swing.UIManager
+import javax.swing.plaf.ColorUIResource
 
-fun initLookAndFeel() {
+fun initLookAndFeel(isSystemInDarkTheme: Boolean) {
     when (getOS()) {
         OS.MAC -> setupMacLookAndFeel()
-        OS.WINDOWS -> {
-        }
+        OS.WINDOWS -> setupWindowsLookAndFeel(isSystemInDarkTheme)
 
         OS.LINUX -> {
         }
@@ -27,6 +32,21 @@ private fun setupMacLookAndFeel() {
     System.setProperty("apple.laf.useScreenMenuBar", "true")
     System.setProperty("apple.awt.application.name", "GameOutlet")
     System.setProperty("apple.awt.application.appearance", "system")
+}
+
+private fun setupWindowsLookAndFeel(isSystemInDarkTheme: Boolean) {
+    val (laf, backgroundColor) = if (isSystemInDarkTheme) {
+        FlatDarkLaf() to DarkColors.background
+    } else {
+        FlatLightLaf() to LightColors.background
+    }
+
+    val windowColor = ColorUIResource(backgroundColor.red, backgroundColor.green, backgroundColor.blue)
+
+    UIManager.put("TitlePane.unifiedBackground", false)
+    UIManager.put("TitlePane.background", windowColor)
+    UIManager.put("TitlePane.inactiveBackground", windowColor)
+    UIManager.setLookAndFeel(laf)
 }
 
 @Composable
