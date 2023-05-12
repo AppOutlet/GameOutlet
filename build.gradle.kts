@@ -93,6 +93,7 @@ dependencies {
     commonMainImplementation(libs.joda.time)
     commonMainImplementation(libs.flatlaf)
     commonMainImplementation(libs.napier)
+    commonMainImplementation(libs.appdirs)
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.kotlinFixture)

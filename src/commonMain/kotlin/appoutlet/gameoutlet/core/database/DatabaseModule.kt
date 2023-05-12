@@ -2,6 +2,7 @@ package appoutlet.gameoutlet.core.database
 
 import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.jdbc.sqlite.JdbcSqliteDriver
+import ca.gosyer.appdirs.AppDirs
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import java.io.File
@@ -10,8 +11,8 @@ private const val QUALIFIER_DATABASE_FOLDER = "databaseFolder"
 
 val databaseModule = module {
     factory(named(QUALIFIER_DATABASE_FOLDER)) {
-        val userHome = System.getenv("HOME") ?: "build"
-        val databaseFolder = "$userHome/.config/appoutlet/gameoutlet/database"
+        val appDirs = AppDirs(appName = "GameOutlet", appAuthor = "AppOutlet")
+        val databaseFolder = appDirs.getUserDataDir()
         createDatabaseFolderIfItDoesntExists(databaseFolder)
         "jdbc:sqlite:$databaseFolder/GameOutlet.db"
     }
