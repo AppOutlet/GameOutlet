@@ -18,7 +18,6 @@ import javax.swing.JRootPane
 import javax.swing.UIManager
 import javax.swing.plaf.ColorUIResource
 
-
 fun initLookAndFeel(isSystemInDarkTheme: Boolean) {
     when (getOS()) {
         OS.MAC -> setupMacLookAndFeel()
