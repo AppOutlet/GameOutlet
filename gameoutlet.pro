@@ -9,5 +9,6 @@
 -keep class org.sqlite.** { *; }
 -keep class org.javamoney.moneta.spi.** { *; }
 -keep class io.ktor.client.engine.java.** { *; }
+-keep class com.sun.jna.** { *; }
 -ignorewarnings
 
