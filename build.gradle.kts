@@ -60,6 +60,11 @@ compose.desktop {
 
             windows {
                 iconFile.set(project.file("src/commonMain/resources/image/icon.ico"))
+                dirChooser = true
+                console = false
+                menu = true
+                shortcut = true
+                upgradeUuid = "7f91dff9-a75a-406b-ba92-b958cb72b81e"
             }
 
             modules("java.instrument", "java.management", "java.sql", "jdk.unsupported", "java.net.http")
