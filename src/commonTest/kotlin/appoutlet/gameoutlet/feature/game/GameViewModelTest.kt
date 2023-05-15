@@ -46,7 +46,7 @@ class GameViewModelTest : ViewModelTest<GameViewModel>() {
         val fixtureDeals = fixture<List<Deal>>()
         val fixtureGameUiModel = fixture<GameUiModel>()
 
-        every { mockGameOrchestrator.findById(fixtureGame) } returns flow {
+        every { mockGameOrchestrator.findDealsByGame(fixtureGame) } returns flow {
             delay(3)
             emit(fixtureDeals)
         }

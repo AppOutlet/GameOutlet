@@ -36,7 +36,7 @@ class GameOrchestratorTest : UnitTest<GameOrchestrator>() {
             every { mockStoreRepository.findById(it.store.id) } returns fixtureStore
         }
 
-        val actualDeals = sut.findById(fixtureGame).first()
+        val actualDeals = sut.findDealsByGame(fixtureGame).first()
 
         actualDeals.forEachIndexed { index, deal ->
             assertThat(deal.id).isEqualTo(fixtureDeals[index].id)

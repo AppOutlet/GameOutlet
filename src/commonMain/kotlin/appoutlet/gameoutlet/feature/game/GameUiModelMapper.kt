@@ -3,15 +3,15 @@ package appoutlet.gameoutlet.feature.game
 import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.domain.Store
+import java.util.Locale
+import javax.money.format.AmountFormatQueryBuilder
+import javax.money.format.MonetaryFormats
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import name.kropp.kotlinx.gettext.I18n
 import org.javamoney.moneta.Money
 import org.javamoney.moneta.format.CurrencyStyle
-import java.util.Locale
-import javax.money.format.AmountFormatQueryBuilder
-import javax.money.format.MonetaryFormats
 
 class GameUiModelMapper(
     private val i18n: I18n,
@@ -20,19 +20,27 @@ class GameUiModelMapper(
         AmountFormatQueryBuilder.of(Locale.US).set(CurrencyStyle.SYMBOL).build()
     private val amountFormat = MonetaryFormats.getAmountFormat(amountFormatQuery)
 
-    suspend operator fun invoke(game: Game, deals: List<Deal>): GameUiModel {
+    suspend operator fun invoke(
+        game: Game,
+        deals: List<Deal>,
+        isGameSaved: Boolean
+    ): GameUiModel {
         return GameUiModel(
             title = game.title,
             image = game.image,
             deals = mapDeals(deals),
-            favouriteButton = mapFavouriteButton()
+            favouriteButton = mapFavouriteButton(game, isGameSaved)
         )
     }
 
-    private fun mapFavouriteButton(): GameFavouriteButton {
+    private fun mapFavouriteButton(game: Game, isGameSaved: Boolean): GameFavouriteButton {
         return GameFavouriteButton(
-            isSaved = false,
-            inputEvent = GameInputEvent.NavigateBack
+            isSaved = isGameSaved,
+            inputEvent = if (isGameSaved) {
+                GameInputEvent.RemoveGameFromFavorites(game)
+            } else {
+                GameInputEvent.SaveGame(game)
+            }
         )
     }
 
