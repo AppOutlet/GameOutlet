@@ -17,4 +17,8 @@ class GameRepository(
         val entity = gameQueries.findById(gameId).executeAsOneOrNull()
         return entity?.let(gameMapper::invoke)
     }
+
+    fun deleteById(gameId: Long) {
+        gameQueries.deleteById(gameId)
+    }
 }

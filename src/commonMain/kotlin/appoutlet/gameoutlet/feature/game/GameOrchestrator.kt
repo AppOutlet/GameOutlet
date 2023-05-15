@@ -43,4 +43,8 @@ class GameOrchestrator(
         val savedGame = gameRepository.findById(game.id)
         return savedGame?.let { true } ?: false
     }
+
+    fun removeGame(game: Game) {
+        gameRepository.deleteById(gameId = game.id)
+    }
 }

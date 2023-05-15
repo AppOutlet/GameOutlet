@@ -51,7 +51,7 @@ class GameViewModel(
 
             is GameInputEvent.SaveGame -> saveGame(inputEvent.game)
 
-            is GameInputEvent.RemoveGameFromFavorites -> TODO()
+            is GameInputEvent.RemoveGameFromFavorites -> removeGame(inputEvent.game)
         }
     }
 
@@ -89,5 +89,10 @@ class GameViewModel(
 
     private fun openDealLink(deal: GameDealUiModel) {
         desktopHelper.openLink("https://www.cheapshark.com/redirect?dealID=${deal.id}")
+    }
+
+    private fun removeGame(game: Game) {
+        gameOrchestrator.removeGame(game)
+        checkIfGameIsSaved(game)
     }
 }
