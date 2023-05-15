@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Warning
 import androidx.compose.material3.Card
@@ -37,55 +39,11 @@ import io.kamel.image.KamelImage
 import io.kamel.image.lazyPainterResource
 
 @Composable
-fun GameDetailsDealsList(uiState: GameUiModel, onInputEvent: (GameInputEvent) -> Unit, modifier: Modifier = Modifier) {
-    Column(modifier = modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(
-            modifier = Modifier
-                .widthIn(max = 600.dp)
-                .padding(MaterialTheme.spacing.small)
-                .fillMaxWidth(),
-            text = i18n.tr("Deals"),
-            style = MaterialTheme.typography.titleLarge,
-        )
-
-        Card(
-            modifier = Modifier
-                .widthIn(max = 600.dp)
-                .padding(MaterialTheme.spacing.small)
-                .fillMaxWidth(),
-        ) {
-            Column {
-                for ((index, deal) in uiState.deals.withIndex()) {
-                    Deal(item = deal, onInputEvent = onInputEvent)
-                    if (index != uiState.deals.lastIndex) {
-                        Divider(Modifier.fillMaxWidth())
-                    }
-                }
-            }
-        }
-
-        Row(
-            modifier = Modifier
-                .widthIn(max = 600.dp)
-                .padding(vertical = MaterialTheme.spacing.large, horizontal = MaterialTheme.spacing.medium)
-                .fillMaxWidth(),
-        ) {
-            Icon(imageVector = Icons.Outlined.Warning, contentDescription = null)
-
-            Spacer(modifier = Modifier.width(MaterialTheme.spacing.medium))
-
-            Text(
-                text = i18n.tr(
-                    "The prices are in US dollar (USD). Note that the value can change depending on your location"
-                ),
-                style = MaterialTheme.typography.bodyLarge,
-            )
-        }
-    }
-}
-
-@Composable
-private fun Deal(item: GameDealUiModel, onInputEvent: (GameInputEvent) -> Unit, modifier: Modifier = Modifier) {
+fun Deal(
+    item: GameDealUiModel,
+    onInputEvent: (GameInputEvent) -> Unit,
+    modifier: Modifier = Modifier
+) {
     Row(
         modifier = modifier.fillMaxWidth()
             .clickable {
@@ -107,7 +65,11 @@ private fun Deal(item: GameDealUiModel, onInputEvent: (GameInputEvent) -> Unit, 
             }
         )
 
-        Text(modifier = Modifier.weight(1f), text = item.store.name, style = MaterialTheme.typography.titleLarge)
+        Text(
+            modifier = Modifier.weight(1f),
+            text = item.store.name,
+            style = MaterialTheme.typography.titleLarge
+        )
 
         Column(
             modifier = Modifier.padding(horizontal = MaterialTheme.spacing.medium),
@@ -132,24 +94,19 @@ private fun Deal(item: GameDealUiModel, onInputEvent: (GameInputEvent) -> Unit, 
 
 @Composable
 @Preview
-private fun GameDetailsDealsListPreview() {
-    val gameUiModel = GameUiModel(
-        title = "Game",
-        image = "",
-        deals = listOf(
-            GameDealUiModel(
-                id = "123",
-                store = GameDealStoreUiModel(
-                    name = "Store",
-                    icon = ""
-                ),
-                salePrice = "123",
-                normalPrice = "123",
-                showNormalPrice = true
-            )
-        )
+private fun DealPreview() {
+    val deal = GameDealUiModel(
+        id = "123",
+        store = GameDealStoreUiModel(
+            name = "Store",
+            icon = ""
+        ),
+        salePrice = "123",
+        normalPrice = "123",
+        showNormalPrice = true
     )
+
     GameOutletTheme {
-        GameDetailsDealsList(gameUiModel, {})
+        Deal(deal, {})
     }
 }

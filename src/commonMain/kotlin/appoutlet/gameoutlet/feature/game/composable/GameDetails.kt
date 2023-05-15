@@ -1,72 +1,84 @@
 package appoutlet.gameoutlet.feature.game.composable
 
-import androidx.compose.animation.core.tween
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.BlendMode
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.core.ui.spacing
-import appoutlet.gameoutlet.feature.common.composable.ScreenTitle
 import appoutlet.gameoutlet.feature.game.GameInputEvent
 import appoutlet.gameoutlet.feature.game.GameUiModel
-import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GameDetails(uiState: GameUiModel, modifier: Modifier = Modifier, onInputEvent: (GameInputEvent) -> Unit) {
-    Column(modifier = modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
-        Box(modifier = Modifier.fillMaxWidth()) {
-            KamelImage(
-                modifier = Modifier
-                    .matchParentSize()
-                    .blur(10.dp),
-                resource = lazyPainterResource(data = uiState.image),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                colorFilter = ColorFilter.tint(
-                    color = MaterialTheme.colorScheme.background.copy(alpha = .5f),
-                    blendMode = BlendMode.Lighten
-                )
+fun GameDetails(
+    uiState: GameUiModel,
+    modifier: Modifier = Modifier,
+    onInputEvent: (GameInputEvent) -> Unit
+) {
+    Scaffold(
+        modifier = modifier.fillMaxSize(),
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(text = uiState.title)
+                },
+                navigationIcon = {
+                    IconButton(
+                        onClick = { onInputEvent(GameInputEvent.NavigateBack) },
+                        content = { Icon(Icons.Outlined.ArrowBack, null) }
+                    )
+                },
             )
+        }
+    ) { innerPadding ->
+        LazyColumn(
+            modifier = Modifier.padding(innerPadding).fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            item(key = uiState.image) {
+                GameDetailsImage(uiState = uiState)
+            }
 
-            Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-                KamelImage(
-                    modifier = Modifier.padding(MaterialTheme.spacing.large)
-                        .clip(MaterialTheme.shapes.large),
-                    resource = lazyPainterResource(data = uiState.image),
-                    contentDescription = null,
-                    animationSpec = tween(),
+            item {
+                Text(
+                    modifier = Modifier
+                        .widthIn(max = 500.dp)
+                        .padding(MaterialTheme.spacing.small)
+                        .fillMaxWidth(),
+                    text = i18n.tr("Deals"),
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Medium
                 )
             }
-        }
-        Row(modifier = Modifier.padding(MaterialTheme.spacing.medium).fillMaxWidth()) {
-            IconButton(
-                modifier = Modifier.padding(top = MaterialTheme.spacing.large),
-                onClick = { onInputEvent(GameInputEvent.NavigateBack) },
-                content = { Icon(Icons.Outlined.ArrowBack, null) }
-            )
 
-            ScreenTitle(text = uiState.title)
-        }
+            items(items = uiState.deals) { deal ->
+                Deal(
+                    modifier = Modifier.widthIn(max = 500.dp),
+                    item = deal,
+                    onInputEvent = onInputEvent
+                )
+            }
 
-        GameDetailsDealsList(uiState = uiState, onInputEvent = onInputEvent)
+            item {
+                GameDetailsFooter()
+            }
+        }
     }
 }
