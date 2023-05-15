@@ -31,7 +31,8 @@ fun GameDetailPreview() {
             favouriteButton = GameFavouriteButton(
                 isSaved = false,
                 inputEvent = GameInputEvent.NavigateBack
-            )
+            ),
+            snackBarMessage = null
         )
         GameDetails(uiState = uiModel, onInputEvent = {})
     }

@@ -8,6 +8,7 @@ data class GameUiModel(
     val image: String,
     val deals: List<GameDealUiModel>,
     val favouriteButton: GameFavouriteButton,
+    val snackBarMessage: String?
 )
 
 data class GameDealUiModel(

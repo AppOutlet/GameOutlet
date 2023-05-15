@@ -9,8 +9,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -19,6 +23,7 @@ import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.core.ui.spacing
 import appoutlet.gameoutlet.feature.game.GameInputEvent
 import appoutlet.gameoutlet.feature.game.GameUiModel
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -27,10 +32,22 @@ fun GameDetails(
     modifier: Modifier = Modifier,
     onInputEvent: (GameInputEvent) -> Unit
 ) {
+    val snackBarHostState = remember { SnackbarHostState() }
+    val coroutineScope = rememberCoroutineScope()
+
+    uiState.snackBarMessage?.let {
+        coroutineScope.launch {
+            snackBarHostState.showSnackbar(message = it, withDismissAction = true)
+        }
+    }
+
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             GameDetailsTopBar(uiState = uiState, onInputEvent = onInputEvent)
+        },
+        snackbarHost = {
+            SnackbarHost(snackBarHostState)
         }
     ) { innerPadding ->
         LazyColumn(

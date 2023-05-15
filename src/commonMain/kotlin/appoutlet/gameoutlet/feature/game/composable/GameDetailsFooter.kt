@@ -18,9 +18,9 @@ import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.core.ui.spacing
 
 @Composable
-fun GameDetailsFooter() {
+fun GameDetailsFooter(modifier: Modifier = Modifier) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .widthIn(max = 500.dp)
             .padding(vertical = MaterialTheme.spacing.large, horizontal = MaterialTheme.spacing.medium)
             .fillMaxWidth(),

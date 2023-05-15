@@ -23,13 +23,16 @@ class GameViewModel(
     private val _game = MutableStateFlow(value = Game.UNSET)
     private val _deals = MutableStateFlow<List<Deal>>(value = emptyList())
     private val _isGameSaved = MutableStateFlow(value = false)
+    private var shouldShowSnackBar: Boolean = false
 
     override fun afterViewModelInitialization() {
         gameJob = combine(_deals, _game, _isGameSaved) { deals, game, isGameSaved ->
             when {
                 game == Game.UNSET -> null
                 deals.isEmpty() -> null
-                else -> gameUiModelMapper.invoke(game, deals, isGameSaved)
+                else -> {
+                    gameUiModelMapper.invoke(game, deals, isGameSaved, shouldShowSnackBar)
+                }
             }
         }
             .filterNotNull()
@@ -84,6 +87,7 @@ class GameViewModel(
 
     private fun saveGame(game: Game) {
         gameOrchestrator.save(game)
+        shouldShowSnackBar = true
         checkIfGameIsSaved(game)
     }
 
@@ -93,6 +97,7 @@ class GameViewModel(
 
     private fun removeGame(game: Game) {
         gameOrchestrator.removeGame(game)
+        shouldShowSnackBar = true
         checkIfGameIsSaved(game)
     }
 }

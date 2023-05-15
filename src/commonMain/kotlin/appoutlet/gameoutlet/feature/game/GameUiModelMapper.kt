@@ -3,15 +3,15 @@ package appoutlet.gameoutlet.feature.game
 import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.domain.Store
-import java.util.Locale
-import javax.money.format.AmountFormatQueryBuilder
-import javax.money.format.MonetaryFormats
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import name.kropp.kotlinx.gettext.I18n
 import org.javamoney.moneta.Money
 import org.javamoney.moneta.format.CurrencyStyle
+import java.util.Locale
+import javax.money.format.AmountFormatQueryBuilder
+import javax.money.format.MonetaryFormats
 
 class GameUiModelMapper(
     private val i18n: I18n,
@@ -23,14 +23,26 @@ class GameUiModelMapper(
     suspend operator fun invoke(
         game: Game,
         deals: List<Deal>,
-        isGameSaved: Boolean
+        isGameSaved: Boolean,
+        shouldShowSnackbar: Boolean
     ): GameUiModel {
         return GameUiModel(
             title = game.title,
             image = game.image,
             deals = mapDeals(deals),
-            favouriteButton = mapFavouriteButton(game, isGameSaved)
+            favouriteButton = mapFavouriteButton(game, isGameSaved),
+            snackBarMessage = mapSnackBarMessage(isGameSaved, shouldShowSnackbar)
         )
+    }
+
+    private fun mapSnackBarMessage(gameSaved: Boolean, shouldShowSnackbar: Boolean): String? {
+        if (!shouldShowSnackbar) return null
+
+        return if (gameSaved) {
+            i18n.tr("The game was added to the favorites list")
+        } else {
+            i18n.tr("The game was removed from the favorites list")
+        }
     }
 
     private fun mapFavouriteButton(game: Game, isGameSaved: Boolean): GameFavouriteButton {
