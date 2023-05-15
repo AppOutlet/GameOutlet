@@ -5,6 +5,8 @@ import androidx.compose.runtime.Composable
 import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.feature.game.GameDealStoreUiModel
 import appoutlet.gameoutlet.feature.game.GameDealUiModel
+import appoutlet.gameoutlet.feature.game.GameFavouriteButton
+import appoutlet.gameoutlet.feature.game.GameInputEvent
 import appoutlet.gameoutlet.feature.game.GameUiModel
 
 @Composable
@@ -25,6 +27,10 @@ fun GameDetailPreview() {
                     normalPrice = "$ 100",
                     showNormalPrice = true
                 )
+            ),
+            favouriteButton = GameFavouriteButton(
+                isSaved = false,
+                inputEvent = GameInputEvent.NavigateBack
             )
         )
         GameDetails(uiState = uiModel, onInputEvent = {})

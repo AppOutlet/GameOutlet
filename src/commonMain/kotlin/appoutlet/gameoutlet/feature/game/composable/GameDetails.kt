@@ -8,6 +8,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -45,6 +47,18 @@ fun GameDetails(
                         content = { Icon(Icons.Outlined.ArrowBack, null) }
                     )
                 },
+                actions = {
+                    val icon = if (uiState.favouriteButton.isSaved) {
+                        Icons.Outlined.Favorite
+                    } else {
+                        Icons.Outlined.FavoriteBorder
+                    }
+
+                    IconButton(
+                        onClick = { onInputEvent(uiState.favouriteButton.inputEvent) },
+                        content = { Icon(icon, null) }
+                    )
+                }
             )
         }
     ) { innerPadding ->

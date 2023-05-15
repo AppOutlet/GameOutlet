@@ -16,14 +16,23 @@ import javax.money.format.MonetaryFormats
 class GameUiModelMapper(
     private val i18n: I18n,
 ) {
-    private val amountFormatQuery = AmountFormatQueryBuilder.of(Locale.US).set(CurrencyStyle.SYMBOL).build()
+    private val amountFormatQuery =
+        AmountFormatQueryBuilder.of(Locale.US).set(CurrencyStyle.SYMBOL).build()
     private val amountFormat = MonetaryFormats.getAmountFormat(amountFormatQuery)
 
     suspend operator fun invoke(game: Game, deals: List<Deal>): GameUiModel {
         return GameUiModel(
             title = game.title,
             image = game.image,
-            deals = mapDeals(deals)
+            deals = mapDeals(deals),
+            favouriteButton = mapFavouriteButton()
+        )
+    }
+
+    private fun mapFavouriteButton(): GameFavouriteButton {
+        return GameFavouriteButton(
+            isSaved = false,
+            inputEvent = GameInputEvent.NavigateBack
         )
     }
 
