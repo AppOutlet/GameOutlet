@@ -6,17 +6,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.ArrowBack
-import androidx.compose.material.icons.outlined.Favorite
-import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -37,29 +30,7 @@ fun GameDetails(
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(text = uiState.title)
-                },
-                navigationIcon = {
-                    IconButton(
-                        onClick = { onInputEvent(GameInputEvent.NavigateBack) },
-                        content = { Icon(Icons.Outlined.ArrowBack, null) }
-                    )
-                },
-                actions = {
-                    val icon = if (uiState.favouriteButton.isSaved) {
-                        Icons.Outlined.Favorite
-                    } else {
-                        Icons.Outlined.FavoriteBorder
-                    }
-
-                    IconButton(
-                        onClick = { onInputEvent(uiState.favouriteButton.inputEvent) },
-                        content = { Icon(icon, null) }
-                    )
-                }
-            )
+            GameDetailsTopBar(uiState = uiState, onInputEvent = onInputEvent)
         }
     ) { innerPadding ->
         LazyColumn(
