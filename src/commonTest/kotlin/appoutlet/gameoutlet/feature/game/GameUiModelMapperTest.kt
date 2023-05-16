@@ -227,8 +227,9 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
             ),
         )
 
-
-        every { mockI18n.tr("The game was added to the favorites list") } returns "The game was added to the favorites list"
+        every {
+            mockI18n.tr("The game was added to the favorites list")
+        } returns "The game was added to the favorites list"
 
         val actual = sut.invoke(
             game = fixtureGame,
@@ -261,7 +262,9 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
             ),
         )
 
-        every { mockI18n.tr("The game was removed from the favorites list") } returns "The game was removed from the favorites list"
+        every {
+            mockI18n.tr("The game was removed from the favorites list")
+        } returns "The game was removed from the favorites list"
 
         val actual = sut.invoke(
             game = fixtureGame,
