@@ -18,7 +18,7 @@ import kotlin.test.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class GameViewModelTest : ViewModelTest<GameViewModel>() {
-    private val mockGameOrchestrator = mockk<GameOrchestrator>()
+    private val mockGameOrchestrator = mockk<GameOrchestrator>(relaxUnitFun = true)
     private val mockGameUiModelMapper = mockk<GameUiModelMapper>()
     private val mockDesktopHelper = mockk<DesktopHelper>(relaxUnitFun = true)
 
@@ -51,6 +51,7 @@ class GameViewModelTest : ViewModelTest<GameViewModel>() {
             emit(fixtureDeals)
         }
         coEvery { mockGameUiModelMapper.invoke(fixtureGame, fixtureDeals, false, false) } returns fixtureGameUiModel
+        every { mockGameOrchestrator.checkIfGameIsSaved(fixtureGame) } returns false
 
         assertThat(sut.uiState.value).isEqualTo(GameUiState.Idle)
 
@@ -72,5 +73,27 @@ class GameViewModelTest : ViewModelTest<GameViewModel>() {
         sut.onInputEvent(GameInputEvent.DealClicked(fixtureGameDealUiModel))
 
         verify { mockDesktopHelper.openLink("https://www.cheapshark.com/redirect?dealID=${fixtureGameDealUiModel.id}") }
+    }
+
+    @Test
+    fun `should save game`() = runViewModelTest {
+        val fixtureEvent = fixture<GameInputEvent.SaveGame>()
+
+        every { mockGameOrchestrator.checkIfGameIsSaved(fixtureEvent.game) } returns false
+
+        sut.onInputEvent(fixtureEvent)
+
+        verify { mockGameOrchestrator.save(fixtureEvent.game) }
+    }
+
+    @Test
+    fun `should remove game`() = runViewModelTest {
+        val fixtureEvent = fixture<GameInputEvent.RemoveGameFromFavorites>()
+
+        every { mockGameOrchestrator.checkIfGameIsSaved(fixtureEvent.game) } returns false
+
+        sut.onInputEvent(fixtureEvent)
+
+        verify { mockGameOrchestrator.removeGame(fixtureEvent.game) }
     }
 }

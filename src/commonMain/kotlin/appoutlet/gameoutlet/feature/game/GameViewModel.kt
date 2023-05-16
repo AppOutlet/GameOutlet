@@ -4,7 +4,6 @@ import appoutlet.gameoutlet.core.util.DesktopHelper
 import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.feature.common.ViewModel
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
@@ -18,15 +17,13 @@ class GameViewModel(
     private val gameUiModelMapper: GameUiModelMapper,
     private val desktopHelper: DesktopHelper,
 ) : ViewModel<GameUiState, GameInputEvent>(initialState = GameUiState.Idle) {
-    private lateinit var gameJob: Job
-
     private val _game = MutableStateFlow(value = Game.UNSET)
     private val _deals = MutableStateFlow<List<Deal>>(value = emptyList())
     private val _isGameSaved = MutableStateFlow(value = false)
     private var shouldShowSnackBar: Boolean = false
 
     override fun afterViewModelInitialization() {
-        gameJob = combine(_deals, _game, _isGameSaved) { deals, game, isGameSaved ->
+        viewModelJob = combine(_deals, _game, _isGameSaved) { deals, game, isGameSaved ->
             when {
                 game == Game.UNSET -> null
                 deals.isEmpty() -> null

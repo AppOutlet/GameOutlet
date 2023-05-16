@@ -14,5 +14,6 @@ abstract class ViewModelTest<T : Any> : UnitTest<T>() {
     fun runViewModelTest(testBlock: TestScope.() -> Unit) = runTest {
         (sut as? ViewModel<*, *>)?.init(this, mockNavigator)
         testBlock()
+        (sut as? ViewModel<*, *>)?.viewModelJob?.cancel()
     }
 }
