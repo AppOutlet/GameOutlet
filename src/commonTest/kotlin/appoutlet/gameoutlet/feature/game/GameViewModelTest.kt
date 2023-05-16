@@ -50,7 +50,7 @@ class GameViewModelTest : ViewModelTest<GameViewModel>() {
             delay(3)
             emit(fixtureDeals)
         }
-        coEvery { mockGameUiModelMapper.invoke(fixtureGame, fixtureDeals) } returns fixtureGameUiModel
+        coEvery { mockGameUiModelMapper.invoke(fixtureGame, fixtureDeals, false, false) } returns fixtureGameUiModel
 
         assertThat(sut.uiState.value).isEqualTo(GameUiState.Idle)
 

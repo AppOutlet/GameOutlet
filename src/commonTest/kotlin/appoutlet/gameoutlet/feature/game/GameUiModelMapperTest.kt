@@ -40,7 +40,12 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
             ),
         )
 
-        val actual = sut.invoke(fixtureGame, fixtureDeals)
+        val actual = sut.invoke(
+            game = fixtureGame,
+            deals = fixtureDeals,
+            isGameSaved = false,
+            shouldShowSnackbar = false,
+        )
 
         assertThat(actual.title).isEqualTo(fixtureGame.title)
         assertThat(actual.image).isEqualTo(fixtureGame.image)
@@ -69,7 +74,12 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
             ),
         )
 
-        val actual = sut.invoke(fixtureGame, fixtureDeals)
+        val actual = sut.invoke(
+            game = fixtureGame,
+            deals = fixtureDeals,
+            isGameSaved = false,
+            shouldShowSnackbar = false,
+        )
 
         assertThat(actual.title).isEqualTo(fixtureGame.title)
         assertThat(actual.image).isEqualTo(fixtureGame.image)
@@ -98,7 +108,12 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
             ),
         )
 
-        val actual = sut.invoke(fixtureGame, fixtureDeals)
+        val actual = sut.invoke(
+            game = fixtureGame,
+            deals = fixtureDeals,
+            isGameSaved = false,
+            shouldShowSnackbar = false,
+        )
 
         assertThat(actual.title).isEqualTo(fixtureGame.title)
         assertThat(actual.image).isEqualTo(fixtureGame.image)
@@ -129,7 +144,12 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
 
         every { mockI18n.tr("FREE") } returns "FREE"
 
-        val actual = sut.invoke(fixtureGame, fixtureDeals)
+        val actual = sut.invoke(
+            game = fixtureGame,
+            deals = fixtureDeals,
+            isGameSaved = false,
+            shouldShowSnackbar = false,
+        )
 
         assertThat(actual.title).isEqualTo(fixtureGame.title)
         assertThat(actual.image).isEqualTo(fixtureGame.image)
