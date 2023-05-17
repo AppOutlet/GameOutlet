@@ -5,7 +5,6 @@ import appoutlet.gameoutlet.core.testing.UnitTest
 import com.google.common.truth.Truth
 import kotlin.test.Test
 
-
 internal class GameMapperTest : UnitTest<GameMapper>() {
     override fun buildSut() = GameMapper()
 

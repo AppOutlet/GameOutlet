@@ -18,7 +18,7 @@ class GameViewTest : UiTest() {
         val fixtureGameNavArgs = fixture<GameNavArgs>()
 
         composeTestRule.setContent {
-            GameView(fixtureGameNavArgs).ViewContent(GameUiState.Idle, mockOnInputEvent)
+            GameViewContent(navArgs = fixtureGameNavArgs, uiState = GameUiState.Idle, onInputEvent = mockOnInputEvent)
         }
 
         verify { mockOnInputEvent.invoke(GameInputEvent.Load(fixtureGameNavArgs)) }

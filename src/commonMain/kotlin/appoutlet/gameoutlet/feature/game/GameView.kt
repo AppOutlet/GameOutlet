@@ -19,8 +19,13 @@ class GameView(private val navArgs: GameNavArgs) : View<GameUiState, GameInputEv
     }
 }
 
+@Suppress("ModifierMissing")
 @Composable
-private fun GameViewContent(navArgs: GameNavArgs, uiState: GameUiState, onInputEvent: (GameInputEvent) -> Unit) {
+fun GameViewContent(
+    navArgs: GameNavArgs,
+    uiState: GameUiState,
+    onInputEvent: (GameInputEvent) -> Unit
+) {
     when (uiState) {
         GameUiState.Idle -> onInputEvent(GameInputEvent.Load(navArgs))
 
