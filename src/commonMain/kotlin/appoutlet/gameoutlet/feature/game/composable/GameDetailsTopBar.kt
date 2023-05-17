@@ -13,6 +13,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import appoutlet.gameoutlet.feature.game.GameInputEvent
 import appoutlet.gameoutlet.feature.game.GameUiModel
 
@@ -30,6 +33,7 @@ fun GameDetailsTopBar(
         },
         navigationIcon = {
             IconButton(
+                modifier = Modifier.semantics { testTag = "navigation icon" },
                 onClick = { onInputEvent(GameInputEvent.NavigateBack) },
                 content = {
                     Icon(Icons.Outlined.ArrowBack, null)
@@ -44,6 +48,13 @@ fun GameDetailsTopBar(
             }
 
             IconButton(
+                modifier = Modifier.semantics {
+                    contentDescription = if (uiState.favouriteButton.isSaved) {
+                        "remove game icon"
+                    } else {
+                        "save game icon"
+                    }
+                },
                 onClick = { onInputEvent(uiState.favouriteButton.inputEvent) },
                 content = { Icon(icon, null, tint = color) }
             )
