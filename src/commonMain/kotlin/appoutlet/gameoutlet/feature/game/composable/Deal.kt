@@ -37,7 +37,7 @@ fun Deal(
             .clickable {
                 onInputEvent(GameInputEvent.DealClicked(item))
             }.semantics {
-                testTag = "deal ${item.id}"
+                testTag = item.id
             },
         verticalAlignment = Alignment.CenterVertically
     ) {
