@@ -40,7 +40,12 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
             ),
         )
 
-        val actual = sut.invoke(fixtureGame, fixtureDeals)
+        val actual = sut.invoke(
+            game = fixtureGame,
+            deals = fixtureDeals,
+            isGameSaved = false,
+            shouldShowSnackbar = false,
+        )
 
         assertThat(actual.title).isEqualTo(fixtureGame.title)
         assertThat(actual.image).isEqualTo(fixtureGame.image)
@@ -56,6 +61,11 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
                 assertThat(icon).isEqualTo(fixtureDeal.store.logoUrl)
             }
         }
+        with(actual.favouriteButton) {
+            assertThat(isSaved).isFalse()
+            assertThat(inputEvent).isEqualTo(GameInputEvent.SaveGame(fixtureGame))
+        }
+        assertThat(actual.snackBarMessage).isNull()
     }
 
     @Test
@@ -69,7 +79,12 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
             ),
         )
 
-        val actual = sut.invoke(fixtureGame, fixtureDeals)
+        val actual = sut.invoke(
+            game = fixtureGame,
+            deals = fixtureDeals,
+            isGameSaved = false,
+            shouldShowSnackbar = false,
+        )
 
         assertThat(actual.title).isEqualTo(fixtureGame.title)
         assertThat(actual.image).isEqualTo(fixtureGame.image)
@@ -98,7 +113,12 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
             ),
         )
 
-        val actual = sut.invoke(fixtureGame, fixtureDeals)
+        val actual = sut.invoke(
+            game = fixtureGame,
+            deals = fixtureDeals,
+            isGameSaved = false,
+            shouldShowSnackbar = false,
+        )
 
         assertThat(actual.title).isEqualTo(fixtureGame.title)
         assertThat(actual.image).isEqualTo(fixtureGame.image)
@@ -129,7 +149,12 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
 
         every { mockI18n.tr("FREE") } returns "FREE"
 
-        val actual = sut.invoke(fixtureGame, fixtureDeals)
+        val actual = sut.invoke(
+            game = fixtureGame,
+            deals = fixtureDeals,
+            isGameSaved = false,
+            shouldShowSnackbar = false,
+        )
 
         assertThat(actual.title).isEqualTo(fixtureGame.title)
         assertThat(actual.image).isEqualTo(fixtureGame.image)
@@ -145,6 +170,110 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
                 assertThat(icon).isEqualTo("")
             }
         }
+    }
+
+    @Test
+    fun `should map GameUiModel - saved game`() = runTest {
+        val fixtureGame = fixture<Game>()
+        val fixtureDeals = listOf(
+            fixture<Deal>().copy(
+                salePrice = Money.of(1, "USD"),
+                normalPrice = Money.of(2, "USD"),
+                store = fixture<Store>().copy(logoUrl = "logo url"),
+            ),
+            fixture<Deal>().copy(
+                salePrice = Money.of(3, "USD"),
+                normalPrice = Money.of(4, "USD"),
+                store = fixture<Store>().copy(logoUrl = "logo url"),
+            ),
+            fixture<Deal>().copy(
+                salePrice = Money.of(5, "USD"),
+                normalPrice = Money.of(6, "USD"),
+                store = fixture<Store>().copy(logoUrl = "logo url"),
+            ),
+        )
+
+        val actual = sut.invoke(
+            game = fixtureGame,
+            deals = fixtureDeals,
+            isGameSaved = true,
+            shouldShowSnackbar = false,
+        )
+
+        with(actual.favouriteButton) {
+            assertThat(isSaved).isTrue()
+            assertThat(inputEvent).isEqualTo(GameInputEvent.RemoveGameFromFavorites(fixtureGame))
+        }
+    }
+
+    @Test
+    fun `should map GameUiModel - snackbar saved`() = runTest {
+        val fixtureGame = fixture<Game>()
+        val fixtureDeals = listOf(
+            fixture<Deal>().copy(
+                salePrice = Money.of(1, "USD"),
+                normalPrice = Money.of(2, "USD"),
+                store = fixture<Store>().copy(logoUrl = "logo url"),
+            ),
+            fixture<Deal>().copy(
+                salePrice = Money.of(3, "USD"),
+                normalPrice = Money.of(4, "USD"),
+                store = fixture<Store>().copy(logoUrl = "logo url"),
+            ),
+            fixture<Deal>().copy(
+                salePrice = Money.of(5, "USD"),
+                normalPrice = Money.of(6, "USD"),
+                store = fixture<Store>().copy(logoUrl = "logo url"),
+            ),
+        )
+
+        every {
+            mockI18n.tr("The game was added to the favorites list")
+        } returns "The game was added to the favorites list"
+
+        val actual = sut.invoke(
+            game = fixtureGame,
+            deals = fixtureDeals,
+            isGameSaved = true,
+            shouldShowSnackbar = true,
+        )
+
+        assertThat(actual.snackBarMessage).isEqualTo("The game was added to the favorites list")
+    }
+
+    @Test
+    fun `should map GameUiModel - snackbar not saved`() = runTest {
+        val fixtureGame = fixture<Game>()
+        val fixtureDeals = listOf(
+            fixture<Deal>().copy(
+                salePrice = Money.of(1, "USD"),
+                normalPrice = Money.of(2, "USD"),
+                store = fixture<Store>().copy(logoUrl = "logo url"),
+            ),
+            fixture<Deal>().copy(
+                salePrice = Money.of(3, "USD"),
+                normalPrice = Money.of(4, "USD"),
+                store = fixture<Store>().copy(logoUrl = "logo url"),
+            ),
+            fixture<Deal>().copy(
+                salePrice = Money.of(5, "USD"),
+                normalPrice = Money.of(6, "USD"),
+                store = fixture<Store>().copy(logoUrl = "logo url"),
+            ),
+        )
+
+        every {
+            mockI18n.tr("The game was removed from the favorites list")
+        } returns "The game was removed from the favorites list"
+
+        val actual = sut.invoke(
+            game = fixtureGame,
+            deals = fixtureDeals,
+            isGameSaved = false,
+            shouldShowSnackbar = true,
+        )
+
+        assertThat(actual.snackBarMessage).isEqualTo("The game was removed from the favorites list")
     }
 
     private fun Money.toBeTested(): String {

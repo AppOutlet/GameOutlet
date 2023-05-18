@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS GameEntity (
+  id INTEGER PRIMARY KEY NOT NULL,
+  title TEXT NOT NULL,
+  imageUrl TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS GameEntity_id ON GameEntity(id);
+
+findAll:
+SELECT * FROM GameEntity;
+
+findById:
+SELECT * FROM GameEntity WHERE id = ?;
+
+save:
+INSERT OR REPLACE INTO GameEntity(id, title, imageUrl) VALUES ?;
+
+deleteById:
+DELETE FROM GameEntity WHERE id = ?;

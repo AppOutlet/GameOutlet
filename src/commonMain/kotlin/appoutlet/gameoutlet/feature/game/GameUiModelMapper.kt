@@ -16,14 +16,43 @@ import javax.money.format.MonetaryFormats
 class GameUiModelMapper(
     private val i18n: I18n,
 ) {
-    private val amountFormatQuery = AmountFormatQueryBuilder.of(Locale.US).set(CurrencyStyle.SYMBOL).build()
+    private val amountFormatQuery =
+        AmountFormatQueryBuilder.of(Locale.US).set(CurrencyStyle.SYMBOL).build()
     private val amountFormat = MonetaryFormats.getAmountFormat(amountFormatQuery)
 
-    suspend operator fun invoke(game: Game, deals: List<Deal>): GameUiModel {
+    suspend operator fun invoke(
+        game: Game,
+        deals: List<Deal>,
+        isGameSaved: Boolean,
+        shouldShowSnackbar: Boolean
+    ): GameUiModel {
         return GameUiModel(
             title = game.title,
             image = game.image,
-            deals = mapDeals(deals)
+            deals = mapDeals(deals),
+            favouriteButton = mapFavouriteButton(game, isGameSaved),
+            snackBarMessage = mapSnackBarMessage(isGameSaved, shouldShowSnackbar)
+        )
+    }
+
+    private fun mapSnackBarMessage(gameSaved: Boolean, shouldShowSnackbar: Boolean): String? {
+        if (!shouldShowSnackbar) return null
+
+        return if (gameSaved) {
+            i18n.tr("The game was added to the favorites list")
+        } else {
+            i18n.tr("The game was removed from the favorites list")
+        }
+    }
+
+    private fun mapFavouriteButton(game: Game, isGameSaved: Boolean): GameFavouriteButton {
+        return GameFavouriteButton(
+            isSaved = isGameSaved,
+            inputEvent = if (isGameSaved) {
+                GameInputEvent.RemoveGameFromFavorites(game)
+            } else {
+                GameInputEvent.SaveGame(game)
+            }
         )
     }
 

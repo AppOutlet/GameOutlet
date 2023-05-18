@@ -6,7 +6,9 @@ import androidx.compose.runtime.Immutable
 data class GameUiModel(
     val title: String,
     val image: String,
-    val deals: List<GameDealUiModel>
+    val deals: List<GameDealUiModel>,
+    val favouriteButton: GameFavouriteButton,
+    val snackBarMessage: String?
 )
 
 data class GameDealUiModel(
@@ -20,4 +22,9 @@ data class GameDealUiModel(
 data class GameDealStoreUiModel(
     val name: String,
     val icon: String,
+)
+
+data class GameFavouriteButton(
+    val isSaved: Boolean,
+    val inputEvent: GameInputEvent
 )

@@ -5,6 +5,6 @@ import org.koin.dsl.module
 val gameModule = module {
     factory { GameViewModel(get(), get(), get()) }
     factory { GameViewProvider() }
-    factory { GameOrchestrator(get(), get()) }
+    factory { GameOrchestrator(get(), get(), get()) }
     factory { GameUiModelMapper(get()) }
 }
