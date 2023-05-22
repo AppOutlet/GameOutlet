@@ -3,6 +3,7 @@ package appoutlet.gameoutlet.feature.wishlist
 import appoutlet.gameoutlet.feature.common.ViewModel
 import appoutlet.gameoutlet.feature.game.GameNavArgs
 import appoutlet.gameoutlet.feature.game.GameViewProvider
+import appoutlet.gameoutlet.feature.home.composable.GameSearchTab
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
@@ -18,6 +19,9 @@ class WishlistViewModel(
         when (inputEvent) {
             WishlistInputEvent.Load -> loadSavedGames()
             is WishlistInputEvent.GameClicked -> navigateToGameDetail(inputEvent.game)
+            WishlistInputEvent.GoToSearch -> {
+                navigator.parent?.replaceAll(GameSearchTab)
+            }
         }
     }
 

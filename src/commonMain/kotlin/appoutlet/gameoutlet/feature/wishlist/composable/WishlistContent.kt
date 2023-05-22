@@ -1,6 +1,8 @@
 package appoutlet.gameoutlet.feature.wishlist.composable
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.widthIn
@@ -24,17 +26,26 @@ fun WishlistContent(
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         item { ScreenTitle(modifier = Modifier.fillMaxWidth(), text = i18n.tr("Wishlist")) }
         item { Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium)) }
-        items(items = uiState.list, key = { it.id }) { item ->
-            WishlistGame(
-                modifier = Modifier.widthIn(max = 600.dp),
-                game = item,
-                onInputEvent = onInputEvent,
-            )
+
+        if (uiState.list.isNotEmpty()) {
+            items(items = uiState.list, key = { it.id }) { item ->
+                WishlistGame(
+                    modifier = Modifier.widthIn(max = 600.dp),
+                    game = item,
+                    onInputEvent = onInputEvent,
+                )
+            }
+        }
+    }
+
+    if (uiState.list.isEmpty()) {
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            WishlistEmptyList(onInputEvent = onInputEvent)
         }
     }
 }

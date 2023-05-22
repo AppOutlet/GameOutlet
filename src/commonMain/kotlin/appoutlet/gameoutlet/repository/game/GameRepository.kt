@@ -1,7 +1,13 @@
 package appoutlet.gameoutlet.repository.game
 
+import app.cash.sqldelight.coroutines.asFlow
+import app.cash.sqldelight.coroutines.mapToList
 import appoutlet.gameoutlet.core.database.GameQueries
 import appoutlet.gameoutlet.domain.Game
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class GameRepository(
     private val gameQueries: GameQueries,
@@ -22,8 +28,8 @@ class GameRepository(
         gameQueries.deleteById(gameId)
     }
 
-    fun findAll(): List<Game> {
-        val entities = gameQueries.findAll().executeAsList()
-        return entities.map(gameMapper::invoke)
-    }
+    fun findAll(): Flow<List<Game>> = gameQueries.findAll()
+        .asFlow()
+        .mapToList(Dispatchers.IO)
+        .map { entities -> entities.map(gameMapper::invoke) }
 }

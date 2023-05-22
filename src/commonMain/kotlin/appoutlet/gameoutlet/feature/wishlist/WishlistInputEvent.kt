@@ -7,4 +7,6 @@ sealed interface WishlistInputEvent : InputEvent {
     data class GameClicked(
         val game: WishlistGameUiModel,
     ) : WishlistInputEvent
+
+    object GoToSearch : WishlistInputEvent
 }
