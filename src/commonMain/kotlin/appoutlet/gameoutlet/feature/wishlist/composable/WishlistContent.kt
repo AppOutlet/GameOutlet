@@ -29,7 +29,7 @@ fun WishlistContent(
     ) {
         item { ScreenTitle(modifier = Modifier.fillMaxWidth(), text = i18n.tr("Wishlist")) }
         item { Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium)) }
-        items(uiState.list) { item ->
+        items(items = uiState.list, key = { it.id }) { item ->
             WishlistGame(
                 modifier = Modifier.widthIn(max = 600.dp),
                 game = item,

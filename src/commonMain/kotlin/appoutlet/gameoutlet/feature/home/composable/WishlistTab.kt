@@ -1,5 +1,6 @@
 package appoutlet.gameoutlet.feature.home.composable
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.runtime.Composable
@@ -9,7 +10,9 @@ import appoutlet.gameoutlet.feature.wishlist.WishlistView
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
+import cafe.adriel.voyager.transitions.SlideTransition
 
+@OptIn(ExperimentalAnimationApi::class)
 object WishlistTab : Tab {
     override val options: TabOptions
         @Composable
@@ -21,6 +24,8 @@ object WishlistTab : Tab {
 
     @Composable
     override fun Content() {
-        Navigator(WishlistView())
+        Navigator(WishlistView()) {
+            SlideTransition(it)
+        }
     }
 }
