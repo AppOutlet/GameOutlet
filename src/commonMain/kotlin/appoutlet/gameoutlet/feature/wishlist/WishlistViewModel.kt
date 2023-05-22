@@ -14,6 +14,7 @@ class WishlistViewModel(
     override fun onInputEvent(inputEvent: WishlistInputEvent) {
         when (inputEvent) {
             WishlistInputEvent.Load -> loadSavedGames()
+            is WishlistInputEvent.GameClicked -> navigateToGameDetail(inputEvent.game)
         }
     }
 
@@ -26,5 +27,9 @@ class WishlistViewModel(
                 mutableUiState.value = WishlistUiState.Loaded(it)
             }
             .launchIn(viewModelScope)
+    }
+
+    private fun navigateToGameDetail(gameUiModel: WishlistGameUiModel) {
+
     }
 }

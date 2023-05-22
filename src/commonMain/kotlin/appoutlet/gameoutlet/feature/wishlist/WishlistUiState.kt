@@ -6,10 +6,10 @@ sealed interface WishlistUiState : UiState {
     object Idle : WishlistUiState
     object Loading : WishlistUiState
     object Error : WishlistUiState
-    data class Loaded(val list: List<WishlistGame>) : WishlistUiState
+    data class Loaded(val list: List<WishlistGameUiModel>) : WishlistUiState
 }
 
-data class WishlistGame(
+data class WishlistGameUiModel(
     val id: Long,
     val title: String,
     val image: String
