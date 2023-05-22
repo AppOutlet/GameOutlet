@@ -21,4 +21,9 @@ class GameRepository(
     fun deleteById(gameId: Long) {
         gameQueries.deleteById(gameId)
     }
+
+    fun findAll(): List<Game> {
+        val entities = gameQueries.findAll().executeAsList()
+        return entities.map(gameMapper::invoke)
+    }
 }
