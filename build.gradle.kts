@@ -89,6 +89,7 @@ dependencies {
     commonMainImplementation(libs.voyager.transitions)
     commonMainImplementation(libs.voyager.tabNavigation)
     commonMainImplementation(libs.sqldelight.sqliteDriver)
+    commonMainImplementation(libs.sqldelight.coroutinesExtensions)
     commonMainImplementation(libs.retrofit)
     commonMainImplementation(libs.retrofit.moshi)
     commonMainImplementation(libs.kamel)

@@ -30,7 +30,7 @@ class HomeViewTest : UiTest() {
     }
 
     private val mockWishlistViewModel = mockk<WishlistViewModel>(relaxUnitFun = true) {
-        every { uiState } returns MutableStateFlow(WishlistUiState.Idle)
+        every { uiState } returns MutableStateFlow(fixture<WishlistUiState.Loaded>())
     }
 
     private val mockSettingsViewModel = mockk<SettingsViewModel>(relaxUnitFun = true) {
@@ -68,7 +68,6 @@ class HomeViewTest : UiTest() {
             .assertTextEquals(i18n.tr("Latest deals"))
     }
 
-    @Ignore("Removed temporarily")
     @Test
     fun `should navigate to Wishlist`() {
         composeTestRule.setContent { Navigator(HomeView()) }

@@ -71,4 +71,21 @@ internal class GameRepositoryTest : UnitTest<GameRepository>() {
 
         verify { mockGameQueries.deleteById(fixtureGameId) }
     }
+
+    @Test
+    fun `should find all saved games`() {
+        val mockGameEntityQuery = mockk<Query<GameEntity>>()
+        val fixtureGameEntities = fixture<List<GameEntity>>()
+        val fixtureGames = fixture<List<Game>>()
+
+        every { mockGameEntityQuery.executeAsList() } returns fixtureGameEntities
+        every { mockGameQueries.findAll() } returns mockGameEntityQuery
+        fixtureGameEntities.forEachIndexed { index, gameEntity ->
+            every { mockGameMapper.invoke(gameEntity) } returns fixtureGames[index]
+        }
+
+        val actual = sut.findAll()
+
+        assertThat(actual).isEqualTo(fixtureGames)
+    }
 }
