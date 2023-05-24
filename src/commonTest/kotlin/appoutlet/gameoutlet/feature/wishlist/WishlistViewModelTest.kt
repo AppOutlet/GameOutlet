@@ -13,8 +13,8 @@ import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import kotlin.test.Test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlin.test.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
 internal class WishlistViewModelTest : ViewModelTest<WishlistViewModel>() {
