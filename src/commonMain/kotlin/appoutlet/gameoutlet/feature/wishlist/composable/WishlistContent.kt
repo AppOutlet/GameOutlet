@@ -48,7 +48,6 @@ fun WishlistContent(
     }
 }
 
-
 @Composable
 private fun WishlistGames(
     uiState: WishlistUiState.Loaded,

@@ -9,7 +9,7 @@ internal class WishlistUiStateMapperTest : UnitTest<WishlistUiStateMapper>() {
     override fun buildSut() = WishlistUiStateMapper()
 
     @Test
-    fun  `should map wishlist ui state`() {
+    fun `should map wishlist ui state`() {
         val fixtureGames = fixture<List<Game>>()
 
         val actual = sut(fixtureGames)

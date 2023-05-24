@@ -18,7 +18,11 @@ class GameViewTest : UiTest() {
         val fixtureGameNavArgs = fixture<GameNavArgs>()
 
         composeTestRule.setContent {
-            GameViewContent(navArgs = fixtureGameNavArgs, uiState = GameUiState.Idle, onInputEvent = mockOnInputEvent)
+            GameViewContent(
+                navArgs = fixtureGameNavArgs,
+                uiState = GameUiState.Idle,
+                onInputEvent = mockOnInputEvent
+            )
         }
 
         verify { mockOnInputEvent.invoke(GameInputEvent.Load(fixtureGameNavArgs)) }
@@ -29,7 +33,11 @@ class GameViewTest : UiTest() {
         val fixtureGameNavArgs = fixture<GameNavArgs>()
 
         composeTestRule.setContent {
-            GameView(fixtureGameNavArgs).ViewContent(GameUiState.Error, mockOnInputEvent)
+            GameViewContent(
+                navArgs = fixtureGameNavArgs,
+                uiState = GameUiState.Error,
+                onInputEvent = mockOnInputEvent,
+            )
         }
 
         composeTestRule.onNodeWithText(i18n.tr("Try again"))
@@ -44,7 +52,11 @@ class GameViewTest : UiTest() {
         val fixtureGameNavArgs = fixture<GameNavArgs>()
 
         composeTestRule.setContent {
-            GameView(fixtureGameNavArgs).ViewContent(GameUiState.Loading, mockOnInputEvent)
+            GameViewContent(
+                navArgs = fixtureGameNavArgs,
+                uiState = GameUiState.Loading,
+                onInputEvent = mockOnInputEvent,
+            )
         }
 
         composeTestRule.onNodeWithTag("loadingIndicator")
@@ -57,8 +69,11 @@ class GameViewTest : UiTest() {
         val fixtureGameUiModel = fixture<GameUiModel>()
 
         composeTestRule.setContent {
-            GameView(fixtureGameNavArgs)
-                .ViewContent(GameUiState.Loaded(fixtureGameUiModel), mockOnInputEvent)
+            GameViewContent(
+                navArgs = fixtureGameNavArgs,
+                uiState = GameUiState.Loaded(fixtureGameUiModel),
+                onInputEvent = mockOnInputEvent,
+            )
         }
 
         composeTestRule.onNodeWithText(fixtureGameUiModel.title)
