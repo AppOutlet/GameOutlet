@@ -12,15 +12,45 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.core.ui.spacing
+import appoutlet.gameoutlet.feature.common.composable.Error
+import appoutlet.gameoutlet.feature.common.composable.Loading
 import appoutlet.gameoutlet.feature.common.composable.ScreenTitle
 import appoutlet.gameoutlet.feature.wishlist.WishlistInputEvent
 import appoutlet.gameoutlet.feature.wishlist.WishlistUiState
 
 @Composable
 fun WishlistContent(
+    uiState: WishlistUiState,
+    onInputEvent: (WishlistInputEvent) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    when (uiState) {
+        WishlistUiState.Idle -> onInputEvent(WishlistInputEvent.Load)
+
+        WishlistUiState.Error -> Error(
+            modifier = Modifier.fillMaxSize().semantics { testTag = "errorIndicator" },
+            message = i18n.tr("We were unable to get the saved games"),
+            onTryAgain = { onInputEvent(WishlistInputEvent.Load) },
+        )
+
+        WishlistUiState.Loading -> Loading(text = i18n.tr("Fetching the saved games for you"))
+
+        is WishlistUiState.Loaded -> WishlistGames(
+            uiState = uiState,
+            onInputEvent = onInputEvent,
+            modifier = modifier
+        )
+    }
+}
+
+
+@Composable
+private fun WishlistGames(
     uiState: WishlistUiState.Loaded,
     onInputEvent: (WishlistInputEvent) -> Unit,
     modifier: Modifier = Modifier
