@@ -1,6 +1,6 @@
 name: game-outlet
 title: GameOutlet
-version: '1.0.2'
+version: 1.0.2
 summary:  Find the best prices on PC games
 # noinspection YAMLSchemaValidation
 description: |
@@ -39,8 +39,8 @@ parts:
     plugin: gradle
     source: https://github.com/AppOutlet/GameOutlet.git
     source-branch: main
-    gradle-version: 7.5.1
-    gradle-openjdk-version: 17
+    gradle-version: 8.8.8
+    gradle-openjdk-version: 8.8.8
     gradle-options: [packageReleaseAppImage]
     build-packages:
       - openjdk-17-jdk
