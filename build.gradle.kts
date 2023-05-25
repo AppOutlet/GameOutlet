@@ -17,7 +17,7 @@ plugins {
 }
 
 group = "appoutlet"
-version = "1.0.2"
+version = "1.1.0"
 
 kotlin {
     jvm {
@@ -38,7 +38,7 @@ compose.desktop {
             targetFormats(TargetFormat.Dmg, TargetFormat.Exe, TargetFormat.Msi, TargetFormat.Deb, TargetFormat.Rpm)
 
             packageName = "GameOutlet"
-            packageVersion = "1.0.2"
+            packageVersion = "1.1.0"
             description = "Find the best prices on PC games"
             vendor = "AppOutlet"
             licenseFile.set(project.file("LICENSE"))
