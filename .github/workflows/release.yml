@@ -48,6 +48,11 @@ jobs:
           arguments: packageReleaseDistributionForCurrentOS
           cache-read-only: false
 
+      - name: Set version variable
+        run: |
+          VER=v$(cat .version)
+          echo "VERSION=$VER" >> $GITHUB_ENV
+
       - name: Deploy to releases
         uses: softprops/action-gh-release@v1
         with:
@@ -55,6 +60,9 @@ jobs:
             build/compose/binaries/main-release/deb/game-outlet_*.deb
             build/compose/binaries/main-release/rpm/game-outlet-*.rpm
           token: ${{ secrets.GITHUB_TOKEN }}
+          name: ${{ env.VERSION }}
+          tag_name: ${{ env.VERSION }}
+          fail_on_unmatched_files: true
 
   windows:
     name: Windows release
@@ -79,6 +87,11 @@ jobs:
           arguments: packageReleaseDistributionForCurrentOS
           cache-read-only: false
 
+      - name: Set version variable
+        run: |
+          VER=v$(cat .version)
+          echo "VERSION=$VER" >> $GITHUB_ENV
+
       - name: Deploy to releases
         uses: softprops/action-gh-release@v1
         with:
@@ -86,6 +99,9 @@ jobs:
             build/compose/binaries/main-release/exe/GameOutlet-*.exe
             build/compose/binaries/main-release/msi/GameOutlet-*.msi
           token: ${{ secrets.GITHUB_TOKEN }}
+          name: ${{ env.VERSION }}
+          tag_name: ${{ env.VERSION }}
+          fail_on_unmatched_files: true
 
   macos:
     name: MacOS release
@@ -110,9 +126,17 @@ jobs:
           arguments: packageReleaseDistributionForCurrentOS
           cache-read-only: false
 
+      - name: Set version variable
+        run: |
+          VER=v$(cat .version)
+          echo "VERSION=$VER" >> $GITHUB_ENV
+
       - name: Deploy to releases
         uses: softprops/action-gh-release@v1
         with:
           files: |
             build/compose/binaries/main-release/dmg/GameOutlet-*.dmg
           token: ${{ secrets.GITHUB_TOKEN }}
+          name: ${{ env.VERSION }}
+          tag_name: ${{ env.VERSION }}
+          fail_on_unmatched_files: true
