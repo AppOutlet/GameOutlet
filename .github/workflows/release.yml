@@ -1,34 +1,9 @@
 name: Release
-on:
-  workflow_dispatch:
-    inputs:
-      newVersion:
-        description: 'New version (optional, defaults to next minor version)'
-        required: false
-
+on: workflow_dispatch
 jobs:
-  bump:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v3
-      - name: Initialize mandatory git config
-        run: |
-          git config user.name "AppOutlet team"
-          git config user.email team.appoutlet@gmail.com
-      - name: Give execution permission to semver
-        run: chmod +x script/semver
-      - name: Give execution permission to the script
-        run: chmod +x script/bump-version.sh
-      - name: Bump application version
-        run: script/bump-version.sh ${{ github.event.inputs.newVersion }}
-        shell: bash
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   linux:
     name: Linux release
     runs-on: ubuntu-latest
-    needs: bump
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -67,7 +42,6 @@ jobs:
   windows:
     name: Windows release
     runs-on: windows-latest
-    needs: bump
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -106,7 +80,6 @@ jobs:
   macos:
     name: MacOS release
     runs-on: macos-latest
-    needs: bump
     steps:
       - name: Checkout
         uses: actions/checkout@v3
