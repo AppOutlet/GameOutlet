@@ -63,8 +63,8 @@ jobs:
 
       - name: Set version variable
         run: |
-          VER=v$(cat .version)
-          echo "VERSION=$VER" >> $GITHUB_ENV
+          $VER = "v" + (Get-Content .version)
+          echo "VERSION=$VER" >> $env:GITHUB_ENV
 
       - name: Deploy to releases
         uses: softprops/action-gh-release@v1
