@@ -1,5 +1,5 @@
 #!/bin/bash
-PATH=$PATH:$PWD/ci-tasks
+PATH=$PATH:$PWD/script
 CURRENT_VERSION=`cat .version`
 
 if [ -z "$CURRENT_VERSION" ]; then
@@ -37,7 +37,8 @@ mv build.gradle.kts.tmp build.gradle.kts
 
 echo "$NEW_VERSION" > .version
 
-#git commit --no-verify -am "Bump to version $NEW_VERSION"
-#git push origin main
-#git tag v$NEW_VERSION
-#git push origin v$NEW_VERSION
+git add .
+git commit --no-verify -am "chore: bump to version $NEW_VERSION"
+git push -f
+git tag v$NEW_VERSION
+git push origin v$NEW_VERSION
