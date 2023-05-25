@@ -50,7 +50,6 @@ jobs:
 
       - name: Deploy to releases
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
             build/compose/binaries/main-release/deb/game-outlet_*.deb
@@ -82,7 +81,6 @@ jobs:
 
       - name: Deploy to releases
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
             build/compose/binaries/main-release/exe/GameOutlet-*.exe
@@ -114,7 +112,6 @@ jobs:
 
       - name: Deploy to releases
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
             build/compose/binaries/main-release/dmg/GameOutlet-*.dmg
