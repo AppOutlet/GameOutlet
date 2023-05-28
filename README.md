@@ -4,14 +4,15 @@
   <p>Find the best prices on PC games</p>
 </div>
 
-![screenshot](https://user-images.githubusercontent.com/10220064/232879665-a5344791-aaac-43ef-ae29-3f5c32f7f06b.png)
+![screenshot](https://github.com/AppOutlet/GameOutlet/assets/10220064/1ed76971-5516-4ff0-b912-47e192a8749e)
+
 The GameOutlet put together the latest deals in games for PC. It puts the deals for the most popular online game stores in one single place. It allows you to easily find the best deals and search for your favorite games
 
 #### Features
 - See the latest deals from the most popular game stores
 - Search by a game title to see its prices on these stores
-- Available for Linux and MacOS.
-    - A Windows version will be released soon.  
+- Save your favourite games to a wishlist
+- Available for Windows, Linux and MacOS
 
 ## Download
 You can download the latest version GameOutlet by clicking in the button below
