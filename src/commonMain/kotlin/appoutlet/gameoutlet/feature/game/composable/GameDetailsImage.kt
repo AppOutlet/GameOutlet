@@ -3,6 +3,7 @@ package appoutlet.gameoutlet.feature.game.composable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -19,7 +20,7 @@ import io.kamel.image.lazyPainterResource
 
 @Composable
 fun GameDetailsImage(uiState: GameUiModel, modifier: Modifier = Modifier) {
-    Box(modifier = modifier.fillMaxWidth()) {
+    Box(modifier = modifier.fillMaxWidth().height(256.dp)) {
         KamelImage(
             modifier = Modifier
                 .matchParentSize()
