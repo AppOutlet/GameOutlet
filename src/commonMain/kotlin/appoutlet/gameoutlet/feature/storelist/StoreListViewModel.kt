@@ -19,6 +19,7 @@ class StoreListViewModel(
         }
     }
 
+    @Suppress("TooGenericExceptionCaught")
     private fun loadStores() {
         viewModelScope.launch {
             try {

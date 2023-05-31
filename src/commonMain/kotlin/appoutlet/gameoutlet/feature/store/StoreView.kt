@@ -1,10 +1,11 @@
 package appoutlet.gameoutlet.feature.store
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import appoutlet.gameoutlet.core.translation.i18n
+import androidx.compose.ui.Modifier
 import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.feature.common.View
-import appoutlet.gameoutlet.feature.common.composable.ScreenTitle
+import appoutlet.gameoutlet.feature.store.composable.StoreContent
 import org.koin.core.component.inject
 
 class StoreView(private val store: Store) : View<StoreUiState, StoreInputEvent>() {
@@ -12,7 +13,11 @@ class StoreView(private val store: Store) : View<StoreUiState, StoreInputEvent>(
 
     @Composable
     override fun ViewContent(uiState: StoreUiState, onInputEvent: (StoreInputEvent) -> Unit) {
-        ScreenTitle(text = i18n.tr(store.name))
+        StoreContent(
+            modifier = Modifier.fillMaxSize(),
+            uiState = uiState,
+            onInputEvent = onInputEvent
+        )
     }
 
     class Provider {

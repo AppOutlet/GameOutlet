@@ -9,7 +9,6 @@ import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.feature.common.composable.Error
 import appoutlet.gameoutlet.feature.common.composable.Loading
 import appoutlet.gameoutlet.feature.common.composable.ScreenTitle
-import appoutlet.gameoutlet.feature.game.GameInputEvent
 import appoutlet.gameoutlet.feature.storelist.StoreListInputEvent
 import appoutlet.gameoutlet.feature.storelist.StoreListUiState
 

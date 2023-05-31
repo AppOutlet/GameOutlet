@@ -52,7 +52,7 @@ private fun Store(
 ) {
     Card(modifier = modifier.widthIn(max = 512.dp).padding(all = MaterialTheme.spacing.small)) {
         Row(
-            modifier = modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth()
                 .clickable { onInputEvent(uiModel.inputEvent) }
                 .padding(all = MaterialTheme.spacing.medium),
             verticalAlignment = Alignment.CenterVertically,
