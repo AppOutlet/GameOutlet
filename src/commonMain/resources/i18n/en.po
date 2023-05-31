@@ -36,9 +36,9 @@ msgstr "An unexpected error occurred"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:23
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:22
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameViewTest.kt:35
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContentKtTest.kt:84
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:46
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameViewTest.kt:43
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContentKtTest.kt:85
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:47
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:70
 msgid "Try again"
 msgstr "Try again"
@@ -52,31 +52,34 @@ msgstr "GameOutlet logo"
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsView.kt:15
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/composable/LatestDealsItems.kt:25
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:68
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:64
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:65
 msgid "Latest deals"
 msgstr "Latest deals"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/SettingsTab.kt:18
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/settings/SettingsView.kt:20
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:110
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:109
 msgid "Settings"
 msgstr "Settings"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/StoresTab.kt:18
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/StoresTab.kt:21
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/StoreListView.kt:20
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:96
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/composable/StoreListContent.kt:22
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:95
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:135
 msgid "Stores"
 msgstr "Stores"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/WishlistTab.kt:18
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/WishlistTab.kt:21
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/WishlistView.kt:20
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:82
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistContent.kt:61
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:81
 msgid "Wishlist"
 msgstr "Wishlist"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContent.kt:50
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/GameSearchTab.kt:20
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:123
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:122
 msgid "Search"
 msgstr "Search"
 
@@ -102,23 +105,29 @@ msgid "You can search by your favorite games in the search screen!"
 msgstr "You can search by your favorite games in the search screen!"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/composable/LatestDealsFooter.kt:52
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:82
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistEmptyList.kt:21
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:85
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:90
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistContentKtTest.kt:84
 msgid "Take me to search screen"
 msgstr "Take me to search screen"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameView.kt:29
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameView.kt:34
 msgid "We could not load the data from the selected game"
 msgstr "We could not load the data from the selected game"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameView.kt:35
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameView.kt:40
 msgid "We are fetching the deals from the selected game"
 msgstr "We are fetching the deals from the selected game"
 
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetails.kt:67
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsDealsList.kt:40
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsKtTest.kt:27
 msgid "Deals"
 msgstr "Deals"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsDealsList.kt:71
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsFooter.kt:33
 msgid "The prices are in US dollar (USD). Note that the value can change depending on your location"
 msgstr "The prices are in US dollar (USD). Note that the value can change depending on your location"
 
@@ -135,9 +144,48 @@ msgstr "Start by searching some game in the field above"
 msgid "Type your favorite game title"
 msgstr "Type your favorite game title"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:49
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:78
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsUiModelMapper.kt:42
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapperTest.kt:130
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapperTest.kt:150
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsUiModelMapperTest.kt:55
 msgid "FREE"
 msgstr "FREE"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:42
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapperTest.kt:231
+msgid "The game was added to the favorites list"
+msgstr "The game was added to the favorites list"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:44
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapperTest.kt:266
+msgid "The game was removed from the favorites list"
+msgstr "The game was removed from the favorites list"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/store/composable/StoreContent.kt:28
+msgid "Navigate back"
+msgstr "Navigate back"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/composable/StoreListContent.kt:27
+msgid "We could not get the list of Stores"
+msgstr "We could not get the list of Stores"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/composable/StoreListContent.kt:33
+msgid "We are fetching the list of stores"
+msgstr "We are fetching the list of stores"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistContent.kt:37
+msgid "We were unable to get the saved games"
+msgstr "We were unable to get the saved games"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistContent.kt:41
+msgid "Fetching the saved games for you"
+msgstr "Fetching the saved games for you"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistEmptyList.kt:17
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistContentKtTest.kt:81
+msgid "You didn't save any game yet"
+msgstr "You didn't save any game yet"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistEmptyList.kt:18
+msgid "Your saved games will appear here. See the latest deals or search by your favourite game and then click on the favorite button."
+msgstr "Your saved games will appear here. See the latest deals or search by your favourite game and then click on the favorite button."
