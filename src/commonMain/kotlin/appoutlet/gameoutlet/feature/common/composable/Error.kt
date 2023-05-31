@@ -24,7 +24,7 @@ fun Error(
     onTryAgain: (() -> Unit)? = null
 ) {
     Column(
-        modifier = modifier,
+        modifier = modifier.semantics { testTag = "errorLayout" },
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {

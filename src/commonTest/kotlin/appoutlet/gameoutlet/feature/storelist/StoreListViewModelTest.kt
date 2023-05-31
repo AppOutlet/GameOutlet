@@ -9,9 +9,9 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import kotlin.test.Test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
+import kotlin.test.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class StoreListViewModelTest : ViewModelTest<StoreListViewModel>() {
@@ -39,7 +39,6 @@ class StoreListViewModelTest : ViewModelTest<StoreListViewModel>() {
 
         assertThat(sut.uiState.value).isEqualTo(StoreListUiState.Loaded(fixtureUiModels))
     }
-
 
     @Test
     fun `should load stores - error state`() = runViewModelTest {
