@@ -121,4 +121,17 @@ class HomeViewTest : UiTest() {
         composeTestRule.onNodeWithTag("screenTitle")
             .assertTextEquals(i18n.tr("Search"))
     }
+
+    @Test
+    fun `should navigate to stores`() {
+        composeTestRule.setContent { Navigator(HomeView()) }
+
+        composeTestRule.onNodeWithTag("storesTab")
+            .performClick()
+
+        composeTestRule.waitForIdle()
+
+        composeTestRule.onNodeWithTag("screenTitle")
+            .assertTextEquals(i18n.tr("Stores"))
+    }
 }
