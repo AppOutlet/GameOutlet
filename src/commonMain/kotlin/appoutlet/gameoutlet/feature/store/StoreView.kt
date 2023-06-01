@@ -14,6 +14,7 @@ class StoreView(private val store: Store) : View<StoreUiState, StoreInputEvent>(
     @Composable
     override fun ViewContent(uiState: StoreUiState, onInputEvent: (StoreInputEvent) -> Unit) {
         StoreContent(
+            storeName = store.name,
             modifier = Modifier.fillMaxSize(),
             uiState = uiState,
             onInputEvent = onInputEvent
