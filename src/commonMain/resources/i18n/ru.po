@@ -49,9 +49,9 @@ msgstr "Произошла непредвиденная ошибка"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/Error.kt:23
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/composable/ErrorView.kt:22
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameViewTest.kt:35
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContentKtTest.kt:84
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:46
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameViewTest.kt:43
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContentKtTest.kt:85
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:47
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:70
 msgid "Try again"
 msgstr "Попробовать снова"
@@ -65,31 +65,34 @@ msgstr "Логотип GameOutlet"
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsView.kt:15
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/composable/LatestDealsItems.kt:25
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:68
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:64
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:65
 msgid "Latest deals"
 msgstr "Последние предложения"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/SettingsTab.kt:18
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/settings/SettingsView.kt:20
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:110
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:109
 msgid "Settings"
 msgstr "Настройки"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/StoresTab.kt:18
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/StoresTab.kt:21
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/StoreListView.kt:20
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:96
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/composable/StoreListContent.kt:22
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:95
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:135
 msgid "Stores"
 msgstr "Магазины"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/WishlistTab.kt:18
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/WishlistTab.kt:21
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/WishlistView.kt:20
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:82
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistContent.kt:61
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:81
 msgid "Wishlist"
 msgstr "Список желаемого"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContent.kt:50
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/GameSearchTab.kt:20
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:123
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:122
 msgid "Search"
 msgstr "Поиск"
 
@@ -115,23 +118,29 @@ msgid "You can search by your favorite games in the search screen!"
 msgstr "Вы можете искать по своим любимым играм на экране поиска!"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/composable/LatestDealsFooter.kt:52
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:82
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistEmptyList.kt:21
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:85
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:90
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistContentKtTest.kt:84
 msgid "Take me to search screen"
 msgstr "Перейти на экран поиска"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameView.kt:29
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameView.kt:34
 msgid "We could not load the data from the selected game"
 msgstr "Не удалось загрузить данные из выбранной игры"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameView.kt:35
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameView.kt:40
 msgid "We are fetching the deals from the selected game"
 msgstr "Мы собираем предложения из выбранной игры"
 
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetails.kt:67
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsDealsList.kt:40
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsKtTest.kt:27
 msgid "Deals"
 msgstr "Предложения"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsDealsList.kt:71
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/composable/GameDetailsFooter.kt:33
 msgid ""
 "The prices are in US dollar (USD). Note that the value can change depending "
 "on your location"
@@ -152,9 +161,52 @@ msgstr "Начните с поиска какой-либо игры в поле 
 msgid "Type your favorite game title"
 msgstr "Введите название вашей любимой игры"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:49
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:78
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsUiModelMapper.kt:42
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapperTest.kt:130
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapperTest.kt:150
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsUiModelMapperTest.kt:55
 msgid "FREE"
 msgstr "БЕСПЛАТНО"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:42
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapperTest.kt:231
+msgid "The game was added to the favorites list"
+msgstr "Игра была добавлена в список избранного"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:44
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapperTest.kt:266
+msgid "The game was removed from the favorites list"
+msgstr "Игра была удалена из списка избранного"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/store/composable/StoreContent.kt:28
+msgid "Navigate back"
+msgstr "Вернуться назад"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/composable/StoreListContent.kt:27
+msgid "We could not get the list of Stores"
+msgstr "Нам не удалось получить список магазинов"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/composable/StoreListContent.kt:33
+msgid "We are fetching the list of stores"
+msgstr "Мы собираем список магазинов"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistContent.kt:37
+msgid "We were unable to get the saved games"
+msgstr "Нам не удалось получить сохранённые игры"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistContent.kt:41
+msgid "Fetching the saved games for you"
+msgstr "Поиск сохранённых игр для вас"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistEmptyList.kt:17
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistContentKtTest.kt:81
+msgid "You didn't save any game yet"
+msgstr "Вы ещё не сохранили ни одну игру"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistEmptyList.kt:18
+msgid ""
+"Your saved games will appear here. See the latest deals or search by your "
+"favourite game and then click on the favorite button."
+msgstr ""
+"Здесь появятся ваши сохранённые игры. Просмотрите последние предложения или "
+"выполните поиск по любимой игре, а затем нажмите на кнопку «Избранное»."
