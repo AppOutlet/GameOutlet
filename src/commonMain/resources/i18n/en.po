@@ -40,6 +40,7 @@ msgstr "An unexpected error occurred"
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContentKtTest.kt:85
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:47
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:70
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/storelist/composable/StoreListContentKtTest.kt:42
 msgid "Try again"
 msgstr "Try again"
 
@@ -144,6 +145,7 @@ msgstr "Start by searching some game in the field above"
 msgid "Type your favorite game title"
 msgstr "Type your favorite game title"
 
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/common/util/MoneyUtil.kt:18
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:78
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsUiModelMapper.kt:42
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapperTest.kt:150
@@ -151,17 +153,18 @@ msgstr "Type your favorite game title"
 msgid "FREE"
 msgstr "FREE"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:42
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:34
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapperTest.kt:231
 msgid "The game was added to the favorites list"
 msgstr "The game was added to the favorites list"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:44
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapper.kt:36
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/game/GameUiModelMapperTest.kt:266
 msgid "The game was removed from the favorites list"
 msgstr "The game was removed from the favorites list"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/store/composable/StoreContent.kt:28
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/store/composable/StoreTopAppBar.kt:39
 msgid "Navigate back"
 msgstr "Navigate back"
 
@@ -189,3 +192,13 @@ msgstr "You didn't save any game yet"
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistEmptyList.kt:18
 msgid "Your saved games will appear here. See the latest deals or search by your favourite game and then click on the favorite button."
 msgstr "Your saved games will appear here. See the latest deals or search by your favourite game and then click on the favorite button."
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/store/composable/StoreContent.kt:35
+#, java-format
+msgid "We could not get the list of deals from {{storeName}}"
+msgstr "We could not get the list of deals from {{storeName}}"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/store/composable/StoreContent.kt:44
+#, java-format
+msgid "We are fetching the list of deals from {{storeName}}"
+msgstr "We are fetching the list of deals from {{storeName}}"
