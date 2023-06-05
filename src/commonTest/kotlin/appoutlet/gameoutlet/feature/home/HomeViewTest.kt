@@ -81,7 +81,6 @@ class HomeViewTest : UiTest() {
             .assertTextEquals(i18n.tr("Wishlist"))
     }
 
-    @Ignore("Removed temporarily")
     @Test
     fun `should navigate to Stores`() {
         composeTestRule.setContent { Navigator(HomeView()) }

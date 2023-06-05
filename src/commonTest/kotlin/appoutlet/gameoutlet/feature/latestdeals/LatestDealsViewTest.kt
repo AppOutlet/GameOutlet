@@ -74,7 +74,7 @@ class LatestDealsViewTest : UiTest() {
 
     @Test
     fun `should navigate to search`() {
-        val dealsFixture = fixture<LatestDealsUiState.Loaded>()
+        val dealsFixture = fixture<LatestDealsUiState.Loaded>().copy(uiModels = emptyList())
 
         composeTestRule.setContent {
             LatestDealsView().ViewContent(dealsFixture, mockOnInputEvent)

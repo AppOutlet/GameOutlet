@@ -3,6 +3,7 @@ package appoutlet.gameoutlet.repository.deals
 import appoutlet.gameoutlet.core.testing.UnitTest
 import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
+import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.repository.deals.api.DealApi
 import appoutlet.gameoutlet.repository.deals.api.DealResponse
 import appoutlet.gameoutlet.repository.deals.api.GameApi
@@ -75,5 +76,19 @@ class DealRepositoryTest : UnitTest<DealRepository>() {
         val actual = sut.findGamesByTitle(fixtureTitle)
 
         assertThat(actual).isEqualTo(fixtureGames)
+    }
+
+    @Test
+    fun `should find games by store`() = runTest {
+        val fixtureStore = fixture<Store>()
+        val fixtureDealsResponse = fixture<List<DealResponse>>()
+        val fixtureDealsDomain = fixture<List<Deal>>()
+
+        coEvery { mockDealApi.findDealsByStore(fixtureStore.id) } returns fixtureDealsResponse
+        coEvery { mockDealMapper.invoke(fixtureDealsResponse) } returns fixtureDealsDomain
+
+        val actual = sut.findDealsByStore(fixtureStore)
+
+        assertThat(actual).isEqualTo(fixtureDealsDomain)
     }
 }

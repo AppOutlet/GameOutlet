@@ -2,6 +2,7 @@ package appoutlet.gameoutlet.repository.deals
 
 import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
+import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.repository.deals.api.DealApi
 import appoutlet.gameoutlet.repository.deals.api.GameApi
 
@@ -25,5 +26,10 @@ class DealRepository(
     suspend fun findGamesByTitle(title: String): List<Game> {
         val gameResponses = gameApi.findByTitle(title)
         return gameResponses.mapNotNull { gameMapper(it) }
+    }
+
+    suspend fun findDealsByStore(store: Store): List<Deal> {
+        val dealsResponse = dealApi.findDealsByStore(store.id)
+        return dealMapper(dealsResponse)
     }
 }
