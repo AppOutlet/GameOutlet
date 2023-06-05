@@ -10,6 +10,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.domain.Store
@@ -29,7 +30,10 @@ fun StoreTopAppBar(
         CenterAlignedTopAppBar(
             modifier = modifier,
             navigationIcon = {
-                IconButton(onClick = { onInputEvent(StoreInputEvent.NavigateBack) }) {
+                IconButton(
+                    modifier = Modifier.testTag("navigateBack"),
+                    onClick = { onInputEvent(StoreInputEvent.NavigateBack) },
+                ) {
                     Icon(
                         imageVector = Icons.Outlined.ArrowBack,
                         contentDescription = i18n.tr("Navigate back")
@@ -68,6 +72,7 @@ private fun getIfItsDarkTheme(store: Store): Boolean {
         34, // Noctre
         35, // DreamGame
         -> true
+
         else -> false
     }
 }

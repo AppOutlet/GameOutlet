@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.feature.common.composable.Error
@@ -21,7 +22,7 @@ fun StoreContent(
 ) {
     Column(modifier = modifier) {
         StoreTopAppBar(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().testTag("storeTopBar"),
             store = store,
             onInputEvent = onInputEvent
         )
