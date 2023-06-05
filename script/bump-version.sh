@@ -39,6 +39,6 @@ echo "$NEW_VERSION" > .version
 
 git add .
 git commit --no-verify -am "chore: bump to version $NEW_VERSION"
-git push -f
+git push
 git tag v$NEW_VERSION
 git push origin v$NEW_VERSION
