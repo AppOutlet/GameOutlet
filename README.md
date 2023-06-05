@@ -12,6 +12,7 @@ The GameOutlet put together the latest deals in games for PC. It puts the deals 
 - See the latest deals from the most popular game stores
 - Search by a game title to see its prices on these stores
 - Save your favourite games to a wishlist
+- See all deals from the online game stores 
 - Available for Windows, Linux and MacOS
 
 ## Download
