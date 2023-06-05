@@ -1,6 +1,5 @@
 package appoutlet.gameoutlet.feature.store
 
-import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.feature.common.ViewModel
 import appoutlet.gameoutlet.feature.game.GameNavArgs
@@ -29,7 +28,7 @@ class StoreViewModel(
             .map { storeViewDataMapper(it) }
             .onEach { mutableUiState.value = StoreUiState.Loaded(it) }
             .onStart { mutableUiState.value = StoreUiState.Loading }
-            .catch {  mutableUiState.value = StoreUiState.Error }
+            .catch { mutableUiState.value = StoreUiState.Error }
             .launchIn(viewModelScope)
     }
 

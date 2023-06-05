@@ -22,7 +22,7 @@ fun StoreContent(
     Column(modifier = modifier) {
         StoreTopAppBar(
             modifier = Modifier.fillMaxWidth(),
-            storeName = store.name,
+            store = store,
             onInputEvent = onInputEvent
         )
 

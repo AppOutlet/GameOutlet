@@ -55,13 +55,14 @@ fun StoreDealList(
     }
 }
 
+@Suppress("MagicNumber")
 @Composable
 private fun Deal(
     viewData: DealViewData,
     onInputEvent: (StoreInputEvent) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Card(modifier = modifier.fillMaxWidth().padding(MaterialTheme.spacing.small),) {
+    Card(modifier = modifier.fillMaxWidth().padding(MaterialTheme.spacing.small)) {
         Column(
             modifier = Modifier.clickable { onInputEvent(viewData.inputEvent) },
         ) {

@@ -1,6 +1,5 @@
 package appoutlet.gameoutlet.feature.store
 
-import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.feature.common.InputEvent
 import appoutlet.gameoutlet.feature.game.GameNavArgs

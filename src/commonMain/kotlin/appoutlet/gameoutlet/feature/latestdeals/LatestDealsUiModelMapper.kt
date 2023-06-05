@@ -6,7 +6,7 @@ import appoutlet.gameoutlet.feature.common.util.asString
 import appoutlet.gameoutlet.feature.latestdeals.composable.DealStoreUiModel
 import appoutlet.gameoutlet.feature.latestdeals.composable.DealUiModel
 
-class LatestDealsUiModelMapper() {
+class LatestDealsUiModelMapper {
     operator fun invoke(deals: List<Deal>): List<DealUiModel> {
         val dealsMap = deals.groupBy { it.game }
         return dealsMap.map { (game, deals) ->
