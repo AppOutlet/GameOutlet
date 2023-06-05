@@ -6,17 +6,12 @@ import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.feature.latestdeals.composable.DealUiModel
 import com.google.common.truth.Truth.assertThat
-import io.mockk.every
-import io.mockk.mockk
-import name.kropp.kotlinx.gettext.I18n
-import org.javamoney.moneta.Money
 import java.math.BigDecimal
 import kotlin.test.Test
+import org.javamoney.moneta.Money
 
 class LatestDealsUiModelMapperTest : UnitTest<LatestDealsUiModelMapper>() {
-    private val mockI18n = mockk<I18n>()
-
-    override fun buildSut() = LatestDealsUiModelMapper(mockI18n)
+    override fun buildSut() = LatestDealsUiModelMapper()
 
     @Test
     fun `should map deals ui model`() {
@@ -51,8 +46,6 @@ class LatestDealsUiModelMapperTest : UnitTest<LatestDealsUiModelMapper>() {
                 normalPrice = oldPrice2Fixture,
             ),
         )
-
-        every { mockI18n.tr("FREE") } returns "FREE"
 
         val actual = sut.invoke(dealsFixture)
 
