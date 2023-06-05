@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import appoutlet.gameoutlet.core.translation.i18n
+import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.feature.common.composable.Error
 import appoutlet.gameoutlet.feature.common.composable.Loading
 import appoutlet.gameoutlet.feature.store.StoreInputEvent
@@ -13,7 +14,7 @@ import appoutlet.gameoutlet.feature.store.StoreUiState
 
 @Composable
 fun StoreContent(
-    storeName: String,
+    store: Store,
     uiState: StoreUiState,
     onInputEvent: (StoreInputEvent) -> Unit,
     modifier: Modifier = Modifier
@@ -21,27 +22,27 @@ fun StoreContent(
     Column(modifier = modifier) {
         StoreTopAppBar(
             modifier = Modifier.fillMaxWidth(),
-            storeName = storeName,
+            storeName = store.name,
             onInputEvent = onInputEvent
         )
 
         when (uiState) {
-            StoreUiState.Idle -> onInputEvent(StoreInputEvent.Load)
+            StoreUiState.Idle -> onInputEvent(StoreInputEvent.Load(store))
 
             StoreUiState.Error -> Error(
                 modifier = Modifier.fillMaxSize(),
                 message = i18n.tr(
                     "We could not get the list of deals from {{storeName}}",
-                    "storeName" to storeName
+                    "storeName" to store.name
                 ),
-                onTryAgain = { onInputEvent(StoreInputEvent.Load) }
+                onTryAgain = { onInputEvent(StoreInputEvent.Load(store)) }
             )
 
             StoreUiState.Loading -> Loading(
                 modifier = Modifier.fillMaxSize(),
                 text = i18n.tr(
                     "We are fetching the list of deals from {{storeName}}",
-                    "storeName" to storeName
+                    "storeName" to store.name
                 )
             )
 
