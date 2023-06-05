@@ -4,8 +4,8 @@ import appoutlet.gameoutlet.core.testing.UnitTest
 import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.feature.common.util.asString
 import com.google.common.truth.Truth.assertThat
-import kotlin.test.Test
 import org.javamoney.moneta.Money
+import kotlin.test.Test
 
 class StoreViewDataMapperTest : UnitTest<StoreViewDataMapper>() {
     override fun buildSut() = StoreViewDataMapper()

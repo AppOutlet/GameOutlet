@@ -87,7 +87,6 @@ class StoreContentKtTest : UiTest() {
             .assertIsDisplayed()
     }
 
-
     @Test
     fun `Should show loaded deals`() {
         val fixtureStore = fixture<Store>()

@@ -6,9 +6,9 @@ import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.feature.latestdeals.composable.DealUiModel
 import com.google.common.truth.Truth.assertThat
+import org.javamoney.moneta.Money
 import java.math.BigDecimal
 import kotlin.test.Test
-import org.javamoney.moneta.Money
 
 class LatestDealsUiModelMapperTest : UnitTest<LatestDealsUiModelMapper>() {
     override fun buildSut() = LatestDealsUiModelMapper()
