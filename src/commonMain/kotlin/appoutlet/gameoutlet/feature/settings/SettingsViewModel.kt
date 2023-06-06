@@ -29,7 +29,6 @@ class SettingsViewModel(
 
     override fun onInputEvent(inputEvent: SettingsInputEvent) {
         when (inputEvent) {
-            SettingsInputEvent.LoadSettings -> {}
             is SettingsInputEvent.UpdateThemePreference -> updateTheme(inputEvent.theme)
         }
     }

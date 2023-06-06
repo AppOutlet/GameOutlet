@@ -25,13 +25,13 @@ fun SettingsScreen(
     Column(modifier = modifier.fillMaxWidth()) {
         ScreenTitle(i18n.tr("Settings"))
         when (uiState) {
-            SettingsUiState.Idle -> onInputEvent(SettingsInputEvent.LoadSettings)
-
             is SettingsUiState.Loaded -> SettingsControls(
                 uiState = uiState,
                 onInputEvent = onInputEvent,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )
+
+            else -> {}
         }
     }
 }
