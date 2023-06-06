@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.ui.spacing
 import appoutlet.gameoutlet.feature.home.composable.GameSearchTab
 import appoutlet.gameoutlet.feature.home.composable.LatestDealsTab
+import appoutlet.gameoutlet.feature.home.composable.SettingsTab
 import appoutlet.gameoutlet.feature.home.composable.StoresTab
 import appoutlet.gameoutlet.feature.home.composable.WishlistTab
 import cafe.adriel.voyager.core.screen.Screen
@@ -63,7 +64,7 @@ private fun HomeViewContent() {
                     modifier = Modifier.semantics { testTag = "storesTab" },
                     tab = StoresTab
                 )
-                // DrawerNavigationItem(modifier = Modifier.semantics { testTag = "settingsTab" }, tab = SettingsTab)
+                DrawerNavigationItem(modifier = Modifier.semantics { testTag = "settingsTab" }, tab = SettingsTab)
             }
         }) {
             Box(modifier = Modifier.fillMaxSize()) {

@@ -4,4 +4,5 @@ import appoutlet.gameoutlet.feature.common.UiState
 
 sealed interface SettingsUiState : UiState {
     object Idle : SettingsUiState
+    object Loading : SettingsUiState
 }

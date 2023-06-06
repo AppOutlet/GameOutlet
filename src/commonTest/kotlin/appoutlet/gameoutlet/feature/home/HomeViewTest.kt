@@ -22,7 +22,6 @@ import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Test
 import org.koin.dsl.module
-import kotlin.test.Ignore
 
 class HomeViewTest : UiTest() {
     private val mockLatestDealsViewModel = mockk<LatestDealsViewModel>(relaxUnitFun = true) {
@@ -94,7 +93,6 @@ class HomeViewTest : UiTest() {
             .assertTextEquals(i18n.tr("Stores"))
     }
 
-    @Ignore("Removed temporarily")
     @Test
     fun `should navigate to Settings`() {
         composeTestRule.setContent { Navigator(HomeView()) }
