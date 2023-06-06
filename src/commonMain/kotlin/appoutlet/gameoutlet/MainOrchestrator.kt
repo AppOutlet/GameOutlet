@@ -21,7 +21,7 @@ class MainOrchestrator(
     fun isDarkTheme(systemDefault: Boolean): Flow<Boolean> {
         return _theme.asStateFlow()
             .map {
-                when(it) {
+                when (it) {
                     Theme.LIGHT -> false
                     Theme.DARK -> true
                     Theme.SYSTEM -> systemDefault

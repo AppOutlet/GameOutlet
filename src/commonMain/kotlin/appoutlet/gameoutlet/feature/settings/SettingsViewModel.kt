@@ -34,10 +34,6 @@ class SettingsViewModel(
         }
     }
 
-    private fun loadSettings() {
-
-    }
-
     private fun updateTheme(theme: Theme) {
         themeRepository.setTheme(theme)
     }

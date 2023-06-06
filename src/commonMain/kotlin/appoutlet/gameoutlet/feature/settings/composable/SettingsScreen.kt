@@ -3,7 +3,6 @@ package appoutlet.gameoutlet.feature.settings.composable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -35,8 +34,6 @@ fun SettingsScreen(
             )
         }
     }
-
-
 }
 
 @Composable
@@ -47,7 +44,7 @@ private fun SettingsControls(
 ) {
     Column(
         modifier = modifier.widthIn(max = 512.dp)
-            .padding(horizontal = MaterialTheme.spacing.small)
+            .padding(all = MaterialTheme.spacing.small)
     ) {
         ThemeSelector(viewData = uiState.settingsViewData.themeViewData, onInputEvent = onInputEvent)
     }

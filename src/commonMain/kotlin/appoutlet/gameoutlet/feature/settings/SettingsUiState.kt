@@ -22,5 +22,3 @@ data class ThemeViewData(
         val inputEvent: SettingsInputEvent,
     )
 }
-
-

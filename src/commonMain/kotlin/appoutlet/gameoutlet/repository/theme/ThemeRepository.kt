@@ -2,7 +2,6 @@ package appoutlet.gameoutlet.repository.theme
 
 import appoutlet.gameoutlet.domain.Theme
 import appoutlet.gameoutlet.repository.preference.PreferenceRepository
-import kotlinx.coroutines.flow.flow
 
 class ThemeRepository(private val preferenceRepository: PreferenceRepository) {
     fun setTheme(theme: Theme) {
