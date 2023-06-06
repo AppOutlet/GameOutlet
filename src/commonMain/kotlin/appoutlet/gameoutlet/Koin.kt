@@ -16,6 +16,7 @@ fun initKoin(): Koin {
             * coreModules,
             * featureModules,
             * repositoryModules,
+            mainModule,
         )
     }.koin
 }
