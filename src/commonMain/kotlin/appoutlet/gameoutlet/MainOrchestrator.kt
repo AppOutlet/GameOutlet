@@ -1,23 +1,16 @@
 package appoutlet.gameoutlet
 
-import appoutlet.gameoutlet.repository.preference.PreferenceRepository
+import appoutlet.gameoutlet.domain.Theme
+import appoutlet.gameoutlet.repository.theme.ThemeRepository
 
 class MainOrchestrator(
-    private val preferenceRepository: PreferenceRepository
+    private val themeRepository: ThemeRepository
 ) {
-    fun setIsDarkMode(isDarkMode: Boolean) {
-        preferenceRepository.setPreference(PREFERENCE_DARK_MODE, isDarkMode.toString())
-    }
-
-    fun getIsDarkMode(): Boolean? {
-        return when(preferenceRepository.getPreference(PREFERENCE_DARK_MODE)) {
-            "true" -> true
-            "false" -> false
-            else -> null
+    fun getIsDarkMode(systemDefault: Boolean): Boolean {
+        return when (themeRepository.getTheme()) {
+            Theme.LIGHT -> false
+            Theme.DARK -> true
+            Theme.SYSTEM -> systemDefault
         }
-    }
-
-    companion object {
-        const val PREFERENCE_DARK_MODE = "dark_mode"
     }
 }

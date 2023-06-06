@@ -4,6 +4,9 @@ import appoutlet.gameoutlet.feature.common.ViewModel
 
 class SettingsViewModel : ViewModel<SettingsUiState, SettingsInputEvent>(initialState = SettingsUiState.Idle) {
     override fun onInputEvent(inputEvent: SettingsInputEvent) {
-        println(inputEvent)
+        when (inputEvent) {
+            SettingsInputEvent.LoadSettings -> TODO()
+            is SettingsInputEvent.UpdateThemePreference -> TODO()
+        }
     }
 }

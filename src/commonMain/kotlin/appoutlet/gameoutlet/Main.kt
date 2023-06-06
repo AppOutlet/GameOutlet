@@ -32,7 +32,7 @@ fun main() {
 
         val koin = initKoin()
         val mainOrchestrator = koin.get<MainOrchestrator>()
-        val isDarkTheme = mainOrchestrator.getIsDarkMode() ?: isSystemInDarkTheme()
+        val isDarkTheme = mainOrchestrator.getIsDarkMode(isSystemInDarkTheme())
 
         initLookAndFeel(isDarkTheme)
 
