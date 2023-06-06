@@ -43,7 +43,7 @@ private fun SettingsControls(
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier.widthIn(max = 512.dp)
+        modifier = modifier.widthIn(max = 576.dp)
             .padding(all = MaterialTheme.spacing.small)
     ) {
         ThemeSelector(viewData = uiState.settingsViewData.themeViewData, onInputEvent = onInputEvent)
