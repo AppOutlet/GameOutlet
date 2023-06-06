@@ -20,6 +20,6 @@ class ThemeRepository(private val preferenceRepository: PreferenceRepository) {
     }
 
     companion object {
-        const val PREFERENCE_DARK_MODE = "dark_mode"
+        const val PREFERENCE_DARK_MODE = "THEME"
     }
 }
