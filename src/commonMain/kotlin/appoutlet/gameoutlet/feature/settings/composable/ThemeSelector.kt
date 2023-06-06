@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Contrast
-import androidx.compose.material.icons.outlined.ShieldMoon
-import androidx.compose.material.icons.outlined.WbSunny
+import androidx.compose.material.icons.outlined.DarkMode
+import androidx.compose.material.icons.outlined.LightMode
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -36,13 +36,13 @@ fun ThemeSelector(viewData: ThemeViewData, onInputEvent: (SettingsInputEvent) ->
             ThemeButton(
                 modifier = Modifier.weight(1f),
                 viewData = viewData.lightButton,
-                icon = Icons.Outlined.WbSunny,
+                icon = Icons.Outlined.LightMode,
                 onInputEvent = onInputEvent
             )
             ThemeButton(
                 modifier = Modifier.weight(1f),
                 viewData = viewData.darkButton,
-                icon = Icons.Outlined.ShieldMoon,
+                icon = Icons.Outlined.DarkMode,
                 onInputEvent = onInputEvent
             )
             ThemeButton(
