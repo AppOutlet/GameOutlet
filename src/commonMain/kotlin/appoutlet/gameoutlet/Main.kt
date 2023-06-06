@@ -4,6 +4,8 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
@@ -25,14 +27,14 @@ private const val WINDOW_MIN_WIDTH = 750
 private const val WINDOW_MIN_HEIGHT = 500
 private const val WINDOW_WIDTH = 1000
 private const val WINDOW_HEIGHT = 690
+private val koin = initKoin()
 
 fun main() {
     application {
         initLogger()
 
-        val koin = initKoin()
         val mainOrchestrator = koin.get<MainOrchestrator>()
-        val isDarkTheme = mainOrchestrator.getIsDarkMode(isSystemInDarkTheme())
+        val isDarkTheme by mainOrchestrator.isDarkTheme(isSystemInDarkTheme()).collectAsState(isSystemInDarkTheme())
 
         initLookAndFeel(isDarkTheme)
 
