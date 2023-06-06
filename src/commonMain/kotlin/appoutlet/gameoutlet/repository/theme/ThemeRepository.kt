@@ -5,21 +5,21 @@ import appoutlet.gameoutlet.repository.preference.PreferenceRepository
 
 class ThemeRepository(private val preferenceRepository: PreferenceRepository) {
     fun setTheme(theme: Theme) {
-        preferenceRepository.setPreference(PREFERENCE_DARK_MODE, theme.name)
+        preferenceRepository.setPreference(PREFERENCE_THEME, theme.name)
     }
 
     fun getTheme(): Theme {
-        val themeString = preferenceRepository.getPreference(PREFERENCE_DARK_MODE)
+        val themeString = preferenceRepository.getPreference(PREFERENCE_THEME)
         return Theme.fromString(themeString)
     }
 
     fun observeTheme(
         block: (Theme) -> Unit,
-    ) = preferenceRepository.observePreference(PREFERENCE_DARK_MODE) { themeString ->
+    ) = preferenceRepository.observePreference(PREFERENCE_THEME) { themeString ->
         block(Theme.fromString(themeString))
     }
 
     companion object {
-        const val PREFERENCE_DARK_MODE = "THEME"
+        const val PREFERENCE_THEME = "THEME"
     }
 }
