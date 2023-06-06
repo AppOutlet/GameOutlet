@@ -12,4 +12,10 @@ class PreferenceRepository(
     fun getPreference(key: String): String? {
         return preferenceQueries.findByKey(key).executeAsOneOrNull()?.value_
     }
+
+    fun observePreference(key: String, block: (String?) -> Unit) {
+        preferenceQueries.findByKey(key).addListener {
+            block(getPreference(key))
+        }
+    }
 }

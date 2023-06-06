@@ -4,12 +4,15 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
+import appoutlet.gameoutlet.MainOrchestrator
 import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.feature.splash.SplashView
 import appoutlet.gameoutlet.initKoin
@@ -24,12 +27,17 @@ private const val WINDOW_MIN_WIDTH = 750
 private const val WINDOW_MIN_HEIGHT = 500
 private const val WINDOW_WIDTH = 1000
 private const val WINDOW_HEIGHT = 690
+private val koin = initKoin()
 
 fun main() {
     application {
-        initLookAndFeel(isSystemInDarkTheme())
         initLogger()
-        initKoin()
+
+        val mainOrchestrator = koin.get<MainOrchestrator>()
+        val isDarkTheme by mainOrchestrator.isDarkTheme(isSystemInDarkTheme()).collectAsState(isSystemInDarkTheme())
+
+        initLookAndFeel(isDarkTheme)
+
         Window(
             onCloseRequest = ::exitApplication,
             title = "GameOutlet",
@@ -40,7 +48,7 @@ fun main() {
         ) {
             setupWindowLookAndFeel()
             window.minimumSize = Dimension(WINDOW_MIN_WIDTH, WINDOW_MIN_HEIGHT)
-            App()
+            App(isDarkTheme)
         }
     }
 }
@@ -48,8 +56,8 @@ fun main() {
 @Suppress("ModifierMissing")
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun App() {
-    GameOutletTheme {
+fun App(isDarkTheme: Boolean) {
+    GameOutletTheme(useDarkTheme = isDarkTheme) {
         Surface {
             Navigator(SplashView()) { navigator ->
                 FadeTransition(navigator)
