@@ -96,7 +96,7 @@ private fun AboutContent(
                     ) {
                         Icon(imageVector = Icons.Outlined.Coffee, contentDescription = null)
                         Spacer(modifier = Modifier.width(MaterialTheme.spacing.small))
-                        Text(text = i18n.tr("Buy me coffee"))
+                        Text(text = i18n.tr("Buy me a coffee"))
                     }
                 }
             }

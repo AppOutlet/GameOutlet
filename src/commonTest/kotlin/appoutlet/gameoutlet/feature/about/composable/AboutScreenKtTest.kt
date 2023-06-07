@@ -52,7 +52,7 @@ class AboutScreenKtTest : UiTest() {
 
         verify { mockOnInputEvent.invoke(fixtureLoadState.contributeEvent!!) }
 
-        composeTestRule.onNodeWithText("Buy me coffee")
+        composeTestRule.onNodeWithText("Buy me a coffee")
             .assertIsDisplayed()
             .performClick()
 
