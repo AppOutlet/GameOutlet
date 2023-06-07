@@ -26,6 +26,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -34,7 +35,7 @@ import appoutlet.gameoutlet.core.ui.spacing
 import appoutlet.gameoutlet.feature.about.AboutInputEvent
 import appoutlet.gameoutlet.feature.about.AboutUiState
 
-private const val VERSION = "1.2.0"
+const val VERSION = "1.2.0"
 
 @Composable
 fun AboutScreen(
@@ -118,9 +119,9 @@ private fun AboutContent(
 private fun AboutHeader(
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier) {
+    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         Image(
-            modifier = Modifier.size(120.dp),
+            modifier = Modifier.size(120.dp).testTag("appIcon"),
             painter = painterResource("image/icon.png"),
             contentDescription = null
         )
@@ -161,9 +162,12 @@ private fun AboutSocialLinks(
         horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.medium)
     ) {
         uiState.websiteEvent?.let { event ->
-            IconButton(onClick = {
-                onInputEvent(event)
-            }) {
+            IconButton(
+                modifier = Modifier.testTag("websiteIcon"),
+                onClick = {
+                    onInputEvent(event)
+                },
+            ) {
                 Icon(
                     modifier = Modifier.size(24.dp),
                     imageVector = Icons.Outlined.Language,
@@ -173,7 +177,10 @@ private fun AboutSocialLinks(
         }
 
         uiState.twitterEvent?.let { event ->
-            IconButton(onClick = { onInputEvent(event) }) {
+            IconButton(
+                modifier = Modifier.testTag("twitterIcon"),
+                onClick = { onInputEvent(event) },
+            ) {
                 Icon(
                     modifier = Modifier.size(24.dp),
                     painter = painterResource("image/twitter.svg"),
@@ -183,7 +190,10 @@ private fun AboutSocialLinks(
         }
 
         uiState.mastodonEvent?.let { event ->
-            IconButton(onClick = { onInputEvent(event) }) {
+            IconButton(
+                modifier = Modifier.testTag("mastodonIcon"),
+                onClick = { onInputEvent(event) },
+            ) {
                 Icon(
                     modifier = Modifier.size(24.dp),
                     painter = painterResource("image/mastodon.svg"),
@@ -193,7 +203,10 @@ private fun AboutSocialLinks(
         }
 
         uiState.githubEvent?.let { event ->
-            IconButton(onClick = { onInputEvent(event) }) {
+            IconButton(
+                modifier = Modifier.testTag("githubIcon"),
+                onClick = { onInputEvent(event) },
+            ) {
                 Icon(
                     modifier = Modifier.size(24.dp),
                     painter = painterResource("image/github.svg"),
