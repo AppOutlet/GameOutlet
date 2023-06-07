@@ -1,5 +1,6 @@
 package appoutlet.gameoutlet.feature
 
+import appoutlet.gameoutlet.feature.about.aboutModule
 import appoutlet.gameoutlet.feature.game.gameModule
 import appoutlet.gameoutlet.feature.gamesearch.gameSearchModule
 import appoutlet.gameoutlet.feature.home.homeModule
@@ -20,4 +21,5 @@ val featureModules = arrayOf(
     gameModule,
     gameSearchModule,
     storeModule,
+    aboutModule,
 )
