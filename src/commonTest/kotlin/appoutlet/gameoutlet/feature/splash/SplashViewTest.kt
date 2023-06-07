@@ -38,7 +38,7 @@ class SplashViewTest : UiTest() {
             .assertIsDisplayed()
 
         // Application bottom text
-        composeTestRule.onNode(hasText(i18n.tr("Powered by App Outlet")))
+        composeTestRule.onNode(hasText(i18n.tr("Powered by AppOutlet")))
             .assertIsDisplayed()
     }
 
