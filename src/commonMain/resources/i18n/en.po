@@ -6,13 +6,6 @@
 msgid ""
 msgstr "Project-Id-Version: PACKAGE VERSION\nReport-Msgid-Bugs-To: \n\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nLanguage: \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/AboutView.kt:129
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:77
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:41
-msgid "Powered by App Outlet"
-msgstr "Powered by App Outlet"
-
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:69
 msgid "Occurred an error when loading the store data"
 msgstr "Occurred an error when loading the store data"
@@ -206,6 +199,7 @@ msgid "We are fetching the list of deals from {{storeName}}"
 msgstr "We are fetching the list of deals from {{storeName}}"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/AboutView.kt:58
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt:131
 #, java-format
 msgid "Version {{version}}"
 msgstr "Version {{version}}"
@@ -219,6 +213,7 @@ msgid "Donate"
 msgstr "Donate"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/AboutView.kt:66
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt:141
 msgid "Authors"
 msgstr "Authors"
 
@@ -250,3 +245,16 @@ msgstr "System default"
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/settings/composable/ThemeSelector.kt:30
 msgid "Theme"
 msgstr "Theme"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt:111
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:77
+msgid "Powered by AppOutlet"
+msgstr "Powered by AppOutlet"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt:85
+msgid "Contribute to project"
+msgstr "Contribute to project"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt:98
+msgid "Buy me coffee"
+msgstr "Buy me coffee"

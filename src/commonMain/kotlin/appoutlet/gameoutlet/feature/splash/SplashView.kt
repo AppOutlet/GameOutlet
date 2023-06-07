@@ -74,7 +74,7 @@ private fun SplashScreenContent(uiState: SplashUiState, onInputEvent: (SplashInp
             }
         }
 
-        Text(modifier = Modifier.padding(vertical = 16.dp), text = i18n.tr("Powered by App Outlet"))
+        Text(modifier = Modifier.padding(vertical = 16.dp), text = i18n.tr("Powered by AppOutlet"))
     }
 }
 
