@@ -7,6 +7,7 @@ msgid ""
 msgstr "Project-Id-Version: PACKAGE VERSION\nReport-Msgid-Bugs-To: \n\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nLanguage: \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/AboutView.kt:129
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/splash/SplashView.kt:77
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/splash/SplashViewTest.kt:41
 msgid "Powered by App Outlet"
@@ -52,35 +53,36 @@ msgstr "GameOutlet logo"
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/LatestDealsTab.kt:20
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsView.kt:15
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/latestdeals/composable/LatestDealsItems.kt:25
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:68
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:67
 #: src/commonTest/kotlin/appoutlet/gameoutlet/feature/latestdeals/LatestDealsViewTest.kt:65
 msgid "Latest deals"
 msgstr "Latest deals"
 
-#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/SettingsTab.kt:18
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/SettingsTab.kt:21
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/settings/SettingsView.kt:20
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:109
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/settings/composable/SettingsScreen.kt:26
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:106
 msgid "Settings"
 msgstr "Settings"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/StoresTab.kt:21
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/StoreListView.kt:20
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/storelist/composable/StoreListContent.kt:22
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:95
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:135
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:93
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:132
 msgid "Stores"
 msgstr "Stores"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/WishlistTab.kt:21
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/WishlistView.kt:20
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/wishlist/composable/WishlistContent.kt:61
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:81
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:80
 msgid "Wishlist"
 msgstr "Wishlist"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/gamesearch/composable/GameSearchContent.kt:50
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/GameSearchTab.kt:20
-#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:122
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/home/HomeViewTest.kt:119
 msgid "Search"
 msgstr "Search"
 
@@ -202,3 +204,49 @@ msgstr "We could not get the list of deals from {{storeName}}"
 #, java-format
 msgid "We are fetching the list of deals from {{storeName}}"
 msgstr "We are fetching the list of deals from {{storeName}}"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/AboutView.kt:58
+#, java-format
+msgid "Version {{version}}"
+msgstr "Version {{version}}"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/AboutView.kt:84
+msgid "Contribute"
+msgstr "Contribute"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/AboutView.kt:90
+msgid "Donate"
+msgstr "Donate"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/AboutView.kt:66
+msgid "Authors"
+msgstr "Authors"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/home/composable/AboutTab.kt:20
+msgid "About"
+msgstr "About"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/settings/SettingsViewDataMapper.kt:19
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/settings/SettingsViewDataMapperTest.kt:18
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/settings/SettingsViewDataMapperTest.kt:36
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/settings/SettingsViewDataMapperTest.kt:54
+msgid "Light"
+msgstr "Light"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/settings/SettingsViewDataMapper.kt:24
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/settings/SettingsViewDataMapperTest.kt:19
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/settings/SettingsViewDataMapperTest.kt:37
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/settings/SettingsViewDataMapperTest.kt:55
+msgid "Dark"
+msgstr "Dark"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/settings/SettingsViewDataMapper.kt:29
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/settings/SettingsViewDataMapperTest.kt:20
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/settings/SettingsViewDataMapperTest.kt:38
+#: src/commonTest/kotlin/appoutlet/gameoutlet/feature/settings/SettingsViewDataMapperTest.kt:56
+msgid "System default"
+msgstr "System default"
+
+#: src/commonMain/kotlin/appoutlet/gameoutlet/feature/settings/composable/ThemeSelector.kt:30
+msgid "Theme"
+msgstr "Theme"
