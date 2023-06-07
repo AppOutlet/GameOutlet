@@ -12,7 +12,7 @@ import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import cafe.adriel.voyager.transitions.SlideTransition
 
-object AboutTab : Tab{
+object AboutTab : Tab {
     override val options: TabOptions
         @Composable
         get() = TabOptions(
