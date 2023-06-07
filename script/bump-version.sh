@@ -35,6 +35,10 @@ echo "Updating build.gradle version"
 cat build.gradle.kts|sed -r "s/packageVersion = \"[0-9.]+\"$/packageVersion = \"$NEW_VERSION\"/g" > build.gradle.kts.tmp
 mv build.gradle.kts.tmp build.gradle.kts
 
+echo "Updating AboutScreen version"
+cat src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt|sed -r "s/private const val VERSION = \"[0-9.]+\"$/private const val VERSION = \"$NEW_VERSION\"/g" > src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt.tmp
+mv src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt.tmp src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt
+
 echo "$NEW_VERSION" > .version
 
 git add .
