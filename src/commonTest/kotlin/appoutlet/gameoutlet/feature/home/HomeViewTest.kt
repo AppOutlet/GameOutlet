@@ -1,11 +1,15 @@
 package appoutlet.gameoutlet.feature.home
 
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import appoutlet.gameoutlet.core.testing.UiTest
 import appoutlet.gameoutlet.core.translation.i18n
+import appoutlet.gameoutlet.feature.about.AboutUiState
+import appoutlet.gameoutlet.feature.about.AboutViewModel
 import appoutlet.gameoutlet.feature.gamesearch.GameSearchUiState
 import appoutlet.gameoutlet.feature.gamesearch.GameSearchViewModel
 import appoutlet.gameoutlet.feature.latestdeals.LatestDealsUiState
@@ -44,12 +48,17 @@ class HomeViewTest : UiTest() {
         every { uiState } returns MutableStateFlow(GameSearchUiState.Idle(""))
     }
 
+    private val mockAboutViewModel = mockk<AboutViewModel>(relaxUnitFun = true) {
+        every { uiState } returns MutableStateFlow(fixture<AboutUiState.Loaded>())
+    }
+
     override val koinTestModule = module {
         single { mockLatestDealsViewModel }
         single { mockWishlistViewModel }
         single { mockSettingsViewModel }
         single { mockStoreListViewModel }
         single { mockGameSearchViewModel }
+        single { mockAboutViewModel }
     }
 
     @Test
@@ -120,15 +129,15 @@ class HomeViewTest : UiTest() {
     }
 
     @Test
-    fun `should navigate to stores`() {
+    fun `should navigate to About`() {
         composeTestRule.setContent { Navigator(HomeView()) }
 
-        composeTestRule.onNodeWithTag("storesTab")
+        composeTestRule.onNodeWithTag("aboutTab")
             .performClick()
 
         composeTestRule.waitForIdle()
 
-        composeTestRule.onNodeWithTag("screenTitle")
-            .assertTextEquals(i18n.tr("Stores"))
+        composeTestRule.onNodeWithText("GameOutlet")
+            .assertIsDisplayed()
     }
 }
