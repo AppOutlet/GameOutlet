@@ -63,33 +63,13 @@ private fun AboutContent(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Image(
-            modifier = Modifier.size(120.dp),
-            painter = painterResource("image/icon.png"),
-            contentDescription = null
-        )
-
-        Text(text = "GameOutlet", style = MaterialTheme.typography.headlineMedium)
-
-        Text(
-            text = i18n.tr("Version {{version}}", "version" to VERSION),
-            style = MaterialTheme.typography.titleSmall
-        )
+        AboutHeader()
 
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.large))
 
         Card(modifier = Modifier.width(256.dp)) {
             Column(modifier = Modifier.fillMaxWidth().padding(MaterialTheme.spacing.medium)) {
-                Text(
-                    text = i18n.tr("Authors"),
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.Bold
-                )
-
-                Text(
-                    text = "Messias Junior",
-                    style = MaterialTheme.typography.bodyLarge
-                )
+                AboutAuthors()
 
                 Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
 
@@ -123,51 +103,7 @@ private fun AboutContent(
 
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
 
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.medium)
-        ) {
-            uiState.websiteEvent?.let { event ->
-                IconButton(onClick = {
-                    onInputEvent(event)
-                }) {
-                    Icon(
-                        modifier = Modifier.size(24.dp),
-                        imageVector = Icons.Outlined.Language,
-                        contentDescription = null
-                    )
-                }
-            }
-
-            uiState.twitterEvent?.let { event ->
-                IconButton(onClick = { onInputEvent(event) }) {
-                    Icon(
-                        modifier = Modifier.size(24.dp),
-                        painter = painterResource("image/twitter.svg"),
-                        contentDescription = null
-                    )
-                }
-            }
-
-            uiState.mastodonEvent?.let { event ->
-                IconButton(onClick = { onInputEvent(event) }) {
-                    Icon(
-                        modifier = Modifier.size(24.dp),
-                        painter = painterResource("image/mastodon.svg"),
-                        contentDescription = null
-                    )
-                }
-            }
-
-            uiState.githubEvent?.let { event ->
-                IconButton(onClick = { onInputEvent(event) }) {
-                    Icon(
-                        modifier = Modifier.size(24.dp),
-                        painter = painterResource("image/github.svg"),
-                        contentDescription = null
-                    )
-                }
-            }
-        }
+        AboutSocialLinks(uiState = uiState, onInputEvent = onInputEvent)
 
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
 
@@ -175,5 +111,95 @@ private fun AboutContent(
             text = i18n.tr("Powered by AppOutlet"),
             style = MaterialTheme.typography.bodySmall
         )
+    }
+}
+
+@Composable
+private fun AboutHeader(
+    modifier: Modifier = Modifier
+) {
+    Column(modifier = modifier) {
+        Image(
+            modifier = Modifier.size(120.dp),
+            painter = painterResource("image/icon.png"),
+            contentDescription = null
+        )
+
+        Text(text = "GameOutlet", style = MaterialTheme.typography.headlineMedium)
+
+        Text(
+            text = i18n.tr("Version {{version}}", "version" to VERSION),
+            style = MaterialTheme.typography.titleSmall
+        )
+    }
+}
+
+@Composable
+private fun AboutAuthors(modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
+        Text(
+            text = i18n.tr("Authors"),
+            style = MaterialTheme.typography.titleSmall,
+            fontWeight = FontWeight.Bold
+        )
+
+        Text(
+            text = "Messias Junior",
+            style = MaterialTheme.typography.bodyLarge
+        )
+    }
+}
+
+@Composable
+private fun AboutSocialLinks(
+    uiState: AboutUiState.Loaded,
+    onInputEvent: (AboutInputEvent) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.medium)
+    ) {
+        uiState.websiteEvent?.let { event ->
+            IconButton(onClick = {
+                onInputEvent(event)
+            }) {
+                Icon(
+                    modifier = Modifier.size(24.dp),
+                    imageVector = Icons.Outlined.Language,
+                    contentDescription = null
+                )
+            }
+        }
+
+        uiState.twitterEvent?.let { event ->
+            IconButton(onClick = { onInputEvent(event) }) {
+                Icon(
+                    modifier = Modifier.size(24.dp),
+                    painter = painterResource("image/twitter.svg"),
+                    contentDescription = null
+                )
+            }
+        }
+
+        uiState.mastodonEvent?.let { event ->
+            IconButton(onClick = { onInputEvent(event) }) {
+                Icon(
+                    modifier = Modifier.size(24.dp),
+                    painter = painterResource("image/mastodon.svg"),
+                    contentDescription = null
+                )
+            }
+        }
+
+        uiState.githubEvent?.let { event ->
+            IconButton(onClick = { onInputEvent(event) }) {
+                Icon(
+                    modifier = Modifier.size(24.dp),
+                    painter = painterResource("image/github.svg"),
+                    contentDescription = null
+                )
+            }
+        }
     }
 }
