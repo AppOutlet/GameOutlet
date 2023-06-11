@@ -279,4 +279,4 @@ msgstr "Contribuir para o projeto"
 
 #: src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt:98
 msgid "Buy me a coffee"
-msgstr "Paga-me um café"
+msgstr "Buy me a coffee"
