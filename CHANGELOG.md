@@ -1,4 +1,13 @@
 # Changelog
+## v1.3.0 (2023-06-16)
+### Added
+* Select theme by @MessiasLima in https://github.com/AppOutlet/GameOutlet/pull/87
+* About screen by @MessiasLima in https://github.com/AppOutlet/GameOutlet/pull/90
+* Enable settings screen by @MessiasLima in https://github.com/AppOutlet/GameOutlet/pull/85
+
+### Outro
+* Updates for src/commonMain/resources/i18n/en.po in pt by @transifex-integration in https://github.com/AppOutlet/GameOutlet/pull/83
+
 ## v1.2.0
 ### Features
 * Create store list by @MessiasLima in [#79](https://github.com/AppOutlet/GameOutlet/pull/79)
