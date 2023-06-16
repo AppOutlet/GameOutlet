@@ -11,12 +11,14 @@ The GameOutlet put together the latest deals in games for PC. It puts the deals 
 #### Features
 - See the latest deals from the most popular game stores
 - Search by a game title to see its prices on these stores
-- Save your favourite games to a wishlist
-- See all deals from the online game stores 
-- Available for Windows, Linux and MacOS
+- Save your favorite games to a wishlist
+- See all deals from the online game stores
+- Light and dark theme
+- Available for Windows, Linux, and macOS
+To see the next steps, please refer to [our roadmap.](https://github.com/AppOutlet/GameOutlet/blob/main/docs/roadmap.md)
 
 ## Download
-You can download the latest version GameOutlet by clicking in the button below
+You can download the latest version GameOutlet by clicking on the button below
 
 [![GitHub all releases](https://img.shields.io/github/downloads/AppOutlet/GameOutlet/total?color=%231B6D00&style=for-the-badge)](https://github.com/AppOutlet/GameOutlet/releases)
 
