@@ -24,15 +24,15 @@ if ! grep -q "$CURRENT_VERSION" snap/snapcraft.yaml; then
 fi
 
 echo "Updating snapcraft version"
-cat snap/snapcraft.yaml|sed -r "s/version: [0-9.]+$/version: $NEW_VERSION/g" > snap/snapcraft.yaml.tmp
+cat snap/snapcraft.yaml|sed -r "s/version: $CURRENT_VERSION$/version: $NEW_VERSION/g" > snap/snapcraft.yaml.tmp
 mv snap/snapcraft.yaml.tmp snap/snapcraft.yaml
 
 echo "Updating build.gradle version"
-cat build.gradle.kts|sed -r "s/version = \"[0-9.]+\"$/version = \"$NEW_VERSION\"/g" > build.gradle.kts.tmp
+cat build.gradle.kts|sed -r "s/version = \"$CURRENT_VERSION\"$/version = \"$NEW_VERSION\"/g" > build.gradle.kts.tmp
 mv build.gradle.kts.tmp build.gradle.kts
 
 echo "Updating build.gradle version"
-cat build.gradle.kts|sed -r "s/packageVersion = \"[0-9.]+\"$/packageVersion = \"$NEW_VERSION\"/g" > build.gradle.kts.tmp
+cat build.gradle.kts|sed -r "s/packageVersion = \"$CURRENT_VERSION\"$/packageVersion = \"$NEW_VERSION\"/g" > build.gradle.kts.tmp
 mv build.gradle.kts.tmp build.gradle.kts
 
 echo "Updating AboutScreen version"
