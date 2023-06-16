@@ -15,6 +15,7 @@ The GameOutlet put together the latest deals in games for PC. It puts the deals 
 - See all deals from the online game stores
 - Light and dark theme
 - Available for Windows, Linux, and macOS
+
 To see the next steps, please refer to [our roadmap.](https://github.com/AppOutlet/GameOutlet/blob/main/docs/roadmap.md)
 
 ## Download
