@@ -1,7 +1,6 @@
 @file:JvmName("GameOutlet")
 
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -18,6 +17,7 @@ import appoutlet.gameoutlet.feature.splash.SplashView
 import appoutlet.gameoutlet.initKoin
 import appoutlet.gameoutlet.initLogger
 import appoutlet.gameoutlet.initLookAndFeel
+import appoutlet.gameoutlet.isSystemInDarkThemeSecure
 import appoutlet.gameoutlet.setupWindowLookAndFeel
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.FadeTransition
@@ -34,7 +34,9 @@ fun main() {
         initLogger()
 
         val mainOrchestrator = koin.get<MainOrchestrator>()
-        val isDarkTheme by mainOrchestrator.isDarkTheme(isSystemInDarkTheme()).collectAsState(isSystemInDarkTheme())
+        val isDarkTheme by mainOrchestrator
+            .isDarkTheme(isSystemInDarkThemeSecure())
+            .collectAsState(isSystemInDarkThemeSecure())
 
         initLookAndFeel(isDarkTheme)
 

@@ -1,5 +1,6 @@
 package appoutlet.gameoutlet
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.awt.ComposeWindow
@@ -14,6 +15,9 @@ import appoutlet.gameoutlet.core.ui.LightColors
 import com.formdev.flatlaf.FlatDarkLaf
 import com.formdev.flatlaf.FlatLightLaf
 import com.formdev.flatlaf.util.SystemInfo
+import io.github.aakira.napier.Napier
+import org.jetbrains.skiko.SystemTheme
+import org.jetbrains.skiko.currentSystemTheme
 import javax.swing.JRootPane
 import javax.swing.UIManager
 import javax.swing.plaf.ColorUIResource
@@ -90,4 +94,15 @@ private fun getOS(): OS {
         SystemInfo.isMacOS -> OS.MAC
         else -> OS.LINUX
     }
+}
+
+fun isSystemInDarkThemeSecure(): Boolean {
+    val theme = try {
+        currentSystemTheme
+    } catch (ex: UnsatisfiedLinkError) {
+        Napier.e(message = "Native implementation not found. Are you using FLATPAK or Snap?", throwable = ex)
+        null
+    }
+
+    return theme == SystemTheme.DARK
 }
