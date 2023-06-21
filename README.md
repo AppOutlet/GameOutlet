@@ -23,6 +23,8 @@ You can download the latest version GameOutlet by clicking on the button below
 
 [![GitHub all releases](https://img.shields.io/github/downloads/AppOutlet/GameOutlet/total?color=%231B6D00&style=for-the-badge)](https://github.com/AppOutlet/GameOutlet/releases)
 
-GameOutlet is also available in alternative stores
+<a href='https://flathub.org/en-GB/apps/io.github.appoutlet.GameOutlet'><img width='240' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-en.png'/></a>
+
+GameOutlet is also available in ...
 - [OpenDesktop.org](https://www.opendesktop.org/p/2025451)
 
