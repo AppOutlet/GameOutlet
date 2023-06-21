@@ -1,4 +1,11 @@
 # Changelog
+## v1.3.2 (2023-06-21)
+* Fix the version on the About screen
+
+## v1.3.1 (2023-06-17)
+* Improve language support for ru by @transifex-integration in [#91](https://github.com/AppOutlet/GameOutlet/pull/91)
+* Improve language support for pt by @transifex-integration in [#92](https://github.com/AppOutlet/GameOutlet/pull/92)
+
 ## v1.3.0 (2023-06-16)
 ### Added
 * Select theme by @MessiasLima in https://github.com/AppOutlet/GameOutlet/pull/87
