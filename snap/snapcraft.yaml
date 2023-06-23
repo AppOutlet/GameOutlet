@@ -11,12 +11,7 @@ description: |
   - Search by a game title to see its prices on these stores
 base: core18
 grade: stable
-confinement: devmode
-architectures:
-  - build-on: arm64
-    run-on: arm64
-  - build-on: amd64
-    run-on: amd64
+confinement: strict
 website: https://appoutlet.github.io/
 license: GPL-3.0
 contact: team.appoutlet@gmail.com
@@ -29,42 +24,21 @@ type: app
 
 apps:
   game-outlet:
-    command: ./GameOutlet/bin/GameOutlet
+    command: bin/java -jar jar/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_TARGET_ARCH.jar
+    environment:
+      PATH: $JAVA_HOME/jre/bin:$PATH
     plugs:
       - home
       - network
-      - cups-control
+    extensions:
+      - gnome-3-34
 parts:
   game-outlet:
     plugin: gradle
     source: https://github.com/AppOutlet/GameOutlet.git
     source-branch: main
-    gradle-version: 1.3.2
-    gradle-openjdk-version: 1.3.2
-    gradle-options: [packageReleaseAppImage]
-    build-packages:
-      - openjdk-17-jdk
+    gradle-version: 7.5.1
+    gradle-options: [packageReleaseUberJarForCurrentOS]
+    gradle-output-dir: build/compose/jars
     stage-packages:
-      - libasound2
-      - libbrotli1
-      - libfontconfig1
-      - libfreetype6
-      - libgif7
-      - libgl1
-      - libglvnd0
-      - libglx0
-      - libgraphite2-3
-      - libharfbuzz0b
-      - libjpeg-turbo8
-      - liblcms2-2
-      - libpng16-16
-      - libx11-6
-      - libxau6
-      - libxcb1
-      - libxdmcp6
-      - libxext6
-      - libxi6
-      - libxrender1
-      - libxtst6
-    override-stage: |
-      mv build/compose/binaries/main-release/app/GameOutlet $SNAPCRAFT_PART_INSTALL/
+      - glibc-tools
