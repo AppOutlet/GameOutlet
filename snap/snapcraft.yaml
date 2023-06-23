@@ -10,8 +10,12 @@ description: |
   - See the latest deals from the most popular game stores
   - Search by a game title to see its prices on these stores
 base: core18
-grade: stable
 confinement: strict
+architectures:
+  - build-on: arm64
+    run-on: arm64
+  - build-on: amd64
+    run-on: amd64
 website: https://appoutlet.github.io/
 license: GPL-3.0
 contact: team.appoutlet@gmail.com
@@ -36,9 +40,11 @@ parts:
   game-outlet:
     plugin: gradle
     source: https://github.com/AppOutlet/GameOutlet.git
+    source-type: git
     source-branch: main
     gradle-version: 7.5.1
     gradle-options: [packageReleaseUberJarForCurrentOS]
     gradle-output-dir: build/compose/jars
-    stage-packages:
-      - glibc-tools
+    override-prime: |
+      snapcraftctl prime
+      rm -vf usr/lib/jvm/java-11-openjdk-*/lib/security/blacklisted.certs
