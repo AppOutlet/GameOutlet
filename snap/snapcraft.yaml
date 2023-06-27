@@ -25,15 +25,19 @@ donation:
 issues: https://github.com/AppOutlet/GameOutlet/issues
 source-code: https://github.com/AppOutlet/GameOutlet
 type: app
+grade: stable
 
 apps:
   game-outlet:
-    command: bin/java -jar jar/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_TARGET_ARCH.jar
+    command: bin/java -jar jar/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
     environment:
       PATH: $JAVA_HOME/jre/bin:$PATH
     plugs:
       - home
+      - x11
       - network
+      - desktop
+      - desktop-legacy
     extensions:
       - gnome-3-34
 parts:
@@ -45,6 +49,11 @@ parts:
     gradle-version: 7.5.1
     gradle-options: [packageReleaseUberJarForCurrentOS]
     gradle-output-dir: build/compose/jars
-    override-prime: |
-      snapcraftctl prime
-      rm -vf usr/lib/jvm/java-11-openjdk-*/lib/security/blacklisted.certs
+    stage-packages:
+      - ca-certificates-java
+      - ca-certificates
+      - openjdk-11-jre
+    prime:
+      - -usr/lib/jvm/java-11-openjdk-amd64/lib/security/cacerts
+      - -usr/lib/jvm/java-11-openjdk-amd64/lib/security/blacklisted.certs
+      
