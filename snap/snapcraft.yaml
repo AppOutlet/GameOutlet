@@ -9,13 +9,13 @@ description: |
   Features
   - See the latest deals from the most popular game stores
   - Search by a game title to see its prices on these stores
-base: core22
+base: core18
 confinement: strict
 architectures:
   - build-on: arm64
-    build-for: arm64
+    run-on: arm64
   - build-on: amd64
-    build-for: amd64
+    run-on: amd64
 website: https://appoutlet.github.io/
 license: GPL-3.0
 contact: team.appoutlet@gmail.com
@@ -29,7 +29,7 @@ grade: stable
 
 apps:
   game-outlet:
-    command: /usr/lib/jvm/java-17-openjdk-$SNAPCRAFT_TARGET_ARCH/bin/java -jar $SNAP/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
+    command: java -jar $SNAP/jar/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
     environment:
       JAVA_HOME: $SNAP/usr/lib/jvm/java-17-openjdk-$SNAPCRAFT_TARGET_ARCH
       PATH: $JAVA_HOME/bin:$PATH
@@ -41,28 +41,19 @@ apps:
       - desktop-legacy
 parts:
   game-outlet:
-    plugin: nil
+    plugin: gradle
+    gradle-options: [ packageReleaseUberJarForCurrentOS ]
+    gradle-output-dir: build/compose/jars
+    gradle-openjdk-version: '17'
     source: https://github.com/AppOutlet/GameOutlet.git
     source-type: git
     source-branch: main
-    build-packages:
-      - ucommon-utils
-    override-build: |
-      craftctl default
-      export JAVA_HOME=$CRAFT_PART_INSTALL/usr/lib/jvm/java-17-openjdk-$CRAFT_TARGET_ARCH
-      ./gradlew packageReleaseUberJarForCurrentOs
     stage-packages:
       - ca-certificates-java
       - ca-certificates
       - openjdk-17-jdk
-    override-stage: |
-      craftctl default
-      cp $CRAFT_PART_BUILD/build/compose/jars/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar $CRAFT_STAGE/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
-    override-prime: |
-      craftctl default
-      cp $CRAFT_STAGE/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar $CRAFT_PRIME/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
     prime:
-      - -usr/lib/jvm/java-17-openjdk-$CRAFT_TARGET_ARCH/lib/security/cacerts
-      - -usr/lib/jvm/java-17-openjdk-$CRAFT_TARGET_ARCH/lib/security/blacklisted.certs
-      - -usr/lib/jvm/java-11-openjdk-$CRAFT_TARGET_ARCH/lib/security/cacerts
-      - -usr/lib/jvm/java-11-openjdk-$CRAFT_TARGET_ARCH/lib/security/blacklisted.certs
+      - -usr/lib/jvm/java-17-openjdk-$SNAPCRAFT_TARGET_ARCH/lib/security/cacerts
+      - -usr/lib/jvm/java-17-openjdk-$SNAPCRAFT_TARGET_ARCH/lib/security/blacklisted.certs
+      - -usr/lib/jvm/java-11-openjdk-$SNAPCRAFT_TARGET_ARCH/lib/security/cacerts
+      - -usr/lib/jvm/java-11-openjdk-$SNAPCRAFT_TARGET_ARCH/lib/security/blacklisted.certs
