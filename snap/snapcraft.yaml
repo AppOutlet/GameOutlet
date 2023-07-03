@@ -64,3 +64,5 @@ parts:
     prime:
       - -usr/lib/jvm/java-17-openjdk-$CRAFT_TARGET_ARCH/lib/security/cacerts
       - -usr/lib/jvm/java-17-openjdk-$CRAFT_TARGET_ARCH/lib/security/blacklisted.certs
+      - -usr/lib/jvm/java-11-openjdk-$CRAFT_TARGET_ARCH/lib/security/cacerts
+      - -usr/lib/jvm/java-11-openjdk-$CRAFT_TARGET_ARCH/lib/security/blacklisted.certs
