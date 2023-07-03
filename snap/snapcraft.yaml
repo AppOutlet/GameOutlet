@@ -44,19 +44,23 @@ parts:
     plugin: nil
     source: https://github.com/AppOutlet/GameOutlet.git
     source-type: git
-    source-tag: v1.3.2
+    source-branch: main
     build-packages:
       - ucommon-utils
     override-build: |
-      snapcraftctl build
+      craftctl default
+      export JAVA_HOME=$CRAFT_PART_INSTALL/usr/lib/jvm/java-17-openjdk-$CRAFT_TARGET_ARCH
       ./gradlew packageReleaseUberJarForCurrentOs
     stage-packages:
       - ca-certificates-java
       - ca-certificates
       - openjdk-17-jdk
     override-stage: |
-      snapcraftctl stage
-      cp $SNAPCRAFT_PART_BUILD/build/compose/jars/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar $SNAPCRAFT_STAGE/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
+      craftctl default
+      cp $CRAFT_PART_BUILD/build/compose/jars/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar $CRAFT_STAGE/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
     override-prime: |
-      snapcraftctl prime
-      cp $SNAPCRAFT_STAGE/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar $SNAPCRAFT_PRIME/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
+      craftctl default
+      cp $CRAFT_STAGE/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar $CRAFT_PRIME/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
+    prime:
+      - -usr/lib/jvm/java-17-openjdk-$CRAFT_TARGET_ARCH/lib/security/cacerts
+      - -usr/lib/jvm/java-17-openjdk-$CRAFT_TARGET_ARCH/lib/security/blacklisted.certs
