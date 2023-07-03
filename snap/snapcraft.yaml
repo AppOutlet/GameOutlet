@@ -9,13 +9,13 @@ description: |
   Features
   - See the latest deals from the most popular game stores
   - Search by a game title to see its prices on these stores
-base: core18
+base: core22
 confinement: strict
 architectures:
   - build-on: arm64
-    run-on: arm64
+    build-for: arm64
   - build-on: amd64
-    run-on: amd64
+    build-for: amd64
 website: https://appoutlet.github.io/
 license: GPL-3.0
 contact: team.appoutlet@gmail.com
@@ -29,33 +29,34 @@ grade: stable
 
 apps:
   game-outlet:
-    command: bin/java -jar jar/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
+    command: /usr/lib/jvm/java-17-openjdk-$SNAPCRAFT_TARGET_ARCH/bin/java -jar $SNAP/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
     environment:
-      PATH: $JAVA_HOME/jre/bin:$PATH
+      JAVA_HOME: $SNAP/usr/lib/jvm/java-17-openjdk-$SNAPCRAFT_TARGET_ARCH
+      PATH: $JAVA_HOME/bin:$PATH
     plugs:
       - home
       - x11
       - network
       - desktop
       - desktop-legacy
-    extensions:
-      - gnome-3-34
 parts:
   game-outlet:
-    plugin: gradle
+    plugin: nil
     source: https://github.com/AppOutlet/GameOutlet.git
     source-type: git
-    source-branch: main
-    gradle-version: 7.5.1
-    gradle-options: [packageReleaseUberJarForCurrentOS]
-    gradle-output-dir: build/compose/jars
+    source-tag: v1.3.2
+    build-packages:
+      - ucommon-utils
+    override-build: |
+      snapcraftctl build
+      ./gradlew packageReleaseUberJarForCurrentOs
     stage-packages:
       - ca-certificates-java
       - ca-certificates
-      - openjdk-11-jre
-    prime:
-      - -usr/lib/jvm/java-11-openjdk-amd64/lib/security/cacerts
-      - -usr/lib/jvm/java-11-openjdk-amd64/lib/security/blacklisted.certs
-      - -usr/lib/jvm/java-11-openjdk-arm64/lib/security/cacerts
-      - -usr/lib/jvm/java-11-openjdk-arm64/lib/security/blacklisted.certs
-      
+      - openjdk-17-jdk
+    override-stage: |
+      snapcraftctl stage
+      cp $SNAPCRAFT_PART_BUILD/build/compose/jars/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar $SNAPCRAFT_STAGE/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
+    override-prime: |
+      snapcraftctl prime
+      cp $SNAPCRAFT_STAGE/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar $SNAPCRAFT_PRIME/GameOutlet-linux-$SNAPCRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
