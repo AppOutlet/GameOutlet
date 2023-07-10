@@ -2,17 +2,13 @@ package appoutlet.gameoutlet.feature.game.composable
 
 import androidx.compose.animation.core.tween
 import androidx.compose.desktop.ui.tooling.preview.Preview
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -35,38 +31,24 @@ import io.kamel.image.KamelImage
 import io.kamel.image.lazyPainterResource
 
 @Composable
-fun Deal(
-    item: GameDealUiModel,
-    onInputEvent: (GameInputEvent) -> Unit,
-    modifier: Modifier = Modifier
-) {
+fun Deal(item: GameDealUiModel, onInputEvent: (GameInputEvent) -> Unit, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier.fillMaxWidth().padding(vertical = MaterialTheme.spacing.small),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth()
-                .clickable {
-                    onInputEvent(GameInputEvent.DealClicked(item))
-                }.semantics {
-                    testTag = item.id
-                },
+                .clickable { onInputEvent(GameInputEvent.DealClicked(item)) }
+                .semantics { testTag = item.id },
             verticalAlignment = Alignment.CenterVertically
         ) {
             KamelImage(
                 modifier = Modifier.padding(
                     vertical = MaterialTheme.spacing.medium,
                     horizontal = MaterialTheme.spacing.large
-                )
-                    .size(56.dp)
-                    .clip(CircleShape),
+                ).size(56.dp).clip(CircleShape),
                 resource = lazyPainterResource(item.store.icon),
                 contentDescription = null,
                 animationSpec = tween(),
-                onLoading = {
-                    Box(
-                        modifier = Modifier.padding(MaterialTheme.spacing.medium).size(64.dp),
-                    ) { }
-                }
             )
 
             Text(
@@ -75,44 +57,47 @@ fun Deal(
                 style = MaterialTheme.typography.titleLarge
             )
 
-            Column(
-                modifier = Modifier.padding(start = MaterialTheme.spacing.medium),
-                horizontalAlignment = Alignment.End
-            ) {
-                if (item.showNormalPrice) {
-                    Surface(
-                        color = MaterialTheme.colorScheme.primary,
-                    ) {
-                        Box(
-                            modifier = Modifier.padding(
-                                horizontal = MaterialTheme.spacing.medium
-                            )
-                        ) {
-                            Text(item.savings, style = MaterialTheme.typography.titleLarge)
-                        }
-                    }
+            Prices(item)
+        }
+    }
+}
+
+@Composable
+private fun Prices(item: GameDealUiModel, modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier.padding(
+            start = MaterialTheme.spacing.medium,
+            bottom = MaterialTheme.spacing.medium
+        ),
+        horizontalAlignment = Alignment.End
+    ) {
+        if (item.showNormalPrice) {
+            Surface(color = MaterialTheme.colorScheme.primary) {
+                Box(
+                    modifier = Modifier.padding(horizontal = MaterialTheme.spacing.medium)
+                ) {
+                    Text(item.savings, style = MaterialTheme.typography.titleLarge)
                 }
-
-                Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
-
-                Text(
-                    modifier = Modifier.padding(end = MaterialTheme.spacing.medium),
-                    text = item.salePrice,
-                    style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.primary
-                )
-
-                if (item.showNormalPrice) {
-                    Text(
-                        modifier = Modifier.padding(end = MaterialTheme.spacing.medium),
-                        text = item.normalPrice,
-                        style = MaterialTheme.typography.bodySmall,
-                        textDecoration = TextDecoration.LineThrough
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
             }
+        }
+
+        Text(
+            modifier = Modifier.padding(
+                end = MaterialTheme.spacing.medium,
+                top = MaterialTheme.spacing.small
+            ),
+            text = item.salePrice,
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.primary
+        )
+
+        if (item.showNormalPrice) {
+            Text(
+                modifier = Modifier.padding(end = MaterialTheme.spacing.medium),
+                text = item.normalPrice,
+                style = MaterialTheme.typography.bodySmall,
+                textDecoration = TextDecoration.LineThrough
+            )
         }
     }
 }

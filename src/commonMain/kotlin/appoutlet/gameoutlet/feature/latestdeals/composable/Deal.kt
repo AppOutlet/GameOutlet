@@ -12,11 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.InputChip
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,7 +34,6 @@ import io.kamel.image.lazyPainterResource
 private val imageHeight = 192.dp
 private const val NORMAL_PRICE_ALPHA = .5f
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Deal(
     deal: DealUiModel,
@@ -50,26 +45,16 @@ fun Deal(
             modifier = Modifier.clickable { onInputEvent(LatestDealsInputEvent.DealClicked(deal = deal)) },
         ) {
             KamelImage(
-                modifier = Modifier.fillMaxWidth()
-                    .height(imageHeight)
+                modifier = Modifier.fillMaxWidth().height(imageHeight)
                     .background(color = MaterialTheme.colorScheme.tertiaryContainer),
                 resource = lazyPainterResource(data = deal.gameImage),
                 contentDescription = null,
                 animationSpec = tween(),
-                onLoading = {
-                    Box(
-                        modifier = Modifier.height(imageHeight)
-                            .fillMaxWidth()
-                            .background(color = MaterialTheme.colorScheme.secondaryContainer)
-                    )
-                },
                 contentScale = ContentScale.Crop,
             )
 
             Row(modifier = Modifier) {
-                Column(
-                    modifier = modifier.weight(1f).padding(MaterialTheme.spacing.medium)
-                ) {
+                Column(modifier = Modifier.weight(1f).padding(MaterialTheme.spacing.medium)) {
                     Text(
                         modifier = Modifier.height(48.dp),
                         text = deal.gameTitle,
@@ -80,28 +65,18 @@ fun Deal(
                     )
 
                     StoresRow(
-                        modifier = Modifier
-                            .fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth()
                             .padding(
                                 top = MaterialTheme.spacing.medium,
-                                bottom = MaterialTheme.spacing.small
+                                bottom = MaterialTheme.spacing.extraSmall,
                             ),
                         uiModel = deal,
                     )
                 }
 
-
-                Column(
-                    horizontalAlignment = Alignment.End
-                ) {
-                    Surface(
-                        color = MaterialTheme.colorScheme.primary,
-                    ) {
-                        Box(
-                            modifier = Modifier.padding(
-                                horizontal = MaterialTheme.spacing.medium
-                            )
-                        ) {
+                Column(horizontalAlignment = Alignment.End) {
+                    Surface(color = MaterialTheme.colorScheme.primary,) {
+                        Box(modifier = Modifier.padding(horizontal = MaterialTheme.spacing.medium)) {
                             Text(deal.savings, style = MaterialTheme.typography.titleMedium)
                         }
                     }

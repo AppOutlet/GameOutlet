@@ -1,6 +1,7 @@
 package appoutlet.gameoutlet.feature.common
 
 import cafe.adriel.voyager.navigator.Navigator
+import io.github.aakira.napier.Napier
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,7 +17,7 @@ abstract class ViewModel<State : UiState, Event : InputEvent>(initialState: Stat
     fun init(scope: CoroutineScope, navigator: Navigator) {
         viewModelScope = scope
         this.navigator = navigator
-        println("View model initialized")
+        Napier.v(message = "ViewModel initialized")
         afterViewModelInitialization()
     }
 
