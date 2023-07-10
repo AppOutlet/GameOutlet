@@ -8,6 +8,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import name.kropp.kotlinx.gettext.I18n
+import kotlin.math.roundToInt
 
 class GameUiModelMapper(
     private val i18n: I18n,
@@ -56,6 +57,7 @@ class GameUiModelMapper(
                     id = deal.id,
                     salePrice = deal.salePrice.asString(),
                     normalPrice = deal.normalPrice.asString(),
+                    savings = "- ${deal.savings.roundToInt()}%",
                     showNormalPrice = !samePrice,
                     store = mapStore(deal.store),
                 )

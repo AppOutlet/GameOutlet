@@ -7,13 +7,12 @@ import appoutlet.gameoutlet.domain.Store
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import name.kropp.kotlinx.gettext.I18n
 import org.javamoney.moneta.Money
+import kotlin.math.roundToInt
 import kotlin.test.Test
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
     private val mockI18n = mockk<I18n>()
 
@@ -56,6 +55,7 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
             assertThat(actualDeal.salePrice).isEqualTo(fixtureDeal.salePrice.toBeTested())
             assertThat(actualDeal.normalPrice).isEqualTo(fixtureDeal.normalPrice.toBeTested())
             assertThat(actualDeal.showNormalPrice).isEqualTo(true)
+            assertThat(actualDeal.savings).isEqualTo("- ${fixtureDeal.savings.roundToInt()}%")
             with(actualDeal.store) {
                 assertThat(name).isEqualTo(fixtureDeal.store.name)
                 assertThat(icon).isEqualTo(fixtureDeal.store.logoUrl)
@@ -95,6 +95,7 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
             assertThat(actualDeal.salePrice).isEqualTo(fixtureDeal.salePrice.toBeTested())
             assertThat(actualDeal.normalPrice).isEqualTo(fixtureDeal.normalPrice.toBeTested())
             assertThat(actualDeal.showNormalPrice).isEqualTo(false)
+            assertThat(actualDeal.savings).isEqualTo("- ${fixtureDeal.savings.roundToInt()}%")
             with(actualDeal.store) {
                 assertThat(name).isEqualTo(fixtureDeal.store.name)
                 assertThat(icon).isEqualTo(fixtureDeal.store.logoUrl)
@@ -129,6 +130,7 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
             assertThat(actualDeal.salePrice).isEqualTo(fixtureDeal.salePrice.toBeTested())
             assertThat(actualDeal.normalPrice).isEqualTo(fixtureDeal.normalPrice.toBeTested())
             assertThat(actualDeal.showNormalPrice).isEqualTo(false)
+            assertThat(actualDeal.savings).isEqualTo("- ${fixtureDeal.savings.roundToInt()}%")
             with(actualDeal.store) {
                 assertThat(name).isEqualTo(fixtureDeal.store.name)
                 assertThat(icon).isEqualTo("")
@@ -165,6 +167,7 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
             assertThat(actualDeal.salePrice).isEqualTo("FREE")
             assertThat(actualDeal.normalPrice).isEqualTo(fixtureDeal.normalPrice.toBeTested())
             assertThat(actualDeal.showNormalPrice).isEqualTo(true)
+            assertThat(actualDeal.savings).isEqualTo("- ${fixtureDeal.savings.roundToInt()}%")
             with(actualDeal.store) {
                 assertThat(name).isEqualTo(fixtureDeal.store.name)
                 assertThat(icon).isEqualTo("")

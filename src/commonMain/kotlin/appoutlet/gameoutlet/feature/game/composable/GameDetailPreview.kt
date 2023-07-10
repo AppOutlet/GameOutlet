@@ -24,6 +24,7 @@ fun GameDetailPreview() {
                         icon = "Some store logo",
                     ),
                     salePrice = "$ 12",
+                    savings = "- 20%",
                     normalPrice = "$ 100",
                     showNormalPrice = true
                 )

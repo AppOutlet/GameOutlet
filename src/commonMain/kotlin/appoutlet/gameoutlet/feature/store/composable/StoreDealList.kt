@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -15,6 +16,7 @@ import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -43,7 +45,7 @@ fun StoreDealList(
 ) {
     LazyVerticalStaggeredGrid(
         modifier = modifier,
-        columns = StaggeredGridCells.Adaptive(minSize = 256.dp)
+        columns = StaggeredGridCells.Adaptive(minSize = 320.dp)
     ) {
         items(viewData.deals) { deal ->
             Deal(
@@ -63,9 +65,7 @@ private fun Deal(
     modifier: Modifier = Modifier
 ) {
     Card(modifier = modifier.fillMaxWidth().padding(MaterialTheme.spacing.small)) {
-        Column(
-            modifier = Modifier.clickable { onInputEvent(viewData.inputEvent) },
-        ) {
+        Column(modifier = Modifier.clickable { onInputEvent(viewData.inputEvent) }) {
             KamelImage(
                 modifier = Modifier.fillMaxWidth()
                     .height(imageHeight)
@@ -73,19 +73,12 @@ private fun Deal(
                 resource = lazyPainterResource(data = viewData.image),
                 contentDescription = null,
                 animationSpec = tween(),
-                onLoading = {
-                    Box(
-                        modifier = Modifier.height(imageHeight)
-                            .fillMaxWidth()
-                            .background(color = MaterialTheme.colorScheme.secondaryContainer)
-                    )
-                },
                 contentScale = ContentScale.Crop,
             )
 
-            Row(modifier = Modifier.padding(MaterialTheme.spacing.small)) {
+            Row(modifier = Modifier) {
                 Text(
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier.weight(1f).height(48.dp).padding(MaterialTheme.spacing.medium),
                     text = viewData.title,
                     style = MaterialTheme.typography.titleMedium,
                     overflow = TextOverflow.Ellipsis,
@@ -96,20 +89,33 @@ private fun Deal(
                     modifier = Modifier.padding(start = MaterialTheme.spacing.medium),
                     horizontalAlignment = Alignment.End
                 ) {
+                    Surface(color = MaterialTheme.colorScheme.primary,) {
+                        Box(modifier = Modifier.padding(horizontal = MaterialTheme.spacing.medium)) {
+                            Text(viewData.savings, style = MaterialTheme.typography.titleMedium)
+                        }
+                    }
+
+                    Spacer(Modifier.height(MaterialTheme.spacing.small))
+
                     Text(
+                        modifier = Modifier.padding(horizontal = MaterialTheme.spacing.medium),
                         text = viewData.currentPrice,
                         style = MaterialTheme.typography.titleLarge,
                         color = MaterialTheme.colorScheme.primary,
                         fontWeight = FontWeight.Bold
                     )
+
                     viewData.normalPrice?.let {
                         Text(
-                            modifier = Modifier.alpha(.5f),
+                            modifier = Modifier.alpha(.5f)
+                                .padding(horizontal = MaterialTheme.spacing.medium),
                             text = it,
                             style = MaterialTheme.typography.labelSmall,
                             textDecoration = TextDecoration.LineThrough,
                         )
                     }
+
+                    Spacer(Modifier.height(MaterialTheme.spacing.medium))
                 }
             }
         }

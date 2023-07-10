@@ -16,6 +16,7 @@ data class GameDealUiModel(
     val store: GameDealStoreUiModel,
     val salePrice: String,
     val normalPrice: String,
+    val savings: String,
     val showNormalPrice: Boolean,
 )
 

@@ -4,6 +4,7 @@ import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.feature.common.util.asString
 import appoutlet.gameoutlet.feature.game.GameNavArgs
+import kotlin.math.roundToInt
 
 class StoreViewDataMapper {
     operator fun invoke(deals: List<Deal>): StoreViewData {
@@ -23,6 +24,7 @@ class StoreViewDataMapper {
             title = deal.game.title,
             currentPrice = deal.salePrice.asString(),
             normalPrice = normalPrice,
+            savings = "- ${deal.savings.roundToInt()}%",
             image = deal.game.image,
             inputEvent = mapInputEvent(deal.game),
         )
