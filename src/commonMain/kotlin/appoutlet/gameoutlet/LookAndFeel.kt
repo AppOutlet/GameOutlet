@@ -87,7 +87,7 @@ enum class OS {
     MAC, WINDOWS, LINUX
 }
 
-private fun getOS(): OS {
+fun getOS(): OS {
     return when {
         SystemInfo.isWindows -> OS.WINDOWS
         SystemInfo.isLinux -> OS.LINUX
@@ -100,7 +100,7 @@ fun isSystemInDarkThemeSecure(): Boolean {
     val theme = try {
         currentSystemTheme
     } catch (ex: UnsatisfiedLinkError) {
-        Napier.e(message = "Native implementation not found. Are you using FLATPAK or Snap?", throwable = ex)
+        Napier.e(message = "Native implementation not found", throwable = ex)
         null
     }
 
