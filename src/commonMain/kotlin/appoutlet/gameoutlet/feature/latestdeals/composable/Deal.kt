@@ -7,11 +7,17 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.InputChip
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SuggestionChip
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -32,9 +38,14 @@ import io.kamel.image.lazyPainterResource
 private val imageHeight = 192.dp
 private const val NORMAL_PRICE_ALPHA = .5f
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (LatestDealsInputEvent) -> Unit) {
-    Card(modifier = modifier.fillMaxWidth().padding(MaterialTheme.spacing.small),) {
+fun Deal(
+    deal: DealUiModel,
+    modifier: Modifier = Modifier,
+    onInputEvent: (LatestDealsInputEvent) -> Unit
+) {
+    Card(modifier = modifier.fillMaxWidth().padding(MaterialTheme.spacing.small)) {
         Column(
             modifier = Modifier.clickable { onInputEvent(LatestDealsInputEvent.DealClicked(deal = deal)) },
         ) {
@@ -55,42 +66,65 @@ fun Deal(deal: DealUiModel, modifier: Modifier = Modifier, onInputEvent: (Latest
                 contentScale = ContentScale.Crop,
             )
 
-            Row(modifier = Modifier.padding(MaterialTheme.spacing.small)) {
-                Text(
-                    modifier = Modifier.height(48.dp).weight(1f),
-                    text = deal.gameTitle,
-                    style = MaterialTheme.typography.titleMedium,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis,
-                    fontWeight = FontWeight.Medium,
-                )
-
+            Row(modifier = Modifier) {
                 Column(
-                    modifier = Modifier.padding(start = MaterialTheme.spacing.medium),
-                    horizontalAlignment = Alignment.End
+                    modifier = modifier.weight(1f).padding(MaterialTheme.spacing.medium)
                 ) {
                     Text(
+                        modifier = Modifier.height(48.dp),
+                        text = deal.gameTitle,
+                        style = MaterialTheme.typography.titleMedium,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
+                        fontWeight = FontWeight.Medium,
+                    )
+
+                    StoresRow(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(
+                                top = MaterialTheme.spacing.medium,
+                                bottom = MaterialTheme.spacing.small
+                            ),
+                        uiModel = deal,
+                    )
+                }
+
+
+                Column(
+                    horizontalAlignment = Alignment.End
+                ) {
+                    Surface(
+                        color = MaterialTheme.colorScheme.primary,
+                    ) {
+                        Box(
+                            modifier = Modifier.padding(
+                                horizontal = MaterialTheme.spacing.medium
+                            )
+                        ) {
+                            Text(deal.savings, style = MaterialTheme.typography.titleMedium)
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
+
+                    Text(
+                        modifier = Modifier.padding(horizontal = MaterialTheme.spacing.medium),
                         text = deal.currentPrice,
                         style = MaterialTheme.typography.titleLarge,
                         color = MaterialTheme.colorScheme.primary,
                         fontWeight = FontWeight.Bold
                     )
+
                     Text(
-                        modifier = Modifier.alpha(NORMAL_PRICE_ALPHA),
+                        modifier = Modifier.alpha(NORMAL_PRICE_ALPHA)
+                            .padding(horizontal = MaterialTheme.spacing.medium),
                         text = deal.oldPrice,
                         style = MaterialTheme.typography.labelSmall,
                         textDecoration = TextDecoration.LineThrough,
                     )
                 }
             }
-
-            StoresRow(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = MaterialTheme.spacing.small)
-                    .padding(bottom = MaterialTheme.spacing.medium),
-                uiModel = deal,
-            )
         }
     }
 }
@@ -102,6 +136,7 @@ data class DealUiModel(
     val gameId: Long,
     val gameImage: String,
     val oldPrice: String,
+    val savings: String,
     val stores: List<DealStoreUiModel>
 )
 
@@ -119,6 +154,7 @@ private fun DealPreview() {
         gameTitle = "The end of the fucking world",
         currentPrice = "49",
         oldPrice = "100",
+        savings = "% 50",
         stores = listOf(
             DealStoreUiModel(
                 icon = "https://www.cheapshark.com/img/stores/logos/3.png",

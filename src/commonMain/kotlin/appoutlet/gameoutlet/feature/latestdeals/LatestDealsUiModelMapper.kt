@@ -5,6 +5,7 @@ import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.feature.common.util.asString
 import appoutlet.gameoutlet.feature.latestdeals.composable.DealStoreUiModel
 import appoutlet.gameoutlet.feature.latestdeals.composable.DealUiModel
+import kotlin.math.roundToInt
 
 class LatestDealsUiModelMapper {
     operator fun invoke(deals: List<Deal>): List<DealUiModel> {
@@ -23,7 +24,8 @@ class LatestDealsUiModelMapper {
             gameImage = game.image,
             currentPrice = cheapestDeal.salePrice.asString(),
             oldPrice = cheapestDeal.normalPrice.asString(),
-            stores = mapStore(deals)
+            stores = mapStore(deals),
+            savings = "- ${cheapestDeal.savings.roundToInt()}%"
         )
     }
 
