@@ -4,6 +4,7 @@ import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.feature.common.util.asString
+import kotlin.math.roundToInt
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
@@ -56,6 +57,7 @@ class GameUiModelMapper(
                     id = deal.id,
                     salePrice = deal.salePrice.asString(),
                     normalPrice = deal.normalPrice.asString(),
+                    savings = "- ${deal.savings.roundToInt()}%",
                     showNormalPrice = !samePrice,
                     store = mapStore(deal.store),
                 )
