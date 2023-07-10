@@ -11,7 +11,7 @@ import appoutlet.gameoutlet.feature.game.GameUiModel
 
 @Composable
 @Preview
-fun GameDetailPreview() {
+private fun GameDetailPreview() {
     GameOutletTheme {
         val uiModel = GameUiModel(
             title = "Some amazing game",

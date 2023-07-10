@@ -57,7 +57,7 @@ fun LatestDealsFooter(modifier: Modifier = Modifier, onInputEvent: (LatestDealsI
 
 @Composable
 @Preview
-fun LatestDealsFooterPreview() {
+private fun LatestDealsFooterPreview() {
     GameOutletTheme {
         LatestDealsFooter(onInputEvent = { })
     }
