@@ -100,6 +100,7 @@ dependencies {
     commonMainImplementation(libs.flatlaf)
     commonMainImplementation(libs.napier)
     commonMainImplementation(libs.appdirs)
+    commonMainImplementation(libs.themeDetector)
 
     commonTestImplementation(libs.kotlin.test)
     commonTestImplementation(libs.kotlinFixture)
