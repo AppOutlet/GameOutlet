@@ -45,7 +45,7 @@ parts:
     plugin: nil
     source: https://github.com/AppOutlet/GameOutlet.git
     source-type: git
-    source-branch: snapcraft
+    source-branch: main
     build-packages:
       - ucommon-utils
       - openjdk-17-jdk

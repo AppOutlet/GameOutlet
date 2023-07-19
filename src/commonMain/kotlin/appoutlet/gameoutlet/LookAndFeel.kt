@@ -96,6 +96,7 @@ fun getOS(): OS {
     }
 }
 
+@Suppress("SwallowedException")
 fun isSystemInDarkThemeSecure(): Boolean {
     val theme = try {
         currentSystemTheme
