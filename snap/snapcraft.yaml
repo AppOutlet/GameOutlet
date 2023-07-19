@@ -62,8 +62,9 @@ parts:
       cp $CRAFT_PART_BUILD/build/compose/jars/GameOutlet-linux-*.jar $CRAFT_STAGE/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
     override-prime: |
       craftctl default
-      cp $CRAFT_STAGE/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar $CRAFT_PRIME/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
-      unzip -o $CRAFT_PRIME/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar "image/*" -d $CRAFT_PRIME
+      mkdir $CRAFT_PRIME/jar
+      cp $CRAFT_STAGE/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar $CRAFT_PRIME/jar/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar
+      unzip -o $CRAFT_PRIME/jar/GameOutlet-linux-$CRAFT_TARGET_ARCH-$SNAPCRAFT_PROJECT_VERSION.jar "image/*" -d $CRAFT_PRIME/jar
       mkdir -p $HOME/.config/AppOutlet/GameOutlet/database
 
 lint:

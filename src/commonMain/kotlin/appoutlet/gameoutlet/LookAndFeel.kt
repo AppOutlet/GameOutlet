@@ -100,7 +100,7 @@ fun isSystemInDarkThemeSecure(): Boolean {
     val theme = try {
         currentSystemTheme
     } catch (ex: UnsatisfiedLinkError) {
-        Napier.e(message = "Native implementation not found", throwable = ex)
+        Napier.e(message = "Couldn't get system theme. You are probably using a sandboxed package")
         null
     }
 
