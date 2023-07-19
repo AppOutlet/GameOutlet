@@ -24,7 +24,6 @@ import appoutlet.gameoutlet.isSystemInDarkThemeSecure
 import appoutlet.gameoutlet.setupWindowLookAndFeel
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.FadeTransition
-import com.jthemedetecor.OsThemeDetector
 import java.awt.Dimension
 
 private const val WINDOW_MIN_WIDTH = 750
@@ -37,9 +36,9 @@ fun main() {
     application {
         initLogger()
         var isDarkThemeSystemDefault by remember { mutableStateOf(isSystemInDarkThemeSecure()) }
-        OsThemeDetector.getDetector().registerListener {
-            isDarkThemeSystemDefault = it
-        }
+//        OsThemeDetector.getDetector().registerListener {
+//            isDarkThemeSystemDefault = it
+//        }
 
         val mainOrchestrator = koin.get<MainOrchestrator>()
         val isDarkTheme by mainOrchestrator
