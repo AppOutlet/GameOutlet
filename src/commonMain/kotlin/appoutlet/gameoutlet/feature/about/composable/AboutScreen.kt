@@ -35,7 +35,7 @@ import appoutlet.gameoutlet.core.ui.spacing
 import appoutlet.gameoutlet.feature.about.AboutInputEvent
 import appoutlet.gameoutlet.feature.about.AboutUiState
 
-const val VERSION = "1.3.2"
+const val VERSION = "1.3.3"
 
 @Composable
 fun AboutScreen(
