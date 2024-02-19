@@ -7,7 +7,7 @@ sqldelight = "2.0.0-alpha05"
 voyager = "1.0.0-rc06"
 
 [libraries]
-appdirs = "ca.gosyer:kotlin-multiplatform-appdirs:1.1.0"
+appdirs = "ca.gosyer:kotlin-multiplatform-appdirs:1.2.0"
 detekt-compose = "io.nlopez.compose.rules:detekt:0.1.12"
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 flatlaf = "com.formdev:flatlaf:3.1.1"
