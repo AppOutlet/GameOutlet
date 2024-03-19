@@ -104,7 +104,7 @@ dependencies {
     commonTestImplementation(libs.kotlinFixture)
     commonTestImplementation(libs.truth)
     commonTestImplementation(libs.mockk)
-    commonTestImplementation(compose.uiTestJUnit4)
+    commonTestImplementation(compose.desktop.uiTestJUnit4)
 
     detektPlugins(libs.detekt.formatting)
     detektPlugins(libs.detekt.compose)
@@ -113,6 +113,5 @@ dependencies {
 apply(from = "$rootDir/script/detekt.gradle")
 apply(from = "$rootDir/script/git-hooks.gradle")
 apply(from = "$rootDir/script/kover.gradle")
-apply(from = "$rootDir/script/test.gradle")
 apply(from = "$rootDir/script/gettext.gradle")
 apply(from = "$rootDir/script/sqldelight.gradle")
