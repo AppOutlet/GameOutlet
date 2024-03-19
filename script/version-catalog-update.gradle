@@ -1,6 +1,0 @@
-versionCatalogUpdate {
-    sortByKey = true
-    pin {
-        versions = ["kotlin"]
-    }
-}

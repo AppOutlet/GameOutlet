@@ -12,8 +12,6 @@ plugins {
     alias(libs.plugins.kover)
     alias(libs.plugins.kotlinx.gettext)
     alias(libs.plugins.sqldelight)
-    alias(libs.plugins.versions)
-    alias(libs.plugins.catalogUpdates)
 }
 
 group = "appoutlet"
@@ -106,7 +104,7 @@ dependencies {
     commonTestImplementation(libs.kotlinFixture)
     commonTestImplementation(libs.truth)
     commonTestImplementation(libs.mockk)
-    commonTestImplementation(compose.uiTestJUnit4)
+    commonTestImplementation(compose.desktop.uiTestJUnit4)
 
     detektPlugins(libs.detekt.formatting)
     detektPlugins(libs.detekt.compose)
@@ -115,7 +113,5 @@ dependencies {
 apply(from = "$rootDir/script/detekt.gradle")
 apply(from = "$rootDir/script/git-hooks.gradle")
 apply(from = "$rootDir/script/kover.gradle")
-apply(from = "$rootDir/script/test.gradle")
 apply(from = "$rootDir/script/gettext.gradle")
 apply(from = "$rootDir/script/sqldelight.gradle")
-apply(from = "$rootDir/script/version-catalog-update.gradle")

@@ -1,13 +1,13 @@
 [versions]
 detekt = "1.23.0"
 kotlin = "1.9.22"
-kotlinx-gettext = "0.5.2"
+kotlinx-gettext = "0.6.1"
 retrofit = "2.9.0"
 sqldelight = "2.0.0-alpha05"
-voyager = "1.0.0-rc06"
+voyager = "1.0.0"
 
 [libraries]
-appdirs = "ca.gosyer:kotlin-multiplatform-appdirs:1.1.0"
+appdirs = "ca.gosyer:kotlin-multiplatform-appdirs:1.2.0"
 detekt-compose = "io.nlopez.compose.rules:detekt:0.1.12"
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 flatlaf = "com.formdev:flatlaf:3.1.1"
@@ -33,13 +33,11 @@ voyager-tabNavigation = { module = "cafe.adriel.voyager:voyager-tab-navigator", 
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
 
 [plugins]
-catalogUpdates = "nl.littlerobots.version-catalog-update:0.8.0"
 commitlint = "ru.netris.commitlint:1.4.3"
-compose = "org.jetbrains.compose:1.5.0-dev1084"
+compose = "org.jetbrains.compose:1.5.12"
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 gitHooks = "com.star-zero.gradle.githook:1.2.1"
 kotlinx-gettext = { id = "name.kropp.kotlinx-gettext", version.ref = "kotlinx-gettext" }
 kover = "org.jetbrains.kotlinx.kover:0.7.2"
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
-versions = "com.github.ben-manes.versions:0.47.0"
