@@ -1,10 +1,10 @@
 [versions]
 detekt = "1.23.0"
-kotlin = "1.8.20"
-kotlinx-gettext = "0.5.2"
+kotlin = "1.9.22"
+kotlinx-gettext = "0.6.1"
 retrofit = "2.9.0"
 sqldelight = "2.0.0-alpha05"
-voyager = "1.0.0-rc06"
+voyager = "1.0.0"
 
 [libraries]
 appdirs = "ca.gosyer:kotlin-multiplatform-appdirs:1.2.0"
@@ -34,7 +34,7 @@ voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", vers
 
 [plugins]
 commitlint = "ru.netris.commitlint:1.4.3"
-compose = "org.jetbrains.compose:1.5.0-dev1084"
+compose = "org.jetbrains.compose:1.5.12"
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 gitHooks = "com.star-zero.gradle.githook:1.2.1"
 kotlinx-gettext = { id = "name.kropp.kotlinx-gettext", version.ref = "kotlinx-gettext" }
