@@ -23,7 +23,7 @@ moneta = "org.javamoney:moneta:1.4.2"
 napier = "io.github.aakira:napier:2.6.1"
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
-slf4j-simple = "org.slf4j:slf4j-simple:2.0.7"
+slf4j-simple = "org.slf4j:slf4j-simple:2.0.12"
 sqldelight-coroutinesExtensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
 sqldelight-sqliteDriver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
 truth = "com.google.truth:truth:1.4.2"
