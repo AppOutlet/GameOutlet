@@ -2,7 +2,7 @@
 detekt = "1.23.5"
 kotlin = "1.9.22"
 kotlinx-gettext = "0.6.1"
-retrofit = "2.9.0"
+retrofit = "2.10.0"
 sqldelight = "2.0.1"
 voyager = "1.0.0"
 
