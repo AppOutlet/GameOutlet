@@ -11,7 +11,7 @@ appdirs = "ca.gosyer:kotlin-multiplatform-appdirs:1.2.0"
 detekt-compose = "io.nlopez.compose.rules:detekt:0.1.12"
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 flatlaf = "com.formdev:flatlaf:3.4"
-joda-time = "joda-time:joda-time:2.12.5"
+joda-time = "joda-time:joda-time:2.12.7"
 kamel = "com.alialbaali.kamel:kamel-image:0.4.1"
 koin = "io.insert-koin:koin-core:3.4.2"
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
