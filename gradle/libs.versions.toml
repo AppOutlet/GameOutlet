@@ -1,6 +1,6 @@
 [versions]
 detekt = "1.23.5"
-kotlin = "1.9.22"
+kotlin = "1.9.23"
 kotlinx-gettext = "0.6.1"
 retrofit = "2.10.0"
 sqldelight = "2.0.1"
