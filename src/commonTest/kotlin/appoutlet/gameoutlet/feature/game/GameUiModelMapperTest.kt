@@ -4,6 +4,7 @@ import appoutlet.gameoutlet.core.testing.UnitTest
 import appoutlet.gameoutlet.domain.Deal
 import appoutlet.gameoutlet.domain.Game
 import appoutlet.gameoutlet.domain.Store
+import appoutlet.gameoutlet.feature.common.util.asString
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockk
@@ -280,6 +281,6 @@ class GameUiModelMapperTest : UnitTest<GameUiModelMapper>() {
     }
 
     private fun Money.toBeTested(): String {
-        return this.toString().replace("USD ", "$")
+        return this.asString()
     }
 }
