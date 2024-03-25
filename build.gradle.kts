@@ -19,7 +19,7 @@ version = "1.3.4"
 
 kotlin {
     jvm {
-        jvmToolchain(11)
+        jvmToolchain(17)
         withJava()
     }
 
