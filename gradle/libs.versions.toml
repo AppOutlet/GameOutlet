@@ -20,6 +20,7 @@ kotlinx-gettext = { module = "name.kropp.kotlinx-gettext:kotlinx-gettext", versi
 ktor-client = "io.ktor:ktor-client-java:2.3.2"
 mockk = "io.mockk:mockk:1.13.5"
 moneta = "org.javamoney:moneta:1.4.2"
+moshi-kotlin = "com.squareup.moshi:moshi-kotlin:1.15.0"
 napier = "io.github.aakira:napier:2.7.1"
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
