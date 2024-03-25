@@ -13,7 +13,7 @@ detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", 
 flatlaf = "com.formdev:flatlaf:3.4"
 joda-time = "joda-time:joda-time:2.12.7"
 kamel = "com.alialbaali.kamel:kamel-image:0.4.1"
-koin = "io.insert-koin:koin-core:3.4.2"
+koin = "io.insert-koin:koin-core:3.5.3"
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlinFixture = "com.appmattus.fixture:fixture:1.2.0"
 kotlinx-gettext = { module = "name.kropp.kotlinx-gettext:kotlinx-gettext", version.ref = "kotlinx-gettext" }
