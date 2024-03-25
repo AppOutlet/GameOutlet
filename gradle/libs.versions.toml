@@ -1,8 +1,8 @@
 [versions]
-detekt = "1.23.0"
-kotlin = "1.9.22"
+detekt = "1.23.5"
+kotlin = "1.9.23"
 kotlinx-gettext = "0.6.1"
-retrofit = "2.9.0"
+retrofit = "2.10.0"
 sqldelight = "2.0.1"
 voyager = "1.0.0"
 
@@ -10,8 +10,8 @@ voyager = "1.0.0"
 appdirs = "ca.gosyer:kotlin-multiplatform-appdirs:1.2.0"
 detekt-compose = "io.nlopez.compose.rules:detekt:0.1.12"
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
-flatlaf = "com.formdev:flatlaf:3.1.1"
-joda-time = "joda-time:joda-time:2.12.5"
+flatlaf = "com.formdev:flatlaf:3.4"
+joda-time = "joda-time:joda-time:2.12.7"
 kamel = "com.alialbaali.kamel:kamel-image:0.4.1"
 koin = "io.insert-koin:koin-core:3.4.2"
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -23,18 +23,18 @@ moneta = "org.javamoney:moneta:1.4.2"
 napier = "io.github.aakira:napier:2.7.1"
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
-slf4j-simple = "org.slf4j:slf4j-simple:2.0.7"
+slf4j-simple = "org.slf4j:slf4j-simple:2.0.12"
 sqldelight-coroutinesExtensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
 sqldelight-sqliteDriver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
-truth = "com.google.truth:truth:1.1.5"
-themeDetector = "com.github.Dansoftowner:jSystemThemeDetector:3.6"
+truth = "com.google.truth:truth:1.4.2"
+themeDetector = "com.github.Dansoftowner:jSystemThemeDetector:3.8"
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-tabNavigation = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "voyager" }
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
 
 [plugins]
 commitlint = "ru.netris.commitlint:1.4.3"
-compose = "org.jetbrains.compose:1.5.12"
+compose = "org.jetbrains.compose:1.6.1"
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 gitHooks = "com.star-zero.gradle.githook:1.2.1"
 kotlinx-gettext = { id = "name.kropp.kotlinx-gettext", version.ref = "kotlinx-gettext" }
