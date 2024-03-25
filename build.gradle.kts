@@ -19,7 +19,7 @@ version = "1.3.4"
 
 kotlin {
     jvm {
-        jvmToolchain(11)
+        jvmToolchain(17)
         withJava()
     }
 
@@ -92,6 +92,7 @@ dependencies {
     commonMainImplementation(libs.retrofit.moshi)
     commonMainImplementation(libs.kamel)
     commonMainImplementation(libs.ktor.client)
+    commonMainImplementation(libs.moshi.kotlin)
     commonMainImplementation(libs.slf4j.simple)
     commonMainImplementation(libs.moneta)
     commonMainImplementation(libs.joda.time)
