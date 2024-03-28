@@ -9,8 +9,13 @@ class AboutViewModel(
 ) : ViewModel<AboutUiState, AboutInputEvent>(initialState = AboutUiState.Idle) {
     override fun onInputEvent(inputEvent: AboutInputEvent) {
         when (inputEvent) {
-            is AboutInputEvent.OpenLink -> desktopHelper.openLink(inputEvent.url)
-            AboutInputEvent.Load -> mutableUiState.value = aboutViewDataMapper()
+            is AboutInputEvent.OpenLink -> {
+                desktopHelper.openLink(inputEvent.url)
+            }
+
+            AboutInputEvent.Load -> {
+                mutableUiState.value = aboutViewDataMapper()
+            }
         }
     }
 }

@@ -1,9 +1,8 @@
 package appoutlet.gameoutlet.feature.splash
 
-import appoutlet.gameoutlet.core.testing.UnitTest
+import appoutlet.gameoutlet.core.testing.ViewModelTest
 import appoutlet.gameoutlet.feature.home.HomeView
 import appoutlet.gameoutlet.feature.home.HomeViewProvider
-import cafe.adriel.voyager.navigator.Navigator
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockk
@@ -16,10 +15,9 @@ import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 
 @OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
-class SplashViewModelTest : UnitTest<SplashViewModel>() {
+class SplashViewModelTest : ViewModelTest<SplashViewModel>() {
     private val mockSplashOrchestrator = mockk<SplashOrchestrator>()
     private val mockHomeViewProvider = mockk<HomeViewProvider>()
-    private val mockNavigator = mockk<Navigator>(relaxUnitFun = true)
     private val mockHomeView = mockk<HomeView>()
 
     override fun buildSut() = SplashViewModel(
@@ -28,9 +26,7 @@ class SplashViewModelTest : UnitTest<SplashViewModel>() {
     )
 
     @Test
-    fun `should sync stores`() = runTest {
-        sut.init(this, mockNavigator)
-
+    fun `should sync stores`() = runViewModelTest {
         every { mockSplashOrchestrator.synchronizeStoreData() } returns flow {
             delay(3)
             emit(Unit)
@@ -51,5 +47,20 @@ class SplashViewModelTest : UnitTest<SplashViewModel>() {
         assertThat(sut.uiState.value).isEqualTo(SplashUiState.Loaded)
 
         verify { mockNavigator.replaceAll(mockHomeView) }
+    }
+
+    @Test
+    fun `should show error screen`() = runTest {
+        sut.init(this, mockNavigator)
+
+        every { mockSplashOrchestrator.synchronizeStoreData() } returns flow {
+            throw IllegalStateException()
+        }
+
+        sut.onInputEvent(SplashInputEvent.Load)
+
+        advanceUntilIdle()
+
+        assertThat(sut.uiState.value).isEqualTo(SplashUiState.Error)
     }
 }

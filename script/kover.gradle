@@ -14,6 +14,8 @@ def excludePatters = [
         // Database related generated files
         "*GameOutletDatabase*",
         "*Queries*",
+
+        "*ComposableSingletons*",
 ]
 
 koverReport {
@@ -46,19 +48,19 @@ koverReport {
                 }
 
                 bound {
-                    minValue = 87
+                    minValue = 89
                     metric = "LINE"
                     aggregation = "COVERED_PERCENTAGE"
                 }
 
                 bound {
-                    minValue = 76
+                    minValue = 78
                     metric = "INSTRUCTION"
                     aggregation = "COVERED_PERCENTAGE"
                 }
 
                 bound {
-                    minValue = 41
+                    minValue = 42
                     metric = "BRANCH"
                     aggregation = "COVERED_PERCENTAGE"
                 }
