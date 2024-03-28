@@ -48,8 +48,14 @@ koverReport {
                 }
 
                 bound {
-                    minValue = 72
+                    minValue = 74
                     metric = "INSTRUCTION"
+                    aggregation = "COVERED_PERCENTAGE"
+                }
+
+                bound {
+                    minValue = 40
+                    metric = "BRANCH"
                     aggregation = "COVERED_PERCENTAGE"
                 }
             }
