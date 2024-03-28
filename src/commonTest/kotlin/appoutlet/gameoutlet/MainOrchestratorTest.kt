@@ -9,11 +9,10 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 
-class MainOrchestratorTest  {
+class MainOrchestratorTest {
     @Test
     fun `observe theme - light`() = runTest {
         val mockThemeRepository = mockk<ThemeRepository>()
-
 
         every { mockThemeRepository.getTheme() } returns Theme.SYSTEM
 
