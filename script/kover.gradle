@@ -6,6 +6,7 @@ def excludePatters = [
         // Non testable application setup
         "*MainKt*",
         "*KoinKt*",
+        "*LookAndFeelKt*",
 
         // Database related generated files
         "*GameOutletDatabase*",

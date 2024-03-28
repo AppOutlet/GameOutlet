@@ -26,9 +26,7 @@ fun initLookAndFeel(isSystemInDarkTheme: Boolean) {
     when (getOS()) {
         OS.MAC -> setupMacLookAndFeel()
         OS.WINDOWS -> setupWindowsLookAndFeel(isSystemInDarkTheme)
-
-        OS.LINUX -> {
-        }
+        OS.LINUX -> Unit
     }
 }
 
@@ -57,12 +55,8 @@ private fun setupWindowsLookAndFeel(isSystemInDarkTheme: Boolean) {
 fun FrameWindowScope.setupWindowLookAndFeel() {
     when (getOS()) {
         OS.MAC -> setupMacWindowLookAndFeel(window.rootPane)
-        OS.WINDOWS -> {
-        }
-
-        OS.LINUX -> {
-            FixIconOnLinuxHosts(window)
-        }
+        OS.WINDOWS -> Unit
+        OS.LINUX -> FixIconOnLinuxHosts(window)
     }
 }
 
