@@ -7,9 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 
-class MainOrchestrator(
-    private val themeRepository: ThemeRepository
-) {
+class MainOrchestrator(themeRepository: ThemeRepository) {
     private val _theme = MutableStateFlow(themeRepository.getTheme())
 
     init {

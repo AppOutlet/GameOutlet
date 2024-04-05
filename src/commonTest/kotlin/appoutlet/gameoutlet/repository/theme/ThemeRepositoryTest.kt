@@ -34,4 +34,15 @@ class ThemeRepositoryTest : UnitTest<ThemeRepository>() {
 
         assertThat(actual).isEqualTo(fixtureTheme)
     }
+
+    @Test
+    fun `should observe theme`() {
+        every { mockPreferenceRepository.observePreference(PREFERENCE_THEME, any()) } answers {
+            (it.invocation.args[1] as (String) -> Unit).invoke(Theme.DARK.name)
+        }
+
+        sut.observeTheme {
+            assertThat(it).isEqualTo(Theme.DARK)
+        }
+    }
 }

@@ -6,10 +6,16 @@ def excludePatters = [
         // Non testable application setup
         "*MainKt*",
         "*KoinKt*",
+        "*LookAndFeelKt*",
+        "*LoggerKt*",
+        "*GameOutlet*",
+        "*OS*",
 
         // Database related generated files
         "*GameOutletDatabase*",
         "*Queries*",
+
+        "*ComposableSingletons*",
 ]
 
 koverReport {
@@ -42,14 +48,20 @@ koverReport {
                 }
 
                 bound {
-                    minValue = 80
+                    minValue = 89
                     metric = "LINE"
                     aggregation = "COVERED_PERCENTAGE"
                 }
 
                 bound {
-                    minValue = 72
+                    minValue = 77
                     metric = "INSTRUCTION"
+                    aggregation = "COVERED_PERCENTAGE"
+                }
+
+                bound {
+                    minValue = 42
+                    metric = "BRANCH"
                     aggregation = "COVERED_PERCENTAGE"
                 }
             }
