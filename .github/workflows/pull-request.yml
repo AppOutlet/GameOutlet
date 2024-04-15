@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -30,7 +30,7 @@ jobs:
     needs: compile
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -53,7 +53,7 @@ jobs:
     needs: compile
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Java
         uses: actions/setup-java@v3
