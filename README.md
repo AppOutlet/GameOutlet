@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="150px" src="https://raw.githubusercontent.com/AppOutlet/GameOutlet/main/src/commonMain/resources/image/icon.png">
+  <img width="150px" src="https://raw.githubusercontent.com/AppOutlet/GameOutlet/main/src/main/resources/image/icon.png">
   <h1>GameOutlet</h1>
   <p>Find the best prices on PC games</p>
 </div>
