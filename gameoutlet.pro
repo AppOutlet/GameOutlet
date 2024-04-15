@@ -10,5 +10,7 @@
 -keep class org.javamoney.moneta.spi.** { *; }
 -keep class io.ktor.client.engine.java.** { *; }
 -keep class com.sun.jna.** { *; }
--ignorewarnings
+-keep class com.formdev.flatlaf.ui.** { *; }
+-keep class com.formdev.flatlaf.icons.** { *; }
 
+-ignorewarnings
