@@ -12,5 +12,6 @@
 -keep class com.sun.jna.** { *; }
 -keep class com.formdev.flatlaf.ui.** { *; }
 -keep class com.formdev.flatlaf.icons.** { *; }
+-keep class oshi.** { *; }
 
 -ignorewarnings
