@@ -4,8 +4,8 @@ detekt {
     autoCorrect true
     config = files("$rootDir/detekt.yml")
     source = files(
-            "src/commonMain/kotlin",
-            "src/commonTest/kotlin",
+            "src/main/kotlin",
+            "src/test/kotlin",
     )
     parallel true
     buildUponDefaultConfig true

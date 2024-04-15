@@ -1,16 +1,26 @@
 @file:JvmName("GameOutlet")
 
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import appoutlet.gameoutlet.*
+import appoutlet.gameoutlet.MainOrchestrator
 import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.feature.splash.SplashView
+import appoutlet.gameoutlet.initKoin
+import appoutlet.gameoutlet.initLogger
+import appoutlet.gameoutlet.initLookAndFeel
+import appoutlet.gameoutlet.isSystemInDarkThemeSecure
+import appoutlet.gameoutlet.setupWindowLookAndFeel
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.FadeTransition
 import com.jthemedetecor.OsThemeDetector
