@@ -15,7 +15,7 @@ plugins {
 }
 
 group = "appoutlet"
-version = "1.4.0"
+version = "1.4.1"
 
 compose.desktop {
     application {
@@ -24,7 +24,7 @@ compose.desktop {
             targetFormats(TargetFormat.Dmg, TargetFormat.Exe, TargetFormat.Msi, TargetFormat.Deb, TargetFormat.Rpm)
 
             packageName = "GameOutlet"
-            packageVersion = "1.4.0"
+            packageVersion = "1.4.1"
             description = "Find the best prices on PC games"
             vendor = "AppOutlet"
             licenseFile.set(project.file("LICENSE"))
