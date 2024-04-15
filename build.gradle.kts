@@ -87,7 +87,6 @@ dependencies {
     implementation(libs.flatlaf)
     implementation(libs.napier)
     implementation(libs.appdirs)
-    implementation(libs.themeDetector)
 
     testImplementation(libs.kotlin.test)
     testImplementation(libs.kotlinFixture)
