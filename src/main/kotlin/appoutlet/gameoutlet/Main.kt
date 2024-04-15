@@ -1,6 +1,5 @@
 @file:JvmName("GameOutlet")
 
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -64,7 +63,6 @@ fun main() {
 }
 
 @Suppress("ModifierMissing")
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun App(isDarkTheme: Boolean) {
     GameOutletTheme(useDarkTheme = isDarkTheme) {

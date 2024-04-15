@@ -21,7 +21,7 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v3
         with:
-          arguments: compileKotlinJvm
+          arguments: compileKotlin
           cache-read-only: false
 
   unit-test:

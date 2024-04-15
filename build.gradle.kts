@@ -4,7 +4,7 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-    alias(libs.plugins.multiplatform)
+    alias(libs.plugins.jvm)
     alias(libs.plugins.compose)
     alias(libs.plugins.detekt)
     alias(libs.plugins.commitlint)
@@ -16,18 +16,6 @@ plugins {
 
 group = "appoutlet"
 version = "1.3.6"
-
-kotlin {
-    jvm {
-        jvmToolchain(17)
-        withJava()
-    }
-
-    sourceSets {
-        val jvmMain by getting
-        val jvmTest by getting
-    }
-}
 
 compose.desktop {
     application {
@@ -42,7 +30,7 @@ compose.desktop {
             licenseFile.set(project.file("LICENSE"))
 
             linux {
-                iconFile.set(project.file("src/commonMain/resources/image/icon.png"))
+                iconFile.set(project.file("src/main/resources/image/icon.png"))
                 packageName = "game-outlet"
                 debMaintainer = "team.appoutlet@gmail.com"
                 menuGroup = "games"
@@ -51,18 +39,18 @@ compose.desktop {
             }
 
             macOS {
-                iconFile.set(project.file("src/commonMain/resources/image/icon.icns"))
+                iconFile.set(project.file("src/main/resources/image/icon.icns"))
                 bundleID = "appoutlet.gameoutlet"
                 appCategory = "public.app-category.games"
             }
 
             windows {
-                iconFile.set(project.file("src/commonMain/resources/image/icon.ico"))
+                iconFile.set(project.file("src/main/resources/image/icon.ico"))
                 dirChooser = true
                 console = false
                 menu = true
                 shortcut = true
-                upgradeUuid = "7f91dff9-a75a-406b-ba92-b958cb72b81e"
+                upgradeUuid = "7f91dff9-a75a-406b-ba92-b958cb72b811"
             }
 
             modules("java.instrument", "java.management", "java.sql", "jdk.unsupported", "java.net.http")
@@ -76,36 +64,36 @@ compose.desktop {
 }
 
 dependencies {
-    commonMainImplementation(compose.desktop.currentOs) {
+    implementation(compose.desktop.currentOs) {
         exclude("org.jetbrains.compose.material")
     }
-    commonMainImplementation(compose.material3)
-    commonMainImplementation(compose.materialIconsExtended)
-    commonMainImplementation(libs.kotlinx.gettext)
-    commonMainImplementation(libs.koin)
-    commonMainImplementation(libs.voyager.navigator)
-    commonMainImplementation(libs.voyager.transitions)
-    commonMainImplementation(libs.voyager.tabNavigation)
-    commonMainImplementation(libs.sqldelight.sqliteDriver)
-    commonMainImplementation(libs.sqldelight.coroutinesExtensions)
-    commonMainImplementation(libs.retrofit)
-    commonMainImplementation(libs.retrofit.moshi)
-    commonMainImplementation(libs.kamel)
-    commonMainImplementation(libs.ktor.client)
-    commonMainImplementation(libs.moshi.kotlin)
-    commonMainImplementation(libs.slf4j.simple)
-    commonMainImplementation(libs.moneta)
-    commonMainImplementation(libs.joda.time)
-    commonMainImplementation(libs.flatlaf)
-    commonMainImplementation(libs.napier)
-    commonMainImplementation(libs.appdirs)
-    commonMainImplementation(libs.themeDetector)
+    implementation(compose.material3)
+    implementation(compose.materialIconsExtended)
+    implementation(libs.kotlinx.gettext)
+    implementation(libs.koin)
+    implementation(libs.voyager.navigator)
+    implementation(libs.voyager.transitions)
+    implementation(libs.voyager.tabNavigation)
+    implementation(libs.sqldelight.sqliteDriver)
+    implementation(libs.sqldelight.coroutinesExtensions)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.moshi)
+    implementation(libs.kamel)
+    implementation(libs.ktor.client)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.slf4j.simple)
+    implementation(libs.moneta)
+    implementation(libs.joda.time)
+    implementation(libs.flatlaf)
+    implementation(libs.napier)
+    implementation(libs.appdirs)
+    implementation(libs.themeDetector)
 
-    commonTestImplementation(libs.kotlin.test)
-    commonTestImplementation(libs.kotlinFixture)
-    commonTestImplementation(libs.truth)
-    commonTestImplementation(libs.mockk)
-    commonTestImplementation(compose.desktop.uiTestJUnit4)
+    testImplementation(libs.kotlin.test)
+    testImplementation(libs.kotlinFixture)
+    testImplementation(libs.truth)
+    testImplementation(libs.mockk)
+    testImplementation(compose.desktop.uiTestJUnit4)
 
     detektPlugins(libs.detekt.formatting)
     detektPlugins(libs.detekt.compose)

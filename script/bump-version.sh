@@ -36,8 +36,8 @@ cat build.gradle.kts|sed -r "s/packageVersion = \"$CURRENT_VERSION\"$/packageVer
 mv build.gradle.kts.tmp build.gradle.kts
 
 echo "Updating AboutScreen version"
-cat src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt|sed -r "s/const val VERSION = \"$CURRENT_VERSION\"$/const val VERSION = \"$NEW_VERSION\"/g" > src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt.tmp
-mv src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt.tmp src/commonMain/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt
+cat src/main/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt|sed -r "s/const val VERSION = \"$CURRENT_VERSION\"$/const val VERSION = \"$NEW_VERSION\"/g" > src/main/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt.tmp
+mv src/main/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt.tmp src/main/kotlin/appoutlet/gameoutlet/feature/about/composable/AboutScreen.kt
 
 echo "$NEW_VERSION" > .version
 
