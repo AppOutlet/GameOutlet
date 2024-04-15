@@ -20,8 +20,10 @@ jobs:
       - name: Build with Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
-          arguments: packageReleaseUberJarForCurrentOS
           cache-read-only: false
+
+      - name: Package release uber jar
+        run: ./gradlew packageReleaseUberJarForCurrentOS
 
       - name: Set version variable
         run: |
@@ -57,8 +59,10 @@ jobs:
       - name: Build with Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
-          arguments: packageReleaseDistributionForCurrentOS
           cache-read-only: false
+
+      - name: Package linux release
+        run: ./gradlew packageReleaseDistributionForCurrentOS
 
       - name: Set version variable
         run: |
@@ -95,8 +99,10 @@ jobs:
       - name: Build with Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
-          arguments: packageReleaseDistributionForCurrentOS
           cache-read-only: false
+
+      - name: Package windows release
+        run: ./gradlew packageReleaseDistributionForCurrentOS
 
       - name: Set version variable
         run: |
@@ -133,8 +139,10 @@ jobs:
       - name: Build with Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
-          arguments: packageReleaseDistributionForCurrentOS
           cache-read-only: false
+
+      - name: Package MacOS release
+        run: ./gradlew packageReleaseDistributionForCurrentOS
 
       - name: Set version variable
         run: |

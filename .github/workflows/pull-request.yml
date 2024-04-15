@@ -21,8 +21,10 @@ jobs:
       - name: Build with Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
-          arguments: compileKotlin
           cache-read-only: false
+
+      - name: Compile kotlin
+        run: ./gradlew compileKotlin
 
   unit-test:
     name: Unit testing
@@ -44,8 +46,10 @@ jobs:
       - name: Build with Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
-          arguments: test koverVerify
           cache-read-only: false
+
+      - name: Unit tests
+        run: ./gradlew test koverVerify
 
   detekt:
     name: Detekt
@@ -67,8 +71,10 @@ jobs:
       - name: Build with Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
-          arguments: detekt
           cache-read-only: false
+
+      - name: Run Detekt
+        run: ./gradlew detekt
 
       - name: Export Detekt summary
         if: always()
