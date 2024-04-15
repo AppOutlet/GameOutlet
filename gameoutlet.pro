@@ -13,5 +13,7 @@
 -keep class com.formdev.flatlaf.ui.** { *; }
 -keep class com.formdev.flatlaf.icons.** { *; }
 -keep class oshi.** { *; }
+-keep class com.jthemedetecor.** { *; }
+-keep class de.jangassen.jfa.foundation.** { *; }
 
 -ignorewarnings
