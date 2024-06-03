@@ -1,6 +1,8 @@
 @file:Suppress("DSL_SCOPE_VIOLATION", "UNUSED_VARIABLE")
 @file:OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
 
+import kotlinx.kover.gradle.plugin.dsl.AggregationType
+import kotlinx.kover.gradle.plugin.dsl.CoverageUnit
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
@@ -101,6 +103,57 @@ dependencies {
 
 apply(from = "$rootDir/script/detekt.gradle")
 apply(from = "$rootDir/script/git-hooks.gradle")
-apply(from = "$rootDir/script/kover.gradle")
 apply(from = "$rootDir/script/gettext.gradle")
 apply(from = "$rootDir/script/sqldelight.gradle")
+
+// region kover setup
+kover {
+    reports {
+        filters {
+            excludes {
+                classes(
+                    //Dependency injection
+                    "*ModuleKt*",
+                    "*ModulesKt*",
+
+                    // Non testable application setup
+                    "*MainKt*",
+                    "*KoinKt*",
+                    "*LookAndFeelKt*",
+                    "*LoggerKt*",
+                    "*GameOutlet*",
+                    "*OS*",
+
+                    // Database related generated files
+                    "*GameOutletDatabase*",
+                    "*Queries*",
+
+                    "*ComposableSingletons*",
+                )
+            }
+        }
+
+        verify {
+            rule {
+                bound {
+                    minValue = 89
+                    coverageUnits = CoverageUnit.LINE
+                    aggregationForGroup = AggregationType.COVERED_PERCENTAGE
+                }
+
+                bound {
+                    minValue = 77
+                    coverageUnits = CoverageUnit.INSTRUCTION
+                    aggregationForGroup = AggregationType.COVERED_PERCENTAGE
+                }
+
+                bound {
+                    minValue = 42
+                    coverageUnits = CoverageUnit.BRANCH
+                    aggregationForGroup = AggregationType.COVERED_PERCENTAGE
+                }
+            }
+        }
+    }
+}
+// endregion
