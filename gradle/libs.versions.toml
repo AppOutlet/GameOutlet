@@ -8,7 +8,7 @@ voyager = "1.0.0"
 
 [libraries]
 appdirs = "ca.gosyer:kotlin-multiplatform-appdirs:1.2.0"
-detekt-compose = "io.nlopez.compose.rules:detekt:0.3.21"
+detekt-compose = "io.nlopez.compose.rules:detekt:0.4.3"
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 flatlaf = "com.formdev:flatlaf:3.4.1"
 joda-time = "joda-time:joda-time:2.12.7"
@@ -18,7 +18,7 @@ kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotl
 kotlinFixture = "com.appmattus.fixture:fixture:1.2.0"
 kotlinx-gettext = { module = "name.kropp.kotlinx-gettext:kotlinx-gettext", version.ref = "kotlinx-gettext" }
 ktor-client = "io.ktor:ktor-client-java:2.3.11"
-mockk = "io.mockk:mockk:1.13.10"
+mockk = "io.mockk:mockk:1.13.11"
 moneta = "org.javamoney:moneta:1.4.4"
 moshi-kotlin = "com.squareup.moshi:moshi-kotlin:1.15.1"
 napier = "io.github.aakira:napier:2.7.1"
@@ -35,7 +35,7 @@ voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", vers
 
 [plugins]
 commitlint = "ru.netris.commitlint:1.4.3"
-compose = "org.jetbrains.compose:1.6.1"
+compose = "org.jetbrains.compose:1.6.11"
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 gitHooks = "com.star-zero.gradle.githook:1.2.1"
 kotlinx-gettext = { id = "name.kropp.kotlinx-gettext", version.ref = "kotlinx-gettext" }
