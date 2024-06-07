@@ -8,7 +8,7 @@ voyager = "1.0.0"
 
 [libraries]
 appdirs = "ca.gosyer:kotlin-multiplatform-appdirs:1.2.0"
-detekt-compose = "io.nlopez.compose.rules:detekt:0.4.3"
+detekt-compose = "io.nlopez.compose.rules:detekt:0.4.4"
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 flatlaf = "com.formdev:flatlaf:3.4.1"
 joda-time = "joda-time:joda-time:2.12.7"
