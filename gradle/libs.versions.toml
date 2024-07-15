@@ -18,7 +18,7 @@ kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotl
 kotlinFixture = "com.appmattus.fixture:fixture:1.2.0"
 kotlinx-gettext = { module = "name.kropp.kotlinx-gettext:kotlinx-gettext", version.ref = "kotlinx-gettext" }
 ktor-client = "io.ktor:ktor-client-java:2.3.12"
-mockk = "io.mockk:mockk:1.13.11"
+mockk = "io.mockk:mockk:1.13.12"
 moneta = "org.javamoney:moneta:1.4.4"
 moshi-kotlin = "com.squareup.moshi:moshi-kotlin:1.15.1"
 napier = "io.github.aakira:napier:2.7.1"
