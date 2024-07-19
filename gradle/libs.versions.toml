@@ -10,7 +10,7 @@ voyager = "1.0.0"
 appdirs = "ca.gosyer:kotlin-multiplatform-appdirs:1.2.0"
 detekt-compose = "io.nlopez.compose.rules:detekt:0.4.5"
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
-flatlaf = "com.formdev:flatlaf:3.4.1"
+flatlaf = "com.formdev:flatlaf:3.5"
 joda-time = "joda-time:joda-time:2.12.7"
 kamel = "com.alialbaali.kamel:kamel-image:0.4.1"
 koin = "io.insert-koin:koin-core:3.5.6"
