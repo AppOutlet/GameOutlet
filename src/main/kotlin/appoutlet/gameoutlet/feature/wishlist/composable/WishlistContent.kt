@@ -69,12 +69,12 @@ private fun WishlistGames(
                     onInputEvent = onInputEvent,
                 )
             }
-        }
-    }
-
-    if (uiState.list.isEmpty()) {
-        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            WishlistEmptyList(onInputEvent = onInputEvent)
+        } else {
+            item {
+                Box(contentAlignment = Alignment.Center) {
+                    WishlistEmptyList(onInputEvent = onInputEvent)
+                }
+            }
         }
     }
 }
