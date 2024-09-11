@@ -1,5 +1,5 @@
 [versions]
-detekt = "1.23.6"
+detekt = "1.23.7"
 kotlin = "1.9.23"
 kotlinx-gettext = "0.6.1"
 retrofit = "2.11.0"
