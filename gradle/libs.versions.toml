@@ -35,7 +35,7 @@ voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", vers
 
 [plugins]
 commitlint = "ru.netris.commitlint:1.4.3"
-compose = "org.jetbrains.compose:1.6.11"
+compose = "org.jetbrains.compose:1.7.0+build1877-release-1.7"
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 gitHooks = "com.star-zero.gradle.githook:1.2.1"
 kotlinx-gettext = { id = "name.kropp.kotlinx-gettext", version.ref = "kotlinx-gettext" }
