@@ -4,7 +4,7 @@ kotlin = "1.9.23"
 kotlinx-gettext = "0.6.1"
 retrofit = "2.11.0"
 sqldelight = "2.0.2"
-voyager = "1.0.0"
+voyager = "1.0.1"
 
 [libraries]
 appdirs = "ca.gosyer:kotlin-multiplatform-appdirs:1.2.0"
