@@ -1,7 +1,7 @@
 [versions]
 detekt = "1.23.7"
 kotlin = "1.9.23"
-kotlinx-gettext = "0.6.1"
+kotlinx-gettext = "0.7.0"
 retrofit = "2.11.0"
 sqldelight = "2.0.2"
 voyager = "1.0.1"
