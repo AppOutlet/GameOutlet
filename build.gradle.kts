@@ -19,7 +19,7 @@ plugins {
 }
 
 group = "appoutlet"
-version = "1.4.3"
+version = "1.4.4"
 
 kotlin {
     jvm()
@@ -81,7 +81,7 @@ compose.desktop {
             )
 
             packageName = "GameOutlet"
-            packageVersion = "1.4.3"
+            packageVersion = "1.4.4"
             description = "Find the best prices on PC games"
             vendor = "AppOutlet"
             licenseFile.set(project.file("LICENSE"))
