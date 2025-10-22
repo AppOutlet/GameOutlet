@@ -1,6 +1,7 @@
 package appoutlet.gameoutlet.feature.store.composable
 
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -11,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.translation.i18n
 import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.domain.Store
@@ -43,7 +45,7 @@ fun StoreTopAppBar(
             title = {
                 store.bannerUrl?.let {
                     KamelImage(
-                        modifier = Modifier,
+                        modifier = Modifier.height(64.dp),
                         resource = asyncPainterResource(data = store.bannerUrl),
                         contentDescription = null,
                         animationSpec = tween(),
