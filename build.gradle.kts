@@ -15,6 +15,7 @@ plugins {
     alias(libs.plugins.sqldelight)
     alias(libs.plugins.kotlinx.gettext)
     alias(libs.plugins.gitHooks)
+    alias(libs.plugins.commitlint)
 }
 
 group = "appoutlet"

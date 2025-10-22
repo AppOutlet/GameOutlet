@@ -13,7 +13,7 @@ detekt-compose = "io.nlopez.compose.rules:detekt:0.4.12"
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 flatlaf = "com.formdev:flatlaf:3.5.4"
 joda-time = "joda-time:joda-time:2.13.1"
-kamel = "com.alialbaali.kamel:kamel-image:0.4.1"
+kamel = "media.kamel:kamel-image-default:1.0.8"
 koin = "io.insert-koin:koin-core:4.0.2"
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlinFixture = "com.appmattus.fixture:fixture:1.2.0"
@@ -35,6 +35,7 @@ voyager-tabNavigation = { module = "cafe.adriel.voyager:voyager-tab-navigator", 
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
 
 [plugins]
+commitlint = "ru.netris.commitlint:1.4.3"
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }

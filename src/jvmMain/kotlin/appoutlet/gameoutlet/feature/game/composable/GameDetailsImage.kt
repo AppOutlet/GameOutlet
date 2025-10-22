@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.ui.spacing
 import appoutlet.gameoutlet.feature.game.GameUiModel
 import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
+import io.kamel.image.asyncPainterResource
 
 @Composable
 fun GameDetailsImage(uiState: GameUiModel, modifier: Modifier = Modifier) {
@@ -25,7 +25,7 @@ fun GameDetailsImage(uiState: GameUiModel, modifier: Modifier = Modifier) {
             modifier = Modifier
                 .matchParentSize()
                 .blur(10.dp),
-            resource = lazyPainterResource(data = uiState.image),
+            resource = asyncPainterResource(data = uiState.image),
             contentDescription = null,
             contentScale = ContentScale.Crop,
             colorFilter = ColorFilter.tint(
@@ -36,7 +36,7 @@ fun GameDetailsImage(uiState: GameUiModel, modifier: Modifier = Modifier) {
 
         KamelImage(
             modifier = Modifier.padding(MaterialTheme.spacing.medium),
-            resource = lazyPainterResource(data = uiState.image),
+            resource = asyncPainterResource(data = uiState.image),
             contentDescription = null,
             animationSpec = tween(),
         )

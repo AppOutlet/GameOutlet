@@ -20,7 +20,7 @@ import appoutlet.gameoutlet.core.ui.spacing
 import appoutlet.gameoutlet.feature.wishlist.WishlistGameUiModel
 import appoutlet.gameoutlet.feature.wishlist.WishlistInputEvent
 import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
+import io.kamel.image.asyncPainterResource
 
 private const val IMAGE_WEIGHT = .4f
 private const val TEXT_WEIGHT = .6f
@@ -43,7 +43,7 @@ fun WishlistGame(
         ) {
             KamelImage(
                 modifier = Modifier.fillMaxHeight().weight(IMAGE_WEIGHT),
-                resource = lazyPainterResource(data = game.image),
+                resource = asyncPainterResource(data = game.image),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 onLoading = {

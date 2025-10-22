@@ -32,7 +32,7 @@ import appoutlet.gameoutlet.feature.store.DealViewData
 import appoutlet.gameoutlet.feature.store.StoreInputEvent
 import appoutlet.gameoutlet.feature.store.StoreViewData
 import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
+import io.kamel.image.asyncPainterResource
 
 private val imageHeight = 200.dp
 
@@ -70,7 +70,7 @@ private fun Deal(
                 modifier = Modifier.fillMaxWidth()
                     .height(imageHeight)
                     .background(color = MaterialTheme.colorScheme.tertiaryContainer),
-                resource = lazyPainterResource(data = viewData.image),
+                resource = asyncPainterResource(data = viewData.image),
                 contentDescription = null,
                 animationSpec = tween(),
                 contentScale = ContentScale.Crop,

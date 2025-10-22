@@ -29,7 +29,7 @@ import appoutlet.gameoutlet.core.ui.GameOutletTheme
 import appoutlet.gameoutlet.core.ui.spacing
 import appoutlet.gameoutlet.feature.latestdeals.LatestDealsInputEvent
 import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
+import io.kamel.image.asyncPainterResource
 
 private val imageHeight = 192.dp
 private const val NORMAL_PRICE_ALPHA = .5f
@@ -47,7 +47,7 @@ fun Deal(
             KamelImage(
                 modifier = Modifier.fillMaxWidth().height(imageHeight)
                     .background(color = MaterialTheme.colorScheme.tertiaryContainer),
-                resource = lazyPainterResource(data = deal.gameImage),
+                resource = asyncPainterResource(data = deal.gameImage),
                 contentDescription = null,
                 animationSpec = tween(),
                 contentScale = ContentScale.Crop,

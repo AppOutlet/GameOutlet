@@ -17,7 +17,7 @@ import appoutlet.gameoutlet.domain.Store
 import appoutlet.gameoutlet.feature.store.StoreInputEvent
 import io.github.aakira.napier.Napier
 import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
+import io.kamel.image.asyncPainterResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -44,7 +44,7 @@ fun StoreTopAppBar(
                 store.bannerUrl?.let {
                     KamelImage(
                         modifier = Modifier,
-                        resource = lazyPainterResource(data = store.bannerUrl),
+                        resource = asyncPainterResource(data = store.bannerUrl),
                         contentDescription = null,
                         animationSpec = tween(),
                         contentScale = ContentScale.Inside

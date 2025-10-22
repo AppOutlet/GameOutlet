@@ -28,7 +28,7 @@ import appoutlet.gameoutlet.feature.game.GameDealStoreUiModel
 import appoutlet.gameoutlet.feature.game.GameDealUiModel
 import appoutlet.gameoutlet.feature.game.GameInputEvent
 import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
+import io.kamel.image.asyncPainterResource
 
 @Composable
 fun Deal(item: GameDealUiModel, onInputEvent: (GameInputEvent) -> Unit, modifier: Modifier = Modifier) {
@@ -46,7 +46,7 @@ fun Deal(item: GameDealUiModel, onInputEvent: (GameInputEvent) -> Unit, modifier
                     vertical = MaterialTheme.spacing.medium,
                     horizontal = MaterialTheme.spacing.large
                 ).size(56.dp).clip(CircleShape),
-                resource = lazyPainterResource(item.store.icon),
+                resource = asyncPainterResource(item.store.icon),
                 contentDescription = null,
                 animationSpec = tween(),
             )

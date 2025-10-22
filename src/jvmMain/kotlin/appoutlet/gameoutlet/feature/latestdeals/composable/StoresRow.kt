@@ -18,7 +18,7 @@ import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import appoutlet.gameoutlet.core.ui.spacing
 import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
+import io.kamel.image.asyncPainterResource
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -43,7 +43,7 @@ fun StoresRow(uiModel: DealUiModel, modifier: Modifier = Modifier) {
                     KamelImage(
                         modifier = Modifier.padding(horizontal = MaterialTheme.spacing.extraSmall)
                             .size(iconSize),
-                        resource = lazyPainterResource(data = store.icon),
+                        resource = asyncPainterResource(data = store.icon),
                         contentDescription = null,
                         contentScale = ContentScale.Crop,
                         onLoading = {

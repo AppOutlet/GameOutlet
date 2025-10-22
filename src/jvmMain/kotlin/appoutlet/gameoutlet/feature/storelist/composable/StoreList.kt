@@ -23,7 +23,7 @@ import appoutlet.gameoutlet.feature.storelist.StoreListInputEvent
 import appoutlet.gameoutlet.feature.storelist.StoreListUiState
 import appoutlet.gameoutlet.feature.storelist.StoreUiModel
 import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
+import io.kamel.image.asyncPainterResource
 
 @Composable
 fun StoreList(
@@ -60,7 +60,7 @@ private fun Store(
             uiModel.icon?.let {
                 KamelImage(
                     modifier = Modifier.size(64.dp),
-                    resource = lazyPainterResource(data = uiModel.icon),
+                    resource = asyncPainterResource(data = uiModel.icon),
                     contentDescription = null,
                     animationSpec = tween(),
                 )

@@ -35,7 +35,7 @@ import appoutlet.gameoutlet.feature.gamesearch.GameSearchInputEvent
 import appoutlet.gameoutlet.feature.gamesearch.GameSearchUiModel
 import appoutlet.gameoutlet.feature.gamesearch.GameSearchUiState
 import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
+import io.kamel.image.asyncPainterResource
 
 private const val IMAGE_WEIGHT = .4f
 private const val TEXT_WEIGHT = .6f
@@ -112,7 +112,7 @@ private fun GameSearchItem(
         ) {
             KamelImage(
                 modifier = Modifier.fillMaxHeight().weight(IMAGE_WEIGHT),
-                resource = lazyPainterResource(data = game.image),
+                resource = asyncPainterResource(data = game.image),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 onLoading = {
