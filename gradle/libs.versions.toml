@@ -1,6 +1,7 @@
 [versions]
-detekt = "1.23.7"
-kotlin = "1.9.23"
+detekt = "1.23.8"
+kotlin = "2.2.20"
+compose-plugin = "1.9.1"
 kotlinx-gettext = "0.6.1"
 retrofit = "2.11.0"
 sqldelight = "2.0.2"
@@ -34,11 +35,13 @@ voyager-tabNavigation = { module = "cafe.adriel.voyager:voyager-tab-navigator", 
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
 
 [plugins]
-commitlint = "ru.netris.commitlint:1.4.3"
-compose = "org.jetbrains.compose:1.8.0+"
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kover = "org.jetbrains.kotlinx.kover:0.9.3"
+ksp = "com.google.devtools.ksp:2.2.20-2.0.4"
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 gitHooks = "com.star-zero.gradle.githook:1.2.1"
 kotlinx-gettext = { id = "name.kropp.kotlinx-gettext", version.ref = "kotlinx-gettext" }
-kover = "org.jetbrains.kotlinx.kover:0.9.1"
-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
